@@ -1,0 +1,1455 @@
+Interval E4 -> F#3 appears 1 times
+Interval A5 -> B-2 appears 1 times
+Interval B5 -> A4 appears 1 times
+Interval B5 -> F4 appears 1 times
+Interval G3 -> A2 appears 1 times
+Interval A2 -> E4 appears 1 times
+Interval D4 -> B2 appears 1 times
+Interval F5 -> B2 appears 1 times
+Interval F5 -> B3 appears 1 times
+Interval B2 -> F5 appears 1 times
+Interval B-2 -> E5 appears 1 times
+Interval B4 -> G3 appears 1 times
+Interval D3 -> E5 appears 1 times
+Interval F4 -> A5 appears 1 times
+Interval B5 -> C5 appears 1 times
+Interval F5 -> C#3 appears 1 times
+Interval B-4 -> G3 appears 1 times
+Interval E-5 -> B-2 appears 1 times
+Interval F5 -> E-4 appears 1 times
+Interval D5 -> B2 appears 1 times
+Interval B-3 -> C#5 appears 1 times
+Interval C#4 -> F#5 appears 1 times
+Interval E4 -> D3 appears 1 times
+Interval C4 -> B5 appears 1 times
+Interval B5 -> C4 appears 1 times
+Interval B4 -> B2 appears 1 times
+Interval B2 -> C#5 appears 1 times
+Interval C4 -> C#6 appears 1 times
+Interval C#6 -> C4 appears 1 times
+Interval F#4 -> C3 appears 1 times
+Interval E3 -> F#4 appears 1 times
+Interval A4 -> C3 appears 1 times
+Interval B-5 -> G3 appears 1 times
+Interval D6 -> B4 appears 1 times
+Interval B5 -> F6 appears 1 times
+Interval C#6 -> F#5 appears 1 times
+Interval C#6 -> G#5 appears 1 times
+Interval G#5 -> F#3 appears 1 times
+Interval C#4 -> B2 appears 1 times
+Interval E3 -> A5 appears 1 times
+Interval G#5 -> C#6 appears 1 times
+Interval C#5 -> C6 appears 1 times
+Interval G5 -> E-3 appears 1 times
+Interval B5 -> E6 appears 1 times
+Interval D6 -> E-4 appears 1 times
+Interval E-4 -> A5 appears 1 times
+Interval E-5 -> F3 appears 1 times
+Interval G6 -> G6 appears 1 times
+Interval B-4 -> B5 appears 1 times
+Interval D3 -> F#5 appears 1 times
+Interval E-6 -> D3 appears 1 times
+Interval F#4 -> E-3 appears 1 times
+Interval F6 -> G6 appears 1 times
+Interval G6 -> B5 appears 1 times
+Interval E-6 -> B2 appears 1 times
+Interval G#5 -> C6 appears 1 times
+Interval F6 -> A4 appears 1 times
+Interval C4 -> A5 appears 1 times
+Interval F4 -> E-3 appears 1 times
+Interval B-4 -> B-5 appears 1 times
+Interval E-6 -> C#6 appears 1 times
+Interval D5 -> A6 appears 1 times
+Interval A6 -> F4 appears 1 times
+Interval G#4 -> G#5 appears 1 times
+Interval E6 -> E-6 appears 1 times
+Interval E6 -> C#6 appears 1 times
+Interval F#6 -> C#6 appears 1 times
+Interval G5 -> G6 appears 1 times
+Interval G6 -> G5 appears 1 times
+Interval E6 -> G6 appears 1 times
+Interval G6 -> E5 appears 1 times
+Interval E5 -> G6 appears 1 times
+Interval A5 -> E3 appears 1 times
+Interval G6 -> A6 appears 1 times
+Interval A6 -> G5 appears 1 times
+Interval G6 -> F5 appears 1 times
+Interval F5 -> G6 appears 1 times
+Interval G5 -> F6 appears 1 times
+Interval G6 -> F#5 appears 1 times
+Interval F#5 -> F6 appears 1 times
+Interval F6 -> A5 appears 1 times
+Interval A5 -> F#6 appears 1 times
+Interval F#6 -> A5 appears 1 times
+Interval A5 -> G6 appears 1 times
+Interval G6 -> D6 appears 1 times
+Interval D6 -> G6 appears 1 times
+Interval G6 -> C6 appears 1 times
+Interval B3 -> B5 appears 1 times
+Interval A5 -> C4 appears 1 times
+Interval F5 -> C4 appears 1 times
+Interval F#5 -> C4 appears 1 times
+Interval G4 -> D3 appears 1 times
+Interval E3 -> G#2 appears 1 times
+Interval G#2 -> C3 appears 1 times
+Interval E5 -> A3 appears 1 times
+Interval G5 -> F4 appears 1 times
+Interval D3 -> E4 appears 1 times
+Interval D4 -> C#3 appears 1 times
+Interval B-3 -> F#5 appears 1 times
+Interval F#6 -> G6 appears 1 times
+Interval D6 -> F5 appears 1 times
+Interval E-4 -> B-2 appears 1 times
+Interval G6 -> F#6 appears 1 times
+Interval E-6 -> E5 appears 1 times
+Interval B4 -> E6 appears 1 times
+Interval E6 -> A6 appears 1 times
+Interval A6 -> G#4 appears 1 times
+Interval G6 -> F6 appears 1 times
+Interval G5 -> B-2 appears 1 times
+Interval D6 -> D6 appears 1 times
+Interval E4 -> A5 appears 1 times
+Interval D3 -> E-5 appears 1 times
+Interval F5 -> D4 appears 1 times
+Interval E-4 -> G#5 appears 1 times
+Interval B2 -> A2 appears 1 times
+Interval C3 -> D4 appears 1 times
+Interval F#4 -> B-2 appears 1 times
+Interval F5 -> F#3 appears 1 times
+Interval C3 -> G#3 appears 1 times
+Interval C3 -> C#4 appears 1 times
+Interval E-5 -> C4 appears 1 times
+Interval E5 -> C4 appears 1 times
+Interval F#4 -> F3 appears 1 times
+Interval D6 -> F#5 appears 1 times
+Interval G4 -> F#5 appears 1 times
+Interval G#4 -> F3 appears 1 times
+Interval E4 -> F3 appears 1 times
+Interval D5 -> C#6 appears 1 times
+Interval D5 -> C6 appears 1 times
+Interval F#4 -> B2 appears 1 times
+Interval D3 -> F4 appears 1 times
+Interval G#3 -> B-2 appears 1 times
+Interval B-2 -> C#5 appears 1 times
+Interval E-5 -> B2 appears 1 times
+Interval B2 -> F4 appears 1 times
+Interval F#4 -> G5 appears 1 times
+Interval F3 -> E5 appears 1 times
+Interval B4 -> D3 appears 1 times
+Interval F#3 -> A4 appears 1 times
+Interval C6 -> G#5 appears 1 times
+Interval D6 -> B-5 appears 1 times
+Interval A5 -> E6 appears 1 times
+Interval E6 -> G5 appears 1 times
+Interval G5 -> D6 appears 1 times
+Interval E-6 -> A5 appears 1 times
+Interval B-2 -> A2 appears 1 times
+Interval A4 -> F3 appears 1 times
+Interval B4 -> C#6 appears 1 times
+Interval A3 -> E5 appears 1 times
+Interval C5 -> B5 appears 1 times
+Interval C6 -> C#5 appears 1 times
+Interval A5 -> B-3 appears 1 times
+Interval C5 -> C#3 appears 1 times
+Interval B4 -> E-3 appears 1 times
+Interval E-3 -> G#4 appears 1 times
+Interval B2 -> G#5 appears 1 times
+Interval E3 -> E-5 appears 1 times
+Interval C3 -> A2 appears 1 times
+Interval A2 -> F3 appears 1 times
+Interval C3 -> G5 appears 1 times
+Interval C#5 -> B-3 appears 1 times
+Interval E4 -> C6 appears 1 times
+Interval G4 -> C#3 appears 1 times
+Interval D5 -> C#3 appears 1 times
+Interval B-2 -> F4 appears 1 times
+Interval G#3 -> B2 appears 1 times
+Interval B-2 -> G#3 appears 1 times
+Interval C3 -> F#4 appears 1 times
+Interval B4 -> B5 appears 1 times
+Interval G4 -> B5 appears 1 times
+Interval E-5 -> C3 appears 1 times
+Interval C#5 -> C#3 appears 1 times
+Interval C#6 -> C#5 appears 1 times
+Interval B-4 -> F3 appears 1 times
+Interval B5 -> B4 appears 1 times
+Interval B4 -> B-5 appears 1 times
+Interval B5 -> D5 appears 1 times
+Interval E3 -> B-5 appears 1 times
+Interval G4 -> E3 appears 1 times
+Interval E-3 -> E4 appears 1 times
+Interval E-3 -> A5 appears 1 times
+Interval C#6 -> G5 appears 1 times
+Interval D5 -> G3 appears 1 times
+Interval E-5 -> C#3 appears 1 times
+Interval F3 -> D5 appears 1 times
+Interval D5 -> F3 appears 1 times
+Interval B2 -> G2 appears 1 times
+Interval G2 -> G4 appears 1 times
+Interval C5 -> B-2 appears 1 times
+Interval C#4 -> D3 appears 1 times
+Interval E4 -> C#6 appears 1 times
+Interval C5 -> D3 appears 1 times
+Interval C5 -> A3 appears 1 times
+Interval E-5 -> C#4 appears 1 times
+Interval C#5 -> F#3 appears 1 times
+Interval B5 -> B2 appears 1 times
+Interval C5 -> F#3 appears 1 times
+Interval B5 -> E-5 appears 1 times
+Interval E-5 -> B5 appears 1 times
+Interval E-5 -> A3 appears 1 times
+Interval F5 -> D3 appears 1 times
+Interval F#5 -> B3 appears 1 times
+Interval F6 -> B-5 appears 1 times
+Interval F6 -> F5 appears 1 times
+Interval F6 -> F4 appears 1 times
+Interval G#4 -> G5 appears 1 times
+Interval B-4 -> G#5 appears 1 times
+Interval F5 -> F6 appears 1 times
+Interval F6 -> B5 appears 1 times
+Interval B-5 -> E-6 appears 1 times
+Interval B5 -> E-6 appears 1 times
+Interval E-6 -> F#6 appears 1 times
+Interval F#6 -> F5 appears 1 times
+Interval F#6 -> F4 appears 1 times
+Interval E-6 -> E-5 appears 1 times
+Interval E-5 -> C6 appears 1 times
+Interval B2 -> C#4 appears 1 times
+Interval D4 -> G5 appears 1 times
+Interval F5 -> D6 appears 1 times
+Interval E3 -> F#5 appears 1 times
+Interval E5 -> C#6 appears 1 times
+Interval F6 -> C#6 appears 1 times
+Interval E6 -> C#5 appears 1 times
+Interval C#5 -> D6 appears 1 times
+Interval E-3 -> C5 appears 1 times
+Interval C6 -> G5 appears 1 times
+Interval E-6 -> B5 appears 1 times
+Interval B5 -> E4 appears 1 times
+Interval E-3 -> F#4 appears 1 times
+Interval A3 -> E-5 appears 1 times
+Interval B-5 -> B-2 appears 1 times
+Interval E5 -> F4 appears 1 times
+Interval B-5 -> A4 appears 1 times
+Interval D6 -> B2 appears 1 times
+Interval C#3 -> F4 appears 1 times
+Interval C#3 -> F#4 appears 1 times
+Interval D5 -> F#3 appears 1 times
+Interval G4 -> E-3 appears 1 times
+Interval B-2 -> B4 appears 1 times
+Interval B4 -> F#3 appears 1 times
+Interval E4 -> B2 appears 1 times
+Interval C#5 -> G3 appears 1 times
+Interval F4 -> C#3 appears 1 times
+Interval C5 -> C3 appears 1 times
+Interval E4 -> C#3 appears 1 times
+Interval B2 -> G4 appears 1 times
+Interval B-5 -> B2 appears 1 times
+Interval B-2 -> E-3 appears 1 times
+Interval B4 -> B-3 appears 1 times
+Interval B-2 -> G#4 appears 1 times
+Interval E-3 -> E-4 appears 1 times
+Interval D3 -> F#4 appears 1 times
+Interval D4 -> E-3 appears 1 times
+Interval B-3 -> F5 appears 1 times
+Interval C#6 -> F#6 appears 1 times
+Interval F#6 -> E6 appears 1 times
+Interval B4 -> G6 appears 1 times
+Interval G6 -> G#6 appears 1 times
+Interval G#6 -> D3 appears 1 times
+Interval E5 -> C6 appears 1 times
+Interval C6 -> G3 appears 1 times
+Interval C6 -> E6 appears 1 times
+Interval E6 -> G#6 appears 1 times
+Interval G#6 -> G6 appears 1 times
+Interval G6 -> E-6 appears 1 times
+Interval E-6 -> G3 appears 1 times
+Interval B-4 -> F#5 appears 1 times
+Interval E-6 -> C5 appears 1 times
+Interval F#5 -> G#4 appears 1 times
+Interval D5 -> A3 appears 1 times
+Interval B2 -> B4 appears 1 times
+Interval D5 -> B-3 appears 1 times
+Interval G5 -> F#4 appears 1 times
+Interval F5 -> F3 appears 1 times
+Interval G5 -> G4 appears 1 times
+Interval D6 -> G4 appears 1 times
+Interval C#4 -> E-5 appears 1 times
+Interval B-2 -> F#3 appears 1 times
+Interval A5 -> C#5 appears 2 times
+Interval B-2 -> A4 appears 2 times
+Interval B-3 -> B2 appears 2 times
+Interval G5 -> C#5 appears 2 times
+Interval C5 -> B2 appears 2 times
+Interval E-3 -> B-4 appears 2 times
+Interval A4 -> B2 appears 2 times
+Interval E4 -> E3 appears 2 times
+Interval C3 -> B3 appears 2 times
+Interval C#5 -> C4 appears 2 times
+Interval F#3 -> C5 appears 2 times
+Interval B-4 -> B-2 appears 2 times
+Interval A3 -> C#5 appears 2 times
+Interval E3 -> B-2 appears 2 times
+Interval B2 -> D4 appears 2 times
+Interval E5 -> E4 appears 2 times
+Interval B2 -> A4 appears 2 times
+Interval G5 -> E3 appears 2 times
+Interval G5 -> E-4 appears 2 times
+Interval G5 -> E4 appears 2 times
+Interval D5 -> G#5 appears 2 times
+Interval E3 -> C#5 appears 2 times
+Interval A5 -> D6 appears 2 times
+Interval D6 -> B5 appears 2 times
+Interval F#6 -> E-6 appears 2 times
+Interval C5 -> E-3 appears 2 times
+Interval B-2 -> B3 appears 2 times
+Interval G5 -> B-4 appears 2 times
+Interval C#3 -> A4 appears 2 times
+Interval F#6 -> F#6 appears 2 times
+Interval E-5 -> B-5 appears 2 times
+Interval F5 -> B5 appears 2 times
+Interval G4 -> G#5 appears 2 times
+Interval G#5 -> D6 appears 2 times
+Interval G#5 -> D5 appears 2 times
+Interval C5 -> C6 appears 2 times
+Interval C#6 -> C5 appears 2 times
+Interval E-5 -> D4 appears 2 times
+Interval C#6 -> C#6 appears 2 times
+Interval C#6 -> E6 appears 2 times
+Interval C#3 -> B3 appears 2 times
+Interval B-2 -> C#4 appears 2 times
+Interval E-3 -> D4 appears 2 times
+Interval C6 -> B-4 appears 2 times
+Interval B-5 -> C#6 appears 2 times
+Interval G#5 -> C5 appears 2 times
+Interval C6 -> E5 appears 2 times
+Interval A5 -> E-3 appears 2 times
+Interval G6 -> E6 appears 2 times
+Interval F6 -> G5 appears 2 times
+Interval F#4 -> G3 appears 2 times
+Interval F3 -> G#4 appears 2 times
+Interval F5 -> G4 appears 2 times
+Interval C5 -> G#3 appears 2 times
+Interval B-5 -> B-4 appears 2 times
+Interval C4 -> E5 appears 2 times
+Interval G4 -> B-2 appears 2 times
+Interval D3 -> B4 appears 2 times
+Interval B4 -> G#3 appears 2 times
+Interval A5 -> E4 appears 2 times
+Interval C3 -> E4 appears 2 times
+Interval E5 -> F#4 appears 2 times
+Interval A5 -> B-4 appears 2 times
+Interval B-4 -> A5 appears 2 times
+Interval B2 -> C4 appears 2 times
+Interval B-3 -> C3 appears 2 times
+Interval F5 -> C#6 appears 2 times
+Interval C4 -> F5 appears 2 times
+Interval G5 -> A4 appears 2 times
+Interval D4 -> B-2 appears 2 times
+Interval F6 -> F6 appears 2 times
+Interval E6 -> F6 appears 2 times
+Interval F#6 -> D6 appears 2 times
+Interval C#6 -> F6 appears 2 times
+Interval G4 -> F3 appears 2 times
+Interval F#5 -> B-4 appears 2 times
+Interval F4 -> B-5 appears 2 times
+Interval D6 -> G#5 appears 2 times
+Interval A2 -> B-2 appears 2 times
+Interval E4 -> F5 appears 2 times
+Interval D3 -> C#4 appears 2 times
+Interval B3 -> E-5 appears 2 times
+Interval E5 -> G3 appears 2 times
+Interval F#3 -> E5 appears 2 times
+Interval F#3 -> E-5 appears 2 times
+Interval D4 -> E3 appears 2 times
+Interval F4 -> B2 appears 2 times
+Interval E-3 -> B2 appears 2 times
+Interval B2 -> B-3 appears 2 times
+Interval F3 -> C#5 appears 2 times
+Interval F3 -> B-4 appears 2 times
+Interval B4 -> F3 appears 2 times
+Interval G#3 -> G#4 appears 2 times
+Interval E5 -> G#5 appears 2 times
+Interval C#5 -> G#5 appears 2 times
+Interval F#3 -> G4 appears 2 times
+Interval E3 -> E5 appears 2 times
+Interval B3 -> B-2 appears 2 times
+Interval C#3 -> B-3 appears 2 times
+Interval F#5 -> B2 appears 2 times
+Interval C6 -> B-2 appears 2 times
+Interval C5 -> D6 appears 2 times
+Interval F5 -> E-6 appears 2 times
+Interval B-5 -> E5 appears 2 times
+Interval F5 -> C6 appears 2 times
+Interval B-5 -> D5 appears 2 times
+Interval B-4 -> B3 appears 2 times
+Interval D5 -> G#3 appears 2 times
+Interval F#5 -> A4 appears 2 times
+Interval C#5 -> B3 appears 2 times
+Interval G3 -> C#3 appears 2 times
+Interval E3 -> F4 appears 2 times
+Interval G#4 -> B-5 appears 2 times
+Interval C#6 -> B4 appears 2 times
+Interval F5 -> F#4 appears 2 times
+Interval D3 -> G#4 appears 2 times
+Interval B-4 -> B2 appears 2 times
+Interval C#6 -> D5 appears 2 times
+Interval A5 -> B4 appears 2 times
+Interval F3 -> E-5 appears 2 times
+Interval F4 -> B-2 appears 2 times
+Interval C3 -> C5 appears 2 times
+Interval C#3 -> B4 appears 2 times
+Interval E3 -> A4 appears 2 times
+Interval C5 -> C#6 appears 2 times
+Interval D4 -> D3 appears 2 times
+Interval E4 -> B-5 appears 2 times
+Interval C#5 -> E3 appears 2 times
+Interval B4 -> G#5 appears 2 times
+Interval C6 -> B2 appears 2 times
+Interval C#6 -> E-5 appears 2 times
+Interval G#4 -> D6 appears 2 times
+Interval A4 -> D6 appears 2 times
+Interval D4 -> E5 appears 2 times
+Interval C#3 -> C5 appears 2 times
+Interval B2 -> C5 appears 2 times
+Interval D3 -> G4 appears 2 times
+Interval E3 -> G4 appears 2 times
+Interval B4 -> A3 appears 2 times
+Interval C3 -> B-4 appears 2 times
+Interval G4 -> F#3 appears 2 times
+Interval D3 -> C5 appears 2 times
+Interval C#5 -> D3 appears 2 times
+Interval B2 -> B-4 appears 2 times
+Interval G#3 -> B4 appears 3 times
+Interval F#4 -> F#3 appears 3 times
+Interval B-3 -> C#3 appears 3 times
+Interval F4 -> C3 appears 3 times
+Interval C#4 -> C3 appears 3 times
+Interval A3 -> C3 appears 3 times
+Interval C6 -> A4 appears 3 times
+Interval C#4 -> E5 appears 3 times
+Interval A4 -> F#5 appears 3 times
+Interval E4 -> F#5 appears 3 times
+Interval D5 -> B3 appears 3 times
+Interval B3 -> C5 appears 3 times
+Interval E-5 -> E4 appears 3 times
+Interval E4 -> E-3 appears 3 times
+Interval B-3 -> E-5 appears 3 times
+Interval C6 -> E-6 appears 3 times
+Interval E-6 -> D6 appears 3 times
+Interval B-2 -> G3 appears 3 times
+Interval C#4 -> C#3 appears 3 times
+Interval F6 -> D6 appears 3 times
+Interval G#5 -> E5 appears 3 times
+Interval C#5 -> C#4 appears 3 times
+Interval C#6 -> B5 appears 3 times
+Interval E6 -> D6 appears 3 times
+Interval E-6 -> F6 appears 3 times
+Interval G#3 -> D5 appears 3 times
+Interval B-3 -> D3 appears 3 times
+Interval G#3 -> C#5 appears 3 times
+Interval C4 -> F#5 appears 3 times
+Interval D6 -> F6 appears 3 times
+Interval C3 -> G4 appears 3 times
+Interval E-5 -> A5 appears 3 times
+Interval D4 -> E-5 appears 3 times
+Interval C#4 -> D5 appears 3 times
+Interval D3 -> C4 appears 3 times
+Interval C#6 -> D6 appears 3 times
+Interval A5 -> A4 appears 3 times
+Interval C6 -> C6 appears 3 times
+Interval B5 -> E5 appears 3 times
+Interval C#6 -> A5 appears 3 times
+Interval D5 -> B5 appears 3 times
+Interval C6 -> C5 appears 3 times
+Interval C5 -> G3 appears 3 times
+Interval G#4 -> G#3 appears 3 times
+Interval C5 -> B3 appears 3 times
+Interval G#4 -> A3 appears 3 times
+Interval E5 -> E-4 appears 3 times
+Interval E3 -> C5 appears 3 times
+Interval E5 -> B3 appears 3 times
+Interval F#5 -> C#6 appears 3 times
+Interval B-5 -> D6 appears 3 times
+Interval E3 -> D5 appears 3 times
+Interval G3 -> E5 appears 3 times
+Interval E-4 -> E5 appears 3 times
+Interval C#5 -> B5 appears 3 times
+Interval B-2 -> D3 appears 3 times
+Interval A4 -> G#3 appears 3 times
+Interval G#4 -> G3 appears 3 times
+Interval E3 -> G#4 appears 3 times
+Interval C6 -> F5 appears 3 times
+Interval C3 -> A4 appears 3 times
+Interval G#4 -> F#5 appears 3 times
+Interval F5 -> G#4 appears 3 times
+Interval E-4 -> F3 appears 3 times
+Interval B3 -> E5 appears 3 times
+Interval C#3 -> G4 appears 3 times
+Interval B-2 -> B-2 appears 3 times
+Interval B-3 -> B-2 appears 3 times
+Interval F#4 -> E5 appears 3 times
+Interval F5 -> E4 appears 3 times
+Interval C5 -> C#4 appears 3 times
+Interval G3 -> E-5 appears 3 times
+Interval C6 -> D5 appears 3 times
+Interval G#3 -> B-4 appears 3 times
+Interval B2 -> G#3 appears 3 times
+Interval G4 -> C3 appears 3 times
+Interval G3 -> C#5 appears 3 times
+Interval B3 -> C3 appears 3 times
+Interval F3 -> F#4 appears 3 times
+Interval E6 -> C6 appears 3 times
+Interval B-2 -> C#3 appears 3 times
+Interval B-4 -> A3 appears 4 times
+Interval F#4 -> G#3 appears 4 times
+Interval C#4 -> E-3 appears 4 times
+Interval A5 -> C5 appears 4 times
+Interval G3 -> B2 appears 4 times
+Interval B-2 -> C5 appears 4 times
+Interval G4 -> G5 appears 4 times
+Interval G#4 -> C3 appears 4 times
+Interval E-3 -> E-3 appears 4 times
+Interval A4 -> G5 appears 4 times
+Interval A3 -> B-2 appears 4 times
+Interval E-4 -> F5 appears 4 times
+Interval E-5 -> F#4 appears 4 times
+Interval C4 -> B2 appears 4 times
+Interval A4 -> G#5 appears 4 times
+Interval B-2 -> A3 appears 4 times
+Interval G#3 -> A4 appears 4 times
+Interval A3 -> D5 appears 4 times
+Interval C#3 -> G#3 appears 4 times
+Interval C#3 -> C4 appears 4 times
+Interval B-5 -> F#5 appears 4 times
+Interval G5 -> C6 appears 4 times
+Interval G4 -> B2 appears 4 times
+Interval B5 -> F#5 appears 4 times
+Interval G#5 -> G#5 appears 4 times
+Interval E-3 -> C#4 appears 4 times
+Interval F#3 -> B-4 appears 4 times
+Interval C#6 -> B-5 appears 4 times
+Interval E-5 -> G#5 appears 4 times
+Interval B5 -> G5 appears 4 times
+Interval C6 -> D6 appears 4 times
+Interval C#6 -> E-6 appears 4 times
+Interval F#3 -> B2 appears 4 times
+Interval D4 -> F5 appears 4 times
+Interval F6 -> F#6 appears 4 times
+Interval A5 -> E-5 appears 4 times
+Interval E-6 -> E6 appears 4 times
+Interval D6 -> E6 appears 4 times
+Interval D6 -> F#6 appears 4 times
+Interval G#5 -> E-5 appears 4 times
+Interval E5 -> B5 appears 4 times
+Interval D5 -> C3 appears 4 times
+Interval G3 -> D5 appears 4 times
+Interval B5 -> D6 appears 4 times
+Interval D6 -> E-6 appears 4 times
+Interval F3 -> C5 appears 4 times
+Interval F#3 -> B4 appears 4 times
+Interval C#3 -> C#4 appears 4 times
+Interval D3 -> B-4 appears 4 times
+Interval B-2 -> E3 appears 4 times
+Interval F#4 -> F5 appears 4 times
+Interval G#3 -> C#3 appears 4 times
+Interval B3 -> B2 appears 4 times
+Interval E5 -> D4 appears 4 times
+Interval F#3 -> F4 appears 4 times
+Interval C3 -> B-3 appears 4 times
+Interval E3 -> E-4 appears 4 times
+Interval F3 -> B4 appears 4 times
+Interval G#3 -> C5 appears 4 times
+Interval C3 -> F#3 appears 4 times
+Interval F#3 -> G#4 appears 4 times
+Interval E3 -> B4 appears 4 times
+Interval A3 -> B4 appears 4 times
+Interval C#5 -> G5 appears 4 times
+Interval B-4 -> B-3 appears 5 times
+Interval C#5 -> A5 appears 5 times
+Interval B2 -> G3 appears 5 times
+Interval G#5 -> B-5 appears 5 times
+Interval G5 -> B-5 appears 5 times
+Interval B-5 -> F5 appears 5 times
+Interval B4 -> G5 appears 5 times
+Interval B3 -> D5 appears 5 times
+Interval F#5 -> B4 appears 5 times
+Interval A4 -> G3 appears 5 times
+Interval F3 -> A4 appears 5 times
+Interval D5 -> C4 appears 5 times
+Interval B-2 -> B2 appears 5 times
+Interval B4 -> C#4 appears 5 times
+Interval C3 -> F4 appears 5 times
+Interval F4 -> F3 appears 5 times
+Interval D6 -> C6 appears 5 times
+Interval G#5 -> B5 appears 5 times
+Interval E5 -> A5 appears 5 times
+Interval C#3 -> B2 appears 5 times
+Interval F5 -> B-5 appears 5 times
+Interval F#5 -> B-5 appears 5 times
+Interval B-3 -> D5 appears 5 times
+Interval C4 -> B-2 appears 5 times
+Interval B-2 -> B-4 appears 5 times
+Interval A5 -> D5 appears 5 times
+Interval D5 -> C#4 appears 5 times
+Interval C#6 -> F5 appears 5 times
+Interval C5 -> A5 appears 5 times
+Interval C#3 -> G3 appears 5 times
+Interval B2 -> F#3 appears 5 times
+Interval A3 -> C#3 appears 5 times
+Interval B2 -> A3 appears 5 times
+Interval C#5 -> D4 appears 6 times
+Interval G4 -> G#3 appears 6 times
+Interval F3 -> E-4 appears 6 times
+Interval A4 -> B-3 appears 6 times
+Interval G#3 -> G4 appears 6 times
+Interval B3 -> C#5 appears 6 times
+Interval G#4 -> B-3 appears 6 times
+Interval E-4 -> F#3 appears 6 times
+Interval D5 -> A5 appears 6 times
+Interval F4 -> F5 appears 6 times
+Interval C4 -> E-5 appears 6 times
+Interval D5 -> E-4 appears 6 times
+Interval B2 -> B3 appears 6 times
+Interval E-3 -> B3 appears 6 times
+Interval F5 -> F4 appears 6 times
+Interval B2 -> E-3 appears 6 times
+Interval C#3 -> A3 appears 6 times
+Interval A3 -> B-4 appears 6 times
+Interval E-3 -> C4 appears 6 times
+Interval A4 -> B3 appears 6 times
+Interval E5 -> G4 appears 6 times
+Interval F#5 -> B5 appears 6 times
+Interval F#5 -> G#5 appears 6 times
+Interval B5 -> C#6 appears 6 times
+Interval B5 -> B5 appears 6 times
+Interval C6 -> C#6 appears 6 times
+Interval C6 -> B-5 appears 6 times
+Interval D6 -> C#6 appears 6 times
+Interval B-5 -> G5 appears 6 times
+Interval B5 -> B-5 appears 6 times
+Interval B-5 -> C6 appears 6 times
+Interval B-5 -> B-5 appears 6 times
+Interval G5 -> B5 appears 6 times
+Interval A4 -> A5 appears 6 times
+Interval E-3 -> C3 appears 6 times
+Interval G3 -> G#4 appears 6 times
+Interval B-3 -> C5 appears 6 times
+Interval F3 -> G4 appears 6 times
+Interval C#3 -> F#3 appears 6 times
+Interval C4 -> C3 appears 6 times
+Interval B2 -> D3 appears 6 times
+Interval B4 -> A5 appears 6 times
+Interval B-2 -> C4 appears 6 times
+Interval C3 -> A3 appears 6 times
+Interval D3 -> B2 appears 6 times
+Interval E3 -> E4 appears 7 times
+Interval G3 -> G4 appears 7 times
+Interval C4 -> D3 appears 7 times
+Interval F#4 -> E-5 appears 7 times
+Interval B4 -> F#5 appears 7 times
+Interval G5 -> B4 appears 7 times
+Interval B2 -> B2 appears 7 times
+Interval B3 -> E-3 appears 7 times
+Interval G#3 -> C3 appears 7 times
+Interval C6 -> A5 appears 7 times
+Interval C#5 -> E-4 appears 7 times
+Interval E-3 -> A3 appears 7 times
+Interval F3 -> E4 appears 7 times
+Interval B-5 -> E-5 appears 7 times
+Interval F4 -> F#3 appears 7 times
+Interval B3 -> C#3 appears 7 times
+Interval A5 -> C#6 appears 7 times
+Interval B-3 -> B4 appears 7 times
+Interval C#3 -> E-3 appears 7 times
+Interval G#4 -> F5 appears 7 times
+Interval G3 -> C5 appears 7 times
+Interval C4 -> C#5 appears 7 times
+Interval D3 -> D3 appears 7 times
+Interval F#3 -> F#4 appears 8 times
+Interval F4 -> G3 appears 8 times
+Interval C4 -> E-3 appears 8 times
+Interval G3 -> B-2 appears 8 times
+Interval B4 -> C4 appears 8 times
+Interval B2 -> E3 appears 8 times
+Interval E5 -> G#4 appears 8 times
+Interval F#5 -> C5 appears 8 times
+Interval F#3 -> C3 appears 8 times
+Interval F3 -> B2 appears 8 times
+Interval D3 -> D4 appears 8 times
+Interval B5 -> G#5 appears 8 times
+Interval F#3 -> C#3 appears 8 times
+Interval C#6 -> C6 appears 8 times
+Interval F3 -> B-2 appears 8 times
+Interval D5 -> F#4 appears 8 times
+Interval G3 -> B4 appears 8 times
+Interval C#4 -> C#5 appears 8 times
+Interval D3 -> B-2 appears 8 times
+Interval B-3 -> G#4 appears 9 times
+Interval E3 -> D4 appears 9 times
+Interval F3 -> F4 appears 9 times
+Interval F4 -> G#3 appears 9 times
+Interval A3 -> C5 appears 9 times
+Interval G#4 -> D5 appears 9 times
+Interval F#5 -> F#5 appears 9 times
+Interval G5 -> G5 appears 9 times
+Interval B3 -> B-4 appears 9 times
+Interval F5 -> B4 appears 9 times
+Interval C#3 -> C#3 appears 9 times
+Interval G#4 -> E5 appears 9 times
+Interval E4 -> E-5 appears 9 times
+Interval A5 -> E5 appears 9 times
+Interval F4 -> E5 appears 9 times
+Interval G3 -> B-4 appears 9 times
+Interval C4 -> D5 appears 9 times
+Interval E-4 -> E-5 appears 9 times
+Interval E-3 -> B-3 appears 9 times
+Interval B-2 -> B-3 appears 9 times
+Interval G#5 -> F#5 appears 9 times
+Interval E3 -> B2 appears 9 times
+Interval B-5 -> G#5 appears 9 times
+Interval C6 -> B5 appears 9 times
+Interval C3 -> E-3 appears 9 times
+Interval C#3 -> D3 appears 9 times
+Interval C5 -> F#5 appears 9 times
+Interval D3 -> G#3 appears 9 times
+Interval D4 -> F3 appears 10 times
+Interval A4 -> A3 appears 10 times
+Interval C5 -> E-4 appears 10 times
+Interval F#3 -> E4 appears 10 times
+Interval B4 -> B3 appears 10 times
+Interval F5 -> A4 appears 10 times
+Interval F5 -> G#5 appears 10 times
+Interval B-5 -> B5 appears 10 times
+Interval E-4 -> G#3 appears 10 times
+Interval F3 -> C#3 appears 10 times
+Interval G4 -> E-5 appears 10 times
+Interval E-5 -> G4 appears 10 times
+Interval G#3 -> F#4 appears 10 times
+Interval E4 -> C#5 appears 10 times
+Interval A5 -> G#5 appears 10 times
+Interval G#5 -> G5 appears 10 times
+Interval B2 -> C#3 appears 10 times
+Interval D5 -> E4 appears 10 times
+Interval B-4 -> C#4 appears 10 times
+Interval G3 -> A4 appears 10 times
+Interval A3 -> G#4 appears 11 times
+Interval G4 -> B-3 appears 11 times
+Interval F#3 -> E-4 appears 11 times
+Interval B2 -> F3 appears 11 times
+Interval E-4 -> C#5 appears 11 times
+Interval A5 -> C6 appears 11 times
+Interval G5 -> D5 appears 11 times
+Interval E4 -> E5 appears 11 times
+Interval B-4 -> E5 appears 11 times
+Interval E3 -> C3 appears 11 times
+Interval C3 -> C3 appears 11 times
+Interval D3 -> B-3 appears 11 times
+Interval E4 -> G#3 appears 11 times
+Interval G#3 -> D3 appears 11 times
+Interval E-5 -> E-4 appears 11 times
+Interval F#5 -> A5 appears 11 times
+Interval G#4 -> C#4 appears 11 times
+Interval E3 -> C#3 appears 11 times
+Interval B-3 -> B-4 appears 11 times
+Interval E4 -> G3 appears 12 times
+Interval B-3 -> E3 appears 12 times
+Interval B-4 -> C4 appears 12 times
+Interval G4 -> G3 appears 12 times
+Interval F3 -> C#4 appears 12 times
+Interval A4 -> F5 appears 12 times
+Interval C3 -> C4 appears 12 times
+Interval G4 -> F5 appears 12 times
+Interval A5 -> A5 appears 12 times
+Interval F#3 -> C#4 appears 12 times
+Interval E-5 -> F4 appears 12 times
+Interval B-4 -> F5 appears 12 times
+Interval G3 -> F#4 appears 12 times
+Interval B-3 -> E-3 appears 12 times
+Interval D4 -> C#5 appears 12 times
+Interval D3 -> B3 appears 12 times
+Interval C3 -> C#3 appears 12 times
+Interval C#3 -> E3 appears 12 times
+Interval G#5 -> F5 appears 12 times
+Interval C#5 -> F4 appears 12 times
+Interval E-3 -> C#3 appears 12 times
+Interval A4 -> C#4 appears 12 times
+Interval B3 -> D3 appears 12 times
+Interval D3 -> F#3 appears 12 times
+Interval C#5 -> E4 appears 12 times
+Interval C#4 -> C5 appears 12 times
+Interval B-3 -> A4 appears 12 times
+Interval D4 -> F#3 appears 13 times
+Interval G4 -> A3 appears 13 times
+Interval F5 -> B-4 appears 13 times
+Interval C3 -> E3 appears 13 times
+Interval E-5 -> G5 appears 13 times
+Interval G5 -> E-5 appears 13 times
+Interval B2 -> C3 appears 13 times
+Interval C#4 -> E3 appears 13 times
+Interval F4 -> E-5 appears 13 times
+Interval B-2 -> C3 appears 13 times
+Interval B5 -> C6 appears 13 times
+Interval F3 -> D4 appears 14 times
+Interval D4 -> G#3 appears 14 times
+Interval B-2 -> F3 appears 14 times
+Interval E-5 -> G#4 appears 14 times
+Interval E-5 -> F#5 appears 14 times
+Interval G5 -> C5 appears 14 times
+Interval E5 -> B-4 appears 14 times
+Interval F#3 -> D4 appears 14 times
+Interval B4 -> F5 appears 14 times
+Interval C5 -> G5 appears 14 times
+Interval C#4 -> B4 appears 14 times
+Interval F#4 -> B-3 appears 14 times
+Interval G#3 -> D4 appears 14 times
+Interval B3 -> G#4 appears 14 times
+Interval C#5 -> F#5 appears 14 times
+Interval C4 -> E3 appears 14 times
+Interval F4 -> C#5 appears 14 times
+Interval E3 -> C#4 appears 15 times
+Interval C5 -> D4 appears 15 times
+Interval F#4 -> B3 appears 15 times
+Interval G#4 -> B3 appears 15 times
+Interval A5 -> F#5 appears 15 times
+Interval D3 -> A3 appears 15 times
+Interval G#3 -> G#3 appears 15 times
+Interval F#5 -> C#5 appears 15 times
+Interval F#3 -> F#3 appears 16 times
+Interval G#3 -> E4 appears 16 times
+Interval A4 -> E-5 appears 16 times
+Interval A5 -> B5 appears 16 times
+Interval B5 -> A5 appears 16 times
+Interval D5 -> F4 appears 16 times
+Interval C4 -> B4 appears 16 times
+Interval C5 -> C4 appears 16 times
+Interval E-4 -> C5 appears 16 times
+Interval F#5 -> E5 appears 16 times
+Interval D4 -> C5 appears 16 times
+Interval C3 -> D3 appears 16 times
+Interval E3 -> B3 appears 16 times
+Interval F3 -> B3 appears 16 times
+Interval B2 -> B-2 appears 16 times
+Interval B4 -> E-4 appears 16 times
+Interval E3 -> E3 appears 16 times
+Interval G5 -> G#5 appears 16 times
+Interval E3 -> B-3 appears 17 times
+Interval F#4 -> A3 appears 17 times
+Interval C#4 -> F3 appears 17 times
+Interval G3 -> F4 appears 17 times
+Interval A3 -> A4 appears 17 times
+Interval C#4 -> B-4 appears 17 times
+Interval A3 -> D3 appears 17 times
+Interval C#3 -> F3 appears 17 times
+Interval D5 -> G5 appears 17 times
+Interval F#5 -> E-5 appears 17 times
+Interval G4 -> E5 appears 17 times
+Interval F#4 -> D5 appears 17 times
+Interval F#4 -> C#5 appears 17 times
+Interval B-3 -> F#4 appears 18 times
+Interval E-4 -> A3 appears 18 times
+Interval E-5 -> A4 appears 18 times
+Interval B-5 -> A5 appears 18 times
+Interval G3 -> C3 appears 18 times
+Interval F#5 -> D5 appears 18 times
+Interval D5 -> G#4 appears 18 times
+Interval E-4 -> B4 appears 18 times
+Interval D5 -> F#5 appears 18 times
+Interval G#4 -> E-5 appears 18 times
+Interval B3 -> F3 appears 18 times
+Interval F4 -> B3 appears 18 times
+Interval F#3 -> D3 appears 18 times
+Interval E-4 -> D5 appears 19 times
+Interval G#4 -> C4 appears 19 times
+Interval B3 -> A4 appears 19 times
+Interval B3 -> B4 appears 19 times
+Interval C3 -> F3 appears 19 times
+Interval E-3 -> G#3 appears 19 times
+Interval G#3 -> E-3 appears 19 times
+Interval E3 -> C4 appears 19 times
+Interval F#3 -> E-3 appears 19 times
+Interval G3 -> C#4 appears 20 times
+Interval G#3 -> F4 appears 20 times
+Interval E-4 -> G3 appears 20 times
+Interval A5 -> F5 appears 20 times
+Interval F5 -> A5 appears 20 times
+Interval A3 -> E-3 appears 20 times
+Interval A4 -> E5 appears 20 times
+Interval E4 -> D5 appears 20 times
+Interval G3 -> E-4 appears 20 times
+Interval F#3 -> C4 appears 20 times
+Interval B4 -> D4 appears 20 times
+Interval B3 -> E3 appears 20 times
+Interval C3 -> G3 appears 21 times
+Interval F3 -> C3 appears 21 times
+Interval C3 -> B-2 appears 21 times
+Interval D3 -> C#3 appears 21 times
+Interval E5 -> F#5 appears 21 times
+Interval G#5 -> A5 appears 21 times
+Interval B-4 -> E4 appears 21 times
+Interval C#4 -> G#4 appears 21 times
+Interval D3 -> E-3 appears 21 times
+Interval C5 -> E4 appears 21 times
+Interval C#4 -> F#3 appears 22 times
+Interval A4 -> C4 appears 22 times
+Interval B-3 -> G4 appears 22 times
+Interval E5 -> A4 appears 22 times
+Interval C#3 -> C3 appears 22 times
+Interval F4 -> B-3 appears 23 times
+Interval C#5 -> G4 appears 23 times
+Interval A3 -> G4 appears 23 times
+Interval E-3 -> F#3 appears 23 times
+Interval F5 -> C5 appears 23 times
+Interval A5 -> B-5 appears 23 times
+Interval C4 -> C5 appears 23 times
+Interval A5 -> G5 appears 23 times
+Interval G#3 -> E-4 appears 23 times
+Interval F#4 -> C5 appears 23 times
+Interval G#4 -> D4 appears 23 times
+Interval D4 -> D5 appears 24 times
+Interval G4 -> C#4 appears 24 times
+Interval E5 -> G5 appears 24 times
+Interval C#4 -> A4 appears 25 times
+Interval B-4 -> D4 appears 25 times
+Interval G5 -> A5 appears 25 times
+Interval C4 -> G#4 appears 25 times
+Interval F4 -> D5 appears 25 times
+Interval C4 -> B-4 appears 25 times
+Interval G4 -> B3 appears 26 times
+Interval E4 -> B-3 appears 26 times
+Interval D4 -> B4 appears 26 times
+Interval D4 -> B-4 appears 26 times
+Interval C#4 -> G3 appears 27 times
+Interval B-3 -> E4 appears 27 times
+Interval A3 -> F#4 appears 27 times
+Interval G5 -> E5 appears 27 times
+Interval D5 -> D4 appears 27 times
+Interval C#4 -> G4 appears 28 times
+Interval F3 -> F3 appears 28 times
+Interval G3 -> E4 appears 28 times
+Interval A4 -> E-4 appears 28 times
+Interval B3 -> G4 appears 28 times
+Interval D3 -> G3 appears 28 times
+Interval G4 -> C#5 appears 28 times
+Interval C4 -> F#3 appears 29 times
+Interval E5 -> B4 appears 29 times
+Interval E3 -> G#3 appears 30 times
+Interval B3 -> F4 appears 30 times
+Interval C4 -> A4 appears 30 times
+Interval C#5 -> F5 appears 30 times
+Interval F5 -> F5 appears 30 times
+Interval F5 -> F#5 appears 30 times
+Interval C3 -> B2 appears 30 times
+Interval E4 -> C5 appears 30 times
+Interval G#3 -> C#4 appears 31 times
+Interval F#4 -> C4 appears 31 times
+Interval D4 -> G3 appears 31 times
+Interval D4 -> G#4 appears 31 times
+Interval C4 -> F3 appears 31 times
+Interval C#5 -> C#5 appears 31 times
+Interval E-5 -> B-4 appears 31 times
+Interval E-4 -> A4 appears 31 times
+Interval C5 -> F#4 appears 31 times
+Interval C#4 -> C#4 appears 32 times
+Interval F#3 -> B3 appears 32 times
+Interval F#3 -> B-3 appears 32 times
+Interval D5 -> G4 appears 32 times
+Interval C#5 -> F#4 appears 32 times
+Interval B3 -> F#4 appears 33 times
+Interval F4 -> A3 appears 33 times
+Interval B-4 -> E-4 appears 33 times
+Interval G5 -> F#5 appears 33 times
+Interval F#5 -> F5 appears 33 times
+Interval E5 -> E5 appears 33 times
+Interval E3 -> E-3 appears 34 times
+Interval B-3 -> F3 appears 34 times
+Interval E4 -> B-4 appears 35 times
+Interval B4 -> E4 appears 35 times
+Interval B4 -> F4 appears 35 times
+Interval G#3 -> E3 appears 36 times
+Interval A3 -> E-4 appears 36 times
+Interval F#5 -> G5 appears 36 times
+Interval B4 -> E-5 appears 36 times
+Interval E-4 -> B-4 appears 37 times
+Interval E-3 -> D3 appears 37 times
+Interval E-3 -> G3 appears 37 times
+Interval F3 -> C4 appears 37 times
+Interval D3 -> F3 appears 38 times
+Interval E-5 -> E-5 appears 38 times
+Interval B-4 -> E-5 appears 38 times
+Interval F5 -> G5 appears 38 times
+Interval F5 -> C#5 appears 38 times
+Interval D3 -> C3 appears 38 times
+Interval C#5 -> G#4 appears 39 times
+Interval E-4 -> G#4 appears 39 times
+Interval G#4 -> C#5 appears 39 times
+Interval C5 -> F4 appears 40 times
+Interval G4 -> D5 appears 40 times
+Interval B4 -> E5 appears 40 times
+Interval F4 -> B4 appears 40 times
+Interval E3 -> A3 appears 40 times
+Interval G4 -> C4 appears 41 times
+Interval G5 -> F5 appears 41 times
+Interval E4 -> A3 appears 42 times
+Interval G3 -> D3 appears 42 times
+Interval E-5 -> F5 appears 42 times
+Interval A4 -> D4 appears 42 times
+Interval B3 -> F#3 appears 43 times
+Interval E-3 -> E3 appears 43 times
+Interval B-3 -> B-3 appears 43 times
+Interval E5 -> C5 appears 43 times
+Interval E3 -> D3 appears 43 times
+Interval E4 -> B4 appears 44 times
+Interval B-3 -> E-4 appears 44 times
+Interval F3 -> D3 appears 44 times
+Interval B3 -> B3 appears 45 times
+Interval F3 -> B-3 appears 45 times
+Interval G3 -> E-3 appears 45 times
+Interval G3 -> G3 appears 45 times
+Interval E-5 -> B4 appears 45 times
+Interval E5 -> C#5 appears 45 times
+Interval A3 -> E3 appears 46 times
+Interval B-3 -> F#3 appears 46 times
+Interval B-3 -> F4 appears 46 times
+Interval A3 -> A3 appears 47 times
+Interval F#4 -> F#4 appears 47 times
+Interval E-4 -> E-4 appears 47 times
+Interval F#4 -> C#4 appears 48 times
+Interval C#4 -> G#3 appears 48 times
+Interval F#3 -> E3 appears 49 times
+Interval B4 -> B4 appears 49 times
+Interval G3 -> D4 appears 49 times
+Interval G#3 -> F3 appears 49 times
+Interval D3 -> E3 appears 49 times
+Interval G#4 -> G#4 appears 50 times
+Interval C4 -> F#4 appears 51 times
+Interval E3 -> F#3 appears 51 times
+Interval C4 -> G4 appears 51 times
+Interval C5 -> F5 appears 51 times
+Interval E-3 -> F3 appears 51 times
+Interval F3 -> G#3 appears 52 times
+Interval F3 -> E-3 appears 52 times
+Interval B4 -> F#4 appears 52 times
+Interval F5 -> E5 appears 52 times
+Interval A3 -> E4 appears 54 times
+Interval F4 -> C5 appears 54 times
+Interval D5 -> F5 appears 54 times
+Interval C5 -> E5 appears 54 times
+Interval F3 -> F#3 appears 55 times
+Interval C#5 -> E5 appears 55 times
+Interval C#4 -> F#4 appears 56 times
+Interval F#4 -> B4 appears 56 times
+Interval E4 -> G#4 appears 56 times
+Interval A3 -> F4 appears 57 times
+Interval D5 -> D5 appears 57 times
+Interval G#3 -> F#3 appears 57 times
+Interval F3 -> A3 appears 57 times
+Interval A3 -> C#4 appears 58 times
+Interval B3 -> E-4 appears 58 times
+Interval F5 -> D5 appears 58 times
+Interval G#4 -> C5 appears 58 times
+Interval E4 -> E4 appears 60 times
+Interval G#3 -> C4 appears 60 times
+Interval E3 -> F3 appears 60 times
+Interval E5 -> F5 appears 60 times
+Interval F#3 -> G#3 appears 61 times
+Interval B-4 -> B-4 appears 62 times
+Interval D4 -> A4 appears 62 times
+Interval A4 -> D5 appears 64 times
+Interval C#4 -> F4 appears 64 times
+Interval C#5 -> E-5 appears 64 times
+Interval F#3 -> F3 appears 65 times
+Interval F4 -> B-4 appears 65 times
+Interval B-4 -> F#4 appears 65 times
+Interval F#4 -> B-4 appears 65 times
+Interval E-4 -> B-3 appears 66 times
+Interval A3 -> F3 appears 66 times
+Interval G#4 -> E-4 appears 66 times
+Interval B3 -> E4 appears 67 times
+Interval E4 -> B3 appears 67 times
+Interval C#5 -> B-4 appears 67 times
+Interval D5 -> A4 appears 67 times
+Interval F3 -> E3 appears 68 times
+Interval C4 -> C4 appears 68 times
+Interval B-4 -> D5 appears 68 times
+Interval F5 -> E-5 appears 68 times
+Interval A4 -> C#5 appears 69 times
+Interval C#5 -> A4 appears 70 times
+Interval B-3 -> D4 appears 71 times
+Interval D5 -> B-4 appears 71 times
+Interval A3 -> D4 appears 71 times
+Interval C5 -> C5 appears 72 times
+Interval E-5 -> C5 appears 72 times
+Interval A3 -> F#3 appears 73 times
+Interval E-4 -> B3 appears 73 times
+Interval B4 -> G#4 appears 73 times
+Interval E-5 -> E5 appears 73 times
+Interval B-3 -> C#4 appears 74 times
+Interval B3 -> G#3 appears 74 times
+Interval C5 -> E-5 appears 74 times
+Interval F#3 -> A3 appears 75 times
+Interval C#4 -> A3 appears 75 times
+Interval B-4 -> F4 appears 75 times
+Interval G3 -> E3 appears 75 times
+Interval E3 -> G3 appears 75 times
+Interval D5 -> E5 appears 75 times
+Interval E-5 -> C#5 appears 76 times
+Interval C#4 -> B-3 appears 77 times
+Interval F4 -> F4 appears 77 times
+Interval G4 -> C5 appears 77 times
+Interval G3 -> B3 appears 78 times
+Interval D4 -> D4 appears 78 times
+Interval F4 -> C#4 appears 78 times
+Interval D4 -> A3 appears 79 times
+Interval E5 -> E-5 appears 79 times
+Interval D4 -> F#4 appears 80 times
+Interval B-4 -> C#5 appears 80 times
+Interval F#4 -> D4 appears 82 times
+Interval G#3 -> B3 appears 82 times
+Interval E-4 -> F#4 appears 83 times
+Interval G#4 -> E4 appears 83 times
+Interval G3 -> G#3 appears 84 times
+Interval G#3 -> B-3 appears 84 times
+Interval F#3 -> G3 appears 84 times
+Interval G#4 -> B4 appears 84 times
+Interval E5 -> D5 appears 84 times
+Interval C#4 -> B3 appears 85 times
+Interval A4 -> A4 appears 85 times
+Interval C5 -> G4 appears 85 times
+Interval C5 -> G#4 appears 85 times
+Interval D4 -> G4 appears 86 times
+Interval C4 -> G#3 appears 86 times
+Interval B3 -> C#4 appears 87 times
+Interval B3 -> B-3 appears 87 times
+Interval B4 -> C#5 appears 88 times
+Interval C#5 -> B4 appears 88 times
+Interval B3 -> G3 appears 88 times
+Interval A4 -> E4 appears 89 times
+Interval E4 -> A4 appears 89 times
+Interval E-4 -> G4 appears 89 times
+Interval G4 -> G4 appears 90 times
+Interval D4 -> B-3 appears 90 times
+Interval F4 -> C4 appears 90 times
+Interval G3 -> C4 appears 90 times
+Interval E4 -> C#4 appears 91 times
+Interval A3 -> G#3 appears 91 times
+Interval B-3 -> G#3 appears 91 times
+Interval G4 -> B4 appears 91 times
+Interval C5 -> C#5 appears 91 times
+Interval C4 -> G3 appears 91 times
+Interval F#4 -> G#4 appears 92 times
+Interval F3 -> G3 appears 92 times
+Interval D5 -> B4 appears 92 times
+Interval D5 -> E-5 appears 92 times
+Interval C#4 -> E4 appears 93 times
+Interval B-3 -> G3 appears 93 times
+Interval B4 -> G4 appears 93 times
+Interval G#3 -> A3 appears 94 times
+Interval C#4 -> E-4 appears 94 times
+Interval G#3 -> G3 appears 94 times
+Interval B-4 -> B4 appears 94 times
+Interval G#4 -> B-4 appears 95 times
+Interval B4 -> D5 appears 95 times
+Interval E-5 -> D5 appears 95 times
+Interval C4 -> F4 appears 96 times
+Interval E-4 -> C#4 appears 97 times
+Interval G3 -> F#3 appears 97 times
+Interval D4 -> B3 appears 97 times
+Interval F4 -> G#4 appears 98 times
+Interval G3 -> B-3 appears 98 times
+Interval B-3 -> B3 appears 99 times
+Interval G#4 -> F4 appears 99 times
+Interval F#4 -> E-4 appears 100 times
+Interval C4 -> E4 appears 100 times
+Interval G3 -> F3 appears 100 times
+Interval C4 -> C#4 appears 101 times
+Interval C4 -> E-4 appears 101 times
+Interval A4 -> F4 appears 101 times
+Interval G4 -> D4 appears 102 times
+Interval B-4 -> G4 appears 104 times
+Interval C#4 -> D4 appears 105 times
+Interval A3 -> C4 appears 105 times
+Interval C#5 -> D5 appears 105 times
+Interval B3 -> D4 appears 105 times
+Interval F4 -> A4 appears 105 times
+Interval C#5 -> C5 appears 106 times
+Interval C5 -> A4 appears 106 times
+Interval D5 -> C#5 appears 107 times
+Interval A4 -> F#4 appears 107 times
+Interval G4 -> B-4 appears 107 times
+Interval A3 -> B3 appears 108 times
+Interval A4 -> C5 appears 108 times
+Interval G#4 -> F#4 appears 109 times
+Interval B-4 -> C5 appears 109 times
+Interval B-4 -> G#4 appears 109 times
+Interval B4 -> B-4 appears 109 times
+Interval A3 -> B-3 appears 110 times
+Interval C#4 -> C4 appears 110 times
+Interval E4 -> C4 appears 110 times
+Interval C5 -> D5 appears 110 times
+Interval F4 -> F#4 appears 111 times
+Interval B3 -> A3 appears 111 times
+Interval C5 -> B-4 appears 111 times
+Interval F#4 -> A4 appears 114 times
+Interval G4 -> E-4 appears 114 times
+Interval D4 -> C#4 appears 115 times
+Interval E-4 -> D4 appears 115 times
+Interval G3 -> A3 appears 115 times
+Interval F#4 -> E4 appears 116 times
+Interval C4 -> A3 appears 116 times
+Interval E-4 -> C4 appears 116 times
+Interval B4 -> C5 appears 116 times
+Interval D5 -> C5 appears 116 times
+Interval E4 -> F#4 appears 117 times
+Interval B4 -> A4 appears 117 times
+Interval A3 -> G3 appears 117 times
+Interval B-3 -> A3 appears 117 times
+Interval C5 -> B4 appears 118 times
+Interval E-4 -> F4 appears 118 times
+Interval A4 -> B4 appears 119 times
+Interval B3 -> C4 appears 119 times
+Interval E-4 -> E4 appears 120 times
+Interval D4 -> E-4 appears 120 times
+Interval C4 -> B-3 appears 120 times
+Interval F4 -> D4 appears 121 times
+Interval C4 -> B3 appears 121 times
+Interval E4 -> E-4 appears 122 times
+Interval F#4 -> F4 appears 122 times
+Interval D4 -> E4 appears 123 times
+Interval D4 -> F4 appears 123 times
+Interval B-3 -> C4 appears 124 times
+Interval A4 -> B-4 appears 125 times
+Interval G#4 -> A4 appears 126 times
+Interval E4 -> G4 appears 127 times
+Interval A4 -> G#4 appears 128 times
+Interval G#4 -> G4 appears 130 times
+Interval G4 -> E4 appears 131 times
+Interval G4 -> G#4 appears 131 times
+Interval B-4 -> A4 appears 131 times
+Interval F4 -> E4 appears 131 times
+Interval E4 -> D4 appears 133 times
+Interval E4 -> F4 appears 134 times
+Interval C4 -> D4 appears 134 times
+Interval G4 -> F#4 appears 139 times
+Interval F4 -> E-4 appears 139 times
+Interval G4 -> A4 appears 139 times
+Interval F#4 -> G4 appears 140 times
+Interval G4 -> F4 appears 142 times
+Interval F4 -> G4 appears 142 times
+Interval D4 -> C4 appears 145 times
+Interval A4 -> G4 appears 146 times
+Interval from B-2 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-2 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-2 to E4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-2 to F#4 not found in Tenor solos
+Interval from B-2 to G4 not found in Tenor solos
+Interval from B-2 to D5 not found in Tenor solos
+Interval from B-2 to E-5 not found in Tenor solos
+Interval from B-2 to F5 not found in Tenor solos
+Interval from B2 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B2 to E4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B2 to F#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B2 to G#4 not found in Tenor solos
+Interval from B2 to D5 not found in Tenor solos
+Interval from B2 to E-5 not found in Tenor solos
+Interval from B2 to E5 not found in Tenor solos
+Interval from C3 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C3 to G#4 not found in Tenor solos
+Interval from C3 to B4 not found in Tenor solos
+Interval from C3 to C#5 not found in Tenor solos
+Interval from C3 to D5 not found in Tenor solos
+Interval from C3 to E-5 not found in Tenor solos
+Interval from C3 to E5 not found in Tenor solos
+Interval from C3 to F5 not found in Tenor solos
+Interval from C#3 to B-2 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#3 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#3 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#3 to E4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#3 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#3 to B-4 not found in Tenor solos
+Interval from C#3 to C#5 not found in Tenor solos
+Interval from C#3 to D5 not found in Tenor solos
+Interval from C#3 to E-5 not found in Tenor solos
+Interval from C#3 to E5 not found in Tenor solos
+Interval from C#3 to F5 not found in Tenor solos
+Interval from D3 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D3 to A4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D3 to C#5 not found in Tenor solos
+Interval from D3 to D5 not found in Tenor solos
+Interval from D3 to F5 not found in Tenor solos
+Interval from E-3 to B-2 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-3 to F4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-3 to G4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-3 to A4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-3 to B4 not found in Tenor solos
+Interval from E-3 to C#5 not found in Tenor solos
+Interval from E-3 to D5 not found in Tenor solos
+Interval from E-3 to E-5 not found in Tenor solos
+Interval from E-3 to E5 not found in Tenor solos
+Interval from E-3 to F5 not found in Tenor solos
+Interval from E3 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E3 to F5 not found in Tenor solos
+Interval from F3 to F5 not found in Tenor solos
+Interval from F#3 to B-2 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#3 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#3 to D5 not found in Tenor solos
+Interval from F#3 to F5 not found in Tenor solos
+Interval from G3 to F5 not found in Tenor solos
+Interval from G#3 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to E5 not found in Tenor solos
+Interval from G#3 to F5 not found in Tenor solos
+Interval from A3 to B2 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A3 to F5 not found in Tenor solos
+Interval from B-3 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B3 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C4 to C#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#4 to B-2 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#4 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D4 to C3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to B2 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to C3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to C#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to D3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to E-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to E3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E4 to B-2 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E4 to C3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F4 to D3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F4 to E3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#4 to C#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#4 to D3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#4 to E3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to B-2 not found in Tenor solos
+Interval from G#4 to B2 not found in Tenor solos
+Interval from G#4 to C#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to D3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to E-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to E3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to F#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A4 to B-2 not found in Tenor solos
+Interval from A4 to C#3 not found in Tenor solos
+Interval from A4 to D3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A4 to E-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A4 to E3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A4 to F#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to C3 not found in Tenor solos
+Interval from B-4 to C#3 not found in Tenor solos
+Interval from B-4 to D3 not found in Tenor solos
+Interval from B-4 to E-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to E3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to F#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to B-2 not found in Tenor solos
+Interval from B4 to C3 not found in Tenor solos
+Interval from B4 to C#3 not found in Tenor solos
+Interval from B4 to E3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C5 to E3 not found in Tenor solos
+Interval from C5 to F3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C5 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to B-2 not found in Tenor solos
+Interval from C#5 to B2 not found in Tenor solos
+Interval from C#5 to C3 not found in Tenor solos
+Interval from C#5 to E-3 not found in Tenor solos
+Interval from C#5 to F3 not found in Tenor solos
+Interval from C#5 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to A3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to B-2 not found in Tenor solos
+Interval from D5 to D3 not found in Tenor solos
+Interval from D5 to E-3 not found in Tenor solos
+Interval from D5 to E3 not found in Tenor solos
+Interval from E-5 to D3 not found in Tenor solos
+Interval from E-5 to E-3 not found in Tenor solos
+Interval from E-5 to E3 not found in Tenor solos
+Interval from E-5 to F#3 not found in Tenor solos
+Interval from E-5 to G3 not found in Tenor solos
+Interval from E-5 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to B3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to B-2 not found in Tenor solos
+Interval from E5 to B2 not found in Tenor solos
+Interval from E5 to C3 not found in Tenor solos
+Interval from E5 to C#3 not found in Tenor solos
+Interval from E5 to D3 not found in Tenor solos
+Interval from E5 to E-3 not found in Tenor solos
+Interval from E5 to E3 not found in Tenor solos
+Interval from E5 to F3 not found in Tenor solos
+Interval from E5 to F#3 not found in Tenor solos
+Interval from E5 to G#3 not found in Tenor solos
+Interval from E5 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to C#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to B-2 not found in Tenor solos
+Interval from F5 to C3 not found in Tenor solos
+Interval from F5 to E-3 not found in Tenor solos
+Interval from F5 to E3 not found in Tenor solos
+Interval from F5 to G3 not found in Tenor solos
+Interval from F5 to G#3 not found in Tenor solos
+Interval from F5 to A3 not found in Tenor solos
+Interval from F5 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to C#4 not found in Tenor solos
+======= WARNING!!!!! ========
