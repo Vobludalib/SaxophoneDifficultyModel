@@ -33,5 +33,5 @@ for key in keys_dict.keys():
 tonalities = [i for i in range(-12, 13)]
 occurences = [tonalityDegrees.get(i, 0) for i in range(-12, 13)]
 plt.bar(tonalities, occurences)
-plt.show()
+plt.savefig("./keys.png")
 pprint.pprint(tonalityDegrees)
