@@ -46,18 +46,18 @@ for key in outputDict:
     pitch2 = pitch2.nameWithOctave
     print(f"Interval {pitch1} -> {pitch2} appears {bigramDict[key]} times")
 
-# for i in range(44, 76):
-#     for j in range (44, 76):
-#         val = bigramDict.get(f"{i},{j}", -1)
-#         if val == -1 or val == 0:
-#             pitch1 = music21.note.Note(int(i) + 2 if TRANSPOSEINTOBB else 0)
-#             pitch2 = music21.note.Note(int(j) + 2 if TRANSPOSEINTOBB else 0)
-#             print(f"Interval from {pitch1.nameWithOctave} to {pitch2.nameWithOctave} not found in Tenor solos")
-#             if abs(pitch1.pitch.midi - pitch2.pitch.midi) < 20:
-#                 print("======= WARNING!!!!! ========")
+for i in range(53, 92):
+    for j in range (53, 92):
+        val = bigramDict.get(f"{i},{j}", -1)
+        if val == -1 or val == 0:
+            pitch1 = music21.note.Note(int(i) + 2 if TRANSPOSEINTOBB else 0)
+            pitch2 = music21.note.Note(int(j) + 2 if TRANSPOSEINTOBB else 0)
+            print(f"Interval from {pitch1.nameWithOctave} to {pitch2.nameWithOctave} not found in Tenor solos")
+            if abs(pitch1.pitch.midi - pitch2.pitch.midi) < 20:
+                print("======= WARNING!!!!! ========")
 
-plt.bar(pitchFrequency.keys(), pitchFrequency.values())
-plt.show()
+# plt.bar(pitchFrequency.keys(), pitchFrequency.values())
+# plt.show()
 
 # TS =====
 #45 is lowest in dataset - THIS IS IN BB

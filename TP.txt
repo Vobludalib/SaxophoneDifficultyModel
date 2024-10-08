@@ -1,0 +1,1908 @@
+Interval C5 -> B3 appears 1 times
+Interval A3 -> A4 appears 1 times
+Interval F6 -> C#6 appears 1 times
+Interval C#6 -> E5 appears 1 times
+Interval C5 -> C#6 appears 1 times
+Interval F4 -> C6 appears 1 times
+Interval A3 -> C#5 appears 1 times
+Interval E4 -> G3 appears 1 times
+Interval G3 -> C5 appears 1 times
+Interval E4 -> B5 appears 1 times
+Interval C#4 -> B4 appears 1 times
+Interval C4 -> G3 appears 1 times
+Interval G3 -> E5 appears 1 times
+Interval G#4 -> A5 appears 1 times
+Interval G#4 -> C#4 appears 1 times
+Interval A4 -> B3 appears 1 times
+Interval A4 -> C6 appears 1 times
+Interval E-5 -> B5 appears 1 times
+Interval E4 -> E-5 appears 1 times
+Interval G#4 -> B-3 appears 1 times
+Interval E-4 -> B5 appears 1 times
+Interval A3 -> E-5 appears 1 times
+Interval D4 -> E-5 appears 1 times
+Interval B3 -> B-4 appears 1 times
+Interval C5 -> C#4 appears 1 times
+Interval F6 -> B-5 appears 1 times
+Interval F#6 -> C#6 appears 1 times
+Interval D6 -> E5 appears 1 times
+Interval C5 -> E-6 appears 1 times
+Interval B-4 -> D6 appears 1 times
+Interval F#4 -> A3 appears 1 times
+Interval E5 -> F6 appears 1 times
+Interval G#5 -> E-6 appears 1 times
+Interval E6 -> G5 appears 1 times
+Interval E6 -> E6 appears 1 times
+Interval G6 -> G6 appears 1 times
+Interval C#6 -> C5 appears 1 times
+Interval B4 -> D6 appears 1 times
+Interval C6 -> F6 appears 1 times
+Interval G4 -> E6 appears 1 times
+Interval G#5 -> E6 appears 1 times
+Interval B-5 -> A4 appears 1 times
+Interval F#4 -> F#6 appears 1 times
+Interval G#5 -> D6 appears 1 times
+Interval D4 -> B5 appears 1 times
+Interval B3 -> F#5 appears 1 times
+Interval C4 -> A5 appears 1 times
+Interval B5 -> F#4 appears 1 times
+Interval F#5 -> F4 appears 1 times
+Interval D5 -> A3 appears 1 times
+Interval A3 -> E-4 appears 1 times
+Interval B5 -> C5 appears 1 times
+Interval C#5 -> C#4 appears 1 times
+Interval C#4 -> C5 appears 1 times
+Interval A5 -> B-4 appears 1 times
+Interval E-5 -> E4 appears 1 times
+Interval E5 -> E6 appears 1 times
+Interval E6 -> C5 appears 1 times
+Interval C5 -> F#6 appears 1 times
+Interval F4 -> F#5 appears 1 times
+Interval C6 -> G4 appears 1 times
+Interval G#5 -> G#4 appears 1 times
+Interval B-4 -> B5 appears 1 times
+Interval E-6 -> G5 appears 1 times
+Interval E5 -> G6 appears 1 times
+Interval G6 -> E5 appears 1 times
+Interval G3 -> F5 appears 1 times
+Interval G#3 -> C#4 appears 1 times
+Interval B3 -> G#4 appears 1 times
+Interval F#6 -> B4 appears 1 times
+Interval B5 -> D5 appears 1 times
+Interval A3 -> A5 appears 1 times
+Interval F5 -> C#6 appears 1 times
+Interval C#5 -> C#6 appears 1 times
+Interval C4 -> F5 appears 1 times
+Interval F#4 -> C6 appears 1 times
+Interval B-4 -> C#6 appears 1 times
+Interval A3 -> G5 appears 1 times
+Interval D4 -> B-5 appears 1 times
+Interval E-4 -> A5 appears 1 times
+Interval F#4 -> C#6 appears 1 times
+Interval G#6 -> A4 appears 1 times
+Interval G#3 -> A4 appears 1 times
+Interval A3 -> F3 appears 1 times
+Interval F3 -> G#3 appears 1 times
+Interval G#3 -> G5 appears 1 times
+Interval B5 -> F#6 appears 1 times
+Interval F#6 -> B5 appears 1 times
+Interval F5 -> E-6 appears 1 times
+Interval A6 -> G#6 appears 1 times
+Interval G5 -> B-6 appears 1 times
+Interval B-3 -> E-7 appears 1 times
+Interval E-7 -> D7 appears 1 times
+Interval D7 -> C7 appears 1 times
+Interval C7 -> C4 appears 1 times
+Interval C4 -> G5 appears 1 times
+Interval F5 -> E6 appears 1 times
+Interval B-6 -> B6 appears 1 times
+Interval B6 -> A6 appears 1 times
+Interval A6 -> G6 appears 1 times
+Interval C#6 -> F#6 appears 1 times
+Interval F#6 -> A5 appears 1 times
+Interval E-5 -> E-4 appears 1 times
+Interval C#4 -> G3 appears 1 times
+Interval G#3 -> C4 appears 1 times
+Interval C#4 -> G#4 appears 1 times
+Interval D4 -> F#5 appears 1 times
+Interval C4 -> E-5 appears 1 times
+Interval C4 -> D5 appears 1 times
+Interval E5 -> F#4 appears 1 times
+Interval E5 -> B6 appears 1 times
+Interval B6 -> E-5 appears 1 times
+Interval A5 -> B4 appears 1 times
+Interval D4 -> G#3 appears 1 times
+Interval F4 -> G3 appears 1 times
+Interval G#6 -> G4 appears 1 times
+Interval D4 -> G#5 appears 1 times
+Interval D6 -> D5 appears 1 times
+Interval F4 -> F6 appears 1 times
+Interval B-4 -> C4 appears 1 times
+Interval F5 -> E4 appears 1 times
+Interval G#6 -> G#6 appears 1 times
+Interval F#6 -> B-5 appears 1 times
+Interval G6 -> E-6 appears 1 times
+Interval D5 -> C4 appears 1 times
+Interval C#4 -> F#5 appears 1 times
+Interval G3 -> F4 appears 1 times
+Interval G3 -> B3 appears 1 times
+Interval D6 -> G4 appears 1 times
+Interval G3 -> G5 appears 1 times
+Interval G3 -> D5 appears 1 times
+Interval A5 -> F#6 appears 1 times
+Interval G#6 -> B-5 appears 1 times
+Interval A3 -> B-4 appears 1 times
+Interval G#6 -> G#5 appears 1 times
+Interval F4 -> F#3 appears 1 times
+Interval F#3 -> E4 appears 1 times
+Interval F#5 -> G#4 appears 1 times
+Interval C4 -> B4 appears 1 times
+Interval G#6 -> B-6 appears 1 times
+Interval B-6 -> A6 appears 1 times
+Interval B-6 -> G6 appears 1 times
+Interval C#6 -> G#5 appears 1 times
+Interval E5 -> E-6 appears 1 times
+Interval B-5 -> G4 appears 1 times
+Interval A5 -> F#4 appears 1 times
+Interval F#5 -> C#4 appears 1 times
+Interval F4 -> B-5 appears 1 times
+Interval C4 -> C#5 appears 1 times
+Interval D5 -> D4 appears 1 times
+Interval A3 -> C5 appears 1 times
+Interval E-4 -> G#3 appears 1 times
+Interval E-6 -> F#5 appears 1 times
+Interval F#4 -> G#6 appears 1 times
+Interval A3 -> G#3 appears 1 times
+Interval F#3 -> G#3 appears 1 times
+Interval A3 -> F#3 appears 1 times
+Interval F#3 -> G#5 appears 1 times
+Interval F#3 -> A3 appears 1 times
+Interval E6 -> B-5 appears 1 times
+Interval E-5 -> E6 appears 1 times
+Interval F#4 -> G3 appears 1 times
+Interval G3 -> C4 appears 1 times
+Interval A3 -> F4 appears 1 times
+Interval G#5 -> C#6 appears 1 times
+Interval A5 -> G4 appears 1 times
+Interval B-3 -> F#3 appears 1 times
+Interval G3 -> D4 appears 1 times
+Interval G5 -> E4 appears 1 times
+Interval G5 -> F4 appears 1 times
+Interval F#5 -> D6 appears 1 times
+Interval C#4 -> G5 appears 1 times
+Interval E-4 -> A3 appears 1 times
+Interval F#3 -> F3 appears 1 times
+Interval B-5 -> B-4 appears 2 times
+Interval C4 -> B-5 appears 2 times
+Interval F#4 -> A5 appears 2 times
+Interval A4 -> C4 appears 2 times
+Interval G3 -> G#3 appears 2 times
+Interval B5 -> E-5 appears 2 times
+Interval F6 -> F6 appears 2 times
+Interval C#6 -> E-5 appears 2 times
+Interval C#6 -> G6 appears 2 times
+Interval A3 -> A3 appears 2 times
+Interval G#4 -> B-5 appears 2 times
+Interval C#4 -> E5 appears 2 times
+Interval A3 -> B4 appears 2 times
+Interval G#3 -> B3 appears 2 times
+Interval C#4 -> C#5 appears 2 times
+Interval B-3 -> E4 appears 2 times
+Interval F4 -> A5 appears 2 times
+Interval A5 -> E-6 appears 2 times
+Interval E4 -> A3 appears 2 times
+Interval G#3 -> E-4 appears 2 times
+Interval B3 -> G3 appears 2 times
+Interval E4 -> A5 appears 2 times
+Interval D4 -> C#5 appears 2 times
+Interval G#4 -> C4 appears 2 times
+Interval C5 -> D4 appears 2 times
+Interval B-3 -> C#5 appears 2 times
+Interval F5 -> F6 appears 2 times
+Interval G6 -> C6 appears 2 times
+Interval E6 -> G#6 appears 2 times
+Interval E-6 -> G#5 appears 2 times
+Interval D5 -> E6 appears 2 times
+Interval G6 -> D6 appears 2 times
+Interval F6 -> B5 appears 2 times
+Interval G6 -> C#6 appears 2 times
+Interval C#6 -> G#6 appears 2 times
+Interval G#6 -> E-6 appears 2 times
+Interval G5 -> E-6 appears 2 times
+Interval A4 -> D6 appears 2 times
+Interval E-4 -> F5 appears 2 times
+Interval F#4 -> B5 appears 2 times
+Interval E6 -> B5 appears 2 times
+Interval G#5 -> B4 appears 2 times
+Interval E4 -> F#5 appears 2 times
+Interval F#5 -> G4 appears 2 times
+Interval B-5 -> B4 appears 2 times
+Interval C#4 -> C6 appears 2 times
+Interval B-3 -> C5 appears 2 times
+Interval G4 -> B5 appears 2 times
+Interval D5 -> B-5 appears 2 times
+Interval A4 -> E-6 appears 2 times
+Interval G6 -> A5 appears 2 times
+Interval D5 -> E-4 appears 2 times
+Interval A4 -> B-5 appears 2 times
+Interval G#4 -> B3 appears 2 times
+Interval C#6 -> F#5 appears 2 times
+Interval C6 -> C#5 appears 2 times
+Interval G4 -> G#5 appears 2 times
+Interval A4 -> B5 appears 2 times
+Interval C4 -> C6 appears 2 times
+Interval F5 -> F#4 appears 2 times
+Interval G#6 -> A6 appears 2 times
+Interval B-6 -> G#6 appears 2 times
+Interval B3 -> A4 appears 2 times
+Interval E6 -> F#6 appears 2 times
+Interval F6 -> C6 appears 2 times
+Interval A6 -> B-6 appears 2 times
+Interval F#4 -> G5 appears 2 times
+Interval B3 -> E-5 appears 2 times
+Interval D4 -> G3 appears 2 times
+Interval B-3 -> G#4 appears 2 times
+Interval F5 -> B5 appears 2 times
+Interval B5 -> C#5 appears 2 times
+Interval A5 -> C5 appears 2 times
+Interval F4 -> A3 appears 2 times
+Interval G#6 -> F#6 appears 2 times
+Interval F5 -> D6 appears 2 times
+Interval B-5 -> E6 appears 2 times
+Interval G5 -> F#6 appears 2 times
+Interval F#6 -> G#6 appears 2 times
+Interval F#6 -> E-6 appears 2 times
+Interval F4 -> C#6 appears 2 times
+Interval C#4 -> G#3 appears 2 times
+Interval G3 -> F#3 appears 2 times
+Interval F#3 -> G3 appears 2 times
+Interval D5 -> C6 appears 2 times
+Interval B-4 -> B-3 appears 2 times
+Interval G#3 -> G3 appears 2 times
+Interval G#3 -> F#3 appears 2 times
+Interval G5 -> G#4 appears 2 times
+Interval B-3 -> F#4 appears 3 times
+Interval C#5 -> B-5 appears 3 times
+Interval C#4 -> C#4 appears 3 times
+Interval C#4 -> A3 appears 3 times
+Interval A4 -> C#4 appears 3 times
+Interval F4 -> B3 appears 3 times
+Interval G#4 -> D4 appears 3 times
+Interval B3 -> G#3 appears 3 times
+Interval G4 -> C#4 appears 3 times
+Interval G4 -> B3 appears 3 times
+Interval B3 -> B4 appears 3 times
+Interval C#5 -> A5 appears 3 times
+Interval B5 -> F5 appears 3 times
+Interval B5 -> F6 appears 3 times
+Interval F6 -> G#6 appears 3 times
+Interval C5 -> B5 appears 3 times
+Interval C#5 -> G#5 appears 3 times
+Interval C4 -> G#4 appears 3 times
+Interval F#5 -> B-4 appears 3 times
+Interval B-3 -> E-4 appears 3 times
+Interval E-4 -> C#5 appears 3 times
+Interval C4 -> F#4 appears 3 times
+Interval F5 -> G4 appears 3 times
+Interval C4 -> E5 appears 3 times
+Interval D4 -> G#4 appears 3 times
+Interval D6 -> G#5 appears 3 times
+Interval A3 -> C#4 appears 3 times
+Interval B4 -> C4 appears 3 times
+Interval E4 -> B-3 appears 3 times
+Interval F#4 -> B-3 appears 3 times
+Interval G6 -> E6 appears 3 times
+Interval G5 -> E6 appears 3 times
+Interval C5 -> D6 appears 3 times
+Interval C#6 -> E6 appears 3 times
+Interval G5 -> G6 appears 3 times
+Interval B5 -> E-6 appears 3 times
+Interval D4 -> F5 appears 3 times
+Interval C#6 -> F6 appears 3 times
+Interval G#6 -> F6 appears 3 times
+Interval D6 -> G6 appears 3 times
+Interval E-6 -> G6 appears 3 times
+Interval E4 -> D5 appears 3 times
+Interval F#4 -> G#5 appears 3 times
+Interval F#4 -> F5 appears 3 times
+Interval C5 -> C6 appears 3 times
+Interval B-4 -> G#5 appears 3 times
+Interval B4 -> B3 appears 3 times
+Interval D4 -> G5 appears 3 times
+Interval D4 -> C5 appears 3 times
+Interval G3 -> B-3 appears 3 times
+Interval G#4 -> F5 appears 3 times
+Interval C#5 -> E-4 appears 3 times
+Interval G3 -> G3 appears 3 times
+Interval E4 -> G5 appears 3 times
+Interval E5 -> C#6 appears 3 times
+Interval D4 -> E5 appears 3 times
+Interval C#6 -> G5 appears 3 times
+Interval A5 -> C#5 appears 3 times
+Interval B-5 -> E-5 appears 3 times
+Interval F4 -> B5 appears 3 times
+Interval B-3 -> A4 appears 3 times
+Interval B4 -> E-4 appears 3 times
+Interval G3 -> G4 appears 3 times
+Interval F#4 -> F#5 appears 3 times
+Interval B-5 -> C5 appears 4 times
+Interval D5 -> B5 appears 4 times
+Interval G4 -> C6 appears 4 times
+Interval E5 -> G#4 appears 4 times
+Interval G#5 -> D5 appears 4 times
+Interval E-6 -> F#6 appears 4 times
+Interval E5 -> F4 appears 4 times
+Interval G#6 -> E6 appears 4 times
+Interval C#4 -> B-4 appears 4 times
+Interval A5 -> A4 appears 4 times
+Interval F#4 -> D5 appears 4 times
+Interval F4 -> B-3 appears 4 times
+Interval B-4 -> B-5 appears 4 times
+Interval G4 -> B-3 appears 4 times
+Interval E-4 -> E-5 appears 4 times
+Interval G#5 -> C#5 appears 4 times
+Interval E-6 -> B-5 appears 4 times
+Interval E6 -> G6 appears 4 times
+Interval E-6 -> A5 appears 4 times
+Interval B5 -> E6 appears 4 times
+Interval E-5 -> B-5 appears 4 times
+Interval C6 -> E-5 appears 4 times
+Interval G4 -> D6 appears 4 times
+Interval F#6 -> D6 appears 4 times
+Interval F#5 -> C#6 appears 4 times
+Interval B-3 -> G4 appears 4 times
+Interval B-5 -> D5 appears 4 times
+Interval E-4 -> D5 appears 4 times
+Interval C6 -> G6 appears 4 times
+Interval F6 -> G6 appears 4 times
+Interval D5 -> G#5 appears 4 times
+Interval E-4 -> F#5 appears 4 times
+Interval E5 -> E4 appears 4 times
+Interval A3 -> E4 appears 4 times
+Interval B4 -> B-5 appears 4 times
+Interval C6 -> E5 appears 4 times
+Interval B-3 -> G#3 appears 4 times
+Interval A3 -> G3 appears 4 times
+Interval G4 -> A5 appears 4 times
+Interval C6 -> F5 appears 4 times
+Interval C4 -> A4 appears 4 times
+Interval F4 -> F5 appears 4 times
+Interval E-5 -> F4 appears 4 times
+Interval G5 -> A4 appears 4 times
+Interval C6 -> F#5 appears 4 times
+Interval D4 -> D5 appears 5 times
+Interval E4 -> E5 appears 5 times
+Interval F5 -> G#4 appears 5 times
+Interval G4 -> F#5 appears 5 times
+Interval D5 -> E4 appears 5 times
+Interval B5 -> E5 appears 5 times
+Interval B3 -> E4 appears 5 times
+Interval E6 -> C#6 appears 5 times
+Interval B4 -> E4 appears 5 times
+Interval F6 -> D6 appears 5 times
+Interval G#5 -> C5 appears 5 times
+Interval F4 -> C#5 appears 5 times
+Interval B-3 -> C#4 appears 5 times
+Interval B-3 -> F4 appears 5 times
+Interval G#4 -> G5 appears 5 times
+Interval C4 -> G#3 appears 5 times
+Interval D4 -> B-4 appears 5 times
+Interval B5 -> F#5 appears 5 times
+Interval C6 -> E6 appears 5 times
+Interval G3 -> A3 appears 5 times
+Interval C4 -> C5 appears 5 times
+Interval E-6 -> C#6 appears 5 times
+Interval A3 -> C4 appears 5 times
+Interval G#6 -> G6 appears 5 times
+Interval G5 -> D6 appears 5 times
+Interval D6 -> F#6 appears 5 times
+Interval E-4 -> C5 appears 5 times
+Interval B-5 -> E5 appears 5 times
+Interval C#4 -> F#4 appears 5 times
+Interval B4 -> G#5 appears 5 times
+Interval A4 -> G#5 appears 5 times
+Interval E-6 -> E-6 appears 5 times
+Interval B3 -> G4 appears 5 times
+Interval C5 -> A5 appears 5 times
+Interval B-4 -> E-4 appears 6 times
+Interval E-4 -> B-3 appears 6 times
+Interval A4 -> F#5 appears 6 times
+Interval E5 -> C6 appears 6 times
+Interval F4 -> E5 appears 6 times
+Interval D4 -> A3 appears 6 times
+Interval G4 -> B-5 appears 6 times
+Interval C#5 -> F#4 appears 6 times
+Interval F#4 -> C#4 appears 6 times
+Interval E4 -> C#5 appears 6 times
+Interval B4 -> D4 appears 6 times
+Interval C#4 -> G4 appears 6 times
+Interval B-4 -> D4 appears 6 times
+Interval B-3 -> G3 appears 6 times
+Interval C5 -> E4 appears 6 times
+Interval C5 -> C4 appears 6 times
+Interval C4 -> B-4 appears 6 times
+Interval F#4 -> C4 appears 6 times
+Interval C5 -> E-4 appears 6 times
+Interval E5 -> B-4 appears 6 times
+Interval C#5 -> F4 appears 6 times
+Interval C#4 -> A4 appears 6 times
+Interval D6 -> G5 appears 6 times
+Interval B-4 -> A5 appears 6 times
+Interval C#6 -> A5 appears 6 times
+Interval E4 -> B-4 appears 6 times
+Interval B3 -> F4 appears 6 times
+Interval B-3 -> B-3 appears 6 times
+Interval E-5 -> A5 appears 6 times
+Interval B-4 -> C#4 appears 6 times
+Interval G#4 -> F#5 appears 6 times
+Interval G6 -> F6 appears 6 times
+Interval G#4 -> D5 appears 6 times
+Interval B-5 -> E-6 appears 6 times
+Interval B-4 -> F#5 appears 6 times
+Interval G5 -> C#6 appears 6 times
+Interval G5 -> C#5 appears 6 times
+Interval G5 -> B-4 appears 6 times
+Interval B4 -> A5 appears 6 times
+Interval F5 -> C6 appears 6 times
+Interval G#3 -> B-3 appears 6 times
+Interval C4 -> C4 appears 7 times
+Interval G5 -> G4 appears 7 times
+Interval D5 -> F#4 appears 7 times
+Interval B3 -> C#4 appears 7 times
+Interval F#4 -> B3 appears 7 times
+Interval A5 -> D5 appears 7 times
+Interval A5 -> E-5 appears 7 times
+Interval A4 -> E-4 appears 7 times
+Interval G#3 -> A3 appears 7 times
+Interval B3 -> F#4 appears 7 times
+Interval F#6 -> E6 appears 7 times
+Interval E-4 -> E-4 appears 7 times
+Interval B-5 -> F5 appears 7 times
+Interval G#5 -> E-5 appears 7 times
+Interval E-4 -> B4 appears 7 times
+Interval C#5 -> E4 appears 7 times
+Interval A3 -> D4 appears 7 times
+Interval A4 -> A5 appears 7 times
+Interval G5 -> B4 appears 7 times
+Interval F#5 -> A4 appears 7 times
+Interval F#6 -> G6 appears 7 times
+Interval F#5 -> B-5 appears 7 times
+Interval C#4 -> B-3 appears 7 times
+Interval F4 -> G5 appears 7 times
+Interval F#4 -> E-5 appears 7 times
+Interval C5 -> B-5 appears 8 times
+Interval A5 -> D6 appears 8 times
+Interval B-3 -> D4 appears 8 times
+Interval D5 -> F4 appears 8 times
+Interval D4 -> B4 appears 8 times
+Interval B3 -> B3 appears 8 times
+Interval E5 -> B-5 appears 8 times
+Interval F#6 -> F6 appears 8 times
+Interval E4 -> B3 appears 8 times
+Interval F5 -> B4 appears 8 times
+Interval C#4 -> E-4 appears 8 times
+Interval G6 -> F#6 appears 8 times
+Interval E-4 -> A4 appears 8 times
+Interval C#6 -> C#6 appears 8 times
+Interval F#4 -> E5 appears 8 times
+Interval B-4 -> E4 appears 8 times
+Interval C6 -> G#5 appears 8 times
+Interval G#5 -> C6 appears 8 times
+Interval C#6 -> E-6 appears 8 times
+Interval F6 -> F#6 appears 8 times
+Interval B-3 -> A3 appears 8 times
+Interval G6 -> G#6 appears 8 times
+Interval C5 -> G#5 appears 8 times
+Interval A4 -> D4 appears 9 times
+Interval A4 -> F5 appears 9 times
+Interval F#5 -> B4 appears 9 times
+Interval E6 -> F6 appears 9 times
+Interval E-5 -> F#4 appears 9 times
+Interval D4 -> A4 appears 9 times
+Interval E4 -> B4 appears 9 times
+Interval E-4 -> B-4 appears 9 times
+Interval E5 -> B5 appears 9 times
+Interval B4 -> F4 appears 9 times
+Interval C6 -> E-6 appears 9 times
+Interval F6 -> E-6 appears 9 times
+Interval E-6 -> C6 appears 9 times
+Interval E-5 -> A4 appears 9 times
+Interval C4 -> G4 appears 9 times
+Interval E-6 -> F6 appears 9 times
+Interval B3 -> D4 appears 10 times
+Interval E4 -> E4 appears 10 times
+Interval E5 -> G4 appears 10 times
+Interval G4 -> F5 appears 10 times
+Interval E4 -> C5 appears 10 times
+Interval E-4 -> G#4 appears 10 times
+Interval D6 -> F6 appears 10 times
+Interval D6 -> D6 appears 10 times
+Interval D6 -> B-5 appears 10 times
+Interval G#4 -> C#5 appears 10 times
+Interval B3 -> B-3 appears 10 times
+Interval C4 -> C#4 appears 10 times
+Interval F#4 -> C#5 appears 10 times
+Interval F4 -> D5 appears 10 times
+Interval G#4 -> E5 appears 10 times
+Interval E6 -> C6 appears 10 times
+Interval F#5 -> C5 appears 10 times
+Interval A4 -> G5 appears 10 times
+Interval C#5 -> G4 appears 10 times
+Interval G4 -> E5 appears 10 times
+Interval E-5 -> G4 appears 11 times
+Interval G#4 -> G#4 appears 11 times
+Interval A3 -> B-3 appears 11 times
+Interval B3 -> E-4 appears 11 times
+Interval B5 -> G#5 appears 11 times
+Interval F4 -> B4 appears 11 times
+Interval G#4 -> E-5 appears 11 times
+Interval F#4 -> C5 appears 11 times
+Interval B-5 -> D6 appears 11 times
+Interval C#6 -> B-5 appears 11 times
+Interval B-4 -> E5 appears 12 times
+Interval D6 -> B5 appears 12 times
+Interval A3 -> B3 appears 12 times
+Interval C#4 -> F4 appears 12 times
+Interval C#5 -> F#5 appears 12 times
+Interval D4 -> B-3 appears 12 times
+Interval C#5 -> F5 appears 12 times
+Interval F#5 -> B5 appears 12 times
+Interval D5 -> G#4 appears 12 times
+Interval E4 -> C#4 appears 12 times
+Interval B-4 -> G5 appears 12 times
+Interval G5 -> C6 appears 12 times
+Interval D6 -> E6 appears 13 times
+Interval F4 -> E-5 appears 13 times
+Interval C#4 -> E4 appears 13 times
+Interval E4 -> G#4 appears 13 times
+Interval B4 -> F#5 appears 13 times
+Interval E6 -> E-6 appears 13 times
+Interval E-6 -> E6 appears 13 times
+Interval A5 -> C#6 appears 13 times
+Interval F5 -> A4 appears 13 times
+Interval G4 -> G5 appears 13 times
+Interval E-5 -> G#4 appears 13 times
+Interval C6 -> C#6 appears 13 times
+Interval B5 -> C#6 appears 13 times
+Interval D6 -> A5 appears 14 times
+Interval B4 -> F5 appears 14 times
+Interval D5 -> A5 appears 14 times
+Interval D4 -> D4 appears 14 times
+Interval D4 -> F#4 appears 14 times
+Interval C#4 -> B3 appears 14 times
+Interval F#5 -> C#5 appears 14 times
+Interval C4 -> A3 appears 14 times
+Interval D4 -> B3 appears 14 times
+Interval E-4 -> B3 appears 14 times
+Interval B-5 -> C#6 appears 14 times
+Interval C#5 -> G#4 appears 14 times
+Interval C#5 -> G5 appears 14 times
+Interval F5 -> B-4 appears 14 times
+Interval C6 -> G5 appears 14 times
+Interval A4 -> E-5 appears 15 times
+Interval B3 -> A3 appears 15 times
+Interval G4 -> C#5 appears 15 times
+Interval G5 -> C5 appears 16 times
+Interval B5 -> D6 appears 16 times
+Interval A4 -> E5 appears 16 times
+Interval B-5 -> F#5 appears 16 times
+Interval E4 -> A4 appears 16 times
+Interval G#5 -> G#5 appears 16 times
+Interval G#5 -> B5 appears 16 times
+Interval G#5 -> E5 appears 16 times
+Interval C#6 -> B5 appears 16 times
+Interval B5 -> B5 appears 16 times
+Interval E-5 -> G#5 appears 16 times
+Interval G#4 -> E-4 appears 16 times
+Interval C#4 -> C4 appears 16 times
+Interval A5 -> F5 appears 16 times
+Interval B-3 -> B3 appears 16 times
+Interval B4 -> G5 appears 16 times
+Interval G4 -> E-5 appears 16 times
+Interval F5 -> B-5 appears 17 times
+Interval E5 -> A4 appears 17 times
+Interval E5 -> G#5 appears 17 times
+Interval G4 -> C4 appears 18 times
+Interval C#4 -> D4 appears 18 times
+Interval D4 -> C#4 appears 18 times
+Interval B-4 -> F5 appears 18 times
+Interval C5 -> F4 appears 18 times
+Interval D6 -> E-6 appears 18 times
+Interval C5 -> F#4 appears 19 times
+Interval E-4 -> G4 appears 19 times
+Interval F6 -> E6 appears 19 times
+Interval E-4 -> C#4 appears 19 times
+Interval C5 -> F#5 appears 19 times
+Interval C6 -> C6 appears 19 times
+Interval F4 -> C4 appears 20 times
+Interval F4 -> C#4 appears 20 times
+Interval C4 -> E4 appears 20 times
+Interval G#4 -> E4 appears 20 times
+Interval D5 -> G4 appears 20 times
+Interval G4 -> D5 appears 21 times
+Interval A4 -> E4 appears 21 times
+Interval C#5 -> C#5 appears 21 times
+Interval F#4 -> D4 appears 21 times
+Interval F4 -> C5 appears 21 times
+Interval B-3 -> C4 appears 21 times
+Interval C4 -> F4 appears 21 times
+Interval D6 -> C#6 appears 21 times
+Interval B4 -> F#4 appears 22 times
+Interval B-5 -> B-5 appears 22 times
+Interval F#4 -> F#4 appears 22 times
+Interval C#6 -> C6 appears 22 times
+Interval F#5 -> D5 appears 23 times
+Interval E6 -> D6 appears 23 times
+Interval E4 -> C4 appears 23 times
+Interval A4 -> C#5 appears 23 times
+Interval C#6 -> D6 appears 23 times
+Interval E-5 -> E-5 appears 24 times
+Interval C4 -> E-4 appears 24 times
+Interval E-5 -> B-4 appears 24 times
+Interval C4 -> B-3 appears 24 times
+Interval B3 -> C4 appears 24 times
+Interval A5 -> C6 appears 24 times
+Interval C6 -> D6 appears 24 times
+Interval E-6 -> D6 appears 24 times
+Interval E-4 -> C4 appears 25 times
+Interval F#5 -> F#5 appears 26 times
+Interval A5 -> E5 appears 26 times
+Interval C4 -> B3 appears 26 times
+Interval G4 -> D4 appears 26 times
+Interval F#4 -> B4 appears 26 times
+Interval B-4 -> E-5 appears 27 times
+Interval F4 -> B-4 appears 27 times
+Interval C#5 -> A4 appears 27 times
+Interval B5 -> G5 appears 27 times
+Interval F5 -> G#5 appears 27 times
+Interval E-4 -> F#4 appears 28 times
+Interval D5 -> F#5 appears 28 times
+Interval C6 -> A5 appears 28 times
+Interval F#5 -> G#5 appears 28 times
+Interval B4 -> E5 appears 28 times
+Interval E-5 -> B4 appears 28 times
+Interval C5 -> G5 appears 28 times
+Interval E5 -> A5 appears 29 times
+Interval F#4 -> B-4 appears 29 times
+Interval D4 -> E-4 appears 29 times
+Interval G5 -> B5 appears 29 times
+Interval B-4 -> F#4 appears 30 times
+Interval F5 -> A5 appears 30 times
+Interval F4 -> F4 appears 30 times
+Interval E5 -> B4 appears 30 times
+Interval E-5 -> G5 appears 30 times
+Interval G#5 -> F5 appears 30 times
+Interval G#5 -> B-5 appears 30 times
+Interval E4 -> E-4 appears 31 times
+Interval B-4 -> F4 appears 31 times
+Interval D4 -> G4 appears 31 times
+Interval B-5 -> C6 appears 31 times
+Interval G#4 -> C5 appears 31 times
+Interval E-5 -> F#5 appears 32 times
+Interval A4 -> D5 appears 32 times
+Interval A5 -> A5 appears 32 times
+Interval C5 -> F5 appears 32 times
+Interval B5 -> C6 appears 32 times
+Interval C4 -> D4 appears 32 times
+Interval E-4 -> D4 appears 32 times
+Interval F5 -> F5 appears 33 times
+Interval G5 -> E-5 appears 33 times
+Interval A5 -> B5 appears 33 times
+Interval B-5 -> B5 appears 33 times
+Interval F4 -> G#4 appears 34 times
+Interval G4 -> E-4 appears 34 times
+Interval D4 -> C4 appears 34 times
+Interval F5 -> C5 appears 34 times
+Interval G5 -> D5 appears 35 times
+Interval F#5 -> E-5 appears 36 times
+Interval A5 -> F#5 appears 36 times
+Interval B4 -> E-5 appears 36 times
+Interval F#4 -> E-4 appears 36 times
+Interval E4 -> D4 appears 37 times
+Interval E-4 -> E4 appears 37 times
+Interval G#4 -> B4 appears 37 times
+Interval D5 -> G5 appears 37 times
+Interval B-5 -> G5 appears 38 times
+Interval G5 -> B-5 appears 38 times
+Interval D6 -> C6 appears 39 times
+Interval G4 -> G4 appears 39 times
+Interval F#4 -> G#4 appears 39 times
+Interval B-4 -> B-4 appears 40 times
+Interval F4 -> A4 appears 40 times
+Interval B4 -> B4 appears 40 times
+Interval G#4 -> F4 appears 40 times
+Interval B-5 -> G#5 appears 40 times
+Interval F#5 -> A5 appears 41 times
+Interval A4 -> A4 appears 41 times
+Interval B5 -> B-5 appears 41 times
+Interval G#5 -> A5 appears 41 times
+Interval B-4 -> C#5 appears 42 times
+Interval C5 -> G#4 appears 42 times
+Interval E-4 -> F4 appears 42 times
+Interval F5 -> C#5 appears 42 times
+Interval C#5 -> E5 appears 43 times
+Interval B4 -> G#4 appears 43 times
+Interval D4 -> F4 appears 44 times
+Interval C6 -> B-5 appears 44 times
+Interval B4 -> C#5 appears 44 times
+Interval A4 -> F4 appears 45 times
+Interval D4 -> E4 appears 45 times
+Interval F4 -> E-4 appears 47 times
+Interval D5 -> A4 appears 47 times
+Interval E5 -> E5 appears 47 times
+Interval C5 -> E5 appears 47 times
+Interval C#5 -> B-4 appears 47 times
+Interval D5 -> B-4 appears 48 times
+Interval C6 -> B5 appears 48 times
+Interval B5 -> A5 appears 49 times
+Interval E5 -> C#5 appears 49 times
+Interval B-4 -> D5 appears 50 times
+Interval G5 -> G5 appears 50 times
+Interval G#4 -> F#4 appears 50 times
+Interval G5 -> G#5 appears 50 times
+Interval G#4 -> G4 appears 52 times
+Interval G#5 -> F#5 appears 52 times
+Interval G#4 -> B-4 appears 52 times
+Interval B-4 -> G#4 appears 52 times
+Interval G4 -> C5 appears 53 times
+Interval D5 -> D5 appears 53 times
+Interval C5 -> G4 appears 53 times
+Interval F#4 -> A4 appears 53 times
+Interval F4 -> F#4 appears 54 times
+Interval G4 -> B4 appears 54 times
+Interval E-5 -> F5 appears 55 times
+Interval F4 -> D4 appears 55 times
+Interval A5 -> G#5 appears 55 times
+Interval E5 -> C5 appears 55 times
+Interval C#5 -> E-5 appears 56 times
+Interval B4 -> G4 appears 56 times
+Interval E4 -> F#4 appears 56 times
+Interval G5 -> A5 appears 56 times
+Interval E-5 -> C5 appears 57 times
+Interval F5 -> F#5 appears 58 times
+Interval A4 -> F#4 appears 58 times
+Interval G#5 -> G5 appears 58 times
+Interval F4 -> E4 appears 59 times
+Interval E4 -> G4 appears 59 times
+Interval E5 -> F#5 appears 59 times
+Interval F#4 -> E4 appears 60 times
+Interval C#5 -> B4 appears 60 times
+Interval C5 -> E-5 appears 61 times
+Interval D5 -> F5 appears 61 times
+Interval B4 -> D5 appears 61 times
+Interval A5 -> B-5 appears 61 times
+Interval G5 -> E5 appears 61 times
+Interval C5 -> C5 appears 62 times
+Interval B-5 -> A5 appears 64 times
+Interval G4 -> G#4 appears 64 times
+Interval G4 -> B-4 appears 65 times
+Interval F5 -> D5 appears 65 times
+Interval F#4 -> F4 appears 65 times
+Interval A4 -> G#4 appears 65 times
+Interval G#4 -> A4 appears 65 times
+Interval F#5 -> E5 appears 66 times
+Interval D5 -> B4 appears 66 times
+Interval E5 -> G5 appears 66 times
+Interval F5 -> G5 appears 67 times
+Interval C#5 -> C5 appears 71 times
+Interval A4 -> C5 appears 72 times
+Interval G4 -> E4 appears 72 times
+Interval E-5 -> C#5 appears 73 times
+Interval C5 -> C#5 appears 74 times
+Interval B-4 -> G4 appears 74 times
+Interval F5 -> E-5 appears 74 times
+Interval G4 -> F#4 appears 74 times
+Interval F#4 -> G4 appears 77 times
+Interval C#5 -> D5 appears 77 times
+Interval E-5 -> D5 appears 77 times
+Interval F#5 -> G5 appears 78 times
+Interval B4 -> B-4 appears 78 times
+Interval B-4 -> B4 appears 78 times
+Interval B-4 -> A4 appears 78 times
+Interval F#5 -> F5 appears 78 times
+Interval A4 -> B4 appears 78 times
+Interval E4 -> F4 appears 78 times
+Interval C5 -> D5 appears 79 times
+Interval C5 -> A4 appears 80 times
+Interval A5 -> G5 appears 81 times
+Interval D5 -> C#5 appears 81 times
+Interval D5 -> E-5 appears 82 times
+Interval E5 -> F5 appears 83 times
+Interval F4 -> G4 appears 83 times
+Interval E5 -> E-5 appears 83 times
+Interval B4 -> A4 appears 85 times
+Interval E-5 -> E5 appears 85 times
+Interval G4 -> F4 appears 86 times
+Interval F5 -> E5 appears 86 times
+Interval G4 -> A4 appears 86 times
+Interval G5 -> F#5 appears 87 times
+Interval C5 -> B-4 appears 88 times
+Interval G5 -> F5 appears 88 times
+Interval B-4 -> C5 appears 89 times
+Interval D5 -> E5 appears 89 times
+Interval A4 -> G4 appears 89 times
+Interval C5 -> B4 appears 90 times
+Interval D5 -> C5 appears 92 times
+Interval B4 -> C5 appears 92 times
+Interval E5 -> D5 appears 93 times
+Interval A4 -> B-4 appears 93 times
+Interval from G3 to C#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G3 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G3 to E4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G3 to F#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G3 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G3 to A4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G3 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G3 to B4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G3 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G3 to E-5 not found in Tenor solos
+Interval from G3 to F#5 not found in Tenor solos
+Interval from G3 to G#5 not found in Tenor solos
+Interval from G3 to A5 not found in Tenor solos
+Interval from G3 to B-5 not found in Tenor solos
+Interval from G3 to B5 not found in Tenor solos
+Interval from G3 to C6 not found in Tenor solos
+Interval from G3 to C#6 not found in Tenor solos
+Interval from G3 to D6 not found in Tenor solos
+Interval from G3 to E-6 not found in Tenor solos
+Interval from G3 to E6 not found in Tenor solos
+Interval from G3 to F6 not found in Tenor solos
+Interval from G3 to F#6 not found in Tenor solos
+Interval from G3 to G6 not found in Tenor solos
+Interval from G3 to G#6 not found in Tenor solos
+Interval from G3 to A6 not found in Tenor solos
+Interval from G#3 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to E4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to F4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to F#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to G4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to B4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to C5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#3 to E5 not found in Tenor solos
+Interval from G#3 to F5 not found in Tenor solos
+Interval from G#3 to F#5 not found in Tenor solos
+Interval from G#3 to G#5 not found in Tenor solos
+Interval from G#3 to A5 not found in Tenor solos
+Interval from G#3 to B-5 not found in Tenor solos
+Interval from G#3 to B5 not found in Tenor solos
+Interval from G#3 to C6 not found in Tenor solos
+Interval from G#3 to C#6 not found in Tenor solos
+Interval from G#3 to D6 not found in Tenor solos
+Interval from G#3 to E-6 not found in Tenor solos
+Interval from G#3 to E6 not found in Tenor solos
+Interval from G#3 to F6 not found in Tenor solos
+Interval from G#3 to F#6 not found in Tenor solos
+Interval from G#3 to G6 not found in Tenor solos
+Interval from G#3 to G#6 not found in Tenor solos
+Interval from G#3 to A6 not found in Tenor solos
+Interval from A3 to F#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A3 to G4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A3 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A3 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A3 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A3 to F5 not found in Tenor solos
+Interval from A3 to F#5 not found in Tenor solos
+Interval from A3 to G#5 not found in Tenor solos
+Interval from A3 to B-5 not found in Tenor solos
+Interval from A3 to B5 not found in Tenor solos
+Interval from A3 to C6 not found in Tenor solos
+Interval from A3 to C#6 not found in Tenor solos
+Interval from A3 to D6 not found in Tenor solos
+Interval from A3 to E-6 not found in Tenor solos
+Interval from A3 to E6 not found in Tenor solos
+Interval from A3 to F6 not found in Tenor solos
+Interval from A3 to F#6 not found in Tenor solos
+Interval from A3 to G6 not found in Tenor solos
+Interval from A3 to G#6 not found in Tenor solos
+Interval from A3 to A6 not found in Tenor solos
+Interval from B-3 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-3 to B4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-3 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-3 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-3 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-3 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-3 to F#5 not found in Tenor solos
+Interval from B-3 to G5 not found in Tenor solos
+Interval from B-3 to G#5 not found in Tenor solos
+Interval from B-3 to A5 not found in Tenor solos
+Interval from B-3 to B-5 not found in Tenor solos
+Interval from B-3 to B5 not found in Tenor solos
+Interval from B-3 to C6 not found in Tenor solos
+Interval from B-3 to C#6 not found in Tenor solos
+Interval from B-3 to D6 not found in Tenor solos
+Interval from B-3 to E-6 not found in Tenor solos
+Interval from B-3 to E6 not found in Tenor solos
+Interval from B-3 to F6 not found in Tenor solos
+Interval from B-3 to F#6 not found in Tenor solos
+Interval from B-3 to G6 not found in Tenor solos
+Interval from B-3 to G#6 not found in Tenor solos
+Interval from B-3 to A6 not found in Tenor solos
+Interval from B3 to C5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B3 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B3 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B3 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B3 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B3 to G5 not found in Tenor solos
+Interval from B3 to G#5 not found in Tenor solos
+Interval from B3 to A5 not found in Tenor solos
+Interval from B3 to B-5 not found in Tenor solos
+Interval from B3 to B5 not found in Tenor solos
+Interval from B3 to C6 not found in Tenor solos
+Interval from B3 to C#6 not found in Tenor solos
+Interval from B3 to D6 not found in Tenor solos
+Interval from B3 to E-6 not found in Tenor solos
+Interval from B3 to E6 not found in Tenor solos
+Interval from B3 to F6 not found in Tenor solos
+Interval from B3 to F#6 not found in Tenor solos
+Interval from B3 to G6 not found in Tenor solos
+Interval from B3 to G#6 not found in Tenor solos
+Interval from B3 to A6 not found in Tenor solos
+Interval from C4 to F#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C4 to G#5 not found in Tenor solos
+Interval from C4 to B5 not found in Tenor solos
+Interval from C4 to C#6 not found in Tenor solos
+Interval from C4 to D6 not found in Tenor solos
+Interval from C4 to E-6 not found in Tenor solos
+Interval from C4 to E6 not found in Tenor solos
+Interval from C4 to F6 not found in Tenor solos
+Interval from C4 to F#6 not found in Tenor solos
+Interval from C4 to G6 not found in Tenor solos
+Interval from C4 to G#6 not found in Tenor solos
+Interval from C4 to A6 not found in Tenor solos
+Interval from C#4 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#4 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#4 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#4 to G#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#4 to A5 not found in Tenor solos
+Interval from C#4 to B-5 not found in Tenor solos
+Interval from C#4 to B5 not found in Tenor solos
+Interval from C#4 to C#6 not found in Tenor solos
+Interval from C#4 to D6 not found in Tenor solos
+Interval from C#4 to E-6 not found in Tenor solos
+Interval from C#4 to E6 not found in Tenor solos
+Interval from C#4 to F6 not found in Tenor solos
+Interval from C#4 to F#6 not found in Tenor solos
+Interval from C#4 to G6 not found in Tenor solos
+Interval from C#4 to G#6 not found in Tenor solos
+Interval from C#4 to A6 not found in Tenor solos
+Interval from D4 to A5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D4 to C6 not found in Tenor solos
+Interval from D4 to C#6 not found in Tenor solos
+Interval from D4 to D6 not found in Tenor solos
+Interval from D4 to E-6 not found in Tenor solos
+Interval from D4 to E6 not found in Tenor solos
+Interval from D4 to F6 not found in Tenor solos
+Interval from D4 to F#6 not found in Tenor solos
+Interval from D4 to G6 not found in Tenor solos
+Interval from D4 to G#6 not found in Tenor solos
+Interval from D4 to A6 not found in Tenor solos
+Interval from E-4 to G3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to G5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to G#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to B-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-4 to C6 not found in Tenor solos
+Interval from E-4 to C#6 not found in Tenor solos
+Interval from E-4 to D6 not found in Tenor solos
+Interval from E-4 to E-6 not found in Tenor solos
+Interval from E-4 to E6 not found in Tenor solos
+Interval from E-4 to F6 not found in Tenor solos
+Interval from E-4 to F#6 not found in Tenor solos
+Interval from E-4 to G6 not found in Tenor solos
+Interval from E-4 to G#6 not found in Tenor solos
+Interval from E-4 to A6 not found in Tenor solos
+Interval from E4 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E4 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E4 to G#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E4 to B-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E4 to C6 not found in Tenor solos
+Interval from E4 to C#6 not found in Tenor solos
+Interval from E4 to D6 not found in Tenor solos
+Interval from E4 to E-6 not found in Tenor solos
+Interval from E4 to E6 not found in Tenor solos
+Interval from E4 to F6 not found in Tenor solos
+Interval from E4 to F#6 not found in Tenor solos
+Interval from E4 to G6 not found in Tenor solos
+Interval from E4 to G#6 not found in Tenor solos
+Interval from E4 to A6 not found in Tenor solos
+Interval from F4 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F4 to G#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F4 to D6 not found in Tenor solos
+Interval from F4 to E-6 not found in Tenor solos
+Interval from F4 to E6 not found in Tenor solos
+Interval from F4 to F#6 not found in Tenor solos
+Interval from F4 to G6 not found in Tenor solos
+Interval from F4 to G#6 not found in Tenor solos
+Interval from F4 to A6 not found in Tenor solos
+Interval from F#4 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#4 to B-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#4 to D6 not found in Tenor solos
+Interval from F#4 to E-6 not found in Tenor solos
+Interval from F#4 to E6 not found in Tenor solos
+Interval from F#4 to F6 not found in Tenor solos
+Interval from F#4 to G6 not found in Tenor solos
+Interval from F#4 to A6 not found in Tenor solos
+Interval from G4 to G3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G4 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G4 to A3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G4 to C#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G4 to E-6 not found in Tenor solos
+Interval from G4 to F6 not found in Tenor solos
+Interval from G4 to F#6 not found in Tenor solos
+Interval from G4 to G6 not found in Tenor solos
+Interval from G4 to G#6 not found in Tenor solos
+Interval from G4 to A6 not found in Tenor solos
+Interval from G#4 to G3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to A3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to G#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to B5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to C6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to C#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to D6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to E-6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#4 to E6 not found in Tenor solos
+Interval from G#4 to F6 not found in Tenor solos
+Interval from G#4 to F#6 not found in Tenor solos
+Interval from G#4 to G6 not found in Tenor solos
+Interval from G#4 to G#6 not found in Tenor solos
+Interval from G#4 to A6 not found in Tenor solos
+Interval from A4 to G3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A4 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A4 to A3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A4 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A4 to C#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A4 to E6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A4 to F6 not found in Tenor solos
+Interval from A4 to F#6 not found in Tenor solos
+Interval from A4 to G6 not found in Tenor solos
+Interval from A4 to G#6 not found in Tenor solos
+Interval from A4 to A6 not found in Tenor solos
+Interval from B-4 to G3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to A3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to B3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to C6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to E-6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to E6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-4 to F#6 not found in Tenor solos
+Interval from B-4 to G6 not found in Tenor solos
+Interval from B-4 to G#6 not found in Tenor solos
+Interval from B-4 to A6 not found in Tenor solos
+Interval from B4 to G3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to A3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to C#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to B5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to C6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to C#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to E-6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to E6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B4 to G6 not found in Tenor solos
+Interval from B4 to G#6 not found in Tenor solos
+Interval from B4 to A6 not found in Tenor solos
+Interval from C5 to G3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C5 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C5 to A3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C5 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C5 to E6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C5 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C5 to G6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C5 to G#6 not found in Tenor solos
+Interval from C5 to A6 not found in Tenor solos
+Interval from C#5 to G3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to A3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to B3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to C4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to B5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to C6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to D6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to E-6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to E6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to G6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#5 to A6 not found in Tenor solos
+Interval from D5 to G3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to B3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to C#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to C#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to D6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to E-6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to G6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D5 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to G3 not found in Tenor solos
+Interval from E-5 to G#3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to A3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to B3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to C4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to C#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to C6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to C#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to D6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to E-6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to G6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-5 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to G3 not found in Tenor solos
+Interval from E5 to G#3 not found in Tenor solos
+Interval from E5 to A3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to B3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to C4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to C#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to D6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E5 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to G3 not found in Tenor solos
+Interval from F5 to G#3 not found in Tenor solos
+Interval from F5 to A3 not found in Tenor solos
+Interval from F5 to B-3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to B3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to C4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to C#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to F4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to G6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F5 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to G3 not found in Tenor solos
+Interval from F#5 to G#3 not found in Tenor solos
+Interval from F#5 to A3 not found in Tenor solos
+Interval from F#5 to B-3 not found in Tenor solos
+Interval from F#5 to B3 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to C4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to E4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to F#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to C6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to E-6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to E6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to G6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#5 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G5 to G3 not found in Tenor solos
+Interval from G5 to G#3 not found in Tenor solos
+Interval from G5 to A3 not found in Tenor solos
+Interval from G5 to B-3 not found in Tenor solos
+Interval from G5 to B3 not found in Tenor solos
+Interval from G5 to C4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G5 to C#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G5 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G5 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G5 to F#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G5 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G5 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to G3 not found in Tenor solos
+Interval from G#5 to G#3 not found in Tenor solos
+Interval from G#5 to A3 not found in Tenor solos
+Interval from G#5 to B-3 not found in Tenor solos
+Interval from G#5 to B3 not found in Tenor solos
+Interval from G#5 to C4 not found in Tenor solos
+Interval from G#5 to C#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to E4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to F4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to F#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to G4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to A4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to G6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#5 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A5 to G3 not found in Tenor solos
+Interval from A5 to G#3 not found in Tenor solos
+Interval from A5 to A3 not found in Tenor solos
+Interval from A5 to B-3 not found in Tenor solos
+Interval from A5 to B3 not found in Tenor solos
+Interval from A5 to C4 not found in Tenor solos
+Interval from A5 to C#4 not found in Tenor solos
+Interval from A5 to D4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A5 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A5 to E4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A5 to F4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A5 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A5 to E6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A5 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A5 to G6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A5 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to G3 not found in Tenor solos
+Interval from B-5 to G#3 not found in Tenor solos
+Interval from B-5 to A3 not found in Tenor solos
+Interval from B-5 to B-3 not found in Tenor solos
+Interval from B-5 to B3 not found in Tenor solos
+Interval from B-5 to C4 not found in Tenor solos
+Interval from B-5 to C#4 not found in Tenor solos
+Interval from B-5 to D4 not found in Tenor solos
+Interval from B-5 to E-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to E4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to F4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to F#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to G6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B-5 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B5 to G3 not found in Tenor solos
+Interval from B5 to G#3 not found in Tenor solos
+Interval from B5 to A3 not found in Tenor solos
+Interval from B5 to B-3 not found in Tenor solos
+Interval from B5 to B3 not found in Tenor solos
+Interval from B5 to C4 not found in Tenor solos
+Interval from B5 to C#4 not found in Tenor solos
+Interval from B5 to D4 not found in Tenor solos
+Interval from B5 to E-4 not found in Tenor solos
+Interval from B5 to E4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B5 to F4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B5 to G4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B5 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B5 to A4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B5 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B5 to B4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B5 to G6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B5 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from B5 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to G3 not found in Tenor solos
+Interval from C6 to G#3 not found in Tenor solos
+Interval from C6 to A3 not found in Tenor solos
+Interval from C6 to B-3 not found in Tenor solos
+Interval from C6 to B3 not found in Tenor solos
+Interval from C6 to C4 not found in Tenor solos
+Interval from C6 to C#4 not found in Tenor solos
+Interval from C6 to D4 not found in Tenor solos
+Interval from C6 to E-4 not found in Tenor solos
+Interval from C6 to E4 not found in Tenor solos
+Interval from C6 to F4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to F#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to A4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to B4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to C5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C6 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#6 to G3 not found in Tenor solos
+Interval from C#6 to G#3 not found in Tenor solos
+Interval from C#6 to A3 not found in Tenor solos
+Interval from C#6 to B-3 not found in Tenor solos
+Interval from C#6 to B3 not found in Tenor solos
+Interval from C#6 to C4 not found in Tenor solos
+Interval from C#6 to C#4 not found in Tenor solos
+Interval from C#6 to D4 not found in Tenor solos
+Interval from C#6 to E-4 not found in Tenor solos
+Interval from C#6 to E4 not found in Tenor solos
+Interval from C#6 to F4 not found in Tenor solos
+Interval from C#6 to F#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#6 to G4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#6 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#6 to A4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#6 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#6 to B4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#6 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#6 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#6 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from C#6 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to G3 not found in Tenor solos
+Interval from D6 to G#3 not found in Tenor solos
+Interval from D6 to A3 not found in Tenor solos
+Interval from D6 to B-3 not found in Tenor solos
+Interval from D6 to B3 not found in Tenor solos
+Interval from D6 to C4 not found in Tenor solos
+Interval from D6 to C#4 not found in Tenor solos
+Interval from D6 to D4 not found in Tenor solos
+Interval from D6 to E-4 not found in Tenor solos
+Interval from D6 to E4 not found in Tenor solos
+Interval from D6 to F4 not found in Tenor solos
+Interval from D6 to F#4 not found in Tenor solos
+Interval from D6 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to A4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to B4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to C5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to F#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from D6 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to G3 not found in Tenor solos
+Interval from E-6 to G#3 not found in Tenor solos
+Interval from E-6 to A3 not found in Tenor solos
+Interval from E-6 to B-3 not found in Tenor solos
+Interval from E-6 to B3 not found in Tenor solos
+Interval from E-6 to C4 not found in Tenor solos
+Interval from E-6 to C#4 not found in Tenor solos
+Interval from E-6 to D4 not found in Tenor solos
+Interval from E-6 to E-4 not found in Tenor solos
+Interval from E-6 to E4 not found in Tenor solos
+Interval from E-6 to F4 not found in Tenor solos
+Interval from E-6 to F#4 not found in Tenor solos
+Interval from E-6 to G4 not found in Tenor solos
+Interval from E-6 to G#4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to A4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to B4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to C5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to B5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to G#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E-6 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to G3 not found in Tenor solos
+Interval from E6 to G#3 not found in Tenor solos
+Interval from E6 to A3 not found in Tenor solos
+Interval from E6 to B-3 not found in Tenor solos
+Interval from E6 to B3 not found in Tenor solos
+Interval from E6 to C4 not found in Tenor solos
+Interval from E6 to C#4 not found in Tenor solos
+Interval from E6 to D4 not found in Tenor solos
+Interval from E6 to E-4 not found in Tenor solos
+Interval from E6 to E4 not found in Tenor solos
+Interval from E6 to F4 not found in Tenor solos
+Interval from E6 to F#4 not found in Tenor solos
+Interval from E6 to G4 not found in Tenor solos
+Interval from E6 to G#4 not found in Tenor solos
+Interval from E6 to A4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to B4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to F#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to G#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to A5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from E6 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to G3 not found in Tenor solos
+Interval from F6 to G#3 not found in Tenor solos
+Interval from F6 to A3 not found in Tenor solos
+Interval from F6 to B-3 not found in Tenor solos
+Interval from F6 to B3 not found in Tenor solos
+Interval from F6 to C4 not found in Tenor solos
+Interval from F6 to C#4 not found in Tenor solos
+Interval from F6 to D4 not found in Tenor solos
+Interval from F6 to E-4 not found in Tenor solos
+Interval from F6 to E4 not found in Tenor solos
+Interval from F6 to F4 not found in Tenor solos
+Interval from F6 to F#4 not found in Tenor solos
+Interval from F6 to G4 not found in Tenor solos
+Interval from F6 to G#4 not found in Tenor solos
+Interval from F6 to A4 not found in Tenor solos
+Interval from F6 to B-4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to B4 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to C5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to F#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to G5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to G#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to A5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F6 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to G3 not found in Tenor solos
+Interval from F#6 to G#3 not found in Tenor solos
+Interval from F#6 to A3 not found in Tenor solos
+Interval from F#6 to B-3 not found in Tenor solos
+Interval from F#6 to B3 not found in Tenor solos
+Interval from F#6 to C4 not found in Tenor solos
+Interval from F#6 to C#4 not found in Tenor solos
+Interval from F#6 to D4 not found in Tenor solos
+Interval from F#6 to E-4 not found in Tenor solos
+Interval from F#6 to E4 not found in Tenor solos
+Interval from F#6 to F4 not found in Tenor solos
+Interval from F#6 to F#4 not found in Tenor solos
+Interval from F#6 to G4 not found in Tenor solos
+Interval from F#6 to G#4 not found in Tenor solos
+Interval from F#6 to A4 not found in Tenor solos
+Interval from F#6 to B-4 not found in Tenor solos
+Interval from F#6 to C5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to F#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to G5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to G#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to C6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from F#6 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to G3 not found in Tenor solos
+Interval from G6 to G#3 not found in Tenor solos
+Interval from G6 to A3 not found in Tenor solos
+Interval from G6 to B-3 not found in Tenor solos
+Interval from G6 to B3 not found in Tenor solos
+Interval from G6 to C4 not found in Tenor solos
+Interval from G6 to C#4 not found in Tenor solos
+Interval from G6 to D4 not found in Tenor solos
+Interval from G6 to E-4 not found in Tenor solos
+Interval from G6 to E4 not found in Tenor solos
+Interval from G6 to F4 not found in Tenor solos
+Interval from G6 to F#4 not found in Tenor solos
+Interval from G6 to G4 not found in Tenor solos
+Interval from G6 to G#4 not found in Tenor solos
+Interval from G6 to A4 not found in Tenor solos
+Interval from G6 to B-4 not found in Tenor solos
+Interval from G6 to B4 not found in Tenor solos
+Interval from G6 to C5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to F#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to G5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to G#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to B-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to B5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G6 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to G3 not found in Tenor solos
+Interval from G#6 to G#3 not found in Tenor solos
+Interval from G#6 to A3 not found in Tenor solos
+Interval from G#6 to B-3 not found in Tenor solos
+Interval from G#6 to B3 not found in Tenor solos
+Interval from G#6 to C4 not found in Tenor solos
+Interval from G#6 to C#4 not found in Tenor solos
+Interval from G#6 to D4 not found in Tenor solos
+Interval from G#6 to E-4 not found in Tenor solos
+Interval from G#6 to E4 not found in Tenor solos
+Interval from G#6 to F4 not found in Tenor solos
+Interval from G#6 to F#4 not found in Tenor solos
+Interval from G#6 to G#4 not found in Tenor solos
+Interval from G#6 to B-4 not found in Tenor solos
+Interval from G#6 to B4 not found in Tenor solos
+Interval from G#6 to C5 not found in Tenor solos
+Interval from G#6 to C#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to F#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to G5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to A5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to B5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to C6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to C#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from G#6 to D6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to G3 not found in Tenor solos
+Interval from A6 to G#3 not found in Tenor solos
+Interval from A6 to A3 not found in Tenor solos
+Interval from A6 to B-3 not found in Tenor solos
+Interval from A6 to B3 not found in Tenor solos
+Interval from A6 to C4 not found in Tenor solos
+Interval from A6 to C#4 not found in Tenor solos
+Interval from A6 to D4 not found in Tenor solos
+Interval from A6 to E-4 not found in Tenor solos
+Interval from A6 to E4 not found in Tenor solos
+Interval from A6 to F4 not found in Tenor solos
+Interval from A6 to F#4 not found in Tenor solos
+Interval from A6 to G4 not found in Tenor solos
+Interval from A6 to G#4 not found in Tenor solos
+Interval from A6 to A4 not found in Tenor solos
+Interval from A6 to B-4 not found in Tenor solos
+Interval from A6 to B4 not found in Tenor solos
+Interval from A6 to C5 not found in Tenor solos
+Interval from A6 to C#5 not found in Tenor solos
+Interval from A6 to D5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to E-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to E5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to F5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to F#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to G5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to G#5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to A5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to B-5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to B5 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to C6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to C#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to D6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to E-6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to E6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to F6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to F#6 not found in Tenor solos
+======= WARNING!!!!! ========
+Interval from A6 to A6 not found in Tenor solos
+======= WARNING!!!!! ========
