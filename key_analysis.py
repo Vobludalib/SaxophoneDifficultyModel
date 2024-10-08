@@ -2,13 +2,16 @@ import pprint
 import sqlite3
 import matplotlib.pyplot as plt
 import music21
+import sys
 
 dbfile = r"/Users/slibricky/Desktop/Thesis/wjazzd.db"
 con = sqlite3.connect(dbfile)
 
 cursor = con.cursor()
 
-keys = [a for a in cursor.execute('SELECT key FROM solo_info WHERE instrument="ts" OR instrument="cl" OR instrument="tp" OR instrument="cor"')]
+instrumentShortcut = sys.argv[1]
+
+keys = [a for a in cursor.execute(f'SELECT key FROM solo_info WHERE instrument="{instrumentShortcut}"')]
 keys_dict = {}
 for key in keys:
     keys_dict[key] = keys_dict.get(key, 0) + 1
@@ -33,5 +36,5 @@ for key in keys_dict.keys():
 tonalities = [i for i in range(-12, 13)]
 occurences = [tonalityDegrees.get(i, 0) for i in range(-12, 13)]
 plt.bar(tonalities, occurences)
-plt.savefig("./keys.png")
+plt.savefig(f"./keys{instrumentShortcut}.png")
 pprint.pprint(tonalityDegrees)
