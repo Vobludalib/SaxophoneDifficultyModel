@@ -1,0 +1,7 @@
+../recordings/Untitled 2_4#01.wav
+Loading audio!
+Finished loading!
+39
+21.785124716553288
+Average trill speed: 0.8951061907478111 - one trill is a period
+Trilling from F4 to F♯3
