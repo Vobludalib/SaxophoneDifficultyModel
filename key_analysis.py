@@ -22,9 +22,9 @@ for key in keys_dict.keys():
     if (len(keyStr) != 2):
         continue
     if (keyStr[1] == "maj"):
-        m21key = music21.key.Key(keyStr[0])
+        m21key = music21.key.Fingering.Key(keyStr[0])
     elif (keyStr[1] == "min"):
-        m21key = music21.key.Key(keyStr[0], "minor")
+        m21key = music21.key.Fingering.Key(keyStr[0], "minor")
     else:
         print(f"Not considering {key}")
         continue

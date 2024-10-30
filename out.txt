@@ -1,2 +1,2766 @@
-Loading audio!
-Finished loading!
+Low Bb
+Low B
+Low C
+Low C#
+D Without octave key
+Eb Without octave key
+E Without octave key
+F Without octave key
+F# Without octave key (main)
+F# Without octave key (Chromatic)
+G Without octave key
+G# Without octave key (default)
+A Without octave key
+Bb Without octave key (side key)
+Bb Without octave key (Bis key)
+B Without octave key
+C Without octave key
+C# Without octave key
+D With octave key
+Eb With octave key
+E With octave key
+F With octave key
+F# With octave key (main)
+F# With octave key (Chromatic)
+G With octave key
+G# With octave key (default)
+A With octave key
+Bb With octave key (side key)
+Bb With octave key (Bis key)
+B With octave key
+C With octave key
+C# With octave key
+High D
+High Eb
+High E
+High F
+High F#
+Going from Low Bb to Low B
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low Bb to Low C
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to Low C#
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low Bb to D Without octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to Eb Without octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low Bb to E Without octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to F Without octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to F# Without octave key (main)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to F# Without octave key (Chromatic)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low Bb to G Without octave key
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to G# Without octave key (default)
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low Bb to A Without octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to Bb Without octave key (side key)
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to B Without octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to C Without octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to C# Without octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low Bb to D With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to Eb With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low Bb to E With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to F With octave key
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to F# With octave key (main)
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to F# With octave key (Chromatic)
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low Bb to G With octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to G# With octave key (default)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low Bb to A With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to B With octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to C With octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to C# With octave key
+	# of fingers changing per hand: [5, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to High D
+	# of fingers changing per hand: [5, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to High Eb
+	# of fingers changing per hand: [5, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to High E
+	# of fingers changing per hand: [5, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to High F
+	# of fingers changing per hand: [5, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low Bb to High F#
+	# of fingers changing per hand: [5, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low B to Low C
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low B to Low C#
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low B to D Without octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low B to Eb Without octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low B to E Without octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low B to F Without octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low B to F# Without octave key (main)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low B to F# Without octave key (Chromatic)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low B to G Without octave key
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low B to G# Without octave key (default)
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low B to A Without octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low B to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low B to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low B to B Without octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low B to C Without octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low B to C# Without octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low B to D With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to Eb With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low B to E With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to F With octave key
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to F# With octave key (main)
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to F# With octave key (Chromatic)
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low B to G With octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to G# With octave key (default)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low B to A With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low B to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low B to B With octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to C With octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to C# With octave key
+	# of fingers changing per hand: [5, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to High D
+	# of fingers changing per hand: [5, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to High Eb
+	# of fingers changing per hand: [5, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to High E
+	# of fingers changing per hand: [5, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to High F
+	# of fingers changing per hand: [5, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low B to High F#
+	# of fingers changing per hand: [5, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low C to Low C#
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to D Without octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to Eb Without octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low C to E Without octave key
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to F Without octave key
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to F# Without octave key (main)
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to F# Without octave key (Chromatic)
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low C to G Without octave key
+	# of fingers changing per hand: [0, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to G# Without octave key (default)
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to A Without octave key
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to B Without octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to C Without octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to C# Without octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C to D With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to Eb With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low C to E With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to F With octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to F# With octave key (main)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to F# With octave key (Chromatic)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low C to G With octave key
+	# of fingers changing per hand: [1, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to G# With octave key (default)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to A With octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to B With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to C With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to C# With octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to High D
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to High Eb
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to High E
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to High F
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C to High F#
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low C# to D Without octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C# to Eb Without octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low C# to E Without octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C# to F Without octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C# to F# Without octave key (main)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C# to F# Without octave key (Chromatic)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low C# to G Without octave key
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C# to G# Without octave key (default)
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low C# to A Without octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C# to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low C# to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low C# to B Without octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C# to C Without octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C# to C# Without octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Low C# to D With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to Eb With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low C# to E With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to F With octave key
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to F# With octave key (main)
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to F# With octave key (Chromatic)
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Low C# to G With octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to G# With octave key (default)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low C# to A With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low C# to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Low C# to B With octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to C With octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to C# With octave key
+	# of fingers changing per hand: [5, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to High D
+	# of fingers changing per hand: [5, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to High Eb
+	# of fingers changing per hand: [5, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to High E
+	# of fingers changing per hand: [5, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to High F
+	# of fingers changing per hand: [5, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Low C# to High F#
+	# of fingers changing per hand: [5, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from D Without octave key to Eb Without octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to E Without octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to F Without octave key
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to F# Without octave key (main)
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to F# Without octave key (Chromatic)
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from D Without octave key to G Without octave key
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to G# Without octave key (default)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to A Without octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to B Without octave key
+	# of fingers changing per hand: [2, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to C Without octave key
+	# of fingers changing per hand: [2, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to C# Without octave key
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D Without octave key to D With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to Eb With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to E With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to F With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to F# With octave key (main)
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from D Without octave key to G With octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to G# With octave key (default)
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to A With octave key
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to B With octave key
+	# of fingers changing per hand: [3, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to C With octave key
+	# of fingers changing per hand: [3, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to C# With octave key
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to High D
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to High Eb
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to High E
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to High F
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D Without octave key to High F#
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Eb Without octave key to E Without octave key
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to F Without octave key
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to F# Without octave key (main)
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to F# Without octave key (Chromatic)
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Eb Without octave key to G Without octave key
+	# of fingers changing per hand: [0, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to G# Without octave key (default)
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to A Without octave key
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to B Without octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to C Without octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to C# Without octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb Without octave key to D With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to Eb With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to E With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to F With octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to F# With octave key (main)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Eb Without octave key to G With octave key
+	# of fingers changing per hand: [1, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to G# With octave key (default)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to A With octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to B With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to C With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to C# With octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to High D
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to High Eb
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Eb Without octave key to High E
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Eb Without octave key to High F
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Eb Without octave key to High F#
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 2
+Going from E Without octave key to F Without octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to F# Without octave key (main)
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to F# Without octave key (Chromatic)
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to G Without octave key
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to G# Without octave key (default)
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to A Without octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to B Without octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to C Without octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to C# Without octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E Without octave key to D With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to Eb With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to E With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to F With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to F# With octave key (main)
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to G With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to G# With octave key (default)
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to A With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to B With octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to C With octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to C# With octave key
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to High D
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to High Eb
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to High E
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to High F
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from E Without octave key to High F#
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to F# Without octave key (main)
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F Without octave key to F# Without octave key (Chromatic)
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F Without octave key to G Without octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F Without octave key to G# Without octave key (default)
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F Without octave key to A Without octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F Without octave key to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F Without octave key to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F Without octave key to B Without octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F Without octave key to C Without octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F Without octave key to C# Without octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F Without octave key to D With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to Eb With octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to E With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to F With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to F# With octave key (main)
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to G With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to G# With octave key (default)
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to A With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to B With octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to C With octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to C# With octave key
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to High D
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to High Eb
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to High E
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to High F
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F Without octave key to High F#
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to F# Without octave key (Chromatic)
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to G Without octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to G# Without octave key (default)
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to A Without octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to B Without octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to C Without octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to C# Without octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to D With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to Eb With octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to E With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to F With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to F# With octave key (main)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to F# With octave key (Chromatic)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to G With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to G# With octave key (default)
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to A With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to B With octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to C With octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to C# With octave key
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to High D
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to High Eb
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to High E
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to High F
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (main) to High F#
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to G Without octave key
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to G# Without octave key (default)
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to A Without octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to B Without octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to C Without octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to C# Without octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to D With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from F# Without octave key (Chromatic) to Eb With octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from F# Without octave key (Chromatic) to E With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to F With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to F# With octave key (main)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to F# With octave key (Chromatic)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to G With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to G# With octave key (default)
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to A With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to B With octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to C With octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to C# With octave key
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to High D
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to High Eb
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to High E
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to High F
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from F# Without octave key (Chromatic) to High F#
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from G Without octave key to G# Without octave key (default)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G Without octave key to A Without octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G Without octave key to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G Without octave key to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G Without octave key to B Without octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G Without octave key to C Without octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G Without octave key to C# Without octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G Without octave key to D With octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to Eb With octave key
+	# of fingers changing per hand: [1, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to E With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to F With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to F# With octave key (main)
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to G With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to G# With octave key (default)
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to A With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to B With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to C With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to C# With octave key
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to High D
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to High Eb
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to High E
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to High F
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G Without octave key to High F#
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to A Without octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to Bb Without octave key (side key)
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from G# Without octave key (default) to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from G# Without octave key (default) to B Without octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to C Without octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to C# Without octave key
+	# of fingers changing per hand: [4, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to D With octave key
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to Eb With octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to E With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to F With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to F# With octave key (main)
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to F# With octave key (Chromatic)
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to G With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to G# With octave key (default)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to A With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from G# Without octave key (default) to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from G# Without octave key (default) to B With octave key
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to C With octave key
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to C# With octave key
+	# of fingers changing per hand: [5, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to High D
+	# of fingers changing per hand: [5, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to High Eb
+	# of fingers changing per hand: [5, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to High E
+	# of fingers changing per hand: [5, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to High F
+	# of fingers changing per hand: [5, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from G# Without octave key (default) to High F#
+	# of fingers changing per hand: [5, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to Bb Without octave key (side key)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A Without octave key to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A Without octave key to B Without octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A Without octave key to C Without octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A Without octave key to C# Without octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A Without octave key to D With octave key
+	# of fingers changing per hand: [2, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to Eb With octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to E With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to F With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to F# With octave key (main)
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to G With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to G# With octave key (default)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to A With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to B With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to C With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to C# With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to High D
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to High Eb
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to High E
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to High F
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from A Without octave key to High F#
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to Bb Without octave key (Bis key)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to B Without octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to C Without octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to C# Without octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to D With octave key
+	# of fingers changing per hand: [3, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to Eb With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to E With octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to F With octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to F# With octave key (main)
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to F# With octave key (Chromatic)
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to G With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to G# With octave key (default)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Bb Without octave key (side key) to A With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to Bb With octave key (side key)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to Bb With octave key (Bis key)
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to B With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to C With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to C# With octave key
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to High D
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to High Eb
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to High E
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to High F
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (side key) to High F#
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to B Without octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to C Without octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to C# Without octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to D With octave key
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to Eb With octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to E With octave key
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to F With octave key
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to F# With octave key (main)
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to F# With octave key (Chromatic)
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to G With octave key
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to G# With octave key (default)
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Bb Without octave key (Bis key) to A With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to Bb With octave key (Bis key)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to B With octave key
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to C With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to C# With octave key
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to High D
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to High Eb
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to High E
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to High F
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from Bb Without octave key (Bis key) to High F#
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to C Without octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from B Without octave key to C# Without octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from B Without octave key to D With octave key
+	# of fingers changing per hand: [3, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to Eb With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to E With octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to F With octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to F# With octave key (main)
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to G With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to G# With octave key (default)
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to A With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to B With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to C With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to C# With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to High D
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to High Eb
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to High E
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to High F
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from B Without octave key to High F#
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to C# Without octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C Without octave key to D With octave key
+	# of fingers changing per hand: [3, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to Eb With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to E With octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to F With octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to F# With octave key (main)
+	# of fingers changing per hand: [3, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [3, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to G With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to G# With octave key (default)
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to A With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to B With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to C With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to C# With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to High D
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to High Eb
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to High E
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to High F
+	# of fingers changing per hand: [2, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C Without octave key to High F#
+	# of fingers changing per hand: [2, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to D With octave key
+	# of fingers changing per hand: [4, 3]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to Eb With octave key
+	# of fingers changing per hand: [4, 4]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to E With octave key
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to F With octave key
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to F# With octave key (main)
+	# of fingers changing per hand: [4, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [4, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to G With octave key
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to G# With octave key (default)
+	# of fingers changing per hand: [5, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to A With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [4, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to B With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to C With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to C# With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to High D
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to High Eb
+	# of fingers changing per hand: [1, 0]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to High E
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to High F
+	# of fingers changing per hand: [1, 1]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from C# Without octave key to High F#
+	# of fingers changing per hand: [1, 2]
+	Octave key change: True
+	# of same-finger transitions: 0
+Going from D With octave key to Eb With octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to E With octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to F With octave key
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to F# With octave key (main)
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from D With octave key to G With octave key
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to G# With octave key (default)
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to A With octave key
+	# of fingers changing per hand: [1, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to B With octave key
+	# of fingers changing per hand: [2, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to C With octave key
+	# of fingers changing per hand: [2, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to C# With octave key
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to High D
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to High Eb
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to High E
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to High F
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from D With octave key to High F#
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Eb With octave key to E With octave key
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to F With octave key
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to F# With octave key (main)
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from Eb With octave key to G With octave key
+	# of fingers changing per hand: [0, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to G# With octave key (default)
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to A With octave key
+	# of fingers changing per hand: [1, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to B With octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to C With octave key
+	# of fingers changing per hand: [2, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to C# With octave key
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to High D
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to High Eb
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Eb With octave key to High E
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Eb With octave key to High F
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from Eb With octave key to High F#
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	--- SFT ON Hands.RIGHT-Fingers.PINKY
+	# of same-finger transitions: 2
+Going from E With octave key to F With octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to F# With octave key (main)
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to G With octave key
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to G# With octave key (default)
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to A With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to B With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to C With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to C# With octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to High D
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to High Eb
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to High E
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to High F
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from E With octave key to High F#
+	# of fingers changing per hand: [3, 4]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to F# With octave key (main)
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to F# With octave key (Chromatic)
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to G With octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to G# With octave key (default)
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to A With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to B With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to C With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to C# With octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to High D
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to High Eb
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to High E
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to High F
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F With octave key to High F#
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to F# With octave key (Chromatic)
+	# of fingers changing per hand: [0, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to G With octave key
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to G# With octave key (default)
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to A With octave key
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to B With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to C With octave key
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to C# With octave key
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to High D
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to High Eb
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to High E
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to High F
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (main) to High F#
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to G With octave key
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to G# With octave key (default)
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to A With octave key
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to B With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to C With octave key
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to C# With octave key
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to High D
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to High Eb
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to High E
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to High F
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from F# With octave key (Chromatic) to High F#
+	# of fingers changing per hand: [3, 3]
+	Octave key change: False
+	--- SFT ON Hands.RIGHT-Fingers.RING
+	# of same-finger transitions: 1
+Going from G With octave key to G# With octave key (default)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to A With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to B With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to C With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to C# With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to High D
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to High Eb
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to High E
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to High F
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G With octave key to High F#
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# With octave key (default) to A With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# With octave key (default) to Bb With octave key (side key)
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from G# With octave key (default) to Bb With octave key (Bis key)
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	--- SFT ON Hands.LEFT-Fingers.PINKY
+	# of same-finger transitions: 1
+Going from G# With octave key (default) to B With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# With octave key (default) to C With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# With octave key (default) to C# With octave key
+	# of fingers changing per hand: [4, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# With octave key (default) to High D
+	# of fingers changing per hand: [4, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# With octave key (default) to High Eb
+	# of fingers changing per hand: [4, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# With octave key (default) to High E
+	# of fingers changing per hand: [4, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# With octave key (default) to High F
+	# of fingers changing per hand: [4, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from G# With octave key (default) to High F#
+	# of fingers changing per hand: [4, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A With octave key to Bb With octave key (side key)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A With octave key to Bb With octave key (Bis key)
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A With octave key to B With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A With octave key to C With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A With octave key to C# With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A With octave key to High D
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A With octave key to High Eb
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A With octave key to High E
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A With octave key to High F
+	# of fingers changing per hand: [2, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from A With octave key to High F#
+	# of fingers changing per hand: [2, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (side key) to Bb With octave key (Bis key)
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (side key) to B With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (side key) to C With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (side key) to C# With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (side key) to High D
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (side key) to High Eb
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (side key) to High E
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (side key) to High F
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (side key) to High F#
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (Bis key) to B With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (Bis key) to C With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (Bis key) to C# With octave key
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (Bis key) to High D
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (Bis key) to High Eb
+	# of fingers changing per hand: [3, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (Bis key) to High E
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (Bis key) to High F
+	# of fingers changing per hand: [3, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from Bb With octave key (Bis key) to High F#
+	# of fingers changing per hand: [3, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from B With octave key to C With octave key
+	# of fingers changing per hand: [2, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from B With octave key to C# With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from B With octave key to High D
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from B With octave key to High Eb
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from B With octave key to High E
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from B With octave key to High F
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from B With octave key to High F#
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C With octave key to C# With octave key
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C With octave key to High D
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C With octave key to High Eb
+	# of fingers changing per hand: [1, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C With octave key to High E
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C With octave key to High F
+	# of fingers changing per hand: [1, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C With octave key to High F#
+	# of fingers changing per hand: [1, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C# With octave key to High D
+	# of fingers changing per hand: [0, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C# With octave key to High Eb
+	# of fingers changing per hand: [0, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C# With octave key to High E
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C# With octave key to High F
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from C# With octave key to High F#
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from High D to High Eb
+	# of fingers changing per hand: [0, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from High D to High E
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from High D to High F
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from High D to High F#
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from High Eb to High E
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from High Eb to High F
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from High Eb to High F#
+	# of fingers changing per hand: [0, 2]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from High E to High F
+	# of fingers changing per hand: [0, 0]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from High E to High F#
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
+Going from High F to High F#
+	# of fingers changing per hand: [0, 1]
+	Octave key change: False
+	# of same-finger transitions: 0
