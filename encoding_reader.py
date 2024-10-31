@@ -48,7 +48,6 @@ def generate_interval_features(interval):
     print(f"\tOctave key change: {"True" if octave_key_delta else "False"}")
 
     # Amount of same-finger transitions (except same-hand palm)
-    # TODO: Special-case bis key
     same_finger_transitions = 0
     for handi in range(2):
         finger_changes = 0
@@ -70,7 +69,13 @@ def generate_interval_features(interval):
                     else:
                         if is_lifting == (finger1pressed[i] and not finger2pressed[i]):
                             continue
-
+                    
+                    # do not increment on Bis key
+                    for key1index in range(len(finger1.keys)):
+                        if (finger1.keys[key1index].name == Keys.Bis):
+                            if (finger1.keys[key1index].pressed != finger2.keys[key1index].pressed):
+                                print("BIS TRANSITION")
+                                continue
                     mismatches += 1
             
             if (mismatches > 1):
