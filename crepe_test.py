@@ -61,7 +61,7 @@ def main():
                     prog='Trill Parsing Tool',
                     description='Tool designed to automate trill speed analysis from audio files')
     parser.add_argument('-f', type=str)
-    parser.add_argument('-r', action="store_true", help="If present, will iterate over all .csv files in given directory")
+    parser.add_argument('-r', action="store_true", help="If present, will iterate over all .wav files in given directory")
     parser.add_argument('--console', action="store_true", help="If present, will print output to console instead of default file")
     args = parser.parse_args()
     if (os.path.isdir(args.f) and not args.r):
@@ -72,23 +72,32 @@ def main():
     if (os.path.isdir(args.f) and args.r):
         for file in os.listdir(args.f):
             filename = os.fsdecode(file)
-            if filename.endswith('.csv'):
+            if filename.endswith('.wav'):
+                print(f"=========== Handling file: {filename} ============")
                 path = os.path.join(args.f, filename)
                 evaluate(path, write_to_console=args.console)
 
 def evaluate(f_path, write_to_console = False):
-    rows = []
-    with open(f_path, 'r') as file:
-        reader = csv.reader(file, delimiter=',')
-        for row in reader:
-            rows.append(row)
+    f0_matrix = None
+
+    if (Path(f_path).suffix == ".wav"):
+        sr, audio = wavfile.read(f_path)
+        time, frequency, confidence, _ = crepe.predict(audio, sr, viterbi=False)
+        f0_matrix = np.array([time, frequency, confidence]).T
+
+    elif (Path(f_path).suffix == ".csv"):
+        rows = []
+        with open(f_path, 'r') as file:
+            reader = csv.reader(file, delimiter=',')
+            for row in reader:
+                rows.append(row)
+
+        f0_matrix = np.asarray(rows)[1:]
 
     if( not write_to_console ):
         path = Path(f_path)
         basename = path.stem
         dirname = os.path.dirname(f_path)
-
-    f0_matrix = np.asarray(rows)[1:]
 
     amount_of_splits = 4
     splits_to_glue = 2
