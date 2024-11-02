@@ -13,7 +13,7 @@ All notes will be presented in transposed pitch (i.e. the way the musicians are 
 </li>
 </ul>
 
-### Processing:
+### Processing workflow:
 <ol>
 <li>
 Record simultaneous audio + video (can be seperate or not - sync via clap if needed).
