@@ -8,8 +8,10 @@ Oct, Front F, LFF, Bis, LSF, LTF, G#, C#, B, Bb, High F, High D#, High D _ RFF, 
 from enum import Enum
 import csv
 import itertools
+import sklearn.cluster as skc
+import numpy as np
 
-fingerings = []
+print_debug = True
 
 def main():
     fingerings = []
@@ -17,16 +19,31 @@ def main():
         reader = csv.reader(csvfile, delimiter=",")
         next(reader, None)
         for row in reader:
+            midi = int(row[0].strip())
             name = row[1].strip()
             encoding = row[2].strip()
-            print(name)
-            fingerings.append(Fingering(name, encoding))
+            if print_debug: print(name)
+            fingerings.append(Fingering(midi, name, encoding))
 
     all_transitions = itertools.combinations(fingerings, 2)
+    encoding_feature_pairs = []
     for transition in all_transitions:
-        print(f"Going from {transition[0].name} to {transition[1].name}")
-        generate_interval_features(transition)
+        if print_debug: print(f"Going from {transition[0].name} to {transition[1].name}")
+        name, features = generate_interval_features(transition)
+        encoding_feature_pairs.append(([transition[0], transition[1]], features))
+    
+    # with this cluster_amount, you get clusters of 5 fingerings that are similar
+    cluster_amount = int(len(encoding_feature_pairs) / 5)
+    _, labels, _ = skc.k_means(n_clusters=cluster_amount, X=np.asarray([pair[1] for pair in encoding_feature_pairs]))
+    for label in range(cluster_amount):
+        if print_debug: print(f"=== PROCESSING LABEL {label} ===")
+        for index, elem in enumerate(encoding_feature_pairs):
+            if labels[index] == label:
+                if print_debug: print(f"{elem[0]} with feat {elem[1]}")
 
+    print(f"In total there are {len(encoding_feature_pairs)} unique trills using default fingerings on TS")
+
+# TODO: Add feature that account for palm movements, as these are not accounted for
 def generate_interval_features(interval):
     fingering1, fingering2 = interval
     # Delta in finger changes on each hand (i.e. finger pressing something then not pressing or vice verse)
@@ -41,11 +58,11 @@ def generate_interval_features(interval):
         
         finger_changes_per_hand.append(finger_changes)
 
-    print(f"\t# of fingers changing per hand: {finger_changes_per_hand}")
+    if print_debug: print(f"\t# of fingers changing per hand: {finger_changes_per_hand}")
 
     # Delta in octave key
     octave_key_delta = True if fingering1.hands[0].fingers[0].keys[0].pressed != fingering2.hands[0].fingers[0].keys[0].pressed else False
-    print(f"\tOctave key change: {"True" if octave_key_delta else "False"}")
+    if print_debug: print(f"\tOctave key change: {"True" if octave_key_delta else "False"}")
 
     # Amount of same-finger transitions (except same-hand palm)
     same_finger_transitions = 0
@@ -74,17 +91,25 @@ def generate_interval_features(interval):
                     for key1index in range(len(finger1.keys)):
                         if (finger1.keys[key1index].name == Keys.Bis):
                             if (finger1.keys[key1index].pressed != finger2.keys[key1index].pressed):
-                                print("BIS TRANSITION")
                                 continue
                     mismatches += 1
             
             if (mismatches > 1):
                 same_finger_transitions += 1
-                print(f"\t--- SFT ON {fingering1.hands[handi].side}-{finger1.name}")
+                if print_debug: print(f"\t--- SFT ON {fingering1.hands[handi].side}-{finger1.name}")
 
-    print(f"\t# of same-finger transitions: {same_finger_transitions}")
+    if print_debug: print(f"\t# of same-finger transitions: {same_finger_transitions}")
 
-    pass
+    fingering1_l_palm_pressed = any([key.pressed for key in fingering1.hands[0].fingers[5].keys])
+    fingering1_r_palm_pressed = any([key.pressed for key in fingering1.hands[1].fingers[5].keys])
+    fingering2_l_palm_pressed = any([key.pressed for key in fingering2.hands[0].fingers[5].keys])
+    fingering2_r_palm_pressed = any([key.pressed for key in fingering2.hands[1].fingers[5].keys])
+    change_palm_l = 10 if fingering1_l_palm_pressed != fingering2_l_palm_pressed else 0
+    change_palm_r = 10 if fingering1_r_palm_pressed != fingering2_r_palm_pressed else 0
+
+    return f"{fingering1.name} to {fingering2.name}", np.asarray([fingering1.midi / 10, fingering2.midi / 10, abs(fingering1.midi - fingering2.midi), finger_changes_per_hand[0], finger_changes_per_hand[1], 10 if octave_key_delta else 0, same_finger_transitions*20, change_palm_l, change_palm_r])
+
+
 
 class Hands(Enum):
     LEFT = 0
@@ -124,10 +149,12 @@ class Keys(Enum):
     SideBb = 22
 
 class Fingering:
+    midi = 0
     name = ""
     hands = []
 
-    def __init__(self, name: str, encoding: str):
+    def __init__(self, midi: int, name: str, encoding: str):
+        self.midi = midi
         self.name = name
         self.hands = [self.Hand(Hands.LEFT), self.Hand(Hands.RIGHT)]
         self.read_encoding(encoding)
@@ -144,6 +171,7 @@ class Fingering:
 
     def generate_encoding(self):
         output = ""
+        i = 0
         last_hand = None
         for hand in self.hands:
             if last_hand == Hands.LEFT and hand == Hands.RIGHT:
@@ -154,14 +182,19 @@ class Fingering:
                     output += "1" if key.pressed else "0"
                     i += 1
 
+        return output
+
     def __str__(self):
-        output = f"{self.name}\n"
-        for hand in self.hands:
-            for finger in hand.fingers:
-                for key in finger.keys:
-                    output += f"{key.name}: {key.pressed}\n"
+        output = f"{self.name}"
+        # for hand in self.hands:
+        #     for finger in hand.fingers:
+        #         for key in finger.keys:
+        #             output += f"{key.name}: {key.pressed}\n"
         
         return output
+
+    def __repr__(self):
+        return self.__str__()
 
     class Key:
         name = None
