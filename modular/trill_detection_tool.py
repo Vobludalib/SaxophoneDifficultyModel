@@ -73,6 +73,7 @@ def get_changes(f0_matrix):
 
     return changes, note1_midi, note2_midi
 
+# TODO: Refactor this to make logical sense with command-line args
 def main():
     parser = argparse.ArgumentParser(
                     prog='Trill Parsing Tool',
@@ -115,7 +116,6 @@ def main():
             with open(args.csv, 'w') as csvFile:
                 writer = csv.writer(csvFile)
                 writer.writerows(output)
-
 
 def evaluate(f_path, write_to_console = False):
     f0_matrix = None

@@ -11,11 +11,14 @@ import itertools
 import sklearn.cluster as skc
 import numpy as np
 
-print_debug = True
+print_debug = False
 
 def main():
+    fingerings = load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/encodings.txt")
+
+def load_fingerings_from_file(file_path):
     fingerings = []
-    with open("/Users/slibricky/Desktop/Thesis/thesis/encodings.txt", "r") as csvfile:
+    with open(file_path, "r") as csvfile:
         reader = csv.reader(csvfile, delimiter=",")
         next(reader, None)
         for row in reader:
@@ -25,25 +28,8 @@ def main():
             if print_debug: print(name)
             fingerings.append(Fingering(midi, name, encoding))
 
-    all_transitions = itertools.combinations(fingerings, 2)
-    encoding_feature_pairs = []
-    for transition in all_transitions:
-        if print_debug: print(f"Going from {transition[0].name} to {transition[1].name}")
-        name, features = generate_interval_features(transition)
-        encoding_feature_pairs.append(([transition[0], transition[1]], features))
-    
-    # with this cluster_amount, you get clusters of 5 fingerings that are similar
-    cluster_amount = int(len(encoding_feature_pairs) / 5)
-    _, labels, _ = skc.k_means(n_clusters=cluster_amount, X=np.asarray([pair[1] for pair in encoding_feature_pairs]))
-    for label in range(cluster_amount):
-        if print_debug: print(f"=== PROCESSING LABEL {label} ===")
-        for index, elem in enumerate(encoding_feature_pairs):
-            if labels[index] == label:
-                if print_debug: print(f"{elem[0]} with feat {elem[1]}")
+    return fingerings
 
-    print(f"In total there are {len(encoding_feature_pairs)} unique trills using default fingerings on TS")
-
-# TODO: Add feature that account for palm movements, as these are not accounted for
 def generate_interval_features(interval):
     fingering1, fingering2 = interval
     # Delta in finger changes on each hand (i.e. finger pressing something then not pressing or vice verse)
@@ -109,7 +95,31 @@ def generate_interval_features(interval):
 
     return f"{fingering1.name} to {fingering2.name}", np.asarray([fingering1.midi / 10, fingering2.midi / 10, abs(fingering1.midi - fingering2.midi), finger_changes_per_hand[0], finger_changes_per_hand[1], 10 if octave_key_delta else 0, same_finger_transitions*20, change_palm_l, change_palm_r])
 
+def generate_interval_clusters(fingerings, number_of_notes_per_cluster = 5):
+    all_transitions = itertools.combinations(fingerings, 2)
+    encoding_feature_pairs = []
+    for transition in all_transitions:
+        if print_debug: print(f"Going from {transition[0].name} to {transition[1].name}")
+        name, features = generate_interval_features(transition)
+        encoding_feature_pairs.append(([transition[0], transition[1]], features))
+    
+    # with this cluster_amount, you get clusters of 5 fingerings that are similar
+    clusters_dict = {}
+    cluster_amount = int(len(encoding_feature_pairs) / number_of_notes_per_cluster)
+    _, labels, _ = skc.k_means(n_clusters=cluster_amount, X=np.asarray([pair[1] for pair in encoding_feature_pairs]))
+    for label in range(cluster_amount):
+        if print_debug: print(f"=== PROCESSING LABEL {label} ===")
+        for index, elem in enumerate(encoding_feature_pairs):
+            if labels[index] == label:
+                if print_debug: print(f"{elem[0]} with feat {elem[1]}")
+                if label not in clusters_dict:
+                    clusters_dict[label] = [elem[0]]
+                else:
+                    clusters_dict[label].append(elem[0])
 
+    if print_debug: print(f"In total there are {len(encoding_feature_pairs)} unique trills using default fingerings on TS")
+
+    return clusters_dict
 
 class Hands(Enum):
     LEFT = 0
@@ -174,7 +184,7 @@ class Fingering:
         i = 0
         last_hand = None
         for hand in self.hands:
-            if last_hand == Hands.LEFT and hand == Hands.RIGHT:
+            if last_hand is not None and last_hand.side == Hands.LEFT and hand.side == Hands.RIGHT:
                 output += "_"
             last_hand = hand
             for finger in hand.fingers:
