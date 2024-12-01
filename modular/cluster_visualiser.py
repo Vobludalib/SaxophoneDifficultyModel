@@ -5,7 +5,7 @@ import numpy as np
 import random
 
 def main():
-    with open("/Users/slibricky/Desktop/Thesis/thesis/clear.csv", 'r') as f:
+    with open("/Users/slibricky/Desktop/Thesis/thesis/modular/files/BatchAnalysed.csv", 'r') as f:
         reader = csv.reader(f)
         next(reader, None)
         cluster_dict = {}

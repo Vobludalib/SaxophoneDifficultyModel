@@ -20,6 +20,9 @@ def main():
     parser.add_argument('-o', type=str, help="Will store all the outputs into one csv file with this name")
     parser.add_argument('--session', type=str, help="Path to the .csv file of the session being analysised")
     args = parser.parse_args()
+    args.estimates = "/Users/slibricky/Desktop/Thesis/thesis/modular/FULLSESSIONTEST2.csv"
+    args.session = "/Users/slibricky/Desktop/Thesis/thesis/modular/InitialSessionsGenerated.csv"
+    args.o = "BatchAnalysed.csv"
     if (not os.path.isfile(args.estimates)):
         print("--estimates is not a valid file")
     if (not os.path.isfile(args.session)):
@@ -89,6 +92,8 @@ def main():
             trill_speed = float(row[3].strip())
             midi1fingering = None
             midi2fingering = None
+            if midi1 > midi2:
+                midi1, midi2 = midi2, midi1
             append_row = [filename, extracted_digits, midi1, midi2, trill_speed]
             trill_detected_csv.append(append_row)
 
@@ -106,74 +111,92 @@ def main():
         input()
         # exit()
 
-    for i, row in enumerate(trill_detected_csv):
-        print(trill_detected_csv[i])
-        if i == 0: # Skip header
-            continue
+    try:
+        output = []
+        for i, row in enumerate(trill_detected_csv):
 
-        # Check MIDI values correspond
-        expected_midi_notes = [expected_order[i]['note_1_midi'], expected_order[i]['note_2_midi']]
-        if (row[2] not in expected_midi_notes or row[3] not in expected_midi_notes):
+            expected_midi_notes = [expected_order[i]['note_1_midi'], expected_order[i]['note_2_midi']]
             clear_console()
-            print(f"Mismatch in expected and detected notes")
+            print(f"Processing audio file: {trill_detected_csv[i][0]}")
             print(f"Expected: {expected_midi_notes[0]}, {expected_midi_notes[1]}")
             print(f"Detected: {row[2]}, {row[3]}")
-            print(f"Filename: {row[0]}")
-            print(f"If you want to override the detected frequencies with the expected ones, enter 'Y'")
-            print(f"NOTE! Only do this if you are certain that the detected frequencies are meant to be overriden (i.e. bad detection/tuning)")
-            answer = input()
-            if answer == 'Y':
-                midi1 = expected_midi_notes[0]
-                midi2 = expected_midi_notes[1]
+            input()
+
+            # Check MIDI values correspond
+            if (row[2] not in expected_midi_notes or row[3] not in expected_midi_notes):
+                print(f"Mismatch in expected and detected notes")
+                print(f"If you want to override the detected frequencies with the expected ones, enter 'Y'")
+                print(f"NOTE! Only do this if you are certain that the detected frequencies are meant to be overriden (i.e. bad detection/tuning)")
+                answer = input()
+                if answer == 'Y' or answer == "":
+                    midi1 = expected_midi_notes[0]
+                    midi2 = expected_midi_notes[1]
+                else:
+                    midi1 = row[2]
+                    midi2 = row[3]
             else:
                 midi1 = row[2]
                 midi2 = row[3]
 
-        midi1_fingerings = len(fingerings.get(midi1, []))
-        if (midi1_fingerings == 0):
-            print(f"{midi1} has no known fingerings encoded")
-        if (midi1_fingerings == 1):
-            midi1fingering = fingerings[midi1][0]
-        if (midi1_fingerings > 1):
-            clear_console()
-            print(f"Given midi note {midi1} has multiple fingerings, choose which one was associated with:")
-            print(f"File: {filename}")
-            print(f"Expected from session csv:")
-            expected_fingering1 = [fingering for fingering in fingerings[midi1] if expected_order[i]['note_1_encoding'] == fingering.generate_encoding()][0]
-            print(f"1. {expected_fingering1.name}")
-            print(f"Manual override")
-            for i in range(2, midi1_fingerings + 1):
-                print(f"{i}. {fingerings[midi1][i-2].name} - {fingerings[midi1][i-2].generate_encoding()}")
-            inp = int(input())
-            if inp == 1:
-                midi1fingering = expected_fingering1
-            else:
-                midi1fingering = fingerings[midi1][inp - 2]
-        
-        midi2_fingerings = len(fingerings.get(midi2, []))
-        if (midi2_fingerings == 0):
-            print(f"{midi2} has no known fingerings encoded")
-        if (midi2_fingerings == 1):
-            midi2fingering = fingerings[midi2][0]
-        if (midi2_fingerings > 1):
-            clear_console()
-            print(f"Given midi note {midi2} has multiple fingerings, choose which one was associated with:")
-            print(f"File: {filename}")
-            print(f"Expected from session csv:")
-            expected_fingering2 = [fingering for fingering in fingerings[midi2] if expected_order[i]['note_2_encoding'] == fingering.generate_encoding()][0]
-            print(f"1. {expected_fingering2.name}")
-            print(f"Manual override")
-            for i in range(2, midi2_fingerings + 1):
-                print(f"{i}. {fingerings[midi2][i-2].name} - {fingerings[midi2][i-2].generate_encoding()}")
-            inp = int(input())
-            if inp == 1:
-                midi2fingering = expected_fingering2
-            else:
-                midi2fingering = fingerings[midi2][inp - 2]
+            midi1_fingerings = len(fingerings.get(midi1, []))
+            if (midi1_fingerings == 0):
+                print(f"{trill_detected_csv[i][0]}")
+                print(f"{midi1} has no known fingerings encoded")
+                input()
+            if (midi1_fingerings == 1):
+                midi1fingering = fingerings[midi1][0]
+            if (midi1_fingerings > 1):
+                clear_console()
+                print(f"Given midi note {midi1} has multiple fingerings, choose which one was associated with:")
+                print(f"File: {trill_detected_csv[i][0]}")
+                print(f"Expected from session csv:")
+                expected_fingering1 = [fingering for fingering in fingerings[midi1] if expected_order[i]['note_1_encoding'] == fingering.generate_encoding()][0]
+                print(f"1. {expected_fingering1.name} - {expected_fingering1.generate_encoding()}")
+                print(f"Manual override")
+                for j in range(2, 2 + midi1_fingerings):
+                    print(f"{j}. {fingerings[midi1][j-2].name} - {fingerings[midi1][j-2].generate_encoding()}")
+                
+                inp = input()
+                if inp == "" or int(inp) == 1:
+                    midi1fingering = expected_fingering1
+                else:
+                    midi1fingering = fingerings[midi1][int(inp) - 2]
+            
+            midi2_fingerings = len(fingerings.get(midi2, []))
+            if (midi2_fingerings == 0):
+                print(f"{trill_detected_csv[i][0]}")
+                print(f"{midi2} has no known fingerings encoded")
+                input()
+            if (midi2_fingerings == 1):
+                midi2fingering = fingerings[midi2][0]
+            if (midi2_fingerings > 1):
+                clear_console()
+                print(f"Given midi note {midi2} has multiple fingerings, choose which one was associated with:")
+                print(f"File: {trill_detected_csv[i][0]}")
+                print(f"Expected from session csv:")
+                print(f"{midi1}, {midi2}")
+                expected_fingering2 = [fingering for fingering in fingerings[midi2] if expected_order[i]['note_2_encoding'] == fingering.generate_encoding()][0]
+                print(f"1. {expected_fingering2.name} - {expected_fingering2.generate_encoding()}")
+                print(f"Manual override")
+                for j in range(2, 2 + midi2_fingerings):
+                    print(f"{j}. {fingerings[midi2][j-2].name} - {fingerings[midi2][j-2].generate_encoding()}")
+                inp = input()
+                if inp == "" or int(inp) == 1:
+                    midi2fingering = expected_fingering2
+                else:
+                    midi2fingering = fingerings[midi2][int(inp) - 2]
 
-    # with open(args.o, 'w') as csvf:
-    #     writer = csv.writer(csvf)
-    #     writer.writerows(newCsv)     
+            output.append([trill_detected_csv[i][0],expected_order[i]['cluster'],midi1,midi1fingering.name,midi1fingering.generate_encoding(),midi2,midi2fingering.name,midi2fingering.generate_encoding(), trill_detected_csv[i][4]])
+
+        with open(args.o, 'w') as csvf:
+            writer = csv.writer(csvf)
+            writer.writerow(['Filename', 'Cluster', 'Midi 1 (transposed as written for TS)', 'Fingering 1 Name', 'Fingering 1 Encoding', 'Midi 2 (transposed as written for TS)', 'Fingering 2 Name', 'Fingering 2 Encoding', 'Trill Speed'])
+            writer.writerows(output)   
+    except:
+        with open('debug.csv', 'w') as csvf:
+            writer = csv.writer(csvf)
+            writer.writerow(['Filename', 'Cluster', 'Midi 1 (transposed as written for TS)', 'Fingering 1 Name', 'Fingering 1 Encoding', 'Midi 2 (transposed as written for TS)', 'Fingering 2 Name', 'Fingering 2 Encoding', 'Trill Speed'])
+            writer.writerows(output)   
         
     
 if __name__ == '__main__':
