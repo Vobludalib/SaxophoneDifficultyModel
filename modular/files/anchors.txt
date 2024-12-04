@@ -1,0 +1,6 @@
+C with octave -> G with octave (two fingers LH)
+F with octave -> Eb with octave (three fingers RH)
+D without octave -> D with octave (octave jump)
+A with octave -> High E (palm keys)
+Low C -> F Without octave (low notes + right pinky)
+G without octave key -> G# without octave key (left pinky)
