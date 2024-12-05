@@ -20,8 +20,8 @@ def main():
     parser.add_argument('-o', type=str, help="Will store all the outputs into one csv file with this name")
     parser.add_argument('--session', type=str, help="Path to the .csv file of the session being analysised")
     args = parser.parse_args()
-    args.estimates = "/Users/slibricky/Desktop/Thesis/thesis/modular/FULLSESSIONTEST2.csv"
-    args.session = "/Users/slibricky/Desktop/Thesis/thesis/modular/InitialSessionsGenerated.csv"
+    args.estimates = "/Users/slibricky/Desktop/Thesis/thesis/modular/files/FULLSESSIONTEST3.csv"
+    args.session = "/Users/slibricky/Desktop/Thesis/thesis/modular/files/InitialSessionsGenerated.csv"
     args.o = "BatchAnalysed.csv"
     if (not os.path.isfile(args.estimates)):
         print("--estimates is not a valid file")
