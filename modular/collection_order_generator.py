@@ -34,6 +34,16 @@ def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_in
         newSession = []
         number_of_intervals_in_session = 0
 
+    for session in sessions:
+        intervals = session[1]
+        for cluster_i, cluster in enumerate(session):
+            if cluster_i == 0: continue
+            for interval in cluster[1]:
+                interval_encodings = [interval[0].generate_encoding(), interval[1].generate_encoding()]
+                for anchor_int in anchor_intervals:
+                    if anchor_int[0].generate_encoding() in interval_encodings and anchor_int[1].generate_encoding() in interval_encodings:
+                        cluster[1].remove(interval)
+
     with open(output_file, 'w') as f:
         writer = csv.writer(f)
         writer.writerow(["Session", "Cluster", "Note 1 midi", "Note 1 name", "Note 1 encoding", "Note 2 midi", "Note 2 encoding", "Note 2 encoding"])
@@ -49,6 +59,25 @@ def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_in
             for trans_triple in all_session_transitions:
                 writer.writerow([i, trans_triple[0], trans_triple[1].midi, trans_triple[1].name, trans_triple[1].generate_encoding(), trans_triple[2].midi, trans_triple[2].name, trans_triple[2].generate_encoding()])
 
+# FOR NOW HARDCODED
+def get_anchor_intervals(all_transitions):
+    anchors = []
+    for transition in all_transitions:
+        encodings = [transition[0].generate_encoding(), transition[1].generate_encoding()]
+        if "1000100000000_0000000000" in encodings and "1010110000000_00000000000" in encodings:
+            anchors.append(transition)
+        elif "1010110000000_1000000000" in encodings and "1010110000000_1100110000" in encodings:
+            anchors.append(transition)
+        elif "0010110000000_1100100000" in encodings and "1010110000000_1100100000" in encodings:
+            anchors.append(transition)
+        elif "1010100000000_0000000000" in encodings and "1000000000011_0000000100" in encodings:
+            anchors.append(transition)
+        elif "0010110000000_1100101000" in encodings and "0010110000000_1000000000" in encodings:
+            anchors.append(transition)
+        elif "0010110000000_0000000000" in encodings and "0010111000000_0000000000" in encodings:
+            anchors.append(transition)
+
+    return anchors
 
 # TODO: Encode anchor intervals (those that appear the most and or not in the same clusters)
 def main():
@@ -66,8 +95,8 @@ def main():
     clusters_dict = encoding.generate_interval_clusters(fingerings)
 
     # GET ANCHOR INTERVALS
-    anchor_intervals = all_transitions[0:8]
-    number_of_anchor_intervals = 8
+    anchor_intervals = get_anchor_intervals(all_transitions)
+    number_of_anchor_intervals = len(anchor_intervals)
 
     if (args.nos is None and args.noc is None and args.noi is None):
         args.noi = 50

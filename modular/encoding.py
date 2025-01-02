@@ -92,8 +92,9 @@ def generate_interval_features(interval):
     fingering2_r_palm_pressed = any([key.pressed for key in fingering2.hands[1].fingers[5].keys])
     change_palm_l = 10 if fingering1_l_palm_pressed != fingering2_l_palm_pressed else 0
     change_palm_r = 10 if fingering1_r_palm_pressed != fingering2_r_palm_pressed else 0
+    contains_low_cs_or_lower = 5*(fingering1.midi <= 61 or fingering2.midi <= 61)
 
-    return f"{fingering1.name} to {fingering2.name}", np.asarray([fingering1.midi / 10, fingering2.midi / 10, abs(fingering1.midi - fingering2.midi), finger_changes_per_hand[0], finger_changes_per_hand[1], 10 if octave_key_delta else 0, same_finger_transitions*20, change_palm_l, change_palm_r])
+    return f"{fingering1.name} to {fingering2.name}", np.asarray([fingering1.midi / 10, fingering2.midi / 10, contains_low_cs_or_lower, abs(fingering1.midi - fingering2.midi), finger_changes_per_hand[0], finger_changes_per_hand[1], 10 if octave_key_delta else 0, same_finger_transitions*20, change_palm_l, change_palm_r])
 
 def generate_interval_clusters(fingerings, number_of_notes_per_cluster = 5):
     all_transitions = itertools.combinations(fingerings, 2)
