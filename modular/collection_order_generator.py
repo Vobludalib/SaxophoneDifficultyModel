@@ -64,7 +64,9 @@ def get_anchor_intervals(all_transitions):
     anchors = []
     for transition in all_transitions:
         encodings = [transition[0].generate_encoding(), transition[1].generate_encoding()]
-        if "1000100000000_0000000000" in encodings and "1010110000000_00000000000" in encodings:
+        print(f"{transition[0].name} {transition[1].name}")
+        print(f"{encodings}")
+        if "1000100000000_0000000000" in encodings and "1010110000000_0000000000" in encodings:
             anchors.append(transition)
         elif "1010110000000_1000000000" in encodings and "1010110000000_1100110000" in encodings:
             anchors.append(transition)

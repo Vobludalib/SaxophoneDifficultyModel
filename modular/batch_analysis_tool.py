@@ -20,9 +20,8 @@ def main():
     parser.add_argument('-o', type=str, help="Will store all the outputs into one csv file with this name")
     parser.add_argument('--session', type=str, help="Path to the .csv file of the session being analysised")
     args = parser.parse_args()
-    args.estimates = "/Users/slibricky/Desktop/Thesis/thesis/modular/files/FULLSESSIONTEST3.csv"
-    args.session = "/Users/slibricky/Desktop/Thesis/thesis/modular/files/InitialSessionsGenerated.csv"
-    args.o = "BatchAnalysed.csv"
+    # args.estimates = "/Users/slibricky/Desktop/Thesis/thesis/modular/files/PKSession0.csv"
+    # args.session = "/Users/slibricky/Desktop/Thesis/thesis/modular/files/SESGEN2test.csv"
     if (not os.path.isfile(args.estimates)):
         print("--estimates is not a valid file")
     if (not os.path.isfile(args.session)):
@@ -100,11 +99,11 @@ def main():
     # Sort newCSV by extracted_digits
     trill_detected_csv.sort( key=lambda row: row[1] )
 
-    with open('SORTED.csv', 'w') as f:
-        writer = csv.writer(f)
-        writer.writerow(["Filename", "Extracted number", "Midi 1", "Midi 2", "Trill speed"])
-        for line in trill_detected_csv:
-            writer.writerow(line)
+    # with open('SORTED.csv', 'w') as f:
+    #     writer = csv.writer(f)
+    #     writer.writerow(["Filename", "Extracted number", "Midi 1", "Midi 2", "Trill speed"])
+    #     for line in trill_detected_csv:
+    #         writer.writerow(line)
 
     if (len(expected_order) != len(trill_detected_csv)):
         print(f"Expected {len(expected_order)} per session csv, but found {len(trill_detected_csv)} from batch detection.")
