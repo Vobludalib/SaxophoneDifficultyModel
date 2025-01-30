@@ -52,12 +52,17 @@ def main():
             s.insert(0, metadata.Metadata())
             s.metadata.title = f'Session {session}'
             s.metadata.composer = f'Trill #{i} - cluster {cluster}'
-            s.write('musicxml.png', fp=f'temp/S{session}-{i}-{cluster}-{note1name.replace(' ', '').replace('#', 'sharp').replace('(', '').replace(')', '')}-{note2name.replace(' ', '').replace('#', 'sharp').replace('(', '').replace(')', '')}')
+            s.write('musicxml.png', fp=f'temp/S{session}-{i}-{cluster}-{note1name.replace(' ', '').replace('#', 'sharp').replace('(', '').replace(')', '')}-{note2name.replace(' ', '').replace('#', 'sharp').replace('(', '').replace(')', '')}-{i}')
 
     for session in sessions:
         with open(f"{args.out}"f"session{session}.pdf", "wb") as f:
-            session_files = [open("./temp/" + i, 'rb') for i in os.listdir('temp') if (i.endswith(".png") and f"S{session}-" in i)]
-            session_files.sort(key=lambda x: x.name)
+            list_of_i_bound_to_session = [i for i in os.listdir('temp') if (i.endswith(".png") and f"S{session}-" in i)]
+            ints_of_i = [int(i.split('.')[0].split('-')[-2]) for i in list_of_i_bound_to_session]
+            print(ints_of_i)
+            list_of_i_bound_to_session = [(list_of_i_bound_to_session[i], ints_of_i[i]) for i in range(len(ints_of_i))]
+            list_of_i_bound_to_session.sort(key=lambda tup: tup[1])
+            list_of_i_bound_to_session = [tup[0] for tup in list_of_i_bound_to_session]
+            session_files = [open("./temp/" + str(i), 'rb') for i in list_of_i_bound_to_session]
             f.write(img2pdf.convert(session_files))
 
 if __name__ == '__main__':
