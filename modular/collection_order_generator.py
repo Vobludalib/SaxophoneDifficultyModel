@@ -1,13 +1,41 @@
 import argparse
+
+import scipy.special
 import encoding
 import itertools
 import random
 import csv
+import scipy
+import numpy as np
 
-def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_intervals, number_of_transitions, output_file):
+def generate_interval_difficulty_approx(interval):
+    features = encoding.generate_interval_features(interval)[1]
+    return (features[1] - features[0]) * 10 + (10 if features[0] < 6.1 else 0) + (10 if features[1] > 85 else 0) + features[8] + features[9]
+
+def generate_cluster_difficulty_approx(clusters_dict):
+    difficulties = []
+    for key in clusters_dict:
+        cluster_difficulty = 0
+        i = 0
+        for interval in clusters_dict[key]:
+            # Simple difficulty generation for extreme jumps
+            cluster_difficulty += generate_interval_difficulty_approx(interval)
+            i += 1
+        
+        cluster_difficulty = cluster_difficulty / i
+        difficulties.append(cluster_difficulty)
+        i = 0
+
+    return difficulties
+
+
+def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_intervals, number_of_transitions, output_file, seed=10):
     sessions = []
+    random.seed(10)
 
-    randomise_cluster_order = random.sample(list(clusters_dict.keys()), len(list(clusters_dict.keys())))
+    cluster_difficulties = np.asarray(generate_cluster_difficulty_approx(clusters_dict))
+    softmax_difficulties = scipy.special.softmax(cluster_difficulties)
+    inverse_softmax_difficulties = scipy.special.softmax(-cluster_difficulties)
 
     total_non_anchors_covered = 0
     cluster_label = 0
@@ -19,15 +47,28 @@ def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_in
         newSession = [(-1, anchor_cluster)]
         number_of_intervals_in_session = len(anchor_cluster)
 
-        while number_of_intervals_in_session < number_of_intervals_per_sessions:
-                if (cluster_label not in clusters_dict):
-                    sessions.append(newSession)
-                    break
+        while number_of_intervals_in_session < number_of_intervals_per_sessions and len(clusters_dict) > 0:
+                cluster_difficulties = np.asarray(generate_cluster_difficulty_approx(clusters_dict))
+                softmax_difficulties = scipy.special.softmax(cluster_difficulties)
+                inverse_softmax_difficulties = scipy.special.softmax(-cluster_difficulties)
+
+                sample = 0
+                keys = list(clusters_dict.keys())
+                # Beginning we sample from easy intervals
+                if number_of_intervals_in_session < number_of_intervals_per_sessions * 0.25:
+                    sample = np.random.choice(keys, size=1, p=inverse_softmax_difficulties)[0]
+                elif number_of_intervals_in_session >= number_of_intervals_per_sessions * 0.25 and number_of_intervals_in_session <= number_of_intervals_per_sessions * 0.75:
+                    sample = np.random.choice(keys, size=1, p=softmax_difficulties)[0]
+                # Default weighting by easy
                 else:
-                    newSession.append((randomise_cluster_order[cluster_label], clusters_dict[randomise_cluster_order[cluster_label]]))
-                    total_non_anchors_covered += len(clusters_dict[randomise_cluster_order[cluster_label]])
-                    number_of_intervals_in_session += len(clusters_dict[randomise_cluster_order[cluster_label]])
-                    cluster_label += 1
+                    sample = np.random.choice(keys, size=1, p=softmax_difficulties)[0]
+
+                newSession.append((cluster_label, clusters_dict[sample]))
+                total_non_anchors_covered += len(clusters_dict[sample])
+                number_of_intervals_in_session += len(clusters_dict[sample])
+                cluster_label += 1
+
+                del clusters_dict[sample]
 
         sessions.append(newSession)
         
@@ -55,9 +96,38 @@ def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_in
                 for transition in cluster:
                     all_session_transitions.append((cluster_id, transition[0], transition[1]))
                 
-            random.shuffle(all_session_transitions)
-            for trans_triple in all_session_transitions:
+            all_sessions_trans_dict = {}
+            j = 0
+            for tup in all_session_transitions:
+                all_sessions_trans_dict[j] = tup
+                j += 1
+
+            j = 0
+            while len(all_sessions_trans_dict) > 0:
+                interval_difficulties = np.asarray([generate_interval_difficulty_approx((all_sessions_trans_dict[key][1], all_sessions_trans_dict[key][2])) for key in all_sessions_trans_dict.keys()])
+                softmax_difficulties = np.asarray((scipy.special.softmax(interval_difficulties) + 0.3)) # 0.3 is 'temp' for softmax to make sure it's not only hard ones in the middle 
+                softmax_difficulties = softmax_difficulties / np.sum(softmax_difficulties)
+                inverse_softmax_difficulties = np.asarray(scipy.special.softmax(-interval_difficulties) + 0.3)
+                inverse_softmax_difficulties = inverse_softmax_difficulties / np.sum(inverse_softmax_difficulties)
+
+                sample = 0
+                keys = list(all_sessions_trans_dict.keys())
+                # Beginning we sample from easy intervals
+                if j < len(all_session_transitions) * 0.25:
+                    sample = np.random.choice(keys, size=1, p=inverse_softmax_difficulties)[0]
+                elif j >= len(all_session_transitions) * 0.25 and number_of_intervals_in_session <= len(all_session_transitions) * 0.75:
+                    sample = np.random.choice(keys, size=1, p=softmax_difficulties)[0]
+                # Default weighting by easy
+                else:
+                    sample = np.random.choice(keys, size=1, p=softmax_difficulties)[0]
+
+                trans_triple = all_sessions_trans_dict[sample]
                 writer.writerow([i, trans_triple[0], trans_triple[1].midi, trans_triple[1].name, trans_triple[1].generate_encoding(), trans_triple[2].midi, trans_triple[2].name, trans_triple[2].generate_encoding()])
+                del all_sessions_trans_dict[sample]
+
+            # random.shuffle(all_session_transitions)
+            # for trans_triple in all_session_transitions:
+            #     writer.writerow([i, trans_triple[0], trans_triple[1].midi, trans_triple[1].name, trans_triple[1].generate_encoding(), trans_triple[2].midi, trans_triple[2].name, trans_triple[2].generate_encoding()])
 
 # FOR NOW HARDCODED
 def get_anchor_intervals(all_transitions):
