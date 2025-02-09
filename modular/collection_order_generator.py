@@ -28,10 +28,10 @@ def generate_cluster_difficulty_approx(clusters_dict):
 
     return difficulties
 
-
 def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_intervals, number_of_transitions, output_file, seed=10):
     sessions = []
-    random.seed(10)
+    random.seed(seed)
+    np.random.seed(seed)
 
     cluster_difficulties = np.asarray(generate_cluster_difficulty_approx(clusters_dict))
     softmax_difficulties = scipy.special.softmax(cluster_difficulties)
@@ -155,13 +155,14 @@ def get_anchor_intervals(all_transitions):
 def main():
     parser = argparse.ArgumentParser(
                     prog='Generate trills order for data collection')
-    parser.add_argument('--noc', type=int, help="Minimum number of clusters per recording session")
-    parser.add_argument('--noi', type=int, help="Minimum number of intervals per recording session")
-    parser.add_argument('--nos', type=int, help="Number of recording sessions")
-    parser.add_argument('--out', type=str, help="Where to store output", default="sessions.csv")
+    parser.add_argument('--noc', type=int, help="Prefered number of clusters per recording session, mutually incompatible with noi and nos")
+    parser.add_argument('--noi', type=int, help="Prefered number of intervals per recording session, mutually incompatible with noc and nos")
+    parser.add_argument('--nos', type=int, help="Prefered number of recording sessions, mutually incompatible with noc and noi")
+    parser.add_argument('--out', type=str, help="Filepath to where to store output. Default is sessions.csv", default="sessions.csv")
+    parser.add_argument('--seed', type=str, help="Seed used when randomly generating the sessions")
     args = parser.parse_args()
 
-    fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/encodings.txt")
+    fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
     all_transitions = list(itertools.combinations(fingerings, 2))
     number_of_transitions = len(all_transitions)
     clusters_dict = encoding.generate_interval_clusters(fingerings)
@@ -177,17 +178,17 @@ def main():
         print("Prioritising session breakdown")
         # NOT ACTUALLY BREAKING DOWN EVENLY - figure this out
         transitions_per_session = number_of_transitions//args.nos
-        generate_sessions(transitions_per_session, clusters_dict, anchor_intervals, number_of_transitions, args.out)
+        generate_sessions(transitions_per_session, clusters_dict, anchor_intervals, number_of_transitions, args.out, args.seed)
     elif (args.noc is not None):
         print("Prioritising cluster breakdown")
         transitions_per_session = number_of_transitions//args.noc
-        generate_sessions(transitions_per_session, clusters_dict, anchor_intervals, number_of_transitions, args.out)
+        generate_sessions(transitions_per_session, clusters_dict, anchor_intervals, number_of_transitions, args.out, args.seed)
     elif (args.noi is not None):
         print("Prioritising intervals breakdown")
         if args.noi <= number_of_anchor_intervals:
             print(f"Unable to breakdown into minimum {args.noi} interval sessions, given that there are {number_of_anchor_intervals} anchor intervals")
 
-        generate_sessions(args.noi, clusters_dict, anchor_intervals, number_of_transitions, args.out)
+        generate_sessions(args.noi, clusters_dict, anchor_intervals, number_of_transitions, args.out, args.seed)
         
 
 

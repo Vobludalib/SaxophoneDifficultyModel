@@ -4,8 +4,13 @@ import csv
 import numpy as np
 import random
 
+# THIS IS A DEBUG SCRIPT FOR VISUALISING FOR NOW, SO PATH IS HARDCODED
+
+# THIS TAKES AN EXISTING BATCH ANALYSED (OR NORMALISED) CSV
+path_to_file = "/Users/slibricky/Desktop/Thesis/thesis/modular/files/PlatonSession0BatchAnalysed.csv"
+
 def main():
-    with open("/Users/slibricky/Desktop/Thesis/thesis/modular/files/PlatonSession0BatchAnalysed.csv", 'r') as f:
+    with open(path_to_file, 'r') as f:
         reader = csv.reader(f)
         next(reader, None)
         cluster_dict = {}

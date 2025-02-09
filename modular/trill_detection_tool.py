@@ -11,6 +11,7 @@ import argparse
 from pathlib import Path
 from enum import Enum
 
+# See documentation for what these values mean - related to how we determine top speed
 amount_of_splits = 4
 splits_to_glue = 2
 outlier_threshold = 0.35
@@ -138,15 +139,14 @@ def main():
     parser = argparse.ArgumentParser(
                     prog='Trill Parsing Tool',
                     description='Tool designed to automate trill speed analysis from audio files')
-    parser.add_argument('-f', type=str)
+    parser.add_argument('-f', type=str, help="Path to the input file or directory")
     parser.add_argument('-r', action="store_true", help="If present, will iterate over all .wav files in given directory")
-    parser.add_argument('--console', action="store_true", help="If present, will print output to console instead of default file")
-    parser.add_argument('--csv', type=str, help="Will store all the outputs into one csv file with this name")
+    parser.add_argument('--output_file', type=str, help="Will store all the outputs into a .txt or .csv file with this name (by default .txt). Choice depends on file extension of input (././file.csv will cause a csv to be generated).")
     args = parser.parse_args()
     if (os.path.isdir(args.f) and not args.r):
         print(f"Given filepath is a directory and -r was not set!")
         return
-    if (os.path.isfile(args.f)):
+    if (os.path.isfile(args.f) and not args.r):
         evaluate(args.f)
     if (os.path.isdir(args.f) and args.r and not os.fsdecode(args.csv).endswith('.csv')):
         for file in os.listdir(args.f):
@@ -175,12 +175,11 @@ def main():
                     else:
                         output.append([filename, note2_midi, note1_midi, trill_speed])
                     
-
             with open(args.csv, 'w') as csvFile:
                 writer = csv.writer(csvFile)
                 writer.writerows(output)
 
-def evaluate(f_path, write_to_console = False):
+def evaluate(f_path):
     f0_matrix = None
 
     if (Path(f_path).suffix == ".wav"):

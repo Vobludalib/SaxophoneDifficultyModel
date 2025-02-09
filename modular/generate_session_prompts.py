@@ -13,7 +13,15 @@ def main():
     parser.add_argument('--inp', type=str)
     parser.add_argument('--out', type=str, help="Where to store output", default="./prompts/")
     args = parser.parse_args()
-    # args.inp = "/Users/slibricky/Desktop/Thesis/thesis/modular/files/InitialSessionsGenerated.csv"
+
+    temp_folder = "./temp"
+    for filename in os.listdir(temp_folder):
+        file_path = os.path.join(temp_folder, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
 
     sessions = {}
     with open(args.inp, 'r') as f:
@@ -58,7 +66,6 @@ def main():
         with open(f"{args.out}"f"session{session}.pdf", "wb") as f:
             list_of_i_bound_to_session = [i for i in os.listdir('temp') if (i.endswith(".png") and f"S{session}-" in i)]
             ints_of_i = [int(i.split('.')[0].split('-')[-2]) for i in list_of_i_bound_to_session]
-            print(ints_of_i)
             list_of_i_bound_to_session = [(list_of_i_bound_to_session[i], ints_of_i[i]) for i in range(len(ints_of_i))]
             list_of_i_bound_to_session.sort(key=lambda tup: tup[1])
             list_of_i_bound_to_session = [tup[0] for tup in list_of_i_bound_to_session]

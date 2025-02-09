@@ -4,6 +4,9 @@ import argparse
 import os
 import csv
 
+# WILL HAVE TO CHANGE ON WINDOWS OR DIFFERENT SETUP
+encodings_path = "./documentation/encodings.txt"
+
 def clear_console():
 
     if os.name == 'nt':
@@ -20,8 +23,6 @@ def main():
     parser.add_argument('-o', type=str, help="Will store all the outputs into one csv file with this name")
     parser.add_argument('--session', type=str, help="Path to the .csv file of the session being analysised")
     args = parser.parse_args()
-    # args.estimates = "/Users/slibricky/Desktop/Thesis/thesis/modular/files/PKSession0.csv"
-    # args.session = "/Users/slibricky/Desktop/Thesis/thesis/modular/files/SESGEN2test.csv"
     if (not os.path.isfile(args.estimates)):
         print("--estimates is not a valid file")
     if (not os.path.isfile(args.session)):
@@ -29,7 +30,7 @@ def main():
 
     # Alternate loading used here to load directly indexed by midi value
     fingerings = {}
-    with open("/Users/slibricky/Desktop/Thesis/thesis/encodings.txt", "r") as csvfile:
+    with open(encodings_path, "r") as csvfile:
         reader = csv.reader(csvfile, delimiter=",")
         next(reader, None)
         for row in reader:
