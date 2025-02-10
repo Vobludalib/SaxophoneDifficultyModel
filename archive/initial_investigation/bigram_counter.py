@@ -3,7 +3,7 @@ import music21
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 
-pathToCsv = "/Users/slibricky/Desktop/Thesis/melospy-gui_V_1_4b_mac_osx/bin/analysis/feature+viz/bigramsTP.csv"
+pathToCsv = "/Users/slibricky/Desktop/Thesis/melospy-gui_V_1_4b_mac_osx/bin/analysis/feature+viz/bigramsTS.csv"
 
 TRANSPOSEINTOBB = True
 
