@@ -4,6 +4,8 @@ import numpy as np
 import sklearn.cluster as skc
 import random
 import csv
+from tqdm import tqdm
+import matplotlib.pyplot as plt
 
 def generate_all_transitions(fingerings):
     all_transitions = itertools.combinations(fingerings, 2)
@@ -130,21 +132,45 @@ def cluster_subsample(transitions, n, seed=10, print_debug=False):
 
     return selected_transitions, not_selected_transition
 
+# Using bootstrap sampling, we take a list of transitions and create a k n-sized test set
+def generate_test_sets_from_leftovers(transitions, size_of_one_iteration, amount_of_iterations, seed=10, print_debug=False):
+    random.seed(seed)
+    iterations = []
+    for i in range(amount_of_iterations):
+        iterations.append(random.choices(transitions, k = size_of_one_iteration))
+    return iterations
+
+# Method to pair generated samples with the data values from a file -> generating a list of pairs of fingerings and a numpy array of their recorded trill speeds
+def pair_list_of_transitions_with_recorded_values(transitions, path_to_data, seed=10):
+    pass
+
 def main():
     fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
     all_transitions = list(generate_all_transitions(fingerings))
-    selectedFreq, _ = occurence_frequency_subsample(all_transitions, 50)
-    selectedCluster, _ = cluster_subsample(all_transitions, 50)
-    selectedUnif, _ = uniform_subsample(all_transitions, 50)
-    print("FREQ")
-    for trans in selectedFreq:
-        print(f"{trans[0].name} to {trans[1].name}")
-    print("CLUSTER")
-    for trans in selectedCluster:
-        print(f"{trans[0].name} to {trans[1].name}")
-    print("UNIF")
-    for trans in selectedUnif:
-        print(f"{trans[0].name} to {trans[1].name}")
+    amount_of_fingerings = len(all_transitions)
+    errors = []
+    size_of_test_set = 20
+    number_of_test_sets_per_i = 10
+    minimum_amount_of_elements_to_record = 20
+    for i in tqdm(range(amount_of_fingerings - size_of_test_set - minimum_amount_of_elements_to_record)):
+        amount_to_sample = i + size_of_test_set
+        amount_leftover = amount_of_fingerings - amount_to_sample
+        selected_cluster, leftover_cluster = cluster_subsample(all_transitions, amount_to_sample, seed=i)
+        test_sets = generate_test_sets_from_leftovers(leftover_cluster, size_of_test_set, number_of_test_sets_per_i, seed=i+10)
+        # TRAIN MODEL ON SELECTED CLUSTER
+        error_sum = 0
+        for test_set in test_sets:
+            # EVALUATE MODEL ON TEST SET
+            error_sum += 1 / random.randrange(1, i + 10)
+        
+        errors.append((i, error_sum/number_of_test_sets_per_i))
+    
+    unzipped = list(zip(*errors))
+    xs = unzipped[0]
+    ys = unzipped[1]
+    plt.plot(xs, ys)
+    plt.show()
+
 
 if __name__ == '__main__':
     main()
