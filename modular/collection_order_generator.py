@@ -7,6 +7,7 @@ import random
 import csv
 import scipy
 import numpy as np
+import sklearn.cluster as skc
 
 def generate_interval_difficulty_approx(interval):
     features = encoding.generate_interval_features(interval)[1]
@@ -87,7 +88,7 @@ def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_in
 
     with open(output_file, 'w') as f:
         writer = csv.writer(f)
-        writer.writerow(["Session", "Cluster", "Note 1 midi", "Note 1 name", "Note 1 encoding", "Note 2 midi", "Note 2 encoding", "Note 2 encoding"])
+        writer.writerow(["Session", "Cluster", "Note 1 midi", "Note 1 name", "Note 1 encoding", "Note 2 midi", "Note 2 encoding", "Note 2 encoding", f"SEED:{seed}"])
         for i, session in enumerate(sessions):
             all_session_transitions = []
             for cluster_tuple in session:
@@ -129,29 +130,47 @@ def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_in
             # for trans_triple in all_session_transitions:
             #     writer.writerow([i, trans_triple[0], trans_triple[1].midi, trans_triple[1].name, trans_triple[1].generate_encoding(), trans_triple[2].midi, trans_triple[2].name, trans_triple[2].generate_encoding()])
 
-# FOR NOW HARDCODED
-def get_anchor_intervals(all_transitions):
+def get_anchor_intervals(all_transitions, path_to_anchors):
+    anchors_encodings = []
+    with open(path_to_anchors, 'r') as f:
+        for line in f:
+            encoding_pair = line.strip().split(sep=',')
+            anchors_encodings.append(encoding_pair)
+
     anchors = []
     for transition in all_transitions:
         encodings = [transition[0].generate_encoding(), transition[1].generate_encoding()]
-        print(f"{transition[0].name} {transition[1].name}")
-        print(f"{encodings}")
-        if "1000100000000_0000000000" in encodings and "1010110000000_0000000000" in encodings:
-            anchors.append(transition)
-        elif "1010110000000_1000000000" in encodings and "1010110000000_1100110000" in encodings:
-            anchors.append(transition)
-        elif "0010110000000_1100100000" in encodings and "1010110000000_1100100000" in encodings:
-            anchors.append(transition)
-        elif "1010100000000_0000000000" in encodings and "1000000000011_0000000100" in encodings:
-            anchors.append(transition)
-        elif "0010110000000_1100101000" in encodings and "0010110000000_1000000000" in encodings:
-            anchors.append(transition)
-        elif "0010110000000_0000000000" in encodings and "0010111000000_0000000000" in encodings:
+        if encodings in anchors_encodings:
             anchors.append(transition)
 
     return anchors
 
-# TODO: Encode anchor intervals (those that appear the most and or not in the same clusters)
+def generate_interval_clusters(fingerings, number_of_notes_per_cluster = 5, print_debug=False):
+    all_transitions = itertools.combinations(fingerings, 2)
+    encoding_feature_pairs = []
+    for transition in all_transitions:
+        if print_debug: print(f"Going from {transition[0].name} to {transition[1].name}")
+        name, features = encoding.generate_interval_features(transition)
+        encoding_feature_pairs.append(([transition[0], transition[1]], features))
+    
+    # with this cluster_amount, you get clusters of 5 fingerings that are similar
+    clusters_dict = {}
+    cluster_amount = int(len(encoding_feature_pairs) / number_of_notes_per_cluster)
+    _, labels, _ = skc.k_means(n_clusters=cluster_amount, X=np.asarray([pair[1] for pair in encoding_feature_pairs]))
+    for label in range(cluster_amount):
+        if print_debug: print(f"=== PROCESSING LABEL {label} ===")
+        for index, elem in enumerate(encoding_feature_pairs):
+            if labels[index] == label:
+                if print_debug: print(f"{elem[0]} with feat {elem[1]}")
+                if label not in clusters_dict:
+                    clusters_dict[label] = [elem[0]]
+                else:
+                    clusters_dict[label].append(elem[0])
+
+    if print_debug: print(f"In total there are {len(encoding_feature_pairs)} unique trills using default fingerings on TS")
+
+    return clusters_dict
+
 def main():
     parser = argparse.ArgumentParser(
                     prog='Generate trills order for data collection')
@@ -159,16 +178,18 @@ def main():
     parser.add_argument('--noi', type=int, help="Prefered number of intervals per recording session, mutually incompatible with noc and nos")
     parser.add_argument('--nos', type=int, help="Prefered number of recording sessions, mutually incompatible with noc and noi")
     parser.add_argument('--out', type=str, help="Filepath to where to store output. Default is sessions.csv", default="sessions.csv")
-    parser.add_argument('--seed', type=str, help="Seed used when randomly generating the sessions")
+    parser.add_argument('--seed', type=int, help="Seed used when randomly generating the sessions", default="10")
+    parser.add_argument('--anchors', type=str, help="Path to file with pairs of encodings representing anchor intervals. Each line should be in the form:\nENCODING1,ENCODING2")
     args = parser.parse_args()
 
     fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
     all_transitions = list(itertools.combinations(fingerings, 2))
     number_of_transitions = len(all_transitions)
-    clusters_dict = encoding.generate_interval_clusters(fingerings)
+    clusters_dict = generate_interval_clusters(fingerings)
+    args.anchors = "/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/anchor_intervals.txt"
 
     # GET ANCHOR INTERVALS
-    anchor_intervals = get_anchor_intervals(all_transitions)
+    anchor_intervals = get_anchor_intervals(all_transitions, args.anchors)
     number_of_anchor_intervals = len(anchor_intervals)
 
     if (args.nos is None and args.noc is None and args.noi is None):
