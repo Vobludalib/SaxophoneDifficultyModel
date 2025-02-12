@@ -8,7 +8,6 @@ Oct, Front F, LFF, Bis, LSF, LTF, G#, C#, B, Bb, High F, High D#, High D _ RFF, 
 from enum import Enum
 import csv
 import itertools
-import sklearn.cluster as skc
 import numpy as np
 
 print_debug = False
@@ -16,10 +15,10 @@ print_debug = False
 def main():
     fingerings = load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/encodings.txt")
 
-def load_fingerings_from_file(file_path):
+def load_fingerings_from_file(file_path, delim=','):
     fingerings = []
     with open(file_path, "r") as csvfile:
-        reader = csv.reader(csvfile, delimiter=",")
+        reader = csv.reader(csvfile, delimiter=delim)
         next(reader, None)
         for row in reader:
             midi = int(row[0].strip())
@@ -29,6 +28,32 @@ def load_fingerings_from_file(file_path):
             fingerings.append(Fingering(midi, name, encoding))
 
     return fingerings
+
+# Loads a list of transitions with their trill speed from a csv file
+# CSV FILE IS EXPECTED TO HAVE HEADER:
+# Filename,Cluster,Midi 1 (transposed as written for TS),Fingering 1 Name,Fingering 1 Encoding,Midi 2 (transposed as written for TS),Fingering 2 Name,Fingering 2 Encoding,Trill Speed
+def load_transitions_from_file(file_path, delim=','):
+    transitions_trills_dict = {}
+    with open(file_path, "r") as csvfile:
+        reader = csv.reader(csvfile, delimiter=delim)
+        next(reader, None)
+        for row in reader:
+            midi1 = int(row[2].strip())
+            name1 = row[3].strip()
+            encoding1 = row[4].strip()
+            midi2 = int(row[5].strip())
+            name2 = row[6].strip()
+            encoding2 = row[7].strip()
+            trill_speed = float(row[8].strip())
+            note1 = Fingering(midi1, name1, encoding1)
+            note2 = Fingering(midi2, name2, encoding2)
+            trans = Transition(note1, note2)
+            if transitions_trills_dict.get(trans, None) is None:
+                transitions_trills_dict[trans] = [trill_speed]
+            else:
+                transitions_trills_dict[trans].append(trill_speed)
+
+    return transitions_trills_dict
 
 def generate_interval_features(interval):
     fingering1, fingering2 = interval
@@ -95,33 +120,6 @@ def generate_interval_features(interval):
     contains_low_cs_or_lower = 5*(fingering1.midi <= 61 or fingering2.midi <= 61)
 
     return f"{fingering1.name} to {fingering2.name}", np.asarray([fingering1.midi / 10, fingering2.midi / 10, contains_low_cs_or_lower, abs(fingering1.midi - fingering2.midi), finger_changes_per_hand[0], finger_changes_per_hand[1], 10 if octave_key_delta else 0, same_finger_transitions*20, change_palm_l, change_palm_r])
-
-# TODO: Move somewhere else
-def generate_interval_clusters(fingerings, number_of_notes_per_cluster = 5):
-    all_transitions = itertools.combinations(fingerings, 2)
-    encoding_feature_pairs = []
-    for transition in all_transitions:
-        if print_debug: print(f"Going from {transition[0].name} to {transition[1].name}")
-        name, features = generate_interval_features(transition)
-        encoding_feature_pairs.append(([transition[0], transition[1]], features))
-    
-    # with this cluster_amount, you get clusters of 5 fingerings that are similar
-    clusters_dict = {}
-    cluster_amount = int(len(encoding_feature_pairs) / number_of_notes_per_cluster)
-    _, labels, _ = skc.k_means(n_clusters=cluster_amount, X=np.asarray([pair[1] for pair in encoding_feature_pairs]))
-    for label in range(cluster_amount):
-        if print_debug: print(f"=== PROCESSING LABEL {label} ===")
-        for index, elem in enumerate(encoding_feature_pairs):
-            if labels[index] == label:
-                if print_debug: print(f"{elem[0]} with feat {elem[1]}")
-                if label not in clusters_dict:
-                    clusters_dict[label] = [elem[0]]
-                else:
-                    clusters_dict[label].append(elem[0])
-
-    if print_debug: print(f"In total there are {len(encoding_feature_pairs)} unique trills using default fingerings on TS")
-
-    return clusters_dict
 
 class Hands(Enum):
     LEFT = 0
@@ -208,6 +206,15 @@ class Fingering:
     def __repr__(self):
         return self.__str__()
 
+    def __eq__(self, other):
+        if isinstance(other, Fingering):
+            return self.generate_encoding() == other.generate_encoding()
+        else:
+            return NotImplemented
+        
+    def __hash__(self):
+        return self.generate_encoding().__hash__()
+
     class Key:
         name = None
         parent_finger = None
@@ -269,6 +276,20 @@ class Fingering:
                 Fingering.Finger(Fingers.RING, self), 
                 Fingering.Finger(Fingers.PINKY, self), 
                 Fingering.Finger(Fingers.PALM, self)]
-            
+
+class Transition:
+    def __init__(self, fing1, fing2):
+        self.fingering1 = fing1
+        self.fingering2 = fing2
+
+    def __eq__(self, other):
+        return self.fingering1 == other.fingering1 and self.fingering2 == other.fingering2
+    
+    def __hash__(self):
+        return self.fingering1.__hash__() + self.fingering2.__hash__()
+    
+    def __repr__(self):
+        return f"{self.__hash__()} -> {self.fingering1.name} to {self.fingering2.name}"
+         
 if __name__ == "__main__":
     main()
