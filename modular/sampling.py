@@ -1,4 +1,4 @@
-import itertools
+import sklearn.metrics
 import encoding
 import numpy as np
 import sklearn.cluster as skc
@@ -6,10 +6,8 @@ import random
 import csv
 from tqdm import tqdm
 import matplotlib.pyplot as plt
-
-def generate_all_transitions(fingerings):
-    all_transitions = itertools.combinations(fingerings, 2)
-    return all_transitions
+import model
+import sklearn
 
 # FROM ALL FINGERINGS SUBSAMPLE USING 
 # a) UNIFORM RANDOMNESS
@@ -17,15 +15,42 @@ def generate_all_transitions(fingerings):
 # c) BASED ON CLUSTERING
 
 # Method for subsampling using uniform randomness
-def uniform_subsample(transitions, n, seed=10, print_debug=False):
+def uniform_subsample(transitions_trill_speed_dict: dict, n, seed=10, print_debug=False):
     random.seed(seed)
-    sampled = random.sample(transitions, n)
-    not_sampled = []
-    for transition in transitions:
-        if transition not in sampled:
-            not_sampled.append(transition)
 
-    return sampled, not_sampled
+    sampled_trans = []
+    sampled_speeds = []
+    not_sampled_trans = []
+    not_sampled_speeds = []
+
+    amount_of_transitions = len(transitions_trill_speed_dict)
+    transitions = list(transitions_trill_speed_dict.keys())
+
+    indices = [i for i in range(amount_of_transitions)]
+    for i in range(n):
+        raw_index = random.randint(0, amount_of_transitions - i - 1)
+        sampled_index = indices[raw_index]
+        trans = transitions[sampled_index]
+        speeds_for_trans = transitions_trill_speed_dict[trans]
+        amount_of_speeds = len(speeds_for_trans)
+        sampled_speed_index = random.randint(0, amount_of_speeds-1)
+        for index, val in enumerate(speeds_for_trans):
+            if index == sampled_speed_index:
+                sampled_trans.append(trans)
+                sampled_speeds.append(val)
+            else:
+                not_sampled_trans.append(trans)
+                not_sampled_speeds.append(val)
+        
+        del indices[raw_index]
+    
+    for not_selected_index in indices:
+        trans = transitions[not_selected_index]
+        for speed in transitions_trill_speed_dict[trans]:
+            not_sampled_trans.append(trans)
+            not_sampled_speeds.append(speed)
+
+    return sampled_trans, sampled_speeds, not_sampled_trans, not_sampled_speeds
 
 # Method for subsampling using WJDB frequencies
 def occurence_frequency_subsample(transitions, n, seed=10, print_debug=False):
@@ -105,7 +130,7 @@ def cluster_subsample(transitions, n, seed=10, print_debug=False):
     encoding_feature_pairs = []
     for transition in transitions:
         if print_debug: print(f"Going from {transition[0].name} to {transition[1].name}")
-        name, features = encoding.generate_interval_features(transition)
+        features = encoding.generate_transition_features(transition)
         encoding_feature_pairs.append(([transition[0], transition[1]], features))
     
     clusters_dict = {}
@@ -132,38 +157,46 @@ def cluster_subsample(transitions, n, seed=10, print_debug=False):
 
     return selected_transitions, not_selected_transition
 
-# Using bootstrap sampling, we take a list of transitions and create a k n-sized test set
-def generate_test_sets_from_leftovers(transitions, size_of_one_iteration, amount_of_iterations, seed=10, print_debug=False):
+def bootstrap_sample(xs, ys, n, seed=10):
     random.seed(seed)
-    iterations = []
-    for i in range(amount_of_iterations):
-        iterations.append(random.choices(transitions, k = size_of_one_iteration))
-    return iterations
+    indices = [random.randrange(0, len(xs)) for i in range(n)]
+    sampled_xs = []
+    sampled_ys = []
+    for index in indices:
+        sampled_xs.append(xs[index])
+        sampled_ys.append(ys[index])
+    
+    return sampled_xs, sampled_ys
 
-# Method to pair generated samples with the data values from a file -> generating a list of pairs of fingerings and a numpy array of their recorded trill speeds
-def pair_list_of_transitions_with_recorded_values(transitions, path_to_data, seed=10):
-    pass
+def perform_sampling_test(transitions_trill_speed_dict, sampling_method, size_of_test_set = 15):
+    errors = []
+    number_of_retries_per_i = 10
+    minimum_amount_of_elements_in_train_set = 20
+    amount_of_fingerings_recorded = len(transitions_trill_speed_dict)
+    for i in tqdm(range(amount_of_fingerings_recorded - size_of_test_set - minimum_amount_of_elements_in_train_set)):
+        seed_i = random.randint(0, 100000)
+        amount_to_sample = i + minimum_amount_of_elements_in_train_set
+        amount_leftover = amount_of_fingerings_recorded - amount_to_sample
+        mse_sum = 0
+        for j in range(number_of_retries_per_i):
+            selected_xs, selected_ys, not_selected_xs, not_selected_ys = uniform_subsample(transitions_trill_speed_dict, amount_to_sample, seed=seed_i)
+            bootstrap_xs, boostrap_ys = bootstrap_sample(not_selected_xs, not_selected_ys, size_of_test_set, seed=seed_i+j)
+            selected_xs, selected_ys = model.transitions_and_speed_lists_to_numpy_arrays(selected_xs, selected_ys)
+            bootstrap_xs, boostrap_ys = model.transitions_and_speed_lists_to_numpy_arrays(bootstrap_xs, boostrap_ys)
+            # TRAIN MODEL ON SELECTED CLUSTER
+            mlp = model.fit_on_mlp(selected_xs, selected_ys)
+            predicts = mlp.predict(bootstrap_xs)
+            mse = sklearn.metrics.mean_squared_error(boostrap_ys, predicts)
+            mse_sum += mse
+            
+        errors.append((i, mse_sum/number_of_retries_per_i))
+
+    return errors
 
 def main():
-    fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
-    all_transitions = list(generate_all_transitions(fingerings))
-    amount_of_fingerings = len(all_transitions)
-    errors = []
-    size_of_test_set = 20
-    number_of_test_sets_per_i = 10
-    minimum_amount_of_elements_to_record = 20
-    for i in tqdm(range(amount_of_fingerings - size_of_test_set - minimum_amount_of_elements_to_record)):
-        amount_to_sample = i + size_of_test_set
-        amount_leftover = amount_of_fingerings - amount_to_sample
-        selected_cluster, leftover_cluster = cluster_subsample(all_transitions, amount_to_sample, seed=i)
-        test_sets = generate_test_sets_from_leftovers(leftover_cluster, size_of_test_set, number_of_test_sets_per_i, seed=i+10)
-        # TRAIN MODEL ON SELECTED CLUSTER
-        error_sum = 0
-        for test_set in test_sets:
-            # EVALUATE MODEL ON TEST SET
-            error_sum += 1 / random.randrange(1, i + 10)
-        
-        errors.append((i, error_sum/number_of_test_sets_per_i))
+    # fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
+    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/PlatonSession0BatchAnalysed.csv")
+    errors = perform_sampling_test(transitions_speed_dict, sampling_method='uniform')
     
     unzipped = list(zip(*errors))
     xs = unzipped[0]
