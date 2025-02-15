@@ -174,9 +174,8 @@ def generate_interval_clusters(fingerings, number_of_notes_per_cluster = 5, prin
 def main():
     parser = argparse.ArgumentParser(
                     prog='Generate trills order for data collection')
-    parser.add_argument('--noc', type=int, help="Prefered number of clusters per recording session, mutually incompatible with noi and nos")
-    parser.add_argument('--noi', type=int, help="Prefered number of intervals per recording session, mutually incompatible with noc and nos")
-    parser.add_argument('--nos', type=int, help="Prefered number of recording sessions, mutually incompatible with noc and noi")
+    parser.add_argument('--noi', type=int, help="Prefered number of intervals per recording session, mutually incompatible with nos")
+    parser.add_argument('--nos', type=int, help="Prefered number of recording sessions, mutually incompatible with noi")
     parser.add_argument('--out', type=str, help="Filepath to where to store output. Default is sessions.csv", default="sessions.csv")
     parser.add_argument('--seed', type=int, help="Seed used when randomly generating the sessions", default="10")
     parser.add_argument('--anchors', type=str, help="Path to file with pairs of encodings representing anchor intervals. Each line should be in the form:\nENCODING1,ENCODING2")
@@ -185,6 +184,7 @@ def main():
     fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
     all_transitions = list(itertools.combinations(fingerings, 2))
     number_of_transitions = len(all_transitions)
+    # We still use k-means of n/5 here to get similar transitions recorded by the same player
     clusters_dict = generate_interval_clusters(fingerings)
     args.anchors = "/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/anchor_intervals.txt"
 
@@ -192,17 +192,13 @@ def main():
     anchor_intervals = get_anchor_intervals(all_transitions, args.anchors)
     number_of_anchor_intervals = len(anchor_intervals)
 
-    if (args.nos is None and args.noc is None and args.noi is None):
+    if (args.nos is None and args.noi is None):
         args.noi = 50
 
     if (args.nos is not None):
         print("Prioritising session breakdown")
         # NOT ACTUALLY BREAKING DOWN EVENLY - figure this out
         transitions_per_session = number_of_transitions//args.nos
-        generate_sessions(transitions_per_session, clusters_dict, anchor_intervals, number_of_transitions, args.out, args.seed)
-    elif (args.noc is not None):
-        print("Prioritising cluster breakdown")
-        transitions_per_session = number_of_transitions//args.noc
         generate_sessions(transitions_per_session, clusters_dict, anchor_intervals, number_of_transitions, args.out, args.seed)
     elif (args.noi is not None):
         print("Prioritising intervals breakdown")
