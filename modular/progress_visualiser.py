@@ -6,7 +6,7 @@ import numpy as np
 data = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/PlatonSession0BatchAnalysed.csv")
 all_fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
 
-combs = itertools.combinations(all_fingerings, 2)
+combs = encoding.generate_all_transitions(all_fingerings)
 plot_data = []
 for possible_transition in combs:
     trans = encoding.Transition(possible_transition[0], possible_transition[1])

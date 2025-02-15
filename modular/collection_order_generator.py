@@ -146,7 +146,7 @@ def get_anchor_intervals(all_transitions, path_to_anchors):
     return anchors
 
 def generate_interval_clusters(fingerings, number_of_notes_per_cluster = 5, print_debug=False):
-    all_transitions = itertools.combinations(fingerings, 2)
+    all_transitions = encoding.generate_all_transitions(fingerings)
     encoding_feature_pairs = []
     for transition in all_transitions:
         if print_debug: print(f"Going from {transition[0].name} to {transition[1].name}")
@@ -182,7 +182,7 @@ def main():
     args = parser.parse_args()
 
     fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
-    all_transitions = list(itertools.combinations(fingerings, 2))
+    all_transitions = encoding.generate_all_transitions(fingerings)
     number_of_transitions = len(all_transitions)
     # We still use k-means of n/5 here to get similar transitions recorded by the same player
     clusters_dict = generate_interval_clusters(fingerings)
