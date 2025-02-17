@@ -150,7 +150,7 @@ def generate_interval_clusters(fingerings, number_of_notes_per_cluster = 5, prin
     encoding_feature_pairs = []
     for transition in all_transitions:
         if print_debug: print(f"Going from {transition[0].name} to {transition[1].name}")
-        name, features = encoding.generate_interval_features(transition)
+        features = encoding.generate_transition_features(transition)
         encoding_feature_pairs.append(([transition[0], transition[1]], features))
     
     # with this cluster_amount, you get clusters of 5 fingerings that are similar
