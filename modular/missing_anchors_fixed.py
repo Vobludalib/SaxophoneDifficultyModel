@@ -9,7 +9,7 @@ encodings_file = '/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/e
 
 anchor_encoding_pairs = []
 
-fingerings = {}
+encoding_to_fingering = {}
 with open(encodings_file, "r") as csvfile:
     reader = csv.reader(csvfile, delimiter=",")
     next(reader, None)
@@ -18,7 +18,7 @@ with open(encodings_file, "r") as csvfile:
         name = row[1].strip()
         enc = row[2].strip()
         fing = encoding.Fingering(midi, name, enc)
-        fingerings[enc] = fing
+        encoding_to_fingering[enc] = fing
 
 with open(anchors_file, 'r') as file:
     reader = csv.reader(file)
@@ -42,8 +42,8 @@ with open(sessions_file, 'r') as file:
             last_index_of_session = i
             for not_seen_anchor in not_seen_anchors:
                 insert_index = random.randint(first_index_of_session + 1, last_index_of_session)
-                fing1 = fingerings[not_seen_anchor[0]]
-                fing2 = fingerings[not_seen_anchor[1]]
+                fing1 = encoding_to_fingering[not_seen_anchor[0]]
+                fing2 = encoding_to_fingering[not_seen_anchor[1]]
                 lines.insert(insert_index, [session_index, -1, fing1.midi, fing1.name, fing1.generate_encoding(), fing2.midi, fing2.name, fing2.generate_encoding()])
             session_index = int(line[0])
             first_index_of_session = i
