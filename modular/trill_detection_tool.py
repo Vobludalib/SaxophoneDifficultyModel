@@ -14,7 +14,7 @@ from enum import Enum
 # See documentation for what these values mean - related to how we determine top speed
 amount_of_splits = 4
 splits_to_glue = 2
-outlier_threshold = 0.35
+outlier_threshold = 0.3
 
 def get_note_distribution(notes):
     rnd = np.vectorize(lambda x: np.round(x))
@@ -77,6 +77,7 @@ def get_changes(f0_matrix):
     notes1 = []
     notes2 = []
     invalid_clustering = True
+    had_problems = False
     # did_mod = False
     while invalid_clustering:
         two_means_cluster = skc.KMeans(n_clusters=2).fit(midi_vals.reshape(-1, 1))
@@ -101,6 +102,7 @@ def get_changes(f0_matrix):
         if invalid_clustering:
             if reason == ClusterIssue.ShortCluster:
                 print(f"WARNING THE ABOVE AUDIO HAD PROBLEMS WITH INITIAL CLUSTERING")
+                had_problems = True
                 if (len(notes1) < len(notes2)*outlier_threshold):
                     # notes1 is likely an outlier class
                     midi_vals = notes2
@@ -132,7 +134,7 @@ def get_changes(f0_matrix):
             last_midi_vals, other_midi_vals = other_midi_vals, last_midi_vals
             time_spent_on_note = 0
 
-    return changes, note1_midis, note2_midis
+    return changes, note1_midis, note2_midis, had_problems
 
 # TODO: Refactor this to make logical sense with command-line args
 def main():
@@ -148,7 +150,7 @@ def main():
         return
     if (os.path.isfile(args.f) and not args.r):
         evaluate(args.f)
-    if (os.path.isdir(args.f) and args.r and not os.fsdecode(args.csv).endswith('.csv')):
+    if (os.path.isdir(args.f) and args.r and not os.fsdecode(args.output_file).endswith('.csv')):
         for file in os.listdir(args.f):
             filename = os.fsdecode(file)
             if filename.endswith('.wav'):
@@ -161,23 +163,31 @@ def main():
                         dirname = os.path.dirname(path)
                         output_file.write(f"{trill_speed:.2f} - best trill achieved in periods a second\n^^^^ Achieved at split indexes {best_split}-{best_split + splits_to_glue - 1}\n")
                         output_file.write(f"Trilling from {librosa.midi_to_note(note1_midi + 2)} to {librosa.midi_to_note(note2_midi + 2)}")
-    if (os.fsdecode(args.csv) and os.fsdecode(args.csv).endswith('.csv')):
+    if (os.fsdecode(args.output_file) and os.fsdecode(args.output_file).endswith('.csv')):
             output = []
+            problem_files = []
             output.append(["Filename", "Note 1 MIDI", "Note 2 MIDI", "Best Trill Speed"])
             for file in os.listdir(args.f):
                 filename = os.fsdecode(file)
                 if filename.endswith('.wav'):
                     print(f"=========== Handling file: {filename} ============")
                     path = os.path.join(args.f, filename)
-                    note1_midi, note2_midi, trill_speed, _ = evaluate(path)
+                    note1_midi, note2_midi, trill_speed, _, is_possible_problem = evaluate(path)
                     if note1_midi <= note2_midi:
                         output.append([filename, note1_midi, note2_midi, trill_speed])
                     else:
                         output.append([filename, note2_midi, note1_midi, trill_speed])
                     
-            with open(args.csv, 'w') as csvFile:
+                    if is_possible_problem:
+                        problem_files.append(filename)
+                    
+            with open(args.output_file, 'w') as csvFile:
                 writer = csv.writer(csvFile)
                 writer.writerows(output)
+
+            with open(args.output_file + '.log', 'w') as log:
+                for problem in problem_files:
+                    log.write(problem + '\n')
 
 def evaluate(f_path):
     f0_matrix = None
@@ -199,9 +209,11 @@ def evaluate(f_path):
     midi_splits = np.array_split(f0_matrix, amount_of_splits)
 
     split_trill_speeds = []
+    is_possible_problem = False
     for i in range((amount_of_splits - splits_to_glue) + 1):
         glued = np.vstack(midi_splits[i:i+splits_to_glue])
-        split_changes, note1_midi, note2_midi = get_changes(glued)
+        split_changes, note1_midi, note2_midi, had_problems = get_changes(glued)
+        if not is_possible_problem and had_problems: is_possible_problem = True
         split_duration_in_s = float(glued[-1][0]) - float(glued[0][0])
         trill_speed = split_changes / split_duration_in_s / 2
         split_trill_speeds.append(trill_speed)
@@ -210,7 +222,7 @@ def evaluate(f_path):
     best_split = np.argmax(split_trill_speeds)
     best_trill_speed = np.max(trill_speeds)
     
-    return note1_midi[0] + 2, note2_midi[0] + 2, best_trill_speed, best_split
+    return note1_midi[0] + 2, note2_midi[0] + 2, best_trill_speed, best_split, is_possible_problem
 
 if __name__ == "__main__":
     main()
