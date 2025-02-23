@@ -1,4 +1,4 @@
-Session,Cluster,Note 1 midi,Note 1 name,Note 1 encoding,Note 2 midi,Note 2 encoding,Note 2 encoding,SEED:10#Note->someanchorsaddedviafixscript
+Session,Cluster,Note 1 midi,Note 1 name,Note 1 encoding,Note 2 midi,Note 2 encoding,Note 2 encoding,SEED:10#Note->someanchorsaddedviafixscript,THIS VERSION WAS NOT CHANGED TO WORK WITH ON THE DAY OMISSIONS
 0,7,64,E Without octave key,0010110000000_1100000000,89,High F (side),1000000000111_0000000100
 0,0,82,Bb With octave key (Bis key),1011100000000_0000000000,83,B With octave key,1010000000000_0000000000
 0,3,59,Low B,0010110010000_1100101000,90,High F# (side),1000000000111_0010000100
