@@ -3,6 +3,7 @@
 # b) Automatic feature extraction (using what methods?)
 # c) Raw encodings into NN
 
+import sklearn.linear_model
 import sklearn.metrics
 import sklearn.model_selection
 import sklearn
@@ -12,9 +13,14 @@ import encoding
 import numpy as np
 
 def fit_on_mlp(xs, ys) -> sklearn.neural_network.MLPRegressor:
-    mlp = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(40,10), max_iter=1500)
+    mlp = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(20,), max_iter=3000)
     mlp.fit(xs, ys)
     return mlp
+
+def fit_on_lm(xs, ys) -> sklearn.linear_model.LinearRegression:
+    lm = sklearn.linear_model.LinearRegression()
+    lm.fit(xs, ys)
+    return lm
 
 def transitions_trill_dict_to_numpy_arrays(transitions_to_trill_dict):
     transitions = transitions_to_trill_dict.keys()
