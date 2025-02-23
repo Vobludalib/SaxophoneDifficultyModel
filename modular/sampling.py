@@ -160,12 +160,16 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, size_of
         for j in range(train_ys.shape[0] - minimum_amount_of_samples):
             print(f"Sampling only {j + minimum_amount_of_samples} samples out of {train_ys.shape[0]}")
             amount_to_sample = j + minimum_amount_of_samples
-            selected_trans, selected_ys = sampling_func(train_xs, train_ys, n=amount_to_sample)
-            train_features, train_selected_ys = model.transitions_and_speed_lists_to_numpy_arrays(selected_trans, selected_ys)
-            mlp = model.fit_on_lm(train_features, train_selected_ys)
-            test_features, test_ys = model.transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys)
-            predicts = mlp.predict(test_features)
-            error = sklearn.metrics.mean_squared_error(test_ys, predicts)
+            error_sum = 0
+            for z in range(10):
+                selected_trans, selected_ys = sampling_func(train_xs, train_ys, n=amount_to_sample, seed=j + z)
+                train_features, train_selected_ys = model.transitions_and_speed_lists_to_numpy_arrays(selected_trans, selected_ys)
+                mlp = model.fit_on_lm(train_features, train_selected_ys)
+                test_features, test_ys = model.transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys)
+                predicts = mlp.predict(test_features)
+                error = sklearn.metrics.mean_squared_error(test_ys, predicts)
+                error_sum += error
+            error = error_sum / 10
             errors[i].append(error)
 
     return errors
@@ -173,14 +177,22 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, size_of
 def main():
     # fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
     transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/data_with_pilot.csv")
-    # TODO: Filter out same-note trills -> huge outliers
+    # Filter out same-note trills -> huge outliers
+    to_delete = []
+    for key in transitions_speed_dict:
+        if key.fingering1.midi == key.fingering2.midi:
+            to_delete.append(key)
+
+    for delete in to_delete:
+        transitions_speed_dict.pop(delete, None)
+
     min_samples = 20
     errors = perform_sampling_test(transitions_speed_dict, sampling_method='cluster', minimum_amount_of_samples=min_samples)
     
     for fold_index in range(len(errors)):
         xs = np.array([i + min_samples for i in range(len(errors[fold_index]))])
         ys = np.array(errors[fold_index])
-        plt.subplot(3, 3, fold_index + 1)
+        plt.subplot(3, 4, fold_index + 1)
         plt.plot(xs, ys, label = f"Fold {fold_index}")
         plt.legend()
 
