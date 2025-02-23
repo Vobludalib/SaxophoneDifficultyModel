@@ -14,7 +14,7 @@ from enum import Enum
 # See documentation for what these values mean - related to how we determine top speed
 amount_of_splits = 4
 splits_to_glue = 2
-outlier_threshold = 0.3
+outlier_threshold = 0.2
 
 def get_note_distribution(notes):
     rnd = np.vectorize(lambda x: np.round(x))
@@ -145,6 +145,7 @@ def main():
     parser.add_argument('-r', action="store_true", help="If present, will iterate over all .wav files in given directory")
     parser.add_argument('--output_file', type=str, help="Will store all the outputs into a .txt or .csv file with this name (by default .txt). Choice depends on file extension of input (././file.csv will cause a csv to be generated).")
     args = parser.parse_args()
+    args.f = "/Users/slibricky/Desktop/Thesis/recordings/tenorsax/Dostojevskij-Session2/sliced/Trill149_1.wav"
     if (os.path.isdir(args.f) and not args.r):
         print(f"Given filepath is a directory and -r was not set!")
         return
