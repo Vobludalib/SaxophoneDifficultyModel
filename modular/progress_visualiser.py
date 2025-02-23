@@ -3,7 +3,7 @@ import encoding
 import itertools
 import numpy as np
 
-data = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/PlatonSession0BatchAnalysed.csv")
+data = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/archive/PlatonSession0BatchAnalysed.csv")
 all_fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
 
 combs = encoding.generate_all_transitions(all_fingerings)
