@@ -41,6 +41,11 @@ def transitions_and_speed_lists_to_numpy_arrays(transitions, speeds):
 
     return xs, ys
 
+def predict_fingering_transition(model, fingering1: encoding.Fingering, fingering2: encoding.Fingering):
+    features = encoding.generate_transition_features(encoding.Transition(fingering1, fingering2)).reshape(1, -1)
+    prediction = model.predict(features)
+    return prediction
+
 def main():
     transitions_to_trill_dict = encoding.load_transitions_from_file('/Users/slibricky/Desktop/Thesis/thesis/modular/files/PlatonSession0BatchAnalysed.csv')
     xs, ys = transitions_trill_dict_to_numpy_arrays(transitions_to_trill_dict)
