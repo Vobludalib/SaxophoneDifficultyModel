@@ -35,7 +35,7 @@ def transitions_trill_dict_to_numpy_arrays(transitions_to_trill_dict):
 
 def transitions_and_speed_lists_to_numpy_arrays(transitions, speeds):
     # For now using this features method -> possibly to be changed for some experiments
-    features = [encoding.generate_transition_features(trans, style='expert', expert_weights=False) for trans in transitions]
+    features = [encoding.generate_transition_features(trans, style='expert', expert_weights=False, remove_midi=False) for trans in transitions]
     xs = np.asarray(features)
     ys = np.asarray(speeds)
 

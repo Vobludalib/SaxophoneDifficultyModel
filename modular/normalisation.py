@@ -82,7 +82,7 @@ def main():
     print(f"Here are the features of the anchor intervals:")
     anchor_features = []
     for tup in anchor_intervals_sorted:
-        anchor_features.append(encoding.generate_interval_features(tup)[1])
+        anchor_features.append(encoding.generate_transition_features(tup))
     anchor_features = np.asarray(anchor_features)
     print(anchor_features)
 
@@ -96,6 +96,7 @@ def main():
             reader = csv.reader(csvf)
             next(reader, None)
             for row in reader:
+                filename = row[0]
                 cluster = int(row[1])
                 midi1 = int(row[2])
                 name1 = row[3]
@@ -106,13 +107,13 @@ def main():
                 speed = float(row[8])
                 fingering1 = Fingering(midi1, name1, encoding1)
                 fingering2 = Fingering(midi2, name2, encoding2)
-                interval_features = encoding.generate_interval_features((fingering1, fingering2))[1]
+                interval_features = encoding.generate_transition_features(encoding.Transition(fingering1, fingering2))
                 distances_to_anchors = np.asarray([get_euclidean_distance(interval_features, anchor_features[j]) for j in range(anchor_features.shape[0])])
                 multiples = np.asarray(scipy.special.softmax(distances_to_anchors))
                 overall_adjustment = np.sum(np.multiply(multiples, differences[i])) * args.strength
                 normalised_speed = speed + overall_adjustment
                 # print(f"{filename} - {name1}, {name2}\nOG: {speed}, adjustment: {overall_adjustment}, new: {normalised_speed}")
-                new_csv.append([cluster, midi1, name1, encoding1, midi2, name2, encoding2, normalised_speed])
+                new_csv.append([filename, cluster, midi1, name1, encoding1, midi2, name2, encoding2, normalised_speed])
     
     with open(args.o, 'w') as csvf:
         writer = csv.writer(csvf)
