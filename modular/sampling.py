@@ -106,14 +106,14 @@ def get_stratified_kfold(xs, ys, test_size, seed=10):
     amount_of_folds = amount_of_data_points//test_size
     bins = np.array([0, 1.5, 3, 4.5, 10])
     binned_ys = np.digitize(ys, bins)
-    skf = sklearn.model_selection.StratifiedKFold(amount_of_folds)
+    skf = sklearn.model_selection.StratifiedKFold(amount_of_folds, shuffle=True)
     folds = []
     for i, (train_index, test_index) in enumerate(skf.split(xs, binned_ys)):
         folds.append((i, train_index, test_index))
 
     return folds
 
-def perform_sampling_test(transitions_trill_speed_dict, sampling_method, size_of_test_set = 20, minimum_amount_of_samples=10):
+def perform_sampling_test(transitions_trill_speed_dict, sampling_method, size_of_test_set = 50, minimum_amount_of_samples=10):
     # For the sake of the sampling test, for each transition we uniformly randomly select only one of its recorded intervals
     xs = []
     ys = []
@@ -186,14 +186,18 @@ def main():
     for delete in to_delete:
         transitions_speed_dict.pop(delete, None)
 
-    min_samples = 20
+    min_samples = 40
     errors = perform_sampling_test(transitions_speed_dict, sampling_method='cluster', minimum_amount_of_samples=min_samples)
     
     for fold_index in range(len(errors)):
         xs = np.array([i + min_samples for i in range(len(errors[fold_index]))])
         ys = np.array(errors[fold_index])
         plt.subplot(3, 4, fold_index + 1)
+        ax = plt.gca()
+        ax.set_ylim([0, 3])
         plt.plot(xs, ys, label = f"Fold {fold_index}")
+        plt.xlabel("# of samples")
+        plt.ylabel("MSE")
         plt.legend()
 
     plt.show()
