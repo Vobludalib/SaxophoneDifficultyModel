@@ -62,7 +62,7 @@ def generate_all_transitions(fingerings):
     
     return transitions
 
-def generate_transition_features(transition, style='expert', expert_weights = True):
+def generate_transition_features(transition, style='expert', expert_weights = True, remove_midi=False):
     fingering1 = transition[0]
     fingering2 = transition[1]
 
@@ -129,7 +129,10 @@ def generate_transition_features(transition, style='expert', expert_weights = Tr
         change_palm_r = (10 if expert_weights else 1) if fingering1_r_palm_pressed != fingering2_r_palm_pressed else 0
         contains_low_cs_or_lower = (fingering1.midi <= 61 or fingering2.midi <= 61) * (5 if expert_weights else 1)
 
-        return np.asarray([fingering1.midi / 10, fingering2.midi / 10, contains_low_cs_or_lower, abs(fingering1.midi - fingering2.midi), finger_changes_per_hand[0], finger_changes_per_hand[1], (10 if expert_weights else 1) if octave_key_delta else 0, same_finger_transitions*(20 if expert_weights else 1), change_palm_l, change_palm_r])
+        if not remove_midi:
+            return np.asarray([fingering1.midi / 10, fingering2.midi / 10, contains_low_cs_or_lower, abs(fingering1.midi - fingering2.midi), finger_changes_per_hand[0], finger_changes_per_hand[1], (10 if expert_weights else 1) if octave_key_delta else 0, same_finger_transitions*(20 if expert_weights else 1), change_palm_l, change_palm_r])
+        else:
+            return np.asarray([contains_low_cs_or_lower, abs(fingering1.midi - fingering2.midi), finger_changes_per_hand[0], finger_changes_per_hand[1], (10 if expert_weights else 1) if octave_key_delta else 0, same_finger_transitions*(20 if expert_weights else 1), change_palm_l, change_palm_r])
 
     elif style == 'raw':
         encoding1 = fingering1.generate_encoding()
