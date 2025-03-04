@@ -14,7 +14,7 @@ with open('/Users/slibricky/Desktop/Thesis/thesis/modular/data.csv', 'r') as f:
         raw_dict[name] = trill_speed
 
 normalised_dict = {}
-with open('/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/session0to3.csv', 'r') as f:
+with open('/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_STRONG_NORM.csv', 'r') as f:
     reader = csv.reader(f)
     next(reader, None)
     for line in reader:

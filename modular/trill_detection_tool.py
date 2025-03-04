@@ -145,7 +145,6 @@ def main():
     parser.add_argument('-r', action="store_true", help="If present, will iterate over all .wav files in given directory")
     parser.add_argument('--output_file', type=str, help="Will store all the outputs into a .txt or .csv file with this name (by default .txt). Choice depends on file extension of input (././file.csv will cause a csv to be generated).")
     args = parser.parse_args()
-    args.f = "/Users/slibricky/Desktop/Thesis/recordings/tenorsax/Dostojevskij-Session2/sliced/Trill149_1.wav"
     if (os.path.isdir(args.f) and not args.r):
         print(f"Given filepath is a directory and -r was not set!")
         return
