@@ -5,7 +5,6 @@ import argparse
 import os
 import numpy as np
 import scipy.special
-import json
 
 # Takes seperate batch_analysed csvs (each corresponding to one session) and generates one big CSV of trills
 # normalised using the anchor intervals
@@ -87,6 +86,13 @@ def normalise_transition(transition: encoding.Transition, transition_speed, sess
     multiples = np.asarray(scipy.special.softmax(distances_to_anchors))
     overall_adjustment = np.sum(np.multiply(multiples, differences[session_index])) * norm_strength
     normalised_speed = transition_speed + overall_adjustment
+    return normalised_speed
+
+def inverse_normalise_transition(transition_features, normalised_speed, session_index, anchor_features, differences, norm_strength=0.2):
+    distances_to_anchors = np.asarray([get_euclidean_distance(transition_features, anchor_features[j]) for j in range(anchor_features.shape[0])])
+    multiples = np.asarray(scipy.special.softmax(distances_to_anchors))
+    overall_adjustment = np.sum(np.multiply(multiples, differences[session_index])) * norm_strength
+    return normalised_speed - overall_adjustment
 
 def main():
     parser = argparse.ArgumentParser(

@@ -176,7 +176,7 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, size_of
 
 def main():
     # fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
-    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/data_with_pilot.csv")
+    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/data.csv")
     # Filter out same-note trills -> huge outliers
     to_delete = []
     for key in transitions_speed_dict:
@@ -186,8 +186,8 @@ def main():
     for delete in to_delete:
         transitions_speed_dict.pop(delete, None)
 
-    min_samples = 40
-    errors = perform_sampling_test(transitions_speed_dict, sampling_method='cluster', minimum_amount_of_samples=min_samples)
+    min_samples = 20
+    errors = perform_sampling_test(transitions_speed_dict, sampling_method='uniform', minimum_amount_of_samples=min_samples)
     
     for fold_index in range(len(errors)):
         xs = np.array([i + min_samples for i in range(len(errors[fold_index]))])

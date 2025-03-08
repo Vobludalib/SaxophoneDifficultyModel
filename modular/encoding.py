@@ -318,7 +318,7 @@ class Transition:
         return self.fingering1.__hash__() + self.fingering2.__hash__()
     
     def __repr__(self):
-        return f"{self.__hash__()} -> {self.fingering1.name} to {self.fingering2.name}"
+        return f"{self.fingering1.name} to {self.fingering2.name}"
     
     def __getitem__(self, index):
         if index == 0:
