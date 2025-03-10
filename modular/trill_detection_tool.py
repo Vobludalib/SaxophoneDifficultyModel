@@ -149,7 +149,7 @@ def main():
         print(f"Given filepath is a directory and -r was not set!")
         return
     if (os.path.isfile(args.f) and not args.r):
-        evaluate(args.f)
+        print(evaluate(args.f))
     if (os.path.isdir(args.f) and args.r and not os.fsdecode(args.output_file).endswith('.csv')):
         for file in os.listdir(args.f):
             filename = os.fsdecode(file)
