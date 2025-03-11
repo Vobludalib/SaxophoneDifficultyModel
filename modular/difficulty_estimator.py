@@ -4,6 +4,8 @@ import model
 import fingering_prediction
 import matplotlib.colors as mcolors
 import numpy as np
+import math
+from scipy.signal.windows import hann
 
 def load_xml_file(path):
     m21stream = music21.converter.parseFile(path)
@@ -127,6 +129,83 @@ def get_difficulties_of_sequence(sequence, difficulty_model):
 
     return difficulties
 
+def get_difficulties_of_sequence_smoothed(sequence, difficulty_model, slice_resolution=0.05, window_size=1):
+    # Pregenerate the difficulty of each slice
+    start_onset = sequence[0][2]
+    end_offset = sequence[-1][3]
+
+    transition_times = []
+    for tup1, tup2 in zip(sequence[:-1], sequence[1:]):
+        # When onsets don't match, due to a small pause, we take the middle of the offset and onset
+        if tup1[3] != tup2[2]:
+            transition_times.append((tup1[3] + tup2[2]) / 2)
+        else:
+            transition_times.append(tup1[3])
+
+    transition_boundaries = []
+    for time1, time2 in zip(transition_times[:-1], transition_times[1:]):
+        transition_boundaries.append((time1 + time2) / 2)
+
+    # To mitigate some float-based issues
+    transition_boundaries = np.asarray([round(time, 4) for time in transition_boundaries])
+
+    slice_times = []
+    end_offset_to_ensure_slice_resolution = slice_resolution * math.ceil(end_offset/slice_resolution)
+    for slice in np.linspace(start_onset, end_offset_to_ensure_slice_resolution, int((end_offset_to_ensure_slice_resolution-start_onset)/slice_resolution) + 1):
+        slice_times.append(round(slice, 4))
+
+    # Map each slice to a given an index that will correspond to the local difficulty in that slice
+    # This local difficulty will be taken as the difficulty of the nearest transition
+    slice_to_transition_binding = np.digitize(slice_times, transition_boundaries)
+
+    transition_difficulties = []
+    for tup1, tup2 in zip(sequence[:-1], sequence[1:]):
+        curr_onset = tup1[2]
+        next_offset = tup2[3]
+        curr_fingering = tup1[0]
+        next_fingering = tup2[0]
+
+        curr_to_next_estimated_ts = (1 / (next_offset - curr_onset))
+
+        curr_to_next_predicted_ts = model.predict_fingering_transition(difficulty_model, curr_fingering, next_fingering)
+
+        curr_to_next_percent = (curr_to_next_estimated_ts / curr_to_next_predicted_ts) * 100
+
+        transition_difficulties.append(curr_to_next_percent)
+
+    slice_difficulties = []
+    for transition_index in slice_to_transition_binding:
+        slice_difficulties.append(transition_difficulties[transition_index])
+
+    slice_difficulties = np.asarray(slice_difficulties)
+
+    # slice_difficulties is now the difficulty value of the nearest transition for each slice
+    if int(window_size/slice_resolution) % 2 == 0:
+        window_size -= slice_resolution
+    m = round(window_size/slice_resolution)
+    window = hann(m, sym=True)
+
+    # Here working with assumption that the window is of odd length as ensured by the above code
+    amount_on_each_side = int((window.shape[0] - 1) / 2)
+
+    difficulties = []
+    # For each note, we take it's midpoint, find it's slice, and perform a windowed difficulty using the other nearby slices
+    slice_times_len = len(slice_times)
+    for tup in sequence:
+        midpoint = (tup[3] - tup[2]) / 2 + tup[2]
+        time_slice_of_midpoint = int(np.digitize([midpoint], slice_times)[0])
+        left_most_slice = max(0, time_slice_of_midpoint - amount_on_each_side)
+        right_most_slice = min(slice_times_len - 1, time_slice_of_midpoint + amount_on_each_side)
+        amount_on_left_window = time_slice_of_midpoint - left_most_slice
+        amount_on_right_window = right_most_slice - time_slice_of_midpoint
+        window_actually_used = window[amount_on_each_side - amount_on_left_window:amount_on_each_side+amount_on_right_window]
+        normalised_window = np.asarray(window_actually_used) / np.sum(window_actually_used)
+        difficulties_in_range = slice_difficulties[left_most_slice:right_most_slice]
+        difficulty = np.sum(np.multiply(difficulties_in_range, normalised_window))
+        difficulties.append(difficulty)
+
+    return difficulties
+
 def color_map_difficulty(difficulty_value):
     """
     Maps values 0 - 100+ to a color.
@@ -171,14 +250,11 @@ def main():
 
     stream = load_xml_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/DifficultyTest1-Tenor_Saxophone.mxl")
     p = stream.parts[0]
-    # for n in p.flatten().notes:
-    #     print(n.offset)
-    #     n.style.color = "red"
 
     offsets_and_durations = get_offsets_and_durations(p)
 
     # Set BPM for a quarter note
-    bpm = 200
+    bpm = 160
     times = offset_and_duration_to_wall_clock_time(offsets_and_durations, bpm)
     # print(times)
 
@@ -200,7 +276,8 @@ def main():
 
     split_difficulties = []
     for split in predicted_splits:
-        split_difficulties.append(get_difficulties_of_sequence(split, mlp))
+        # split_difficulties.append(get_difficulties_of_sequence(split, mlp))
+        split_difficulties.append(get_difficulties_of_sequence_smoothed(split, mlp))
 
     for split_index, split in enumerate(splits):
         for i, (note, _, _) in enumerate(split):
