@@ -51,6 +51,7 @@ class FingeringTransitionModel():
             self.trained = False
 
         trans_to_trill_dict = encoding.load_transitions_from_file(path)
+        self.trans_to_trill_dict = trans_to_trill_dict
         
         self.xs, self.ys = transitions_trill_dict_to_numpy_arrays(trans_to_trill_dict, self.feature_extractor)
 
@@ -69,8 +70,15 @@ class FingeringTransitionModel():
         if not self.trained:
             raise Exception("The model has not been trained since the new data was loaded")
         
-        features = np.asarray([self.feature_extractor.get_features(transition) for transition in transitions])
-        return self.model.predict(features)
+        if self.trans_to_trill_dict is not None and self.only_infilling == True:
+            results = []
+            for transition in transitions:
+                if self.trans_to_trill_dict.get(transition, None) is not None:
+                    results.append(np.sum(self.trans_to_trill_dict[transition]) / len(self.trans_to_trill_dict[transition]))
+            return np.asarray(results)
+        else:
+            features = np.asarray([self.feature_extractor.get_features(transition) for transition in transitions])
+            return self.model.predict(features)
     
     def predict(self, transition_features: np.ndarray):
         if not self.trained:
