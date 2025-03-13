@@ -329,10 +329,10 @@ class ExpertFeatureExtractor:
         fingering1_r_palm_pressed = any([key.pressed for key in fingering1.hands[1].fingers[5].keys])
         fingering2_l_palm_pressed = any([key.pressed for key in fingering2.hands[0].fingers[5].keys])
         fingering2_r_palm_pressed = any([key.pressed for key in fingering2.hands[1].fingers[5].keys])
-        change_palm_l = (self.palm_weight if self.expert_weights else 1) if fingering1_l_palm_pressed != fingering2_l_palm_pressed else 0
-        change_palm_r = (self.palm_weight if self.expert_weights else 1) if fingering1_r_palm_pressed != fingering2_r_palm_pressed else 0
+        change_palm_l = (self.palm_weight if self.use_expert_weights else 1) if fingering1_l_palm_pressed != fingering2_l_palm_pressed else 0
+        change_palm_r = (self.palm_weight if self.use_expert_weights else 1) if fingering1_r_palm_pressed != fingering2_r_palm_pressed else 0
         # Checking if a low note appears (as this influences voicing significantly)
-        contains_low_cs_or_lower = (fingering1.midi <= 61 or fingering2.midi <= 61) * (self.low_key_weight if self.expert_weights else 1)
+        contains_low_cs_or_lower = (fingering1.midi <= 61 or fingering2.midi <= 61) * (self.low_key_weight if self.use_expert_weights else 1)
         # Does octave key have to change state
         octave_key_value = (self.octave_key_weight if self.use_expert_weights else 1) if octave_key_delta else 0
         same_finger_transition_value = same_finger_transitions*(self.same_finger_transition_weight if self.use_expert_weights else 1)
