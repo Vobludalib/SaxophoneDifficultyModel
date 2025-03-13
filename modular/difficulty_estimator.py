@@ -129,7 +129,7 @@ def get_difficulties_of_sequence(sequence, difficulty_model):
 
     return difficulties
 
-def get_difficulties_of_sequence_smoothed(sequence, difficulty_model, slice_resolution=0.05, window_size=1):
+def get_difficulties_of_sequence_smoothed(sequence, difficulty_model, slice_resolution=0.05, window_size=0.5):
     # Pregenerate the difficulty of each slice
     start_onset = sequence[0][2]
     end_offset = sequence[-1][3]
@@ -284,7 +284,7 @@ def main():
             print(split_difficulties[split_index][i])
             note.style.color = color_map_difficulty(split_difficulties[split_index][i])
 
-    stream.write("musicxml", "/Users/slibricky/Desktop/Thesis/thesis/modular/files/annotated.mxl")
+    stream.write("musicxml", "/Users/slibricky/Desktop/Thesis/thesis/modular/files/annotatedWindow.mxl")
 
 if __name__ == "__main__":
     main()

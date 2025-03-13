@@ -148,9 +148,10 @@ def get_anchor_intervals(all_transitions, path_to_anchors):
 def generate_interval_clusters(fingerings, number_of_notes_per_cluster = 5, print_debug=False):
     all_transitions = encoding.generate_all_transitions(fingerings)
     encoding_feature_pairs = []
+    feature_extractor = encoding.ExpertFeatureExtractor(use_expert_weights=True, remove_midi=False)
     for transition in all_transitions:
         if print_debug: print(f"Going from {transition[0].name} to {transition[1].name}")
-        features = encoding.generate_transition_features(transition)
+        features = feature_extractor.get_features(transition)
         encoding_feature_pairs.append(([transition[0], transition[1]], features))
     
     # with this cluster_amount, you get clusters of 5 fingerings that are similar

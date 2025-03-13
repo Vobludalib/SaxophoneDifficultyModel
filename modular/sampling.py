@@ -80,7 +80,8 @@ def cluster_subsample(transition_list: list, trill_speeds, n, seed=10, print_deb
     random.seed(seed)
 
     clusters_dict = {}
-    transition_features = [encoding.generate_transition_features(trans, style='expert', expert_weights=False) for trans in transition_list]
+    feature_extractor = encoding.ExpertFeatureExtractor(use_expert_weights=True, remove_midi=False)
+    transition_features = [feature_extractor.get_features(trans) for trans in transition_list]
     _, labels, _ = skc.k_means(n_clusters=n, X=np.asarray(transition_features))
     for index, transition in enumerate(transition_list):
         label = labels[index]

@@ -65,6 +65,7 @@ def main():
             train_xs.append(xs[train_i])
         train_ys = ys[train_indexes]
         train_ys_norm = ys_normalised[train_indexes]
+        test_ys_norm = ys_normalised[test_indexes]
         for test_i in test_indexes:
             test_xs.append(xs[test_i])
             test_ys_session_indexes.append(session_indexes_for_normalisation[test_i])
@@ -86,9 +87,11 @@ def main():
         # Evaluate MSE for both (given inverse normalisation occured, these MSEs are comparable)
         no_norm_mse = sklearn.metrics.mean_squared_error(test_ys, no_norm_predicts)
         norm_mse = sklearn.metrics.mean_squared_error(test_ys, denormalised_predicts)
+        no_inverse_denorm_mse = sklearn.metrics.mean_squared_error(test_ys_norm, norm_predicts)
         print(f"Fold {fold_index}")
         print(f"No normalisation MSE: {no_norm_mse}")
         print(f"Inverse normalisation MSE: {norm_mse}")
+        print(f"Normalised MSE (without inverse): {no_inverse_denorm_mse}")
 
 if __name__ == '__main__':
     main()
