@@ -10,7 +10,8 @@ import numpy as np
 import sklearn.cluster as skc
 
 def generate_interval_difficulty_approx(interval):
-    features = encoding.generate_interval_features(interval)[1]
+    feature_extractor = encoding.ExpertFeatureExtractor()
+    features = feature_extractor.get_features(interval)
     return (features[1] - features[0]) * 10 + (10 if features[0] < 6.1 else 0) + (10 if features[1] > 85 else 0) + features[8] + features[9]
 
 def generate_cluster_difficulty_approx(clusters_dict):
@@ -148,6 +149,7 @@ def get_anchor_intervals(all_transitions, path_to_anchors):
 def generate_interval_clusters(fingerings, number_of_notes_per_cluster = 5, print_debug=False):
     all_transitions = encoding.generate_all_transitions(fingerings)
     encoding_feature_pairs = []
+    # HARD CODING HERE FOR EXPERT FEATURES, CAN BE CHANGED
     feature_extractor = encoding.ExpertFeatureExtractor(use_expert_weights=True, remove_midi=False)
     for transition in all_transitions:
         if print_debug: print(f"Going from {transition[0].name} to {transition[1].name}")
