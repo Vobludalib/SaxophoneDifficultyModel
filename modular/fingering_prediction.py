@@ -1,3 +1,4 @@
+import sklearn.neural_network
 import encoding
 import model
 import sklearn
@@ -6,7 +7,8 @@ import numpy as np
 
 # TODO: Mess around with different distance functions
 # TODO: Handle same-note transitions
-def midi_to_fingering_prediction(midi_values: list[int], difficulty_model, midi_to_fingering_dict: dict):
+# TODO: Refactor into a class that does this and works over the FingeringTransitionModel class
+def midi_to_fingering_prediction(midi_values: list[int], difficulty_model, midi_to_fingering_dict: dict, feature_extractor):
     for midi_note in midi_values:
         key = midi_to_fingering_dict.get(midi_note, None)
         if key is None:
@@ -43,7 +45,7 @@ def midi_to_fingering_prediction(midi_values: list[int], difficulty_model, midi_
         new_memory = []
         for fing1_index, fing_1 in enumerate(current_viable_fingerings):
             for fing2_index, fing_2 in enumerate(fingerings2):
-                predicted_trill_speed = model.predict_fingering_transition(difficulty_model, fing_1, fing_2)
+                predicted_trill_speed = model.predict_fingering_transition(difficulty_model, fing_1, fing_2, feature_extractor=feature_extractor)
                 if pair[0] == pair[1]:
                     # Handling same-note transitions as being 'forced' to stay on one fingering to prevent
                     # changing same-note fingerings during repeated appearances
@@ -74,8 +76,13 @@ def main():
         transitions_speed_dict.pop(delete, None)
 
     # Train model
-    xs, ys = model.transitions_trill_dict_to_numpy_arrays(transitions_speed_dict)
-    mlp = model.fit_on_mlp(xs, ys)
+    fe = encoding.RawFeatureExtractor()
+    xs, ys = model.transitions_trill_dict_to_numpy_arrays(transitions_speed_dict, feature_extractor=fe)
+    mlp = model.FingeringTransitionModel(fe, perform_only_infilling=True)
+    # Doing this to load infilling data
+    mlp.load_data_from_csv("/Users/slibricky/Desktop/Thesis/thesis/modular/data.csv")
+    mlp.set_custom_training_data(xs, ys)
+    mlp.train_model(sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=3000))
 
     # Load midi_to_fingering dict
     fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
@@ -87,7 +94,7 @@ def main():
             midi_to_fingerings_dict[fingering.midi].append(fingering)
 
     # Do estimation
-    output = midi_to_fingering_prediction([75, 82, 79, 78, 78, 77, 78], mlp, midi_to_fingerings_dict)
+    output = midi_to_fingering_prediction([75, 82, 79, 78, 78, 77, 78], mlp, midi_to_fingerings_dict, fe)
     print(f"BEST OUTPUT:")
     print(output[1])
 

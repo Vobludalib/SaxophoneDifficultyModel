@@ -5,6 +5,7 @@ import os
 import csv
 
 # WILL HAVE TO CHANGE ON WINDOWS OR DIFFERENT SETUP
+# TODO: Remove hard-wired paths to relative paths
 encodings_path = "/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt"
 
 def clear_console():

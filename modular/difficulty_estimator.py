@@ -7,6 +7,8 @@ import numpy as np
 import math
 from scipy.signal.windows import hann
 
+# TODO: Make this into a class, wrapping over FingeringPredictor and FingeringTransitionModel
+
 def load_xml_file(path):
     m21stream = music21.converter.parseFile(path)
     return m21stream
@@ -56,7 +58,6 @@ def split_based_on_rests(onsets_and_offsets, reset_time=0.5):
 
     return sequences
 
-# TODO: CHANGE TO SOME KIND OF WINDOW METHOD
 def get_difficulties_of_sequence(sequence, difficulty_model):
     """
     For every note in the sequence, the difficulty is treated as a 'weighted' average of the percentages of maximum trill speed of the neighbours
