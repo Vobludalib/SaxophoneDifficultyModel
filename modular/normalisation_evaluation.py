@@ -37,14 +37,15 @@ def main():
     anchor_intervals_sorted, speeds = normalisation_tool.calculate_anchor_speeds(file_to_anchors_dict)
     averages = np.mean(speeds, axis=0)
     differences = normalisation_tool.calculate_difference_to_mean(speeds, averages)
-    anchor_features = normalisation_tool.get_anchor_interval_features(anchor_intervals_sorted)
+    feature_extractor = encoding.ExpertFeatureExtractor()
+    anchor_features = normalisation_tool.get_anchor_interval_features(anchor_intervals_sorted, feature_extractor)
 
     session_indexes_for_normalisation = [list(file_to_anchors_dict.keys()).index(session_name) for session_name in session_names]
 
     # Make a normalised copy of the data
     ys_normalised = []
     for i, y in enumerate(ys):
-        ys_normalised.append(normalisation_tool.normalise_transition(xs[i], y, session_indexes_for_normalisation[i], anchor_features, differences, norm_strength))
+        ys_normalised.append(normalisation_tool.normalise_transition(xs[i], y, session_indexes_for_normalisation[i], anchor_features, differences, feature_extractor, norm_strength))
 
     # Split data using stratified k-fold from sampling.py
     folds = sampling.get_stratified_kfold(xs, ys, test_size=30)
@@ -72,12 +73,12 @@ def main():
         test_ys = ys[test_indexes]
 
         # Train a model on the unnormalised, and normalised data respectively
-        train_xs, train_ys = model.transitions_and_speed_lists_to_numpy_arrays(train_xs, train_ys)
+        train_xs, train_ys = model.transitions_and_speed_lists_to_numpy_arrays(train_xs, train_ys, feature_extractor)
         no_norm_model = model.fit_on_lm(train_xs, train_ys)
         norm_model = model.fit_on_lm(train_xs, train_ys_norm)
 
         # Predict the test set using both models
-        test_xs, test_ys = model.transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys)
+        test_xs, test_ys = model.transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys, feature_extractor)
         no_norm_predicts = no_norm_model.predict(test_xs)
         norm_predicts = norm_model.predict(test_xs)
 
