@@ -126,7 +126,8 @@ def main():
     print(differences)
 
     print(f"Here are the features of the anchor intervals:")
-    anchor_features = get_anchor_interval_features(anchor_intervals_sorted)
+    feature_extractor = encoding.ExpertFeatureExtractor()
+    anchor_features = get_anchor_interval_features(anchor_intervals_sorted, feature_extractor)
     print(anchor_features)
 
     new_csv = []
@@ -148,7 +149,7 @@ def main():
                 fingering1 = Fingering(midi1, name1, encoding1)
                 fingering2 = Fingering(midi2, name2, encoding2)
                 transition = encoding.Transition(fingering1, fingering2)
-                normalised_speed = normalise_transition(transition, speed, i, anchor_features, differences, args.strength)
+                normalised_speed = normalise_transition(transition, speed, i, anchor_features, differences, feature_extractor, args.strength)
                 # print(f"{filename} - {name1}, {name2}\nOG: {speed}, adjustment: {overall_adjustment}, new: {normalised_speed}")
                 new_csv.append([filename, cluster, midi1, name1, encoding1, midi2, name2, encoding2, normalised_speed])
     
