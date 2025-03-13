@@ -1,5 +1,7 @@
+import sklearn.linear_model
 import sklearn.metrics
 import sklearn.model_selection
+import sklearn.neural_network
 import encoding
 import numpy as np
 import sklearn.cluster as skc
@@ -16,8 +18,7 @@ import sklearn
 # c) BASED ON CLUSTERING
 
 # Method for subsampling using uniform randomness
-def uniform_subsample(transition_list: list, trill_speeds, n, seed=10, print_debug=False):
-    random.seed(seed)
+def uniform_subsample(transition_list: list, trill_speeds, n, print_debug=False):
 
     sampled_trans = []
     sampled_speeds = []
@@ -29,8 +30,9 @@ def uniform_subsample(transition_list: list, trill_speeds, n, seed=10, print_deb
 
     return sampled_trans, sampled_speeds
 
+# TODO: Speed this up by caching the bigram frequencies
 # Method for subsampling using WJDB frequencies
-def empirical_subsample(transition_list: list, trill_speeds, n, seed=10, print_debug=False):
+def empirical_subsample(transition_list: list, trill_speeds, n, print_debug=False):
     pathToCsv = "/Users/slibricky/Desktop/Thesis/melospy-gui_V_1_4b_mac_osx/bin/analysis/feature+viz/bigramsTS.csv"
 
     bigramDict = { }
@@ -63,7 +65,6 @@ def empirical_subsample(transition_list: list, trill_speeds, n, seed=10, print_d
     occurencesList = [midiToOccurencesDict.get((trans.fingering1.midi, trans.fingering2.midi), 0.1) for trans in transition_list]
 
     probabilities = np.asarray(occurencesList) / np.sum(occurencesList)
-    np.random.seed(seed)
     indexes = np.asarray([i for i in range(len(transition_list))])
     selected_indexes = np.random.choice(a=indexes, p=probabilities, size=n, replace=False)
     selected_trans = []
@@ -76,9 +77,7 @@ def empirical_subsample(transition_list: list, trill_speeds, n, seed=10, print_d
     return selected_trans, selected_speeds
 
 # Method for subsampling based on clusters
-def cluster_subsample(transition_list: list, trill_speeds, n, seed=10, print_debug=False):
-    random.seed(seed)
-
+def cluster_subsample(transition_list: list, trill_speeds, n, print_debug=False):
     clusters_dict = {}
     feature_extractor = encoding.ExpertFeatureExtractor(use_expert_weights=True, remove_midi=False)
     transition_features = [feature_extractor.get_features(trans) for trans in transition_list]
@@ -114,10 +113,11 @@ def get_stratified_kfold(xs, ys, test_size, seed=10):
 
     return folds
 
-def perform_sampling_test(transitions_trill_speed_dict, sampling_method, size_of_test_set = 50, minimum_amount_of_samples=10):
+def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature_extractor: encoding.RawFeatureExtractor | encoding.ExpertFeatureExtractor, size_of_test_set = 50, minimum_amount_of_samples=10, amount_of_repeats_per_sampling_point=10, seed=10):
     # For the sake of the sampling test, for each transition we uniformly randomly select only one of its recorded intervals
     xs = []
     ys = []
+    random.seed(seed)
 
     sampling_func = None
     if sampling_method == 'uniform':
@@ -162,16 +162,22 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, size_of
             print(f"Sampling only {j + minimum_amount_of_samples} samples out of {train_ys.shape[0]}")
             amount_to_sample = j + minimum_amount_of_samples
             error_sum = 0
-            for z in range(10):
-                selected_trans, selected_ys = sampling_func(train_xs, train_ys, n=amount_to_sample, seed=j + z)
-                train_features, train_selected_ys = model.transitions_and_speed_lists_to_numpy_arrays(selected_trans, selected_ys)
-                mlp = model.fit_on_lm(train_features, train_selected_ys)
-                test_features, test_ys = model.transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys)
-                predicts = mlp.predict(test_features)
+            for z in range(amount_of_repeats_per_sampling_point):
+                selected_trans, selected_ys = sampling_func(train_xs, train_ys, n=amount_to_sample)
+                train_features, train_selected_ys = model.transitions_and_speed_lists_to_numpy_arrays(selected_trans, selected_ys, feature_extractor)
+                m = model.FingeringTransitionModel(feature_extractor, perform_only_infilling=False)
+                m.set_custom_training_data(train_features, train_selected_ys)
+                model_to_use = sklearn.linear_model.LinearRegression()
+                # model_to_use = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=3000)
+                m.train_model(model_to_use)
+                test_features, test_ys = model.transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys, feature_extractor)
+                predicts = m.predict(test_features)
                 error = sklearn.metrics.mean_squared_error(test_ys, predicts)
                 error_sum += error
-            error = error_sum / 10
+            error = error_sum / amount_of_repeats_per_sampling_point
             errors[i].append(error)
+
+        if i > 2: break
 
     return errors
 
@@ -188,7 +194,8 @@ def main():
         transitions_speed_dict.pop(delete, None)
 
     min_samples = 20
-    errors = perform_sampling_test(transitions_speed_dict, sampling_method='uniform', minimum_amount_of_samples=min_samples)
+    feature_extractor = encoding.ExpertFeatureExtractor()
+    errors = perform_sampling_test(transitions_speed_dict, sampling_method='uniform', feature_extractor=feature_extractor, minimum_amount_of_samples=min_samples)
     
     for fold_index in range(len(errors)):
         xs = np.array([i + min_samples for i in range(len(errors[fold_index]))])
