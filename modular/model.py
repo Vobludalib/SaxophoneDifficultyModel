@@ -75,6 +75,9 @@ class FingeringTransitionModel():
             for transition in transitions:
                 if self.trans_to_trill_dict.get(transition, None) is not None:
                     results.append(np.sum(self.trans_to_trill_dict[transition]) / len(self.trans_to_trill_dict[transition]))
+                else: 
+                    features = np.asarray([self.feature_extractor.get_features(transition)])
+                    results.append(self.model.predict(features)[0])
             return np.asarray(results)
         else:
             features = np.asarray([self.feature_extractor.get_features(transition) for transition in transitions])
