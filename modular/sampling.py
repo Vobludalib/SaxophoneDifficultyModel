@@ -165,7 +165,7 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
             for z in range(amount_of_repeats_per_sampling_point):
                 selected_trans, selected_ys = sampling_func(train_xs, train_ys, n=amount_to_sample)
                 train_features, train_selected_ys = model.transitions_and_speed_lists_to_numpy_arrays(selected_trans, selected_ys, feature_extractor)
-                m = model.FingeringTransitionModel(feature_extractor, perform_only_infilling=False)
+                m = model.TrillSpeedModel(feature_extractor, perform_only_infilling=False)
                 m.set_custom_training_data(train_features, train_selected_ys)
                 model_to_use = sklearn.linear_model.LinearRegression()
                 # model_to_use = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=3000)

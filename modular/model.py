@@ -33,7 +33,7 @@ def transitions_trill_dict_to_numpy_arrays(transitions_to_trill_dict, feature_ex
 
     return xs, ys
 
-class FingeringTransitionModel():
+class TrillSpeedModel():
     def __init__(self, feature_extractor: encoding.RawFeatureExtractor | encoding.ExpertFeatureExtractor, perform_only_infilling=False):
         self.feature_extractor = feature_extractor
         self.only_infilling = perform_only_infilling

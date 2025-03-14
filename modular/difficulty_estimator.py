@@ -7,7 +7,7 @@ import numpy as np
 import math
 from scipy.signal.windows import hann
 
-# TODO: Make this into a class, wrapping over FingeringPredictor and FingeringTransitionModel
+# TODO: Make this into a class, wrapping over FingeringPredictor and TrillSpeedModel
 
 def load_xml_file(path):
     m21stream = music21.converter.parseFile(path)
