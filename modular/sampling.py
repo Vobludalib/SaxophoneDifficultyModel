@@ -11,6 +11,7 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 import model
 import sklearn
+import scipy
 
 # FROM ALL FINGERINGS SUBSAMPLE USING 
 # a) UNIFORM RANDOMNESS
@@ -162,18 +163,24 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
             print(f"Sampling only {j + minimum_amount_of_samples} samples out of {train_ys.shape[0]}")
             amount_to_sample = j + minimum_amount_of_samples
             error_sum = 0
+            kendalls_taus = []
+            spearmans = []
             for z in range(amount_of_repeats_per_sampling_point):
                 selected_trans, selected_ys = sampling_func(train_xs, train_ys, n=amount_to_sample)
                 train_features, train_selected_ys = model.transitions_and_speed_lists_to_numpy_arrays(selected_trans, selected_ys, feature_extractor)
                 m = model.TrillSpeedModel(feature_extractor, perform_only_infilling=False)
                 m.set_custom_training_data(train_features, train_selected_ys)
-                model_to_use = sklearn.linear_model.LinearRegression()
-                # model_to_use = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=3000)
+                # model_to_use = sklearn.linear_model.LinearRegression()
+                model_to_use = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=3000)
                 m.train_model(model_to_use)
                 test_features, test_ys = model.transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys, feature_extractor)
                 predicts = m.predict(test_features)
                 error = sklearn.metrics.mean_squared_error(test_ys, predicts)
                 error_sum += error
+                spearman = scipy.stats.spearmanr(test_ys, predicts)
+                spearmans.append(spearman.statistic)
+                kendalls_tau = scipy.stats.kendalltau(test_ys, predicts)
+                kendalls_taus.append(kendalls_tau.statistic)
             error = error_sum / amount_of_repeats_per_sampling_point
             errors[i].append(error)
 
