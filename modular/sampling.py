@@ -114,7 +114,7 @@ def get_stratified_kfold(xs, ys, test_size, seed=10):
 
     return folds
 
-def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature_extractor: encoding.RawFeatureExtractor | encoding.ExpertFeatureExtractor, size_of_test_set = 50, minimum_amount_of_samples=10, amount_of_repeats_per_sampling_point=10, seed=10):
+def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature_extractor: encoding.TransitionFeatureExtractor, size_of_test_set = 50, minimum_amount_of_samples=10, amount_of_repeats_per_sampling_point=10, seed=10):
     # For the sake of the sampling test, for each transition we uniformly randomly select only one of its recorded intervals
     xs = []
     ys = []
@@ -145,6 +145,8 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
 
     folds = get_stratified_kfold(xs, ys, test_size=size_of_test_set)
     for i, train_index, test_index in folds:
+        if i >= 1:
+            break
         errors.append([])
         print(f"=== Doing fold {i} ===")
         train_xs = []
@@ -201,7 +203,7 @@ def main():
         transitions_speed_dict.pop(delete, None)
 
     min_samples = 20
-    feature_extractor = encoding.ExpertFeatureExtractor()
+    feature_extractor = encoding.FingerFeatureExtractor()
     errors = perform_sampling_test(transitions_speed_dict, sampling_method='uniform', feature_extractor=feature_extractor, minimum_amount_of_samples=min_samples)
     
     for fold_index in range(len(errors)):

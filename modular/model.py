@@ -12,14 +12,14 @@ import sklearn.preprocessing
 import encoding
 import numpy as np
 
-def transitions_and_speed_lists_to_numpy_arrays(transitions, speeds, feature_extractor: encoding.RawFeatureExtractor | encoding.ExpertFeatureExtractor):
+def transitions_and_speed_lists_to_numpy_arrays(transitions, speeds, feature_extractor: encoding.TransitionFeatureExtractor):
     features = [feature_extractor.get_features(transition) for transition in transitions]
     xs = np.asarray(features)
     ys = np.asarray(speeds)
 
     return xs, ys
 
-def transitions_trill_dict_to_numpy_arrays(transitions_to_trill_dict, feature_extractor: encoding.RawFeatureExtractor | encoding.ExpertFeatureExtractor):
+def transitions_trill_dict_to_numpy_arrays(transitions_to_trill_dict, feature_extractor: encoding.TransitionFeatureExtractor):
     """
     If multiple of the same transition appear in the data, their trill speed is taken as the mean of all the available trill speeds for that transition
     """
@@ -34,7 +34,7 @@ def transitions_trill_dict_to_numpy_arrays(transitions_to_trill_dict, feature_ex
     return xs, ys
 
 class TrillSpeedModel():
-    def __init__(self, feature_extractor: encoding.RawFeatureExtractor | encoding.ExpertFeatureExtractor, perform_only_infilling=False):
+    def __init__(self, feature_extractor: encoding.TransitionFeatureExtractor, perform_only_infilling=False):
         self.feature_extractor = feature_extractor
         self.only_infilling = perform_only_infilling
         self.model = None
@@ -99,7 +99,7 @@ def fit_on_lm(xs, ys) -> sklearn.linear_model.LinearRegression:
     lm.fit(xs, ys)
     return lm
 
-def predict_fingering_transition(model, fingering1: encoding.Fingering, fingering2: encoding.Fingering, feature_extractor: encoding.RawFeatureExtractor | encoding.ExpertFeatureExtractor):
+def predict_fingering_transition(model, fingering1: encoding.Fingering, fingering2: encoding.Fingering, feature_extractor: encoding.TransitionFeatureExtractor):
     if fingering1.midi > fingering2.midi:
         fingering1, fingering2 = fingering2, fingering1
     trans = encoding.Transition(fingering1, fingering2)

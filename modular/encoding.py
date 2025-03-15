@@ -9,6 +9,7 @@ from enum import Enum
 import csv
 import itertools
 import numpy as np
+from abc import ABC, abstractmethod
 
 print_debug = False
 
@@ -103,12 +104,26 @@ class Fingering:
     midi = 0
     name = ""
     hands = []
+    palm_keys_tied_to_fingers = False
+    key_to_hand_finger = {}
 
-    def __init__(self, midi: int, name: str, encoding: str):
+    def __init__(self, midi: int, name: str, encoding: str, tie_palm_keys_to_fingers = False):
         self.midi = midi
         self.name = name
         self.hands = [self.Hand(Hands.LEFT), self.Hand(Hands.RIGHT)]
         self.read_encoding(encoding)
+        self.palm_keys_tied_to_fingers = tie_palm_keys_to_fingers
+        self.key_to_hand_finger = {
+            Keys.HighF : (Hands.LEFT, Fingers.MIDDLE),
+            Keys.HighDs: (Hands.LEFT, Fingers.POINTER),
+            Keys.HighD: (Hands.LEFT, Fingers.POINTER),
+            Keys.HighE: (Hands.RIGHT, Fingers.POINTER),
+            Keys.SideC: (Hands.RIGHT, Fingers.POINTER),
+            Keys.SideBb: (Hands.RIGHT, Fingers.POINTER)
+        }
+
+        if tie_palm_keys_to_fingers:
+            self.convert_palm_as_finger_to_no_palm()
 
     def read_encoding(self, encoding: str):
         sides = encoding.split(sep="_")
@@ -120,6 +135,25 @@ class Fingering:
                     key.pressed = True if encoding[i] == "1" else False
                     i += 1
 
+    def convert_palm_as_finger_to_no_palm(self):
+            # NOTE: This keeps the palm 'Finger' still present, so make sure to not iterate over all fingers
+            for handi in range(len(self.hands)):
+                palm_keys = self.hands[handi].fingers[5].keys
+                for key in palm_keys:
+                    correct_handi, correct_fingeri = self.key_to_hand_finger[key.name]
+                    self.hands[correct_handi.value].fingers[correct_fingeri.value].keys.append(key)
+
+            self.palm_keys_tied_to_fingers = True
+
+    def convert_no_palm_to_palm_as_finger(self):
+            for handi in range(2):
+                palm_keys = self.hands[handi].fingers[5].keys
+                for key in palm_keys:
+                    correct_handi, correct_fingeri = self.key_to_hand_finger[key.name]
+                    self.hands[correct_handi.value].fingers[correct_fingeri.value].keys.pop()
+
+            self.palm_keys_tied_to_fingers = False
+
     def generate_encoding(self):
         output = ""
         i = 0
@@ -130,6 +164,10 @@ class Fingering:
             last_hand = hand
             for finger in hand.fingers:
                 for key in finger.keys:
+                    # Checking if we have palm keys in places where they aren't expected
+                    if self.palm_keys_tied_to_fingers:
+                        if finger.name != Fingers.PALM and (key in self.hands[0].fingers[5].keys or key in self.hands[1].fingers[5].keys):
+                            continue
                     output += "1" if key.pressed else "0"
                     i += 1
 
@@ -240,7 +278,15 @@ class Transition:
         else:
             NotImplementedError
 
-class RawFeatureExtractor:
+class TransitionFeatureExtractor(ABC):
+    def __init__(self):
+        pass
+
+    @abstractmethod
+    def get_features(self, transition: Transition) -> np.ndarray:
+        pass
+
+class RawFeatureExtractor(TransitionFeatureExtractor):
     def __init__(self):
         pass
 
@@ -259,7 +305,69 @@ class RawFeatureExtractor:
         
         return np.asarray(features)
 
-class ExpertFeatureExtractor:
+class FingerFeatureExtractor(TransitionFeatureExtractor):
+    same_finger_transition_weight = 10
+
+    def __init__(self):
+        pass
+
+    def get_features(self, transition: Transition) -> np.ndarray:
+        """
+        Used to get features based on if a given finger has to move during the transition + added penalty for same finger transition
+        """
+        fingering1 = transition[0]
+        fingering2 = transition[1]
+
+        for fingeringi in range(2):
+            if not transition[fingeringi].palm_keys_tied_to_fingers:
+                transition[fingeringi].convert_palm_as_finger_to_no_palm()
+
+        features = []
+        for handi in range(2):
+            for fingeri in range(5):
+                finger1 = fingering1.hands[handi].fingers[fingeri]
+                finger2 = fingering2.hands[handi].fingers[fingeri]
+                does_change = False
+                if True in [False if finger1.keys[i].pressed == finger2.keys[i].pressed else True for i in range(len(finger1.keys))]:
+                    does_change = True
+                features.append(1 if does_change else 0)
+
+        same_finger_transitions = 0
+        for handi in range(2):
+            for fingeri in range(5):
+                finger1 = fingering1.hands[handi].fingers[fingeri]
+                finger2 = fingering2.hands[handi].fingers[fingeri]
+
+                finger1pressed = [True if key.pressed else False for key in finger1.keys]
+                finger2pressed = [True if key.pressed else False for key in finger2.keys]
+                mismatches = 0
+                is_lifting = None
+                for i in range(len(finger1pressed)):
+                    if finger1pressed[i] != finger2pressed[i]:
+                        if is_lifting is None:
+                            if finger1pressed[i] and not finger2pressed[i]:
+                                is_lifting = True
+                            else:
+                                is_lifting = False
+                        else:
+                            if is_lifting == (finger1pressed[i] and not finger2pressed[i]):
+                                continue
+                        
+                        # do not increment on Bis key
+                        for key1index in range(len(finger1.keys)):
+                            if (finger1.keys[key1index].name == Keys.Bis):
+                                if (finger1.keys[key1index].pressed != finger2.keys[key1index].pressed):
+                                    continue
+                        mismatches += 1
+                
+                if (mismatches > 1):
+                    same_finger_transitions += 1
+        
+        features.append(same_finger_transitions * self.same_finger_transition_weight)
+
+        return np.asarray(features)
+
+class ExpertFeatureExtractor(TransitionFeatureExtractor):
     palm_weight = 10
     low_key_weight = 5
     midi_weight = 0.1
@@ -275,6 +383,10 @@ class ExpertFeatureExtractor:
     def get_features(self, transition: Transition) -> np.ndarray:
         fingering1 = transition[0]
         fingering2 = transition[1]
+
+        for fingeringi in range(2):
+            if transition[fingeringi].palm_keys_tied_to_fingers:
+                transition[fingeringi].convert_no_palm_to_palm_as_finger()
 
         # Delta in finger changes on each hand (i.e. finger pressing something then not pressing or vice verse)
         finger_changes_per_hand = []

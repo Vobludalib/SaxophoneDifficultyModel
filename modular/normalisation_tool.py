@@ -73,14 +73,14 @@ def calculate_difference_to_mean(speeds, means):
 
     return differences
 
-def get_anchor_interval_features(anchor_intervals, feature_extractor: encoding.RawFeatureExtractor | encoding.ExpertFeatureExtractor):
+def get_anchor_interval_features(anchor_intervals, feature_extractor: encoding.TransitionFeatureExtractor):
     anchor_features = []
     for transition in anchor_intervals:
         anchor_features.append(feature_extractor.get_features(transition))
     anchor_features = np.asarray(anchor_features)
     return anchor_features
 
-def normalise_transition(transition: encoding.Transition, transition_speed, session_index, anchor_features, differences, feature_extractor: encoding.RawFeatureExtractor | encoding.ExpertFeatureExtractor, norm_strength=0.2):
+def normalise_transition(transition: encoding.Transition, transition_speed, session_index, anchor_features, differences, feature_extractor: encoding.TransitionFeatureExtractor, norm_strength=0.2):
     interval_features = feature_extractor.get_features(transition)
     distances_to_anchors = np.asarray([get_euclidean_distance(interval_features, anchor_features[j]) for j in range(anchor_features.shape[0])])
     multiples = np.asarray(scipy.special.softmax(distances_to_anchors))
