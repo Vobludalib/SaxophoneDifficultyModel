@@ -11,6 +11,7 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 import model
 import sklearn
+import time
 import scipy
 
 # FROM ALL FINGERINGS SUBSAMPLE USING 
@@ -80,7 +81,7 @@ def empirical_subsample(transition_list: list, trill_speeds, n, print_debug=Fals
 # Method for subsampling based on clusters
 def cluster_subsample(transition_list: list, trill_speeds, n, print_debug=False):
     clusters_dict = {}
-    feature_extractor = encoding.ExpertFeatureExtractor(use_expert_weights=True, remove_midi=False)
+    feature_extractor = encoding.ExpertFeatureNumberOfFingersExtractor(use_expert_weights=True, remove_midi=False)
     transition_features = [feature_extractor.get_features(trans) for trans in transition_list]
     _, labels, _ = skc.k_means(n_clusters=n, X=np.asarray(transition_features))
     for index, transition in enumerate(transition_list):
@@ -145,8 +146,6 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
 
     folds = get_stratified_kfold(xs, ys, test_size=size_of_test_set)
     for i, train_index, test_index in folds:
-        if i >= 1:
-            break
         errors.append([])
         print(f"=== Doing fold {i} ===")
         train_xs = []
@@ -202,22 +201,35 @@ def main():
     for delete in to_delete:
         transitions_speed_dict.pop(delete, None)
 
+    sampling_method = 'uniform'
     min_samples = 20
-    feature_extractor = encoding.FingerFeatureExtractor()
-    errors = perform_sampling_test(transitions_speed_dict, sampling_method='uniform', feature_extractor=feature_extractor, minimum_amount_of_samples=min_samples)
+    test_set_size = 150
+    amount_of_repeats_per_sampling_point = 3
+    feature_extractor = encoding.RawFeatureExtractor()
+    amount_of_transitions = len(list(transitions_speed_dict.keys()))
+    fe = 'RawFeatureExtractor'
+    errors = perform_sampling_test(transitions_speed_dict, sampling_method=sampling_method, feature_extractor=feature_extractor, size_of_test_set=test_set_size, minimum_amount_of_samples=min_samples, amount_of_repeats_per_sampling_point=amount_of_repeats_per_sampling_point)
     
+    random.seed(time.time())
+    experiment_id = random.randint(0, 10000000)
+    with open(f'./files/sampling_tests/test_{experiment_id}.csv', 'w') as f:
+        lines = [f"Min samples: {min_samples}\n", f"Amount of transitions: {amount_of_transitions}\n", f"Test set_size: {test_set_size}\n", f"Sampling method: {sampling_method}\n", f"Amount of repeats per sample point: {amount_of_repeats_per_sampling_point}\n", f"Feature Extractor: {feature_extractor}\n"]
+        f.writelines(lines)
+        writer = csv.writer(f)
+        writer.writerows(errors)
+
     for fold_index in range(len(errors)):
         xs = np.array([i + min_samples for i in range(len(errors[fold_index]))])
         ys = np.array(errors[fold_index])
-        plt.subplot(3, 4, fold_index + 1)
         ax = plt.gca()
         ax.set_ylim([0, 3])
         plt.plot(xs, ys, label = f"Fold {fold_index}")
+        plt.title(f"{sampling_method} sampling, using {fe}")
         plt.xlabel("# of samples")
         plt.ylabel("MSE")
         plt.legend()
 
-    plt.show()
+    plt.savefig(f"./files/sampling_tests/test_{experiment_id}.png")
 
 
 if __name__ == '__main__':
