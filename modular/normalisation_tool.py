@@ -126,7 +126,7 @@ def main():
     print(differences)
 
     print(f"Here are the features of the anchor intervals:")
-    feature_extractor = encoding.ExpertFeatureExtractor()
+    feature_extractor = encoding.ExpertFeatureNumberOfFingersExtractor()
     anchor_features = get_anchor_interval_features(anchor_intervals_sorted, feature_extractor)
     print(anchor_features)
 

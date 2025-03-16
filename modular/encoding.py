@@ -367,7 +367,7 @@ class FingerFeatureExtractor(TransitionFeatureExtractor):
 
         return np.asarray(features)
 
-class ExpertFeatureExtractor(TransitionFeatureExtractor):
+class ExpertFeatureNumberOfFingersExtractor(TransitionFeatureExtractor):
     palm_weight = 10
     low_key_weight = 5
     midi_weight = 0.1
@@ -451,6 +451,93 @@ class ExpertFeatureExtractor(TransitionFeatureExtractor):
         leap_size_value = self.leap_size_weight * abs(fingering1.midi - fingering2.midi)
 
         no_midi_features = [leap_size_value, contains_low_cs_or_lower, self.finger_transition_weight*finger_changes_per_hand[0], self.finger_transition_weight*finger_changes_per_hand[1], octave_key_value, same_finger_transition_value, change_palm_l, change_palm_r]
+
+        if self.remove_midi:
+            return np.asarray(no_midi_features)
+        else:
+            midi1 = fingering1.midi
+            midi2 = fingering2.midi
+            return np.asarray([midi1/self.midi_weight, midi2/self.midi_weight] + no_midi_features)
+
+class ExpertFeatureIndividualFingersExtractor(TransitionFeatureExtractor):
+    palm_weight = 10
+    low_key_weight = 5
+    midi_weight = 0.1
+    octave_key_weight = 10
+    same_finger_transition_weight = 20 
+    finger_transition_weight = 1
+    leap_size_weight = 1
+
+    def __init__(self, use_expert_weights=True, remove_midi=False):
+        self.use_expert_weights=use_expert_weights
+        self.remove_midi = remove_midi
+
+    def get_features(self, transition: Transition) -> np.ndarray:
+        fingering1 = transition[0]
+        fingering2 = transition[1]
+
+        for fingeringi in range(2):
+            if transition[fingeringi].palm_keys_tied_to_fingers:
+                transition[fingeringi].convert_no_palm_to_palm_as_finger()
+
+        # Finger changes (i.e. finger pressing something then not pressing or vice verse)
+        finger_changes = []
+        for handi in range(2):
+            for fingeri in range(5):
+                finger1 = fingering1.hands[handi].fingers[fingeri]
+                finger2 = fingering2.hands[handi].fingers[fingeri]
+                if True in [False if finger1.keys[i].pressed == finger2.keys[i].pressed else True for i in range(len(finger1.keys))]:
+                    finger_changes.append(1)
+                else:
+                    finger_changes.append(0)
+
+        # Amount of same-finger transitions (except same-hand palm)
+        same_finger_transitions = 0
+        for handi in range(2):
+            finger_changes = 0
+            for fingeri in range(5):
+                finger1 = fingering1.hands[handi].fingers[fingeri]
+                finger2 = fingering2.hands[handi].fingers[fingeri]
+
+                finger1pressed = [True if key.pressed else False for key in finger1.keys]
+                finger2pressed = [True if key.pressed else False for key in finger2.keys]
+                mismatches = 0
+                is_lifting = None
+                for i in range(len(finger1pressed)):
+                    if finger1pressed[i] != finger2pressed[i]:
+                        if is_lifting is None:
+                            if finger1pressed[i] and not finger2pressed[i]:
+                                is_lifting = True
+                            else:
+                                is_lifting = False
+                        else:
+                            if is_lifting == (finger1pressed[i] and not finger2pressed[i]):
+                                continue
+                        
+                        # do not increment on Bis key
+                        for key1index in range(len(finger1.keys)):
+                            if (finger1.keys[key1index].name == Keys.Bis):
+                                if (finger1.keys[key1index].pressed != finger2.keys[key1index].pressed):
+                                    continue
+                        mismatches += 1
+                
+                if (mismatches > 1):
+                    same_finger_transitions += 1
+
+        # Values for if a palm key state is swapped for each hand
+        fingering1_l_palm_pressed = any([key.pressed for key in fingering1.hands[0].fingers[5].keys])
+        fingering1_r_palm_pressed = any([key.pressed for key in fingering1.hands[1].fingers[5].keys])
+        fingering2_l_palm_pressed = any([key.pressed for key in fingering2.hands[0].fingers[5].keys])
+        fingering2_r_palm_pressed = any([key.pressed for key in fingering2.hands[1].fingers[5].keys])
+        change_palm_l = (self.palm_weight if self.use_expert_weights else 1) if fingering1_l_palm_pressed != fingering2_l_palm_pressed else 0
+        change_palm_r = (self.palm_weight if self.use_expert_weights else 1) if fingering1_r_palm_pressed != fingering2_r_palm_pressed else 0
+        # Checking if a low note appears (as this influences voicing significantly)
+        contains_low_cs_or_lower = (fingering1.midi <= 61 or fingering2.midi <= 61) * (self.low_key_weight if self.use_expert_weights else 1)
+        # Does octave key have to change state
+        same_finger_transition_value = same_finger_transitions*(self.same_finger_transition_weight if self.use_expert_weights else 1)
+        leap_size_value = self.leap_size_weight * abs(fingering1.midi - fingering2.midi)
+
+        no_midi_features = [finger_changes] + [leap_size_value, contains_low_cs_or_lower, same_finger_transition_value, change_palm_l, change_palm_r]
 
         if self.remove_midi:
             return np.asarray(no_midi_features)
