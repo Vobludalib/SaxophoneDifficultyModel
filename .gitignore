@@ -2,3 +2,6 @@ out.txt
 temp/
 .DS_Store
 __pycache__/
+modular/normalisation_vis.png
+*.mxl
+*.mscz~
