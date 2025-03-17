@@ -136,19 +136,17 @@ def main(model_type, feature_extractor):
     spearmans = []
     kendalls_taus = []
     size_of_test_set = 150
-    # model_type = "lm"
-    # model_type = "mlp"
 
-    # feature_extractor = encoding.ExpertFeatureIndividualFingersExtractor()
     fe = type(feature_extractor).__name__
     if type(feature_extractor) == encoding.ExpertFeatureIndividualFingersExtractor or type(feature_extractor) == encoding.ExpertFeatureNumberOfFingersExtractor:
         fe += f"-{"EW" if feature_extractor.use_expert_weights else "NOEW"}-{"NOMIDI" if feature_extractor.remove_midi else "MIDI"}"
+    if type(feature_extractor) == encoding.FingerFeatureExtractor:
+        fe += f"-{"Palm-as-finger" if not feature_extractor.map_palm_to_fingers else "Palm-keys-tied-to-finger"}"
 
     print(f"DOING TEST ON {model_type} with fe {fe}")
 
     folds = sampling.get_stratified_kfold(xs, ys, test_size=size_of_test_set)
     for i, train_index, test_index in folds:
-        print(test_index)
         print(f"=== Doing fold {i} ===")
         train_xs = []
         train_ys = []
@@ -169,7 +167,7 @@ def main(model_type, feature_extractor):
         if model_type == "lm":
             model_to_use = sklearn.linear_model.LinearRegression()
         elif model_type == "mlp":
-            model_to_use = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=3000)
+            model_to_use = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=100000, solver='lbfgs')
         else:
             raise NotImplementedError()
         
@@ -185,7 +183,7 @@ def main(model_type, feature_extractor):
 
     random.seed(time.time())
     experiment_id = random.randint(0, 10000000)
-    with open(f"./files/model_tests/{model_type}_{fe}_{experiment_id}.csv", "w") as f:
+    with open(f"/Users/slibricky/Desktop/Thesis/thesis/modular/files/model_tests/{model_type}_{fe}_{experiment_id}.csv", "w") as f:
         f.writelines([f"Model type: {model_type}\n", f"Size of test set: {size_of_test_set}\n", f"Number of folds: {i + 1}\n", f"Feature Extractor: {fe}\n", f"Seed {seed}\n"])
         writer = csv.writer(f)
         writer.writerow(errors)
@@ -200,7 +198,7 @@ if __name__ == '__main__':
             for remove_midi in [True, False]:
                 expert_feature_extractors.append(extractor_type(use_expert_weights, remove_midi))
 
-    fes = [encoding.RawFeatureExtractor(), encoding.FingerFeatureExtractor()] + expert_feature_extractors
+    fes = [encoding.RawFeatureExtractor(), encoding.FingerFeatureExtractor(map_palm_to_fingers=True), encoding.FingerFeatureExtractor(map_palm_to_fingers=False)] + expert_feature_extractors
 
     for model_type in ["mlp", "lm"]:
         for feature_extractor in fes:

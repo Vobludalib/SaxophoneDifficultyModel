@@ -308,8 +308,8 @@ class RawFeatureExtractor(TransitionFeatureExtractor):
 class FingerFeatureExtractor(TransitionFeatureExtractor):
     same_finger_transition_weight = 10
 
-    def __init__(self):
-        pass
+    def __init__(self, map_palm_to_fingers=True):
+        self.map_palm_to_fingers = map_palm_to_fingers
 
     def get_features(self, transition: Transition) -> np.ndarray:
         """
@@ -318,13 +318,19 @@ class FingerFeatureExtractor(TransitionFeatureExtractor):
         fingering1 = transition[0]
         fingering2 = transition[1]
 
-        for fingeringi in range(2):
-            if not transition[fingeringi].palm_keys_tied_to_fingers:
-                transition[fingeringi].convert_palm_as_finger_to_no_palm()
+        if self.map_palm_to_fingers:
+            for fingeringi in range(2):
+                if not transition[fingeringi].palm_keys_tied_to_fingers:
+                    transition[fingeringi].convert_palm_as_finger_to_no_palm()
+        else:
+            for fingeringi in range(2):
+                if transition[fingeringi].palm_keys_tied_to_fingers:
+                    transition[fingeringi].convert_no_palm_to_palm_as_finger()
 
         features = []
+        amount_of_fingers = 5 if self.map_palm_to_fingers else 6
         for handi in range(2):
-            for fingeri in range(5):
+            for fingeri in range(amount_of_fingers):
                 finger1 = fingering1.hands[handi].fingers[fingeri]
                 finger2 = fingering2.hands[handi].fingers[fingeri]
                 does_change = False
