@@ -173,7 +173,7 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
                 m = model.TrillSpeedModel(feature_extractor, perform_only_infilling=False)
                 m.set_custom_training_data(train_features, train_selected_ys)
                 # model_to_use = sklearn.linear_model.LinearRegression()
-                model_to_use = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=3000)
+                model_to_use = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=100000, solver='lbfgs')
                 m.train_model(model_to_use)
                 test_features, test_ys = model.transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys, feature_extractor)
                 predicts = m.predict(test_features)
@@ -186,7 +186,8 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
             error = error_sum / amount_of_repeats_per_sampling_point
             errors[i].append(error)
 
-        if i > 2: break
+        if i > 0:
+            break
 
     return errors
 
