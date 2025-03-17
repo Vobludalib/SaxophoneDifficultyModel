@@ -103,7 +103,7 @@ def cluster_subsample(transition_list: list, trill_speeds, n, print_debug=False)
     selected_speeds = np.asarray(selected_speeds)
     return selected_trans, selected_speeds
 
-def get_stratified_kfold(xs, ys, test_size, seed=10):
+def get_stratified_kfold(xs, ys, test_size):
     amount_of_data_points = len(xs)
     amount_of_folds = amount_of_data_points//test_size
     bins = np.array([0, 1.5, 3, 4.5, 10])
@@ -120,6 +120,7 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
     xs = []
     ys = []
     random.seed(seed)
+    np.random.seed(seed)
 
     sampling_func = None
     if sampling_method == 'uniform':
@@ -191,7 +192,7 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
 
 def main():
     # fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
-    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/data.csv")
+    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv")
     # Filter out same-note trills -> huge outliers
     to_delete = []
     for key in transitions_speed_dict:
@@ -205,10 +206,12 @@ def main():
     min_samples = 20
     test_set_size = 150
     amount_of_repeats_per_sampling_point = 3
-    feature_extractor = encoding.RawFeatureExtractor()
+    feature_extractor = encoding.ExpertFeatureNumberOfFingersExtractor(False, False)
     amount_of_transitions = len(list(transitions_speed_dict.keys()))
-    fe = 'RawFeatureExtractor'
-    errors = perform_sampling_test(transitions_speed_dict, sampling_method=sampling_method, feature_extractor=feature_extractor, size_of_test_set=test_set_size, minimum_amount_of_samples=min_samples, amount_of_repeats_per_sampling_point=amount_of_repeats_per_sampling_point)
+    fe = type(feature_extractor).__name__
+    if type(feature_extractor) == encoding.ExpertFeatureIndividualFingersExtractor or type(feature_extractor) == encoding.ExpertFeatureNumberOfFingersExtractor:
+        fe += f"-{"EW" if feature_extractor.use_expert_weights else "NOEW"}-{"NOMIDI" if feature_extractor.remove_midi else "MIDI"}"
+    errors = perform_sampling_test(transitions_speed_dict, sampling_method=sampling_method, feature_extractor=feature_extractor, size_of_test_set=test_set_size, minimum_amount_of_samples=min_samples, amount_of_repeats_per_sampling_point=amount_of_repeats_per_sampling_point, seed=11)
     
     random.seed(time.time())
     experiment_id = random.randint(0, 10000000)

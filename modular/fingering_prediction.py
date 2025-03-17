@@ -82,7 +82,7 @@ class FingeringPrediction():
 
 def main():
     # Load data
-    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/data.csv")
+    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv")
     
     # Remove same-note transitions from the training data
     to_delete = []
@@ -98,7 +98,7 @@ def main():
     xs, ys = model.transitions_trill_dict_to_numpy_arrays(transitions_speed_dict, feature_extractor=fe)
     mlp = model.TrillSpeedModel(fe, perform_only_infilling=False)
     # Doing this to load infilling data
-    mlp.load_data_from_csv("/Users/slibricky/Desktop/Thesis/thesis/modular/data.csv")
+    mlp.load_data_from_csv("/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv")
     mlp.set_custom_training_data(xs, ys)
     np.random.seed(10)
     mlp.train_model(sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=3000))

@@ -227,7 +227,7 @@ def color_map_difficulty(difficulty_value):
 
 def main():
     # Load data
-    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/data.csv")
+    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv")
     to_delete = []
     for key in transitions_speed_dict:
         if key.fingering1.midi == key.fingering2.midi:

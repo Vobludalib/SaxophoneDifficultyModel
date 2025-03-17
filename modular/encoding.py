@@ -457,7 +457,7 @@ class ExpertFeatureNumberOfFingersExtractor(TransitionFeatureExtractor):
         else:
             midi1 = fingering1.midi
             midi2 = fingering2.midi
-            return np.asarray([midi1/self.midi_weight, midi2/self.midi_weight] + no_midi_features)
+            return np.asarray([midi1 * self.midi_weight, midi2 * self.midi_weight] + no_midi_features)
 
 class ExpertFeatureIndividualFingersExtractor(TransitionFeatureExtractor):
     palm_weight = 10
@@ -544,7 +544,7 @@ class ExpertFeatureIndividualFingersExtractor(TransitionFeatureExtractor):
         else:
             midi1 = fingering1.midi
             midi2 = fingering2.midi
-            return np.asarray([midi1/self.midi_weight, midi2/self.midi_weight] + no_midi_features)
+            return np.asarray([midi1 * self.midi_weight, midi2 * self.midi_weight] + no_midi_features)
 
 if __name__ == "__main__":
     main()

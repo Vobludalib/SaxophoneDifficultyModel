@@ -3,6 +3,7 @@
 # b) Automatic feature extraction (using what methods?)
 # c) Raw encodings into NN
 
+import csv
 import sklearn.linear_model
 import sklearn.metrics
 import sklearn.model_selection
@@ -11,6 +12,10 @@ import sklearn.neural_network
 import sklearn.preprocessing
 import encoding
 import numpy as np
+import random
+import sampling
+import scipy
+import time
 
 def transitions_and_speed_lists_to_numpy_arrays(transitions, speeds, feature_extractor: encoding.TransitionFeatureExtractor):
     features = [feature_extractor.get_features(transition) for transition in transitions]
@@ -89,16 +94,6 @@ class TrillSpeedModel():
         
         return self.model.predict(transition_features)
 
-def fit_on_mlp(xs, ys) -> sklearn.neural_network.MLPRegressor:
-    mlp = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(20,), max_iter=3000)
-    mlp.fit(xs, ys)
-    return mlp
-
-def fit_on_lm(xs, ys) -> sklearn.linear_model.LinearRegression:
-    lm = sklearn.linear_model.LinearRegression()
-    lm.fit(xs, ys)
-    return lm
-
 def predict_fingering_transition(model, fingering1: encoding.Fingering, fingering2: encoding.Fingering, feature_extractor: encoding.TransitionFeatureExtractor):
     if fingering1.midi > fingering2.midi:
         fingering1, fingering2 = fingering2, fingering1
@@ -107,20 +102,106 @@ def predict_fingering_transition(model, fingering1: encoding.Fingering, fingerin
     prediction = model.predict(features)
     return prediction[0]
 
-def main():
-    transitions_to_trill_dict = encoding.load_transitions_from_file('/Users/slibricky/Desktop/Thesis/thesis/modular/files/PlatonSession0BatchAnalysed.csv')
-    xs, ys = transitions_trill_dict_to_numpy_arrays(transitions_to_trill_dict)
-    xs = xs[:,2:]
+def main(model_type, feature_extractor):
+    transitions_trill_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv")
+    # Filter out same-note trills -> huge outliers
+    to_delete = []
+    for key in transitions_trill_speed_dict:
+        if key.fingering1.midi == key.fingering2.midi:
+            to_delete.append(key)
 
-    train_xs, test_xs, train_ys, test_ys = sklearn.model_selection.train_test_split(xs, ys, test_size=0.1)
+    for delete in to_delete:
+        transitions_trill_speed_dict.pop(delete, None)
 
-    mlp = fit_on_mlp(train_xs, train_ys)
-    predicts = mlp.predict(test_xs)
-    mse = sklearn.metrics.mean_squared_error(test_ys, predicts)
-    print(mse)
-    comparison = np.vstack([test_ys, predicts])
-    print(comparison.T)
+    seed = 10
 
+    # For the sake of the sampling test, for each transition we uniformly randomly select only one of its recorded intervals
+    xs = []
+    ys = []
+    random.seed(seed)
+    np.random.seed(seed)
+
+    for key in transitions_trill_speed_dict:
+        if len(transitions_trill_speed_dict[key]) == 1:
+            transitions_trill_speed_dict[key] = transitions_trill_speed_dict[key][0]
+        else:
+            transitions_trill_speed_dict[key] = random.sample(transitions_trill_speed_dict[key], 1)[0]
+        
+        xs.append(key)
+        ys.append(transitions_trill_speed_dict[key])
+
+    ys = np.asarray(ys)
+
+    errors = []
+    spearmans = []
+    kendalls_taus = []
+    size_of_test_set = 150
+    # model_type = "lm"
+    # model_type = "mlp"
+
+    # feature_extractor = encoding.ExpertFeatureIndividualFingersExtractor()
+    fe = type(feature_extractor).__name__
+    if type(feature_extractor) == encoding.ExpertFeatureIndividualFingersExtractor or type(feature_extractor) == encoding.ExpertFeatureNumberOfFingersExtractor:
+        fe += f"-{"EW" if feature_extractor.use_expert_weights else "NOEW"}-{"NOMIDI" if feature_extractor.remove_midi else "MIDI"}"
+
+    print(f"DOING TEST ON {model_type} with fe {fe}")
+
+    folds = sampling.get_stratified_kfold(xs, ys, test_size=size_of_test_set)
+    for i, train_index, test_index in folds:
+        print(test_index)
+        print(f"=== Doing fold {i} ===")
+        train_xs = []
+        train_ys = []
+        test_xs = []
+        test_ys = []
+        for train_i in train_index:
+            train_xs.append(xs[train_i])
+        train_ys = ys[train_index]
+        for test_i in test_index:
+            test_xs.append(xs[test_i])
+        test_ys = ys[test_index]
+
+        train_features, train_selected_ys = transitions_and_speed_lists_to_numpy_arrays(train_xs, train_ys, feature_extractor)
+        m = TrillSpeedModel(feature_extractor, perform_only_infilling=False)
+        m.set_custom_training_data(train_features, train_selected_ys)
+
+        model_to_use = None
+        if model_type == "lm":
+            model_to_use = sklearn.linear_model.LinearRegression()
+        elif model_type == "mlp":
+            model_to_use = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=3000)
+        else:
+            raise NotImplementedError()
+        
+        m.train_model(model_to_use)
+        test_features, test_ys = transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys, feature_extractor)
+        predicts = m.predict(test_features)
+        error = sklearn.metrics.mean_squared_error(test_ys, predicts)
+        errors.append(error)
+        spearman = scipy.stats.spearmanr(test_ys, predicts)
+        spearmans.append(spearman.statistic)
+        kendalls_tau = scipy.stats.kendalltau(test_ys, predicts)
+        kendalls_taus.append(kendalls_tau.statistic)
+
+    random.seed(time.time())
+    experiment_id = random.randint(0, 10000000)
+    with open(f"./files/model_tests/{model_type}_{fe}_{experiment_id}.csv", "w") as f:
+        f.writelines([f"Model type: {model_type}\n", f"Size of test set: {size_of_test_set}\n", f"Number of folds: {i + 1}\n", f"Feature Extractor: {fe}\n", f"Seed {seed}\n"])
+        writer = csv.writer(f)
+        writer.writerow(errors)
+        writer.writerow(spearmans)
+        writer.writerow(kendalls_taus)
+        f.write(f"Average MSE over folds: {np.mean(errors)}")
 
 if __name__ == '__main__':
-    main()
+    expert_feature_extractors = []
+    for extractor_type in [encoding.ExpertFeatureIndividualFingersExtractor, encoding.ExpertFeatureNumberOfFingersExtractor]:
+        for use_expert_weights in [True, False]:
+            for remove_midi in [True, False]:
+                expert_feature_extractors.append(extractor_type(use_expert_weights, remove_midi))
+
+    fes = [encoding.RawFeatureExtractor(), encoding.FingerFeatureExtractor()] + expert_feature_extractors
+
+    for model_type in ["mlp", "lm"]:
+        for feature_extractor in fes:
+            main(model_type, feature_extractor)
