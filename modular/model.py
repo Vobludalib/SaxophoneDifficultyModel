@@ -47,6 +47,7 @@ class TrillSpeedModel():
         self.ys = None
         self.model = None
         self.trained = False
+        self.trans_to_trill_dict = {}
 
     def load_data_from_csv(self, path):
         """
@@ -94,11 +95,11 @@ class TrillSpeedModel():
         
         return self.model.predict(transition_features)
 
-def predict_fingering_transition(model, fingering1: encoding.Fingering, fingering2: encoding.Fingering, feature_extractor: encoding.TransitionFeatureExtractor):
+def predict_fingering_transition(model, fingering1: encoding.Fingering, fingering2: encoding.Fingering):
     if fingering1.midi > fingering2.midi:
         fingering1, fingering2 = fingering2, fingering1
     trans = encoding.Transition(fingering1, fingering2)
-    features = feature_extractor.get_features(trans).reshape(1, -1)
+    features = model.feature_extractor.get_features(trans).reshape(1, -1)
     prediction = model.predict(features)
     return prediction[0]
 
@@ -112,6 +113,20 @@ def main(model_type, feature_extractor):
 
     for delete in to_delete:
         transitions_trill_speed_dict.pop(delete, None)
+
+    # Load data for weighing MSE
+    bigramDict = sampling.parse_bigram_csv_to_dict("/Users/slibricky/Desktop/Thesis/melospy-gui_V_1_4b_mac_osx/bin/analysis/feature+viz/bigramsTS.csv", None)
+
+    midiToOccurencesDict = dict(sorted(bigramDict.items(), key= lambda x: x[1]))
+    midiToNumberOfTransitionDict = {}
+    for trans in transitions_trill_speed_dict.keys():
+        key = (trans[0].midi, trans[1].midi)
+        midiToNumberOfTransitionDict[key] = midiToNumberOfTransitionDict.get(key, 0) + 1
+
+    mse_weights = {}
+    for trans in transitions_trill_speed_dict.keys():
+        key = (trans[0].midi, trans[1].midi)
+        mse_weights[key] = midiToOccurencesDict.get((trans.fingering1.midi, trans.fingering2.midi), 0.1) / midiToNumberOfTransitionDict.get((trans.fingering1.midi, trans.fingering2.midi), 1)
 
     seed = 10
 
@@ -132,7 +147,9 @@ def main(model_type, feature_extractor):
 
     ys = np.asarray(ys)
 
-    errors = []
+    mses = []
+    weighted_mses = []
+    mapes = []
     spearmans = []
     kendalls_taus = []
     size_of_test_set = 150
@@ -152,11 +169,15 @@ def main(model_type, feature_extractor):
         train_ys = []
         test_xs = []
         test_ys = []
+        test_mse_weights = []
         for train_i in train_index:
             train_xs.append(xs[train_i])
         train_ys = ys[train_index]
         for test_i in test_index:
             test_xs.append(xs[test_i])
+            key = (xs[test_i][0].midi, xs[test_i][1].midi)
+            test_mse_weights.append(mse_weights[key])
+        test_mse_weights = np.asarray(test_mse_weights)
         test_ys = ys[test_index]
 
         train_features, train_selected_ys = transitions_and_speed_lists_to_numpy_arrays(train_xs, train_ys, feature_extractor)
@@ -174,8 +195,12 @@ def main(model_type, feature_extractor):
         m.train_model(model_to_use)
         test_features, test_ys = transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys, feature_extractor)
         predicts = m.predict(test_features)
-        error = sklearn.metrics.mean_squared_error(test_ys, predicts)
-        errors.append(error)
+        mse = sklearn.metrics.mean_squared_error(test_ys, predicts)
+        mses.append(mse)
+        weighted_mse = sklearn.metrics.mean_squared_error(test_ys, predicts, sample_weight=test_mse_weights)
+        weighted_mses.append(weighted_mse)
+        mape = sklearn.metrics.mean_absolute_percentage_error(test_ys, predicts)
+        mapes.append(mape)
         spearman = scipy.stats.spearmanr(test_ys, predicts)
         spearmans.append(spearman.statistic)
         kendalls_tau = scipy.stats.kendalltau(test_ys, predicts)
@@ -186,10 +211,21 @@ def main(model_type, feature_extractor):
     with open(f"/Users/slibricky/Desktop/Thesis/thesis/modular/files/model_tests/{model_type}_{fe}_{experiment_id}.csv", "w") as f:
         f.writelines([f"Model type: {model_type}\n", f"Size of test set: {size_of_test_set}\n", f"Number of folds: {i + 1}\n", f"Feature Extractor: {fe}\n", f"Seed {seed}\n"])
         writer = csv.writer(f)
-        writer.writerow(errors)
+        f.write("MSES:\n")
+        writer.writerow(mses)
+        f.write("Weighted MSES:\n")
+        writer.writerow(weighted_mses)
+        f.write("Mean absolute percent error:\n")
+        writer.writerow(mapes)
+        f.write("Spearman's:\n")
         writer.writerow(spearmans)
+        f.write("Kendall's taus:\n")
         writer.writerow(kendalls_taus)
-        f.write(f"Average MSE over folds: {np.mean(errors)}")
+        f.write(f"Average MSE over folds: {np.mean(mses):.2f}\n")
+        f.write(f"Average wMSE over folds: {np.mean(weighted_mses):.2f}\n")
+        f.write(f"Average MAPE over folds: {np.mean(mapes):.2f}\n")
+        f.write(f"Average Spearman's over folds: {np.mean(mses):.2f}\n")
+        f.write(f"Average Kendall's Tau over folds: {np.mean(kendalls_taus):.2f}\n")
 
 if __name__ == '__main__':
     expert_feature_extractors = []
