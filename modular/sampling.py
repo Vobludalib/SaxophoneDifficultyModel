@@ -20,7 +20,7 @@ import scipy
 # c) BASED ON CLUSTERING
 
 # Method for subsampling using uniform randomness
-def uniform_subsample(transition_list: list, trill_speeds, n, print_debug=False):
+def uniform_subsample(transition_list: list, trill_speeds, n):
 
     sampled_trans = []
     sampled_speeds = []
@@ -32,17 +32,12 @@ def uniform_subsample(transition_list: list, trill_speeds, n, print_debug=False)
 
     return sampled_trans, sampled_speeds
 
-# TODO: Speed this up by caching the bigram frequencies
-# Method for subsampling using WJDB frequencies
-def empirical_subsample(transition_list: list, trill_speeds, n, print_debug=False):
-    pathToCsv = "/Users/slibricky/Desktop/Thesis/melospy-gui_V_1_4b_mac_osx/bin/analysis/feature+viz/bigramsTS.csv"
-
-    bigramDict = { }
-
-    # +14 here is transposing pitch -> Encoded MIDI values are as written, WJDB has MIDI as sounding
-
-    def parseBigramsIntoDict(d: dict, bigramString):
-        bigrams = str.split(bigramString, ':')
+def parse_bigram_csv_to_dict(path_to_csv, d: None | dict = None):
+    if d is None:
+        d = {}
+        
+    def read_row_into_dict(d: dict, string):
+        bigrams = str.split(string, ':')
         for bigram in bigrams:
             midiVals = bigram.split(',')
             key = (0, 0)
@@ -55,16 +50,34 @@ def empirical_subsample(transition_list: list, trill_speeds, n, print_debug=Fals
                 key = (int(midiVals[1]) + 14, int(midiVals[0]) + 14)
 
             d[key] = d.get(key, 0) + 1
-
-    with open(pathToCsv, 'r') as csvFile:
+    
+    with open(path_to_csv, 'r') as csvFile:
         csvReader = csv.reader(csvFile, delimiter=";")
         header = next(csvReader, None)
         for row in csvReader:
-            parseBigramsIntoDict(bigramDict, row[1])
+            read_row_into_dict(d, row[1])
+
+    return d
+
+
+# Method for subsampling using WJDB frequencies
+def empirical_subsample(transition_list: list, trill_speeds, n, cached_dict: None | dict = None):
+    if cached_dict is None:
+        path_to_csv = "/Users/slibricky/Desktop/Thesis/melospy-gui_V_1_4b_mac_osx/bin/analysis/feature+viz/bigramsTS.csv"
+
+        bigramDict = { }
+
+        bigramDict = parse_bigram_csv_to_dict(path_to_csv, bigramDict)
+    else:
+        bigramDict = cached_dict
 
     midiToOccurencesDict = dict(sorted(bigramDict.items(), key= lambda x: x[1]))
+    midiToNumberOfTransitionDict = {}
+    for trans in transition_list:
+        key = (trans[0].midi, trans[1].midi)
+        midiToNumberOfTransitionDict[key] = midiToNumberOfTransitionDict.get(key, 0) + 1
 
-    occurencesList = [midiToOccurencesDict.get((trans.fingering1.midi, trans.fingering2.midi), 0.1) for trans in transition_list]
+    occurencesList = [midiToOccurencesDict.get((trans.fingering1.midi, trans.fingering2.midi), 0.1) / midiToNumberOfTransitionDict.get((trans.fingering1.midi, trans.fingering2.midi), 1) for trans in transition_list]
 
     probabilities = np.asarray(occurencesList) / np.sum(occurencesList)
     indexes = np.asarray([i for i in range(len(transition_list))])
@@ -79,7 +92,7 @@ def empirical_subsample(transition_list: list, trill_speeds, n, print_debug=Fals
     return selected_trans, selected_speeds
 
 # Method for subsampling based on clusters
-def cluster_subsample(transition_list: list, trill_speeds, n, print_debug=False):
+def cluster_subsample(transition_list: list, trill_speeds, n):
     clusters_dict = {}
     feature_extractor = encoding.ExpertFeatureNumberOfFingersExtractor(use_expert_weights=True, remove_midi=False)
     transition_features = [feature_extractor.get_features(trans) for trans in transition_list]
@@ -131,6 +144,9 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
         sampling_func = empirical_subsample
     else:
         raise NotImplementedError
+    
+    # Used in empirical sampling and weighted MSE
+    cached_dict = parse_bigram_csv_to_dict("/Users/slibricky/Desktop/Thesis/melospy-gui_V_1_4b_mac_osx/bin/analysis/feature+viz/bigramsTS.csv", None)
 
     for key in transitions_trill_speed_dict:
         if len(transitions_trill_speed_dict[key]) == 1:
@@ -168,7 +184,10 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
             kendalls_taus = []
             spearmans = []
             for z in range(amount_of_repeats_per_sampling_point):
-                selected_trans, selected_ys = sampling_func(train_xs, train_ys, n=amount_to_sample)
+                if sampling_func == empirical_subsample:
+                    selected_trans, selected_ys = sampling_func(train_xs, train_ys, n=amount_to_sample, cached_dict=cached_dict)
+                else:
+                    selected_trans, selected_ys = sampling_func(train_xs, train_ys, n=amount_to_sample)
                 train_features, train_selected_ys = model.transitions_and_speed_lists_to_numpy_arrays(selected_trans, selected_ys, feature_extractor)
                 m = model.TrillSpeedModel(feature_extractor, perform_only_infilling=False)
                 m.set_custom_training_data(train_features, train_selected_ys)
@@ -186,9 +205,6 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
             error = error_sum / amount_of_repeats_per_sampling_point
             errors[i].append(error)
 
-        if i > 0:
-            break
-
     return errors
 
 def main():
@@ -203,7 +219,7 @@ def main():
     for delete in to_delete:
         transitions_speed_dict.pop(delete, None)
 
-    sampling_method = 'uniform'
+    sampling_method = 'empirical'
     min_samples = 20
     test_set_size = 150
     amount_of_repeats_per_sampling_point = 3
