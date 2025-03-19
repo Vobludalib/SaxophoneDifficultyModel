@@ -1,10 +1,13 @@
 import music21
+import sklearn.neighbors
+import sklearn.neural_network
 import encoding
 import model
 import fingering_prediction
 import matplotlib.colors as mcolors
 import numpy as np
 import math
+import sklearn
 from scipy.signal.windows import hann
 
 # TODO: Make this into a class, wrapping over FingeringPredictor and TrillSpeedModel
@@ -237,8 +240,11 @@ def main():
         transitions_speed_dict.pop(delete, None)
 
     # Train model
-    xs, ys = model.transitions_trill_dict_to_numpy_arrays(transitions_speed_dict)
-    mlp = model.fit_on_mlp(xs, ys)
+    fe = encoding.ExpertFeatureNumberOfFingersExtractor(use_expert_weights=False, remove_midi=False)
+    xs, ys = model.transitions_trill_dict_to_numpy_arrays(transitions_speed_dict, fe)
+    mlp = model.TrillSpeedModel(fe, False)
+    mlp.set_custom_training_data(xs, ys)
+    mlp.train_model(sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=100000, solver="lbfgs"))
 
     # Load midi_to_fingering dict
     fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
@@ -249,7 +255,7 @@ def main():
         else:
             midi_to_fingerings_dict[fingering.midi].append(fingering)
 
-    stream = load_xml_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/DifficultyTest1-Tenor_Saxophone.mxl")
+    stream = load_xml_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/Short_Segment-Tenor_Saxophone.mxl")
     p = stream.parts[0]
 
     offsets_and_durations = get_offsets_and_durations(p)
@@ -264,11 +270,13 @@ def main():
     splits = split_based_on_rests(times, reset_time)
     # print([f"{i}: {splits[i]}" for i in range(len(splits))])
 
+    fingering_predictor = fingering_prediction.FingeringPrediction(mlp, midi_to_fingerings_dict)
+
     predicted_splits = []
     for i, split in enumerate(splits): 
         print(f"Doing fingering prediction on sequence {i}")
         midi_values = [note[0].pitch.midi for note in split]
-        _, predictions = fingering_prediction.midi_to_fingering_prediction(midi_values, mlp, midi_to_fingerings_dict)
+        _, predictions = fingering_predictor.predict_fingerings(midi_values)
         predicted_split = []
         for i, (note, onset, offset) in enumerate(split):
             predicted_split.append((predictions[i], note, onset, offset))
@@ -277,15 +285,15 @@ def main():
 
     split_difficulties = []
     for split in predicted_splits:
-        # split_difficulties.append(get_difficulties_of_sequence(split, mlp))
-        split_difficulties.append(get_difficulties_of_sequence_smoothed(split, mlp))
+        split_difficulties.append(get_difficulties_of_sequence(split, mlp))
+        # split_difficulties.append(get_difficulties_of_sequence_smoothed(split, mlp))
 
     for split_index, split in enumerate(splits):
         for i, (note, _, _) in enumerate(split):
             print(split_difficulties[split_index][i])
             note.style.color = color_map_difficulty(split_difficulties[split_index][i])
 
-    stream.write("musicxml", "/Users/slibricky/Desktop/Thesis/thesis/modular/files/annotatedWindow.mxl")
+    stream.write("musicxml", "/Users/slibricky/Desktop/Thesis/thesis/modular/files/Short_Segment_Annotated.mxl")
 
 if __name__ == "__main__":
     main()
