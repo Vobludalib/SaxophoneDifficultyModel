@@ -16,7 +16,7 @@ with open('/Users/slibricky/Desktop/Thesis/thesis/modular/data.csv', 'r') as f:
         raw_dict[name] = trill_speed
 
 normalised_dict = {}
-with open('/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv', 'r') as f:
+with open('/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/0to5and12.csv', 'r') as f:
     reader = csv.reader(f)
     next(reader, None)
     for line in reader:
@@ -25,7 +25,7 @@ with open('/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_cs
         if name in raw_dict:
             normalised_dict[name] = trill_speed
 
-session_start_markers = [0, 64, 127, 185, 252, 313, 313+66, 313+66+72]
+session_start_markers = [0, 64, 127, 185, 252, 313, 313+66]
 xs = []
 ys = []
 colors = []
@@ -40,23 +40,23 @@ sorted_keys = sorted(list(normalised_dict.keys()), key=isolate_number)
 for i, filename in enumerate(sorted_keys):
     xs.append(i)
     ys.append(raw_dict[filename])
-    colors.append('blue')
+    colors.append('#648FFF')
     xs.append(i)
     ys.append(normalised_dict[filename])
-    colors.append('red')
+    colors.append('#FE6100')
     arrow_tuples.append((i, raw_dict[filename], normalised_dict[filename]))
 
 plt.scatter(xs, ys, color=colors)
 plt.xlabel("Individual transitions in session order")
 plt.ylabel("Trill speeds in trills/s")
 legend_handles = [
-    Patch(facecolor="blue", label="Raw values"),
-    Patch(facecolor="red", label="Post-normalisation")
+    Patch(facecolor="#648FFF", label="Raw values"),
+    Patch(facecolor="#FE6100", label="Post-normalisation")
                   ]
 ax = plt.gca()
 fig = plt.gcf()
 fig.set_size_inches(8, 6)
-ax.legend(handles=legend_handles, loc="upper right")
+ax.legend(handles=legend_handles, loc="upper center")
 ax.set_xticks(session_start_markers)
 ax.set_xticklabels([f"Session {i}" for i in range(len(session_start_markers))])
 plt.grid(axis="x", linestyle="--", linewidth=0.5)
