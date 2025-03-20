@@ -4,6 +4,7 @@
 # c) Raw encodings into NN
 
 import csv
+import matplotlib.patches
 import sklearn.linear_model
 import sklearn.metrics
 import sklearn.model_selection
@@ -16,6 +17,8 @@ import random
 import sampling
 import scipy
 import time
+import matplotlib.pyplot as plt
+import matplotlib
 
 def transitions_and_speed_lists_to_numpy_arrays(transitions, speeds, feature_extractor: encoding.TransitionFeatureExtractor):
     features = [feature_extractor.get_features(transition) for transition in transitions]
@@ -39,7 +42,7 @@ def transitions_trill_dict_to_numpy_arrays(transitions_to_trill_dict, feature_ex
     return xs, ys
 
 class TrillSpeedModel():
-    def __init__(self, feature_extractor: encoding.TransitionFeatureExtractor, perform_only_infilling=False):
+    def __init__(self, feature_extractor: encoding.TransitionFeatureExtractor, perform_only_infilling=False, min_trill_speed = 0.5):
         self.feature_extractor = feature_extractor
         self.only_infilling = perform_only_infilling
         self.model = None
@@ -48,6 +51,7 @@ class TrillSpeedModel():
         self.model = None
         self.trained = False
         self.trans_to_trill_dict = {}
+        self.min_trill_speed = min_trill_speed
 
     def load_data_from_csv(self, path):
         """
@@ -84,16 +88,16 @@ class TrillSpeedModel():
                 else: 
                     features = np.asarray([self.feature_extractor.get_features(transition)])
                     results.append(self.model.predict(features)[0])
-            return np.asarray(results)
+            return np.clip(np.asarray(results), a_min=self.min_trill_speed, a_max=None)
         else:
             features = np.asarray([self.feature_extractor.get_features(transition) for transition in transitions])
-            return self.model.predict(features)
+            return np.clip(self.model.predict(features), a_min=self.min_trill_speed, a_max=None)
     
     def predict(self, transition_features: np.ndarray):
         if not self.trained:
             raise Exception("The model has not been trained since the new data was loaded")
         
-        return self.model.predict(transition_features)
+        return np.clip(self.model.predict(transition_features), a_min=self.min_trill_speed, a_max=None)
 
 def predict_fingering_transition(model, fingering1: encoding.Fingering, fingering2: encoding.Fingering):
     if fingering1.midi > fingering2.midi:
@@ -148,6 +152,7 @@ def main(model_type, feature_extractor):
     ys = np.asarray(ys)
 
     mses = []
+    predicts_vs_true = []
     weighted_mses = []
     mapes = []
     spearmans = []
@@ -195,6 +200,7 @@ def main(model_type, feature_extractor):
         m.train_model(model_to_use)
         test_features, test_ys = transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys, feature_extractor)
         predicts = m.predict(test_features)
+        predicts_vs_true.append(np.vstack([predicts, test_ys]))
         mse = sklearn.metrics.mean_squared_error(test_ys, predicts)
         mses.append(mse)
         weighted_mse = sklearn.metrics.mean_squared_error(test_ys, predicts, sample_weight=test_mse_weights)
@@ -226,6 +232,44 @@ def main(model_type, feature_extractor):
         f.write(f"Average MAPE over folds: {np.mean(mapes):.2f}\n")
         f.write(f"Average Spearman's over folds: {np.mean(mses):.2f}\n")
         f.write(f"Average Kendall's Tau over folds: {np.mean(kendalls_taus):.2f}\n")
+
+    i = 0
+    graph_xs = []
+    ys = []
+    colors = []
+    for fold_i, pred_vs_true in enumerate(predicts_vs_true):
+        if fold_i > 0:
+            break
+        graph_xs += [int(i + j/2) for j in range(pred_vs_true.shape[1]*2)]
+        sorted_indices = np.argsort(pred_vs_true[1])
+        pred_vs_true = pred_vs_true[:, sorted_indices]
+        preds = pred_vs_true[0]
+        true = pred_vs_true[1]
+        for z in range(preds.shape[0]):
+            ys.append(true[z])
+            colors.append("#648FFF")
+            ys.append(preds[z])
+            colors.append("#FE6100")
+            index = int(i + z)
+            plt.annotate('', xy=(index, preds[z]), xycoords='data', xytext=(index, true[z]), textcoords='data', arrowprops=dict(facecolor='black', arrowstyle='->'))
+        i += pred_vs_true.shape[1]
+
+    plt.scatter(graph_xs, ys, color=colors)
+    plt.xlabel("Individual transitions from fold 0 test data sorted by true trill speed")
+    plt.ylabel("Trill speeds in trills/s")
+    legend_handles = [
+        matplotlib.patches.Patch(facecolor="#648FFF", label="True (recorded) trill speed"),
+        matplotlib.patches.Patch(facecolor="#FE6100", label="Predicted trill speed")
+                    ]
+    ax = plt.gca()
+    fig = plt.gcf()
+    fig.set_size_inches(8, 6)
+    ax.legend(handles=legend_handles, loc="upper left")
+    plt.title(f"True vs predicted for {model_type} with {fe}")
+    # if (model_type == "mlp" and "NumberOfFingers" in fe and "NOEW" in fe):
+    plt.savefig(f"./files/model_tests/{model_type}_{fe}_{experiment_id}.png")
+    # plt.show()
+    plt.clf()
 
 if __name__ == '__main__':
     expert_feature_extractors = []
