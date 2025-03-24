@@ -14,7 +14,14 @@ from abc import ABC, abstractmethod
 print_debug = False
 
 def main():
-    fingerings = load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/encodings.txt")
+    fingerings = load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
+    fing1 = next(x for x in fingerings if x.name == "E With octave key")
+    fing2 = next(x for x in fingerings if x.name == "High D")
+    trans = Transition(fing1, fing2)
+    fes = [RawFeatureExtractor(), FingerFeatureExtractor(map_palm_to_fingers=False), FingerFeatureExtractor(map_palm_to_fingers=True), ExpertFeatureIndividualFingersExtractor(), ExpertFeatureNumberOfFingersExtractor()]
+    for fe in fes:
+        print(type(fe))
+        print(fe.get_features(trans))
 
 def load_fingerings_from_file(file_path, delim=','):
     fingerings = []
@@ -456,7 +463,7 @@ class ExpertFeatureNumberOfFingersExtractor(TransitionFeatureExtractor):
         same_finger_transition_value = same_finger_transitions*(self.same_finger_transition_weight if self.use_expert_weights else 1)
         leap_size_value = self.leap_size_weight * abs(fingering1.midi - fingering2.midi)
 
-        no_midi_features = [leap_size_value, contains_low_cs_or_lower, self.finger_transition_weight*finger_changes_per_hand[0], self.finger_transition_weight*finger_changes_per_hand[1], octave_key_value, same_finger_transition_value, change_palm_l, change_palm_r]
+        no_midi_features = [self.finger_transition_weight*finger_changes_per_hand[0], self.finger_transition_weight*finger_changes_per_hand[1], leap_size_value, contains_low_cs_or_lower, octave_key_value, same_finger_transition_value, change_palm_l, change_palm_r]
 
         if self.remove_midi:
             return np.asarray(no_midi_features)
@@ -500,7 +507,6 @@ class ExpertFeatureIndividualFingersExtractor(TransitionFeatureExtractor):
         # Amount of same-finger transitions (except same-hand palm)
         same_finger_transitions = 0
         for handi in range(2):
-            finger_changes = 0
             for fingeri in range(5):
                 finger1 = fingering1.hands[handi].fingers[fingeri]
                 finger2 = fingering2.hands[handi].fingers[fingeri]
@@ -543,7 +549,7 @@ class ExpertFeatureIndividualFingersExtractor(TransitionFeatureExtractor):
         same_finger_transition_value = same_finger_transitions*(self.same_finger_transition_weight if self.use_expert_weights else 1)
         leap_size_value = self.leap_size_weight * abs(fingering1.midi - fingering2.midi)
 
-        no_midi_features = [finger_changes] + [leap_size_value, contains_low_cs_or_lower, same_finger_transition_value, change_palm_l, change_palm_r]
+        no_midi_features = finger_changes + [leap_size_value, contains_low_cs_or_lower, same_finger_transition_value, change_palm_l, change_palm_r]
 
         if self.remove_midi:
             return np.asarray(no_midi_features)

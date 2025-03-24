@@ -108,7 +108,7 @@ def predict_fingering_transition(model, fingering1: encoding.Fingering, fingerin
     return prediction[0]
 
 def main(model_type, feature_extractor):
-    transitions_trill_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/data_processed/ALL_DATA.csv")
+    transitions_trill_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/ALL_DATA.csv")
     # Filter out same-note trills -> huge outliers
     to_delete = []
     for key in transitions_trill_speed_dict:
