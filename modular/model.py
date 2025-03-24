@@ -108,7 +108,7 @@ def predict_fingering_transition(model, fingering1: encoding.Fingering, fingerin
     return prediction[0]
 
 def main(model_type, feature_extractor):
-    transitions_trill_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv")
+    transitions_trill_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/data_processed/ALL_DATA.csv")
     # Filter out same-note trills -> huge outliers
     to_delete = []
     for key in transitions_trill_speed_dict:
@@ -232,6 +232,7 @@ def main(model_type, feature_extractor):
         f.write(f"Average MAPE over folds: {np.mean(mapes):.2f}\n")
         f.write(f"Average Spearman's over folds: {np.mean(mses):.2f}\n")
         f.write(f"Average Kendall's Tau over folds: {np.mean(kendalls_taus):.2f}\n")
+        f.write(f"Latex table format: {np.mean(mses):.2f} & {np.mean(weighted_mses):.2f} & {np.mean(mapes):.2f}")
 
     i = 0
     graph_xs = []

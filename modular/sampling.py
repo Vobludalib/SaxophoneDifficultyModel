@@ -13,6 +13,7 @@ import model
 import sklearn
 import time
 import scipy
+import os
 
 # FROM ALL FINGERINGS SUBSAMPLE USING 
 # a) UNIFORM RANDOMNESS
@@ -160,10 +161,12 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
     ys = np.asarray(ys)
 
     errors = []
+    mapes = []
 
     folds = get_stratified_kfold(xs, ys, test_size=size_of_test_set)
     for i, train_index, test_index in folds:
         errors.append([])
+        mapes.append([])
         print(f"=== Doing fold {i} ===")
         train_xs = []
         train_ys = []
@@ -181,6 +184,7 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
             print(f"Sampling only {j + minimum_amount_of_samples} samples out of {train_ys.shape[0]}")
             amount_to_sample = j + minimum_amount_of_samples
             error_sum = 0
+            mape_sum = 0
             kendalls_taus = []
             spearmans = []
             for z in range(amount_of_repeats_per_sampling_point):
@@ -198,18 +202,22 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
                 predicts = m.predict(test_features)
                 error = sklearn.metrics.mean_squared_error(test_ys, predicts)
                 error_sum += error
+                mape = sklearn.metrics.mean_absolute_percentage_error(test_ys, predicts)
+                mape_sum += mape
                 spearman = scipy.stats.spearmanr(test_ys, predicts)
                 spearmans.append(spearman.statistic)
                 kendalls_tau = scipy.stats.kendalltau(test_ys, predicts)
                 kendalls_taus.append(kendalls_tau.statistic)
             error = error_sum / amount_of_repeats_per_sampling_point
+            mape = mape_sum / amount_of_repeats_per_sampling_point
             errors[i].append(error)
+            mapes[i].append(mape)
 
-    return errors
+    return errors, mapes
 
 def main():
     # fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
-    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv")
+    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/data_processed/ALL_DATA.csv")
     # Filter out same-note trills -> huge outliers
     to_delete = []
     for key in transitions_speed_dict:
@@ -219,24 +227,28 @@ def main():
     for delete in to_delete:
         transitions_speed_dict.pop(delete, None)
 
+    seed = 11
     sampling_method = 'empirical'
     min_samples = 20
-    test_set_size = 150
+    test_set_size = 150 
     amount_of_repeats_per_sampling_point = 3
     feature_extractor = encoding.ExpertFeatureNumberOfFingersExtractor(False, False)
     amount_of_transitions = len(list(transitions_speed_dict.keys()))
     fe = type(feature_extractor).__name__
     if type(feature_extractor) == encoding.ExpertFeatureIndividualFingersExtractor or type(feature_extractor) == encoding.ExpertFeatureNumberOfFingersExtractor:
         fe += f"-{"EW" if feature_extractor.use_expert_weights else "NOEW"}-{"NOMIDI" if feature_extractor.remove_midi else "MIDI"}"
-    errors = perform_sampling_test(transitions_speed_dict, sampling_method=sampling_method, feature_extractor=feature_extractor, size_of_test_set=test_set_size, minimum_amount_of_samples=min_samples, amount_of_repeats_per_sampling_point=amount_of_repeats_per_sampling_point, seed=11)
+    errors, mapes = perform_sampling_test(transitions_speed_dict, sampling_method=sampling_method, feature_extractor=feature_extractor, size_of_test_set=test_set_size, minimum_amount_of_samples=min_samples, amount_of_repeats_per_sampling_point=amount_of_repeats_per_sampling_point, seed=seed)
     
     random.seed(time.time())
     experiment_id = random.randint(0, 10000000)
     with open(f'./files/sampling_tests/test_{experiment_id}.csv', 'w') as f:
-        lines = [f"Min samples: {min_samples}\n", f"Amount of transitions: {amount_of_transitions}\n", f"Test set_size: {test_set_size}\n", f"Sampling method: {sampling_method}\n", f"Amount of repeats per sample point: {amount_of_repeats_per_sampling_point}\n", f"Feature Extractor: {feature_extractor}\n"]
+        lines = [f"Min samples: {min_samples}\n", f"Amount of transitions: {amount_of_transitions}\n", f"Test set_size: {test_set_size}\n", f"Sampling method: {sampling_method}\n", f"Amount of repeats per sample point: {amount_of_repeats_per_sampling_point}\n", f"Feature Extractor: {fe}\n", f"Seed: {seed}"]
         f.writelines(lines)
         writer = csv.writer(f)
+        writer.writerow(['MSEs'])
         writer.writerows(errors)
+        writer.writerow(['MAPEs'])
+        writer.writerows(mapes)
 
     for fold_index in range(len(errors)):
         xs = np.array([i + min_samples for i in range(len(errors[fold_index]))])
@@ -250,6 +262,8 @@ def main():
         plt.legend()
 
     plt.savefig(f"./files/sampling_tests/test_{experiment_id}.png")
+
+    os.system('say "Sampling tests have been completed. At this point I am just speaking to alert to you"')
 
 
 if __name__ == '__main__':
