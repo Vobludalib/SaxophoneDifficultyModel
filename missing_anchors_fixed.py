@@ -4,7 +4,7 @@ import random
 
 sessions_file = '/Users/slibricky/Desktop/Thesis/thesis/modular/files/final/sessions.csv'
 fixed_sessions_file = '/Users/slibricky/Desktop/Thesis/thesis/modular/files/final/sessions_fixed.csv'
-anchors_file = '/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/anchor_intervals.txt'
+anchors_file = '/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/anchor_transitions.txt'
 encodings_file = '/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt'
 
 anchor_encoding_pairs = []

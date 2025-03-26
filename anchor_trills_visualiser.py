@@ -11,7 +11,7 @@ import random
 directory = "./files/data_processed/"
 file_paths = [os.path.join(directory, f) for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
 
-anchors_file = "./documentation/anchor_intervals.txt"
+anchors_file = "./documentation/anchor_transitions.txt"
 anchor_encoding_pairs = []
 with open(anchors_file, 'r') as file:
     reader = csv.reader(file)

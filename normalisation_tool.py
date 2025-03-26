@@ -7,7 +7,7 @@ import numpy as np
 import scipy.special
 
 # Takes seperate batch_analysed csvs (each corresponding to one session) and generates one big CSV of trills
-# normalised using the anchor intervals
+# normalised using the anchor transitions
 
 # ANCHORS ARE TAKEN AS BEING CLUSTER -1
 
@@ -49,21 +49,21 @@ def calculate_anchor_speeds(file_to_anchors_dict) -> tuple[list, list]:
     Speeds is a 2d list, row = session, column = anchor transition
     """
 
-    anchor_intervals_sorted = []
+    anchor_transitions_sorted = []
     checked = False
     for filename in file_to_anchors_dict:
         file_to_anchors_dict[filename].sort(key = lambda tup: (tup[0].midi, tup[1].midi))
         if not checked:
             for tup in file_to_anchors_dict[filename]:
-                anchor_intervals_sorted.append((tup[0], tup[1]))
+                anchor_transitions_sorted.append((tup[0], tup[1]))
             checked = True
 
-    speeds = np.zeros((len(file_to_anchors_dict), len(anchor_intervals_sorted)), dtype=float)
+    speeds = np.zeros((len(file_to_anchors_dict), len(anchor_transitions_sorted)), dtype=float)
     for row, filename in enumerate(file_to_anchors_dict):
         for column, interval_tup in enumerate(file_to_anchors_dict[filename]):
             speeds[row, column] = interval_tup[2]
 
-    return anchor_intervals_sorted, speeds
+    return anchor_transitions_sorted, speeds
 
 def calculate_difference_to_mean(speeds, means):
     differences = np.zeros((speeds.shape[0], speeds.shape[1]), dtype=float)
@@ -73,9 +73,9 @@ def calculate_difference_to_mean(speeds, means):
 
     return differences
 
-def get_anchor_interval_features(anchor_intervals, feature_extractor: encoding.TransitionFeatureExtractor):
+def get_anchor_transition_features(anchor_transitions, feature_extractor: encoding.TransitionFeatureExtractor):
     anchor_features = []
-    for transition in anchor_intervals:
+    for transition in anchor_transitions:
         anchor_features.append(feature_extractor.get_features(transition))
     anchor_features = np.asarray(anchor_features)
     return anchor_features
@@ -111,10 +111,10 @@ def main():
     
     file_to_anchors_dict = load_anchors_from_directory(args.csvs)
 
-    anchor_intervals_sorted, speeds = calculate_anchor_speeds(file_to_anchors_dict)
+    anchor_transitions_sorted, speeds = calculate_anchor_speeds(file_to_anchors_dict)
     print(f"Here is to order in which orders appear in the following matrices (columns):")
-    print(anchor_intervals_sorted)
-    print(f"Full array of anchor interval speeds (row = session, column = anchor):")
+    print(anchor_transitions_sorted)
+    print(f"Full array of anchor transition speeds (row = session, column = anchor):")
     print(speeds)
     print(f"Here are their averages over all sessions:")
     averages = np.mean(speeds, axis=0)
@@ -125,9 +125,9 @@ def main():
     print(f"Here are the differences from the mean (negative means that speed was higher than mean):")
     print(differences)
 
-    print(f"Here are the features of the anchor intervals:")
+    print(f"Here are the features of the anchor transitions:")
     feature_extractor = encoding.ExpertFeatureNumberOfFingersExtractor()
-    anchor_features = get_anchor_interval_features(anchor_intervals_sorted, feature_extractor)
+    anchor_features = get_anchor_transition_features(anchor_transitions_sorted, feature_extractor)
     print(anchor_features)
 
     new_csv = []

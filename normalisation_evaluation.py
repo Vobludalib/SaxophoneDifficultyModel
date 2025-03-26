@@ -34,11 +34,11 @@ def main():
                 session_names.append(session)
 
     # Precalculate normalisation values
-    anchor_intervals_sorted, speeds = normalisation_tool.calculate_anchor_speeds(file_to_anchors_dict)
+    anchor_transitions_sorted, speeds = normalisation_tool.calculate_anchor_speeds(file_to_anchors_dict)
     averages = np.mean(speeds, axis=0)
     differences = normalisation_tool.calculate_difference_to_mean(speeds, averages)
     feature_extractor = encoding.ExpertFeatureNumberOfFingersExtractor()
-    anchor_features = normalisation_tool.get_anchor_interval_features(anchor_intervals_sorted, feature_extractor)
+    anchor_features = normalisation_tool.get_anchor_transition_features(anchor_transitions_sorted, feature_extractor)
 
     session_indexes_for_normalisation = [list(file_to_anchors_dict.keys()).index(session_name) for session_name in session_names]
 
