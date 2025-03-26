@@ -1,6 +1,0 @@
-Session,Cluster,Note 1 midi,Note 1 name,Note 1 encoding,Note 2 midi,Note 2 encoding,Note 2 encoding
-0,-1,75,Eb With octave key,1010110000000_1100110000,77,F With octave key,1010110000000_1000000000
-0,-1,62,D Without octave key,0010110000000_1100100000,74,D With octave key,1010110000000_1100100000
-0,-1,81,A With octave key,1010100000000_0000000000,88,High E,1000000000011_0000000100
-0,-1,60,Low C,0010110000000_1100101000,65,F Without octave key,0010110000000_1000000000
-0,-1,67,G Without octave key,0010110000000_0000000000,68,G# Without octave key (default),0010111000000_0000000000

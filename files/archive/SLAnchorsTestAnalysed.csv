@@ -1,6 +1,0 @@
-Filename,Cluster,Midi 1 (transposed as written for TS),Fingering 1 Name,Fingering 1 Encoding,Midi 2 (transposed as written for TS),Fingering 2 Name,Fingering 2 Encoding,Trill Speed
-Anchor2_1.wav,-1,75,Eb With octave key,1010110000000_1100110000,77,F With octave key,1010110000000_1000000000,4.943820224719101
-Anchor3_1.wav,-1,62,D Without octave key,0010110000000_1100100000,74,D With octave key,1010110000000_1100100000,1.3513513513513513
-Anchor4_1.wav,-1,81,A With octave key,1010100000000_0000000000,88,High E,1000000000011_0000000100,2.3858921161825726
-Anchor5_1.wav,-1,60,Low C,0010110000000_1100101000,65,F Without octave key,0010110000000_1000000000,3.3088235294117645
-Anchor6_1.wav,-1,67,G Without octave key,0010110000000_0000000000,68,G# Without octave key (default),0010111000000_0000000000,6.647398843930636
