@@ -1,6 +1,5 @@
 from music21 import *
 import music21
-import encoding
 import argparse
 import csv
 import img2pdf
@@ -10,11 +9,14 @@ from tqdm import tqdm
 def main():
     parser = argparse.ArgumentParser(
                     prog='Generate trills order for data collection')
-    parser.add_argument('--inp', type=str)
-    parser.add_argument('--out', type=str, help="Where to store output", default="./prompts/")
+    parser.add_argument('-i', '--inp', type=str)
+    parser.add_argument('-o', '--out', type=str, help="Path to directory where output should be stored")
     args = parser.parse_args()
 
-    temp_folder = "./temp"
+    temp_folder = os.path.join(".", "temp")
+    if not os.path.exists(temp_folder):
+        os.makedirs(temp_folder)
+
     for filename in os.listdir(temp_folder):
         file_path = os.path.join(temp_folder, filename)
         try:
@@ -29,7 +31,6 @@ def main():
         next(reader, None)
         for i, line in tqdm(enumerate(reader)):
             session = int(line[0])
-            # if session != 0: continue
             cluster = int(line[1])
             note1midi = int(line[2])
             note1name = line[3]
