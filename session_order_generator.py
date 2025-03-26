@@ -8,6 +8,7 @@ import csv
 import scipy
 import numpy as np
 import sklearn.cluster as skc
+import os
 
 def generate_interval_difficulty_approx(interval):
     feature_extractor = encoding.ExpertFeatureNumberOfFingersExtractor()
@@ -30,7 +31,7 @@ def generate_cluster_difficulty_approx(clusters_dict):
 
     return difficulties
 
-def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_intervals, number_of_transitions, output_file, seed=10):
+def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_transitions, number_of_transitions, output_file, seed=10):
     sessions = []
     random.seed(seed)
     np.random.seed(seed)
@@ -42,8 +43,8 @@ def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_in
     total_non_anchors_covered = 0
     cluster_label = 0
     anchor_cluster = []
-    for anchor_interval in anchor_intervals:
-            anchor_cluster.append(anchor_interval)
+    for anchor_transition in anchor_transitions:
+            anchor_cluster.append(anchor_transition)
 
     while total_non_anchors_covered < number_of_transitions:
         newSession = [(-1, anchor_cluster)]
@@ -83,7 +84,7 @@ def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_in
             if cluster_i == 0: continue
             for interval in cluster[1]:
                 interval_encodings = [interval[0].generate_encoding(), interval[1].generate_encoding()]
-                for anchor_int in anchor_intervals:
+                for anchor_int in anchor_transitions:
                     if anchor_int[0].generate_encoding() in interval_encodings and anchor_int[1].generate_encoding() in interval_encodings:
                         cluster[1].remove(interval)
 
@@ -127,11 +128,7 @@ def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_in
                 writer.writerow([i, trans_triple[0], trans_triple[1].midi, trans_triple[1].name, trans_triple[1].generate_encoding(), trans_triple[2].midi, trans_triple[2].name, trans_triple[2].generate_encoding()])
                 del all_sessions_trans_dict[sample]
 
-            # random.shuffle(all_session_transitions)
-            # for trans_triple in all_session_transitions:
-            #     writer.writerow([i, trans_triple[0], trans_triple[1].midi, trans_triple[1].name, trans_triple[1].generate_encoding(), trans_triple[2].midi, trans_triple[2].name, trans_triple[2].generate_encoding()])
-
-def get_anchor_intervals(all_transitions, path_to_anchors):
+def get_anchor_transitions(all_transitions, path_to_anchors):
     anchors_encodings = []
     with open(path_to_anchors, 'r') as f:
         for line in f:
@@ -179,38 +176,34 @@ def main():
                     prog='Generate trills order for data collection')
     parser.add_argument('--noi', type=int, help="Prefered number of intervals per recording session, mutually incompatible with nos")
     parser.add_argument('--nos', type=int, help="Prefered number of recording sessions, mutually incompatible with noi")
-    parser.add_argument('--out', type=str, help="Filepath to where to store output. Default is sessions.csv", default="sessions.csv")
-    parser.add_argument('--seed', type=int, help="Seed used when randomly generating the sessions", default="10")
-    parser.add_argument('--anchors', type=str, help="Path to file with pairs of encodings representing anchor intervals. Each line should be in the form:\nENCODING1,ENCODING2")
+    parser.add_argument('-o', '--out', type=str, help="Filepath to where to store output. Default is sessions.csv", default="sessions.csv")
+    parser.add_argument('--seed', type=int, help="Seed used when randomly generating the sessions", default=10)
+    parser.add_argument('--anchors', type=str, help="Path to file with pairs of encodings representing anchor transitions. Each line should be in the form:\nENCODING1,ENCODING2", default=os.path.join(".", "documentation", "anchor_transitions.txt"))
     args = parser.parse_args()
 
-    fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
+    fingerings = encoding.load_fingerings_from_file(os.path.join(".", "documentation", "encodings.txt"))
     all_transitions = encoding.generate_all_transitions(fingerings)
     number_of_transitions = len(all_transitions)
     # We still use k-means of n/5 here to get similar transitions recorded by the same player
     clusters_dict = generate_interval_clusters(fingerings)
-    args.anchors = "/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/anchor_intervals.txt"
 
-    # GET ANCHOR INTERVALS
-    anchor_intervals = get_anchor_intervals(all_transitions, args.anchors)
-    number_of_anchor_intervals = len(anchor_intervals)
+    # GET ANCHOR TRANSITIONS
+    anchor_transitions = get_anchor_transitions(all_transitions, args.anchors)
+    number_of_anchor_transitions = len(anchor_transitions)
 
     if (args.nos is None and args.noi is None):
         args.noi = 50
 
     if (args.nos is not None):
         print("Prioritising session breakdown")
-        # NOT ACTUALLY BREAKING DOWN EVENLY - figure this out
         transitions_per_session = number_of_transitions//args.nos
-        generate_sessions(transitions_per_session, clusters_dict, anchor_intervals, number_of_transitions, args.out, args.seed)
+        generate_sessions(transitions_per_session, clusters_dict, anchor_transitions, number_of_transitions, args.out, args.seed)
     elif (args.noi is not None):
         print("Prioritising intervals breakdown")
-        if args.noi <= number_of_anchor_intervals:
-            print(f"Unable to breakdown into minimum {args.noi} interval sessions, given that there are {number_of_anchor_intervals} anchor intervals")
+        if args.noi <= number_of_anchor_transitions:
+            print(f"Unable to breakdown into minimum {args.noi} interval sessions, given that there are {number_of_anchor_transitions} anchor transitions")
 
-        generate_sessions(args.noi, clusters_dict, anchor_intervals, number_of_transitions, args.out, args.seed)
+        generate_sessions(args.noi, clusters_dict, anchor_transitions, number_of_transitions, args.out, args.seed)
         
-
-
 if __name__ == '__main__':
     main()
