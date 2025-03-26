@@ -11,19 +11,10 @@ import itertools
 import numpy as np
 from abc import ABC, abstractmethod
 
-print_debug = False
-
-def main():
-    fingerings = load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
-    fing1 = next(x for x in fingerings if x.name == "E With octave key")
-    fing2 = next(x for x in fingerings if x.name == "High D")
-    trans = Transition(fing1, fing2)
-    fes = [RawFeatureExtractor(), FingerFeatureExtractor(map_palm_to_fingers=False), FingerFeatureExtractor(map_palm_to_fingers=True), ExpertFeatureIndividualFingersExtractor(), ExpertFeatureNumberOfFingersExtractor()]
-    for fe in fes:
-        print(type(fe))
-        print(fe.get_features(trans))
-
 def load_fingerings_from_file(file_path, delim=','):
+    '''
+    Method used to load fingerings from the encodings.txt file
+    '''
     fingerings = []
     with open(file_path, "r") as csvfile:
         reader = csv.reader(csvfile, delimiter=delim)
@@ -32,27 +23,31 @@ def load_fingerings_from_file(file_path, delim=','):
             midi = int(row[0].strip())
             name = row[1].strip()
             encoding = row[2].strip()
-            if print_debug: print(name)
             fingerings.append(Fingering(midi, name, encoding))
 
     return fingerings
 
-# Loads a list of transitions with their trill speed from a csv file
-# CSV FILE IS EXPECTED TO HAVE HEADER:
-# Filename,Cluster,Midi 1 (transposed as written for TS),Fingering 1 Name,Fingering 1 Encoding,Midi 2 (transposed as written for TS),Fingering 2 Name,Fingering 2 Encoding,Trill Speed
 def load_transitions_from_file(file_path, delim=','):
+    # Loads a list of transitions with their trill speed from a csv file
+    # CSV FILE IS EXPECTED TO HAVE HEADER:
+    # Filename,Cluster,Midi 1 (transposed as written for TS),Fingering 1 Name,Fingering 1 Encoding,Midi 2 (transposed as written for TS),Fingering 2 Name,Fingering 2 Encoding,Trill Speed
+    # or 
+    # Filename,Cluster,Player,Session,Midi 1 (transposed as written for TS),Fingering 1 Name,Fingering 1 Encoding,Midi 2 (transposed as written for TS),Fingering 2 Name,Fingering 2 Encoding,Trill Speed
     transitions_trills_dict = {}
     with open(file_path, "r") as csvfile:
         reader = csv.reader(csvfile, delimiter=delim)
-        next(reader, None)
+        header = next(reader, None)
+        offset = 0
+        if header[2] == "Player":
+            offset = 2
         for row in reader:
-            midi1 = int(row[2].strip())
-            name1 = row[3].strip()
-            encoding1 = row[4].strip()
-            midi2 = int(row[5].strip())
-            name2 = row[6].strip()
-            encoding2 = row[7].strip()
-            trill_speed = float(row[8].strip())
+            midi1 = int(row[2 + offset].strip())
+            name1 = row[3 + offset].strip()
+            encoding1 = row[4 + offset].strip()
+            midi2 = int(row[5 + offset].strip())
+            name2 = row[6 + offset].strip()
+            encoding2 = row[7 + offset].strip()
+            trill_speed = float(row[8 + offset].strip())
             note1 = Fingering(midi1, name1, encoding1)
             note2 = Fingering(midi2, name2, encoding2)
             trans = Transition(note1, note2)
@@ -285,6 +280,7 @@ class Transition:
         else:
             NotImplementedError
 
+# Base class for feature extractors
 class TransitionFeatureExtractor(ABC):
     def __init__(self):
         pass
@@ -293,6 +289,7 @@ class TransitionFeatureExtractor(ABC):
     def get_features(self, transition: Transition) -> np.ndarray:
         pass
 
+# Represents the Raw feature set
 class RawFeatureExtractor(TransitionFeatureExtractor):
     def __init__(self):
         pass
@@ -312,6 +309,9 @@ class RawFeatureExtractor(TransitionFeatureExtractor):
         
         return np.asarray(features)
 
+# Represents the Finger feature set
+# When initialising, setting map_palm_to_fingers to True enables Palm to Finger Mapping option
+# Otherwise uses the palm_as_finger method
 class FingerFeatureExtractor(TransitionFeatureExtractor):
     same_finger_transition_weight = 10
 
@@ -380,6 +380,7 @@ class FingerFeatureExtractor(TransitionFeatureExtractor):
 
         return np.asarray(features)
 
+# Represents the Expert Finger-based (E-FB) feature set
 class ExpertFeatureNumberOfFingersExtractor(TransitionFeatureExtractor):
     palm_weight = 10
     low_key_weight = 5
@@ -472,6 +473,7 @@ class ExpertFeatureNumberOfFingersExtractor(TransitionFeatureExtractor):
             midi2 = fingering2.midi
             return np.asarray([midi1 * self.midi_weight, midi2 * self.midi_weight] + no_midi_features)
 
+# Represents the Expert Hand-based (E-HB) feature set
 class ExpertFeatureIndividualFingersExtractor(TransitionFeatureExtractor):
     palm_weight = 10
     low_key_weight = 5
@@ -557,6 +559,3 @@ class ExpertFeatureIndividualFingersExtractor(TransitionFeatureExtractor):
             midi1 = fingering1.midi
             midi2 = fingering2.midi
             return np.asarray([midi1 * self.midi_weight, midi2 * self.midi_weight] + no_midi_features)
-
-if __name__ == "__main__":
-    main()

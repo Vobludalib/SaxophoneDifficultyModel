@@ -217,7 +217,7 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
 
 def main():
     # fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
-    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/data_processed/ALL_DATA.csv")
+    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/ALL_DATA.csv")
     # Filter out same-note trills -> huge outliers
     to_delete = []
     for key in transitions_speed_dict:
