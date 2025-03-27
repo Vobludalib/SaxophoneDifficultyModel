@@ -105,7 +105,7 @@ def main():
     mlp.train_model(sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=100000, solver='lbfgs'))
 
     # Load midi_to_fingering dict
-    fingerings = encoding.load_fingerings_from_file(os.path.join(".", "documentation", "encodings.txt"))
+    fingerings = encoding.load_fingerings_from_file(os.path.join(".", "encodings", "encodings.txt"))
     midi_to_fingerings_dict = {}
     for fingering in fingerings:
         if midi_to_fingerings_dict.get(fingering.midi, None) is None:

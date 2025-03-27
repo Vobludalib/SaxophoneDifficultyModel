@@ -96,7 +96,7 @@ To use this script, we can call it in the command line:
 #### Difficulty model
 The difficulty model code is contained within difficulty_estimator.py (using fingering prediction code from fingering_prediction.py). To use this difficulty estimation using a model trained from the data we have, we can type the following on to the command line:
 
-`python difficulty_estimator.py -i ./files/Short_Segment-Tenor_Saxophone.mxl -o ./files/Short_Segment_Annotated.mxl -d /path/to/data/Processed_Data.csv -e ./documentation/encodings.txt --bpm 160`
+`python difficulty_estimator.py -i ./files/Short_Segment-Tenor_Saxophone.mxl -o ./files/Short_Segment_Annotated.mxl -d /path/to/data/Processed_Data.csv -e ./encodings/encodings.txt --bpm 160`
 
 The code uses the E-HB (No EW) feature set.
 

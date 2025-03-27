@@ -8,7 +8,7 @@ import numpy as np
 import random
 import argparse
 
-anchors_file = os.path.join(".", "documentation", "anchor_transitions.txt")
+anchors_file = os.path.join(".", "encodings", "anchor_transitions.txt")
 anchor_encoding_pairs = []
 with open(anchors_file, 'r') as file:
     reader = csv.reader(file)

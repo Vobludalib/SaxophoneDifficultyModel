@@ -4,7 +4,7 @@ import argparse
 import os
 import csv
 
-encodings_path = os.path.join(".", "documentation", "encodings.txt")
+encodings_path = os.path.join(".", "encodings", "encodings.txt")
 
 def clear_console():
     if os.name == 'nt':

@@ -178,10 +178,10 @@ def main():
     parser.add_argument('--nos', type=int, help="Prefered number of recording sessions, mutually incompatible with noi")
     parser.add_argument('-o', '--out', type=str, help="Filepath to where to store output. Default is sessions.csv", default="sessions.csv")
     parser.add_argument('--seed', type=int, help="Seed used when randomly generating the sessions", default=10)
-    parser.add_argument('--anchors', type=str, help="Path to file with pairs of encodings representing anchor transitions. Each line should be in the form:\nENCODING1,ENCODING2", default=os.path.join(".", "documentation", "anchor_transitions.txt"))
+    parser.add_argument('--anchors', type=str, help="Path to file with pairs of encodings representing anchor transitions. Each line should be in the form:\nENCODING1,ENCODING2", default=os.path.join(".", "encodings", "anchor_transitions.txt"))
     args = parser.parse_args()
 
-    fingerings = encoding.load_fingerings_from_file(os.path.join(".", "documentation", "encodings.txt"))
+    fingerings = encoding.load_fingerings_from_file(os.path.join(".", "encodings", "encodings.txt"))
     all_transitions = encoding.generate_all_transitions(fingerings)
     number_of_transitions = len(all_transitions)
     # We still use k-means of n/5 here to get similar transitions recorded by the same player
