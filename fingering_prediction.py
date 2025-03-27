@@ -2,8 +2,8 @@ import sklearn.neural_network
 import encoding
 import model
 import sklearn
-import pickle
 import numpy as np
+import os
 
 # TODO: Refactor into a class that does this and works over the TrillSpeedModel class
 class FingeringPrediction():
@@ -81,8 +81,9 @@ class FingeringPrediction():
             memory = new_memory
 
 def main():
+    #TODO: CONVERT INTO CL tool
     # Load data
-    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv")
+    transitions_speed_dict = encoding.load_transitions_from_file("PATH/TO/DATA.csv")
     
     # Remove same-note transitions from the training data
     to_delete = []
@@ -98,13 +99,13 @@ def main():
     xs, ys = model.transitions_trill_dict_to_numpy_arrays(transitions_speed_dict, feature_extractor=fe)
     mlp = model.TrillSpeedModel(fe, perform_only_infilling=False)
     # Doing this to load infilling data
-    mlp.load_data_from_csv("/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv")
+    mlp.load_data_from_csv("PATH/TO/DATA.csv")
     mlp.set_custom_training_data(xs, ys)
     np.random.seed(10)
     mlp.train_model(sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=100000, solver='lbfgs'))
 
     # Load midi_to_fingering dict
-    fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
+    fingerings = encoding.load_fingerings_from_file(os.path.join(".", "documentation", "encodings.txt"))
     midi_to_fingerings_dict = {}
     for fingering in fingerings:
         if midi_to_fingerings_dict.get(fingering.midi, None) is None:
