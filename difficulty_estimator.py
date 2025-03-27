@@ -9,6 +9,8 @@ import numpy as np
 import math
 import sklearn
 from scipy.signal.windows import hann
+import argparse
+import os
 
 # TODO: Make this into a class, wrapping over FingeringPredictor and TrillSpeedModel
 
@@ -229,8 +231,16 @@ def color_map_difficulty(difficulty_value):
     return mcolors.to_hex(cmap(norm_value))
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-o', '--out', type=str, help="Path to .mxl file where output is stored.", required=True)
+    parser.add_argument('-i', '--input', type=str, help="Path to input .mxl file.", required=True)
+    parser.add_argument('-d', '--data', type=str, help="Path to trill speed data .csv file.", required=True)
+    parser.add_argument('-e', '--encodings', type=str, help="Path to encodings file.", required=True)
+    parser.add_argument('--bpm', type=int, help="Set quarter note BPM for difficulty estimation.", default=120)
+    args = parser.parse_args()
+    np.random.seed(10)
     # Load data
-    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/ALL_DATA.csv")
+    transitions_speed_dict = encoding.load_transitions_from_file(args.data)
     to_delete = []
     for key in transitions_speed_dict:
         if key.fingering1.midi == key.fingering2.midi:
@@ -247,7 +257,7 @@ def main():
     mlp.train_model(sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=100000, solver="lbfgs"))
 
     # Load midi_to_fingering dict
-    fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
+    fingerings = encoding.load_fingerings_from_file(args.encodings)
     midi_to_fingerings_dict = {}
     for fingering in fingerings:
         if midi_to_fingerings_dict.get(fingering.midi, None) is None:
@@ -255,13 +265,13 @@ def main():
         else:
             midi_to_fingerings_dict[fingering.midi].append(fingering)
 
-    stream = load_xml_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/Short_Segment-Tenor_Saxophone.mxl")
+    stream = load_xml_file(args.input)
     p = stream.parts[0]
 
     offsets_and_durations = get_offsets_and_durations(p)
 
     # Set BPM for a quarter note
-    bpm = 160
+    bpm = args.bpm
     times = offset_and_duration_to_wall_clock_time(offsets_and_durations, bpm)
     # print(times)
 
@@ -274,7 +284,7 @@ def main():
 
     predicted_splits = []
     for i, split in enumerate(splits): 
-        print(f"Doing fingering prediction on sequence {i}")
+        # print(f"Doing fingering prediction on sequence {i}")
         midi_values = [note[0].pitch.midi for note in split]
         _, predictions = fingering_predictor.predict_fingerings(midi_values)
         predicted_split = []
@@ -290,10 +300,10 @@ def main():
 
     for split_index, split in enumerate(splits):
         for i, (note, _, _) in enumerate(split):
-            print(split_difficulties[split_index][i])
+            # print(split_difficulties[split_index][i])
             note.style.color = color_map_difficulty(split_difficulties[split_index][i])
 
-    stream.write("musicxml", "/Users/slibricky/Desktop/Thesis/thesis/modular/files/Short_Segment_Annotated.mxl")
+    stream.write("musicxml", args.out)
 
 if __name__ == "__main__":
     main()
