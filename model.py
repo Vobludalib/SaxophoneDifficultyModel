@@ -19,6 +19,8 @@ import scipy
 import time
 import matplotlib.pyplot as plt
 import matplotlib
+import argparse
+import os
 
 def transitions_and_speed_lists_to_numpy_arrays(transitions, speeds, feature_extractor: encoding.TransitionFeatureExtractor):
     features = [feature_extractor.get_features(transition) for transition in transitions]
@@ -107,9 +109,11 @@ def predict_fingering_transition(model, fingering1: encoding.Fingering, fingerin
     prediction = model.predict(features)
     return prediction[0]
 
-def main(model_type, feature_extractor):
-    transitions_trill_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/ALL_DATA.csv")
+def perform_model_test(model_type, feature_extractor, data_csv, output_dir, seed=10):
+    transitions_trill_speed_dict = encoding.load_transitions_from_file(data_csv)
     # Filter out same-note trills -> huge outliers
+    # These are trills that trill from the one fingering to another of the same note
+    # These do not need to be learned, as the fingering estimation model handles same-note transitions as a special case
     to_delete = []
     for key in transitions_trill_speed_dict:
         if key.fingering1.midi == key.fingering2.midi:
@@ -119,7 +123,7 @@ def main(model_type, feature_extractor):
         transitions_trill_speed_dict.pop(delete, None)
 
     # Load data for weighing MSE
-    bigramDict = sampling.parse_bigram_csv_to_dict("/Users/slibricky/Desktop/Thesis/melospy-gui_V_1_4b_mac_osx/bin/analysis/feature+viz/bigramsTS.csv", None)
+    bigramDict = sampling.parse_bigram_csv_to_dict(os.path.join(".", "files", "bigramsTS.csv"), None)
 
     midiToOccurencesDict = dict(sorted(bigramDict.items(), key= lambda x: x[1]))
     midiToNumberOfTransitionDict = {}
@@ -132,9 +136,8 @@ def main(model_type, feature_extractor):
         key = (trans[0].midi, trans[1].midi)
         mse_weights[key] = midiToOccurencesDict.get((trans.fingering1.midi, trans.fingering2.midi), 0.1) / midiToNumberOfTransitionDict.get((trans.fingering1.midi, trans.fingering2.midi), 1)
 
-    seed = 10
-
-    # For the sake of the sampling test, for each transition we uniformly randomly select only one of its recorded intervals
+    # For the sake of the tests, for each transition we uniformly randomly select only one of its recorded intervals
+    # This is to prevent unbalanced train/test sets due to anchor transitions 
     xs = []
     ys = []
     random.seed(seed)
@@ -214,7 +217,7 @@ def main(model_type, feature_extractor):
 
     random.seed(time.time())
     experiment_id = random.randint(0, 10000000)
-    with open(f"/Users/slibricky/Desktop/Thesis/thesis/modular/files/model_tests/{model_type}_{fe}_{experiment_id}.csv", "w") as f:
+    with open(os.path.join(output_dir, f"{model_type}_{fe}_{experiment_id}.csv"), "w") as f:
         f.writelines([f"Model type: {model_type}\n", f"Size of test set: {size_of_test_set}\n", f"Number of folds: {i + 1}\n", f"Feature Extractor: {fe}\n", f"Seed {seed}\n"])
         writer = csv.writer(f)
         f.write("MSES:\n")
@@ -267,12 +270,15 @@ def main(model_type, feature_extractor):
     fig.set_size_inches(8, 6)
     ax.legend(handles=legend_handles, loc="upper left")
     plt.title(f"True vs predicted for {model_type} with {fe}")
-    # if (model_type == "mlp" and "NumberOfFingers" in fe and "NOEW" in fe):
-    plt.savefig(f"./files/model_tests/{model_type}_{fe}_{experiment_id}.png")
-    # plt.show()
+    plt.savefig(os.path.join(output_dir, f"{model_type}_{fe}_{experiment_id}.png"))
     plt.clf()
 
-if __name__ == '__main__':
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-o', '--out', type=str, required=True, help="Path to directory where output files will be stored")
+    parser.add_argument('-d', '--data', type=str, required=True, help="Path to a .csv file that contains all the data on which to operate. This should be Processed_Data.csv unless you have generated a different file for this purpose.")
+    args = parser.parse_args()
+
     expert_feature_extractors = []
     for extractor_type in [encoding.ExpertFeatureIndividualFingersExtractor, encoding.ExpertFeatureNumberOfFingersExtractor]:
         for use_expert_weights in [True, False]:
@@ -283,4 +289,7 @@ if __name__ == '__main__':
 
     for model_type in ["mlp", "lm"]:
         for feature_extractor in fes:
-            main(model_type, feature_extractor)
+            perform_model_test(model_type, feature_extractor, args.data, args.out)
+
+if __name__ == '__main__':
+    main()
