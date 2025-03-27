@@ -1,0 +1,21 @@
+Model type: lm
+Size of test set: 150
+Number of folds: 4
+Feature Extractor: FingerFeatureExtractor-Palm-keys-tied-to-finger
+Seed 10
+MSES:
+1.1081403823935663,0.8733076764711563,0.930104961757878,1.0008815208512576
+Weighted MSES:
+2.7934904547309563,1.9351961254893226,2.0347619190594695,1.630949860251454
+Mean absolute percent error:
+0.39930307352232236,0.36202319157709084,0.3728236317936114,0.4215625297371421
+Spearman's:
+0.6794817712139303,0.7136153043816548,0.703873255914577,0.729592333018599
+Kendall's taus:
+0.4928079615224195,0.5124121648314707,0.5108726180978291,0.5315316957913254
+Average MSE over folds: 0.98
+Average wMSE over folds: 2.10
+Average MAPE over folds: 0.39
+Average Spearman's over folds: 0.98
+Average Kendall's Tau over folds: 0.51
+Latex table format: 0.98 & 2.10 & 0.39
