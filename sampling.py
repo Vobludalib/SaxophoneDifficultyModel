@@ -222,9 +222,6 @@ def main():
     parser.add_argument('-o', '--out', type=str, required=True, help="Path to the directory to where output files will be saved.")
     parser.add_argument('--sampling_method', type=str, choices=['uniform', 'cluster', 'empirical'], help="Which sampling method to use.")
     args = parser.parse_args()
-    if args.sampling_method == "empirical" and args.bigrams is None:
-        print(f"Empirical sampling was chosen, but no bigrams file path was set. See --help for help.")
-        exit()
 
     transitions_speed_dict = encoding.load_transitions_from_file(args.data)
     # Filter out same-note trills -> huge outliers
@@ -250,7 +247,7 @@ def main():
     
     random.seed(time.time())
     experiment_id = random.randint(0, 10000000)
-    with open(os.path.join(args.out, f'sampling_{fe}_{experiment_id}.csv'), 'w') as f:
+    with open(os.path.join(args.out, f'sampling_{sampling_method}_{fe}_{experiment_id}.csv'), 'w') as f:
         lines = [f"Min samples: {min_samples}\n", f"Amount of transitions: {amount_of_transitions}\n", f"Test set_size: {test_set_size}\n", f"Sampling method: {sampling_method}\n", f"Amount of repeats per sample point: {amount_of_repeats_per_sampling_point}\n", f"Feature Extractor: {fe}\n", f"Seed: {seed}"]
         f.writelines(lines)
         writer = csv.writer(f)
