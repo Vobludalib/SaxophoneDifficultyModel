@@ -3,6 +3,5 @@ temp/
 .DS_Store
 __pycache__/
 modular/normalisation_vis.png
-*.mxl
 *.mscz~
 modular/variance_vis.png
