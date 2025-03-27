@@ -1,8 +1,10 @@
 ## **How to recreate figures:**
 
 #### Installing requirements
-TODO: Create requirements.txt
-pip install requirements.txt
+To install all the required Python libraries to run the code, you can run the following on the command line:
+`pip install -r requirements.txt`
+
+Make sure to navigate into the correct directory before running any of the command line commands here and below.
 
 #### encoding.py
 encoding.py is used as a library throughout the other Python scripts, as it unifies operations of transitions, encodings, and feature extraction methods using an object-based approach.
