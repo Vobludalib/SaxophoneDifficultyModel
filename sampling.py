@@ -14,6 +14,7 @@ import sklearn
 import time
 import scipy
 import os
+import argparse
 
 # FROM ALL FINGERINGS SUBSAMPLE USING 
 # a) UNIFORM RANDOMNESS
@@ -64,7 +65,7 @@ def parse_bigram_csv_to_dict(path_to_csv, d: None | dict = None):
 # Method for subsampling using WJDB frequencies
 def empirical_subsample(transition_list: list, trill_speeds, n, cached_dict: None | dict = None):
     if cached_dict is None:
-        path_to_csv = "/Users/slibricky/Desktop/Thesis/melospy-gui_V_1_4b_mac_osx/bin/analysis/feature+viz/bigramsTS.csv"
+        path_to_csv = os.path.join(".", "files", "bigramsTS.csv")
 
         bigramDict = { }
 
@@ -147,7 +148,7 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
         raise NotImplementedError
     
     # Used in empirical sampling and weighted MSE
-    cached_dict = parse_bigram_csv_to_dict("/Users/slibricky/Desktop/Thesis/melospy-gui_V_1_4b_mac_osx/bin/analysis/feature+viz/bigramsTS.csv", None)
+    cached_dict = parse_bigram_csv_to_dict(os.path.join(".", "files", "bigramsTS.csv"), None)
 
     for key in transitions_trill_speed_dict:
         if len(transitions_trill_speed_dict[key]) == 1:
@@ -216,8 +217,16 @@ def perform_sampling_test(transitions_trill_speed_dict, sampling_method, feature
     return errors, mapes
 
 def main():
-    # fingerings = encoding.load_fingerings_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/documentation/encodings.txt")
-    transitions_speed_dict = encoding.load_transitions_from_file("/Users/slibricky/Desktop/Thesis/thesis/modular/files/ALL_DATA.csv")
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--data', type=str, required=True, help="Path to the data .csv file")
+    parser.add_argument('-o', '--out', type=str, required=True, help="Path to the directory to where output files will be saved.")
+    parser.add_argument('--sampling_method', type=str, choices=['uniform', 'cluster', 'empirical'], help="Which sampling method to use.")
+    args = parser.parse_args()
+    if args.sampling_method == "empirical" and args.bigrams is None:
+        print(f"Empirical sampling was chosen, but no bigrams file path was set. See --help for help.")
+        exit()
+
+    transitions_speed_dict = encoding.load_transitions_from_file(args.data)
     # Filter out same-note trills -> huge outliers
     to_delete = []
     for key in transitions_speed_dict:
@@ -227,8 +236,8 @@ def main():
     for delete in to_delete:
         transitions_speed_dict.pop(delete, None)
 
-    seed = 11
-    sampling_method = 'empirical'
+    seed = 10
+    sampling_method = args.sampling_method
     min_samples = 20
     test_set_size = 150 
     amount_of_repeats_per_sampling_point = 3
@@ -241,7 +250,7 @@ def main():
     
     random.seed(time.time())
     experiment_id = random.randint(0, 10000000)
-    with open(f'./files/sampling_tests/test_{experiment_id}.csv', 'w') as f:
+    with open(os.path.join(args.out, f'sampling_{fe}_{experiment_id}.csv'), 'w') as f:
         lines = [f"Min samples: {min_samples}\n", f"Amount of transitions: {amount_of_transitions}\n", f"Test set_size: {test_set_size}\n", f"Sampling method: {sampling_method}\n", f"Amount of repeats per sample point: {amount_of_repeats_per_sampling_point}\n", f"Feature Extractor: {fe}\n", f"Seed: {seed}"]
         f.writelines(lines)
         writer = csv.writer(f)
@@ -261,10 +270,9 @@ def main():
         plt.ylabel("MSE")
         plt.legend()
 
-    plt.savefig(f"./files/sampling_tests/test_{experiment_id}.png")
+    plt.savefig(os.path.join(args.out, f"test_{experiment_id}.png"))
 
-    os.system('say "Sampling tests have been completed. At this point I am just speaking to alert to you"')
-
+    os.system('say "Sampling tests have been completed"')
 
 if __name__ == '__main__':
     main()
