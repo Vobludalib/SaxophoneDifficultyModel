@@ -10,10 +10,12 @@ import csv
 import argparse
 from pathlib import Path
 from enum import Enum
+from tqdm import tqdm
 
-# See documentation for what these values mean - related to how we determine top speed
+# Changing these values will change behaviour for segmentation of audio into subsegments
 amount_of_splits = 4
 splits_to_glue = 2
+# Chaning this may help alleviate issues with note misdetection due to under/overblowing
 outlier_threshold = 0.2
 
 def get_note_distribution(notes):
@@ -33,39 +35,8 @@ def not_reasonable_clustering(notes1, notes2):
         return (True, ClusterIssue.EmptyCluster)
     elif (len(notes1) < len(notes2)*outlier_threshold or len(notes2) < len(notes1)*outlier_threshold):
         return (True, ClusterIssue.ShortCluster)
-    else:
-        # for notes in [notes1, notes2]:
-        #     dist = get_note_distribution(notes)
-        #     if dist.shape[0] > 1:
-        #         # If two notes appear with at least 20% proportion, then we assume we mis-clustered
-        #         prop = np.sum([1 if dist[i][0] > 0.2 else 0 for i in range(dist.shape[0])])
-        #         if prop > 2:
-        #             return (True, ClusterIssue.ClusterContains2OrMoreNotes)
-                
+    else:       
         return (False, None)
-
-# def get_midi_notes_from_grouped_data(notes1):
-#     # We have to handle detecting which two notes (octaves apart) were actually grouped
-#     two_means = skc.KMeans(n_clusters=2).fit(notes1)
-#     two_means_1 = []
-#     two_means_2 = []
-#     for i in range(0, notes1.shape[0]):
-#         if two_means.labels_[i] == 0:
-#             two_means_1.append(notes1[i])
-#         else:
-#             two_means_2.append(notes1[i])
-#     median_1 = np.median(two_means_1)
-#     median_2 = np.median(two_means_2)
-#     if median_1 == median_2 + 12 or median_1 == median_2 - 12:
-#         note1_midis == [median_1, median_2]
-#     else:
-#         # Choose the median of the larget cluster
-#         if len(two_means_1) > len(two_means_2):
-#             note1_midis == [median_1]
-#         else:
-#             note1_midis = [median_2] 
-
-#     return note1_midis
 
 def get_changes(f0_matrix):
     midi_vals = []
@@ -78,7 +49,6 @@ def get_changes(f0_matrix):
     notes2 = []
     invalid_clustering = True
     had_problems = False
-    # did_mod = False
     while invalid_clustering:
         two_means_cluster = skc.KMeans(n_clusters=2).fit(midi_vals.reshape(-1, 1))
         notes1 = []
@@ -92,11 +62,6 @@ def get_changes(f0_matrix):
         notes2 = np.asarray(notes2)
         note1_midis = [round(np.median(notes1))]
         note2_midis = [round(np.median(notes2))]
-        
-        # if did_mod:
-        #     # We have to handle detecting which two notes (octaves apart) were actually grouped
-        #     note1_midis = get_midi_notes_from_grouped_data(notes1)
-        #     note2_midis = get_midi_notes_from_grouped_data(notes2)
 
         invalid_clustering, reason = not_reasonable_clustering(notes1, notes2)
         if invalid_clustering:
@@ -136,34 +101,20 @@ def get_changes(f0_matrix):
 
     return changes, note1_midis, note2_midis, had_problems
 
-# TODO: Refactor this to make logical sense with command-line args
 def main():
     parser = argparse.ArgumentParser(
                     prog='Trill Parsing Tool',
                     description='Tool designed to automate trill speed analysis from audio files')
     parser.add_argument('-f', type=str, help="Path to the input file or directory")
     parser.add_argument('-r', action="store_true", help="If present, will iterate over all .wav files in given directory")
-    parser.add_argument('--output_file', type=str, help="Will store all the outputs into a .txt or .csv file with this name (by default .txt). Choice depends on file extension of input (././file.csv will cause a csv to be generated).")
+    parser.add_argument('-o', '--out', type=str, help="Path where to store the .csv file (e.g. /path/to/somewhere/trill.csv)")
     args = parser.parse_args()
     if (os.path.isdir(args.f) and not args.r):
-        print(f"Given filepath is a directory and -r was not set!")
+        print(f"Invalid command line arguments! Given filepath is a directory and -r was not set!")
         return
     if (os.path.isfile(args.f) and not args.r):
         print(evaluate(args.f))
-    if (os.path.isdir(args.f) and args.r and not os.fsdecode(args.output_file).endswith('.csv')):
-        for file in os.listdir(args.f):
-            filename = os.fsdecode(file)
-            if filename.endswith('.wav'):
-                print(f"=========== Handling file: {filename} ============")
-                path = os.path.join(args.f, filename)
-                note1_midi, note2_midi, trill_speed, best_split = evaluate(path)
-                with open(os.path.join(dirname, basename + ".txt"), 'w') as output_file:
-                        path = Path(path)
-                        basename = path.stem
-                        dirname = os.path.dirname(path)
-                        output_file.write(f"{trill_speed:.2f} - best trill achieved in periods a second\n^^^^ Achieved at split indexes {best_split}-{best_split + splits_to_glue - 1}\n")
-                        output_file.write(f"Trilling from {librosa.midi_to_note(note1_midi + 2)} to {librosa.midi_to_note(note2_midi + 2)}")
-    if (os.fsdecode(args.output_file) and os.fsdecode(args.output_file).endswith('.csv')):
+    elif (os.fsdecode(args.out) and os.fsdecode(args.out).endswith('.csv')):
             output = []
             problem_files = []
             output.append(["Filename", "Note 1 MIDI", "Note 2 MIDI", "Best Trill Speed"])
@@ -181,13 +132,16 @@ def main():
                     if is_possible_problem:
                         problem_files.append(filename)
                     
-            with open(args.output_file, 'w') as csvFile:
+            with open(args.out, 'w') as csvFile:
                 writer = csv.writer(csvFile)
                 writer.writerows(output)
 
-            with open(args.output_file + '.log', 'w') as log:
+            with open(args.out + '.log', 'w') as log:
                 for problem in problem_files:
                     log.write(problem + '\n')
+    else:
+        print(f"Invalid arguments. See --help for usage.")
+        exit()
 
 def evaluate(f_path):
     f0_matrix = None
@@ -197,6 +151,8 @@ def evaluate(f_path):
         time, frequency, confidence, _ = crepe.predict(audio, sr, viterbi=False)
         f0_matrix = np.array([time, frequency, confidence]).T
 
+    # Allows for loading from a crepe .csv file - not used as of now, but useful if you want to rerun
+    # this operation without having to do crepe prediction each time
     elif (Path(f_path).suffix == ".csv"):
         rows = []
         with open(f_path, 'r') as file:
