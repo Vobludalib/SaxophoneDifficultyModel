@@ -2,7 +2,6 @@ import argparse
 
 import scipy.special
 import encoding
-import itertools
 import random
 import csv
 import scipy

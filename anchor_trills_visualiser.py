@@ -1,11 +1,7 @@
-import encoding
 import csv
 import matplotlib.pyplot as plt
-import matplotlib
 from matplotlib.patches import Patch
 import os
-import numpy as np
-import random
 import argparse
 
 anchors_file = os.path.join(".", "encodings", "anchor_transitions.txt")

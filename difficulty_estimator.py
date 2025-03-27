@@ -10,7 +10,6 @@ import math
 import sklearn
 from scipy.signal.windows import hann
 import argparse
-import os
 
 # TODO: Make this into a class, wrapping over FingeringPredictor and TrillSpeedModel
 
