@@ -1,5 +1,4 @@
 import encoding
-import normalisation_tool
 import csv
 import matplotlib.pyplot as plt
 import matplotlib
@@ -7,11 +6,9 @@ from matplotlib.patches import Patch
 import os
 import numpy as np
 import random
+import argparse
 
-directory = "./files/data_processed/"
-file_paths = [os.path.join(directory, f) for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
-
-anchors_file = "./documentation/anchor_transitions.txt"
+anchors_file = os.path.join(".", "documentation", "anchor_transitions.txt")
 anchor_encoding_pairs = []
 with open(anchors_file, 'r') as file:
     reader = csv.reader(file)
@@ -20,16 +17,29 @@ with open(anchors_file, 'r') as file:
         encoding2 = line[1]
         anchor_encoding_pairs.append((encoding1, encoding2))
 
-anchors_from_dir = normalisation_tool.load_anchors_from_directory("./files/data_processed")
+parser = argparse.ArgumentParser()
+parser.add_argument('-d', '--data', type=str, required=True, help="Path to processed data .csv file.")
+parser.add_argument('-o', '--out', type=str, default=os.path.join(".", "variance_vis.png"), required=False)
+args = parser.parse_args()
 
 player_to_anchor_trills = {}
-
-for session in anchors_from_dir.keys():
-    player_name = session.split("Session")[0]
-    if player_to_anchor_trills.get(player_name, None) is None:
-        player_to_anchor_trills[player_name] = [anchors_from_dir[session]]
-    else:
-        player_to_anchor_trills[player_name].append(anchors_from_dir[session])
+with open(args.data, 'r') as f:
+    reader = csv.reader(f)
+    next(reader, None)
+    for row in reader:
+        if row[1] == "-1":
+            player = row[2]
+            session = int(row[3])
+            encoding1 = row[6]
+            encoding2 = row[9]
+            ts = float(row[10])
+            if player_to_anchor_trills.get(player, None) is None:
+                player_to_anchor_trills[player] = {session: [(encoding1, encoding2, ts)]}
+            else:
+                if player_to_anchor_trills[player].get(session, None) is None:
+                    player_to_anchor_trills[player][session] = [(encoding1, encoding2, ts)]
+                else:
+                    player_to_anchor_trills[player][session].append((encoding1, encoding2, ts))
 
 vals = {}
 player_colors = []
@@ -37,10 +47,10 @@ player_order = []
 player_colors = ['#377eb8', '#ff7f00', '#4daf4a', '#f781bf', '#ffcc33']
 
 for player in player_to_anchor_trills.keys():
-    sessions = player_to_anchor_trills[player]
+    sessions = player_to_anchor_trills[player].keys()
     for session in sessions:
-        for fing1, fing2, speed in session:
-            key = (fing1.generate_encoding(), fing2.generate_encoding())
+        for fing1, fing2, speed in player_to_anchor_trills[player][session]:
+            key = (fing1, fing2)
             x = anchor_encoding_pairs.index(key)
             # x_names[x] = f"{fing1.__str__()[0:3]}, {fing2.__str__()[0:3]}"
             if vals.get(x, None) is None:
@@ -79,4 +89,4 @@ legend_patches = [Patch(color=color, label=name) for color, name in zip(player_c
 plt.legend(handles=legend_patches, loc="upper center")
 plt.ylim((0, 8))
 # plt.show()
-plt.savefig("variance_vis.png")
+plt.savefig(args.out)
