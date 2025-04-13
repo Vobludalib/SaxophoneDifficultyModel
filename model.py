@@ -188,6 +188,11 @@ def perform_model_test(model_type, feature_extractor, data_csv, output_dir, seed
         test_mse_weights = np.asarray(test_mse_weights)
         test_ys = ys[test_index]
 
+        if "log" in model_type:
+            func = np.vectorize(lambda x: np.log(x))
+            train_ys = func(train_ys)
+            test_ys = func(test_ys)
+
         train_features, train_selected_ys = transitions_and_speed_lists_to_numpy_arrays(train_xs, train_ys, feature_extractor)
         m = TrillSpeedModel(feature_extractor, perform_only_infilling=False)
         m.set_custom_training_data(train_features, train_selected_ys)
@@ -203,6 +208,9 @@ def perform_model_test(model_type, feature_extractor, data_csv, output_dir, seed
         m.train_model(model_to_use)
         test_features, test_ys = transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys, feature_extractor)
         predicts = m.predict(test_features)
+        if "log" in model_type:
+            exp = np.vectorize(lambda x: np.exp(x))
+            predicts = exp(predicts)
         predicts_vs_true.append(np.vstack([predicts, test_ys]))
         mse = sklearn.metrics.mean_squared_error(test_ys, predicts)
         mses.append(mse)
@@ -287,7 +295,7 @@ def main():
 
     fes = [encoding.RawFeatureExtractor(), encoding.FingerFeatureExtractor(map_palm_to_fingers=True), encoding.FingerFeatureExtractor(map_palm_to_fingers=False)] + expert_feature_extractors
 
-    for model_type in ["mlp", "lm"]:
+    for model_type in ["mlp"]:
         for feature_extractor in fes:
             perform_model_test(model_type, feature_extractor, args.data, args.out)
 

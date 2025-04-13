@@ -1,4 +1,3 @@
-import trill_detection_tool as trill_detection_tool
 from encoding import Fingering
 import argparse
 import os
