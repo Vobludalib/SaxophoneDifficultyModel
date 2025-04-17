@@ -189,18 +189,17 @@ def perform_model_test(model_type, feature_extractor, data_csv, output_dir, seed
         test_ys = ys[test_index]
 
         if "log" in model_type:
-            func = np.vectorize(lambda x: np.log(x))
+            func = np.vectorize(lambda x: np.log(x + 1))
             train_ys = func(train_ys)
-            test_ys = func(test_ys)
 
         train_features, train_selected_ys = transitions_and_speed_lists_to_numpy_arrays(train_xs, train_ys, feature_extractor)
         m = TrillSpeedModel(feature_extractor, perform_only_infilling=False)
         m.set_custom_training_data(train_features, train_selected_ys)
 
         model_to_use = None
-        if model_type == "lm":
+        if "lm" in model_type:
             model_to_use = sklearn.linear_model.LinearRegression()
-        elif model_type == "mlp":
+        elif "mlp" in model_type:
             model_to_use = sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=100000, solver='lbfgs')
         else:
             raise NotImplementedError()
@@ -209,7 +208,7 @@ def perform_model_test(model_type, feature_extractor, data_csv, output_dir, seed
         test_features, test_ys = transitions_and_speed_lists_to_numpy_arrays(test_xs, test_ys, feature_extractor)
         predicts = m.predict(test_features)
         if "log" in model_type:
-            exp = np.vectorize(lambda x: np.exp(x))
+            exp = np.vectorize(lambda x: np.exp(x) - 1)
             predicts = exp(predicts)
         predicts_vs_true.append(np.vstack([predicts, test_ys]))
         mse = sklearn.metrics.mean_squared_error(test_ys, predicts)
@@ -286,6 +285,8 @@ def main():
     parser.add_argument('-o', '--out', type=str, required=True, help="Path to directory where output files will be stored")
     parser.add_argument('-d', '--data', type=str, required=True, help="Path to a .csv file that contains all the data on which to operate. This should be Processed_Data.csv unless you have generated a different file for this purpose.")
     args = parser.parse_args()
+    # args.data = "/Users/slibricky/Desktop/Thesis/submission_data/Processed_Data.csv"
+    # args.out = './out.csv'
 
     expert_feature_extractors = []
     for extractor_type in [encoding.ExpertFeatureIndividualFingersExtractor, encoding.ExpertFeatureNumberOfFingersExtractor]:
@@ -295,7 +296,7 @@ def main():
 
     fes = [encoding.RawFeatureExtractor(), encoding.FingerFeatureExtractor(map_palm_to_fingers=True), encoding.FingerFeatureExtractor(map_palm_to_fingers=False)] + expert_feature_extractors
 
-    for model_type in ["mlp"]:
+    for model_type in ["mlp-log"]:
         for feature_extractor in fes:
             perform_model_test(model_type, feature_extractor, args.data, args.out)
 
