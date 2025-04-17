@@ -19,39 +19,20 @@ def main():
         exit()
 
     # Read all the anchors from every csv into dict {filename: [(encoding1, encoding2, speed)]}
-    
-    file_to_anchors_dict = load_anchors_from_directory(args.csvs)
+    base_normaliser = MultiplicativeAnchorBasedNormaliser(args.csvs, norm_strength=0.2, feature_extractor=encoding.ExpertFeatureNumberOfFingersExtractor())
 
-    for test_i, test_filename in enumerate(file_to_anchors_dict):
+    for test_i, test_filename in enumerate(base_normaliser.file_to_anchors_dict):
         print(f"=== Performing test {test_i} eliminating file: {test_filename} ===")
-
-        anchor_intervals_sorted, speeds = calculate_anchor_speeds(file_to_anchors_dict)
-        speeds_without_test_session = np.delete(speeds, test_i, axis=0)
-        print(f"Here is to order in which orders appear in the following matrices (columns):")
-        print(anchor_intervals_sorted)
-        print(f"Full array of anchor interval speeds (row = session, column = anchor) without session being tested:")
-        print(speeds_without_test_session)
-        print(f"Here are their averages over non-test sessions:")
-        averages = np.mean(speeds_without_test_session, axis=0)
-        print(averages)
-
-        differences = calculate_difference_to_mean(speeds_without_test_session, averages)
-
-        print(f"Here are the differences from the mean (negative means that speed was higher than mean):")
-        print(differences)
-
-        print(f"Here are the features of the anchor intervals:")
-        feature_extractor = encoding.ExpertFeatureNumberOfFingersExtractor()
-        anchor_features = get_anchor_interval_features(anchor_intervals_sorted, feature_extractor)
-        print(anchor_features)
+        test_normaliser = MultiplicativeAnchorBasedNormaliser(args.csvs, norm_strength=0.2, feature_extractor=encoding.ExpertFeatureNumberOfFingersExtractor())
+        # Precompute anchor information for the test anchors
+        test_anchor_speeds = test_normaliser.speeds[test_i]
+        del test_normaliser.file_to_anchors_dict[test_filename]
+        test_normaliser.precalculate_values()
+        # Then recalculate the values without the test session included
 
         train_xs = []
         train_ys = []
-        session_index_offset = 0
-        for i, filename in enumerate(file_to_anchors_dict):
-            if filename == test_filename:
-                session_index_offset = 1
-                pass
+        for i, filename in enumerate(test_normaliser.file_to_anchors_dict):
             full_path = os.path.join(args.csvs, filename)
             with open(full_path, 'r') as csvf:
                 reader = csv.reader(csvf)
@@ -69,15 +50,14 @@ def main():
                     fingering1 = Fingering(midi1, name1, encoding1)
                     fingering2 = Fingering(midi2, name2, encoding2)
                     transition = encoding.Transition(fingering1, fingering2)
-                    normalised_speed = normalise_transition(transition, speed, i - session_index_offset, anchor_features, differences, feature_extractor, args.strength)
-                    train_xs.append(feature_extractor.get_features(transition))
+                    normalised_speed = test_normaliser.normalise(transition, speed, test_anchor_speeds)
+                    train_xs.append(test_normaliser.feature_extractor.get_features(transition))
                     train_ys.append(normalised_speed)
-        tsm = TrillSpeedModel(feature_extractor)
+
+        tsm = TrillSpeedModel(test_normaliser.feature_extractor)
         tsm.set_custom_training_data(train_xs, train_ys)
         tsm.train_model(sklearn.neural_network.MLPRegressor(hidden_layer_sizes=(50,), max_iter=100000, solver='lbfgs'))
 
-        test_anchor_speeds = speeds[test_i]
-        test_anchor_differences = calculate_difference_to_mean(test_anchor_speeds.reshape((-1, 1)), averages)
         full_path = os.path.join(args.csvs, test_filename)
         predicted_non_norm_speeds = []
         predicted_norm_speeds = []
@@ -89,7 +69,7 @@ def main():
                 cluster = int(row[1])
                 if cluster == -1:
                     # Test isn't performed on anchor transitions, as it makes little sense to do so
-                    pass
+                    continue
                 midi1 = int(row[2])
                 name1 = row[3]
                 encoding1 = row[4]
@@ -97,14 +77,17 @@ def main():
                 name2 = row[6]
                 encoding2 = row[7]
                 non_normalised_speed = float(row[8])
+                if int(non_normalised_speed) == 0:
+                    # Ignore same note transitions
+                    continue
                 actual_non_norm_speeds.append(non_normalised_speed)
                 fingering1 = Fingering(midi1, name1, encoding1)
                 fingering2 = Fingering(midi2, name2, encoding2)
                 transition = encoding.Transition(fingering1, fingering2)
-                features = feature_extractor.get_features(transition)
+                features = test_normaliser.feature_extractor.get_features(transition)
                 predicted_normalised_speed =  tsm.predict(features.reshape((1, -1)))
                 predicted_norm_speeds.append(predicted_normalised_speed)
-                predicted_non_normalised_speed = inverse_normalise_transition(features, predicted_normalised_speed, 0, anchor_features, test_anchor_differences, args.strength)
+                predicted_non_normalised_speed = test_normaliser.inverse_normalise(transition, predicted_normalised_speed, test_anchor_speeds)
                 predicted_non_norm_speeds.append(predicted_non_normalised_speed)
                 print(f"Actual ts: {non_normalised_speed}")
                 print(f"TS predicted before invnorm: {predicted_normalised_speed}")

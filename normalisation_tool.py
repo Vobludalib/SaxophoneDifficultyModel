@@ -88,6 +88,9 @@ class AdditiveAnchorBasedNormaliser(AnchorBasedNormaliser):
         self.feature_extractor = feature_extractor
         self.file_to_anchors_dict = self.load_anchors_from_directory(data_path)
 
+        self.precalculate_values()
+
+    def precalculate_values(self):
         self.anchor_transitions_sorted, self.speeds = self.calculate_anchor_speeds(self.file_to_anchors_dict)
         self.averages = np.mean(self.speeds, axis=0)
 
@@ -104,19 +107,28 @@ class AdditiveAnchorBasedNormaliser(AnchorBasedNormaliser):
 
         return differences
 
-    def get_normalisation_adjustment(self, transition, session_index):
+    def get_normalisation_adjustment(self, transition, differences):
         transition_features = self.feature_extractor.get_features(transition)
         distances_to_anchors = np.asarray([get_euclidean_distance(transition_features, self.anchor_features[j]) for j in range(self.anchor_features.shape[0])])
         multiples = np.asarray(scipy.special.softmax(distances_to_anchors))
-        overall_adjustment = np.sum(np.multiply(multiples, self.differences[session_index])) * self.norm_strength
+        overall_adjustment = np.sum(np.multiply(multiples, differences)) * self.norm_strength
         return overall_adjustment
 
-    def normalise(self, transition, trill_speed, session_index):
-        normalised_speed = trill_speed + self.get_normalisation_adjustment(transition, session_index)
+    def normalise(self, transition, trill_speed, session_index: int):
+        normalised_speed = trill_speed + self.get_normalisation_adjustment(transition, self.differences[session_index])
         return normalised_speed
 
-    def inverse_normalise(self, transition, normalised_trill_speed, session_index):
-        return normalised_trill_speed - self.get_normalisation_adjustment(transition, session_index)
+    def normalise(self, transition, trill_speed, anchor_speeds):
+        differences = self.calculate_difference_to_mean(anchor_speeds, self.averages)
+        normalised_speed = trill_speed + self.get_normalisation_adjustment(transition, differences)
+        return normalised_speed
+
+    def inverse_normalise(self, transition, normalised_trill_speed, session_index: int):
+        return normalised_trill_speed - self.get_normalisation_adjustment(transition, self.differences[session_index])
+    
+    def inverse_normalise(self, transition, normalised_trill_speed, anchor_speeds):
+        differences = self.calculate_difference_to_mean(anchor_speeds, self.averages)
+        return normalised_trill_speed - self.get_normalisation_adjustment(transition, differences)
         
 class MultiplicativeAnchorBasedNormaliser(AnchorBasedNormaliser):
     def __init__(self, data_path, norm_strength, feature_extractor: encoding.TransitionFeatureExtractor):
@@ -124,6 +136,9 @@ class MultiplicativeAnchorBasedNormaliser(AnchorBasedNormaliser):
         self.feature_extractor = feature_extractor
         self.file_to_anchors_dict = self.load_anchors_from_directory(data_path)
 
+        self.precalculate_values()
+
+    def precalculate_values(self):
         self.anchor_transitions_sorted, self.speeds = self.calculate_anchor_speeds(self.file_to_anchors_dict)
         self.means = np.mean(self.speeds, axis=0)
 
@@ -133,26 +148,41 @@ class MultiplicativeAnchorBasedNormaliser(AnchorBasedNormaliser):
 
     @staticmethod
     def calculate_ratios_with_means(speeds, means):
-        ratios = np.zeros((speeds.shape[0], speeds.shape[1]), dtype=float)
-        for row in range(speeds.shape[0]):
-            for column in range(speeds.shape[1]):
-                ratios[row, column] = means[column] / speeds[row, column]
+        if speeds.ndim == 1:
+            ratios = np.zeros((speeds.shape[0],), dtype=float)
+            for value in range(ratios.shape[0]):
+                    ratios[value] = means[value] / speeds[value]
+        else:
+            ratios = np.zeros((speeds.shape[0], speeds.shape[1]), dtype=float)
+            for row in range(ratios.shape[0]):
+                for column in range(ratios.shape[1]):
+                    ratios[row, column] = means[column] / speeds[row, column]
 
         return ratios
 
-    def get_normalisation_coefficient(self, transition, session_index):
+    def get_normalisation_coefficient(self, transition, ratios):
         transition_features = self.feature_extractor.get_features(transition)
         distances_to_anchors = np.asarray([get_euclidean_distance(transition_features, self.anchor_features[j]) for j in range(self.anchor_features.shape[0])])
         multiples = np.asarray(scipy.special.softmax(distances_to_anchors))
-        overall_coefficient = scipy.stats.mstats.gmean(self.ratios[session_index], axis=0, weights=multiples)
+        overall_coefficient = scipy.stats.mstats.gmean(ratios, axis=0, weights=multiples)
         return overall_coefficient
 
-    def normalise(self, transition, trill_speed, session_index):
-        normalised_speed = (1-self.norm_strength) * trill_speed + self.norm_strength * (trill_speed * self.get_normalisation_coefficient(transition, session_index))
+    def normalise(self, transition, trill_speed, session_index: int):
+        normalised_speed = (1-self.norm_strength) * trill_speed + self.norm_strength * (trill_speed * self.get_normalisation_coefficient(transition, self.ratios[session_index]))
+        return normalised_speed
+    
+    def normalise(self, transition, trill_speed, anchor_speeds):
+        ratios = self.calculate_ratios_with_means(anchor_speeds, self.means)
+        normalised_speed = (1-self.norm_strength) * trill_speed + self.norm_strength * (trill_speed * self.get_normalisation_coefficient(transition, ratios))
         return normalised_speed
 
-    def inverse_normalise(self, transition, normalised_trill_speed, session_index):
-        denormalised_speed = normalised_trill_speed / (1 - self.norm_strength * (1 + self.get_normalisation_coefficient(transition, session_index)))
+    def inverse_normalise(self, transition, normalised_trill_speed, session_index: int):
+        denormalised_speed = normalised_trill_speed / (1 - self.norm_strength * (1 - self.get_normalisation_coefficient(transition, self.ratios[session_index])))
+        return denormalised_speed
+    
+    def inverse_normalise(self, transition, normalised_trill_speed, anchor_speeds):
+        ratios = self.calculate_ratios_with_means(anchor_speeds, self.means)
+        denormalised_speed = normalised_trill_speed / (1 - self.norm_strength * (1 - self.get_normalisation_coefficient(transition, ratios)))
         return denormalised_speed
 
 def main():

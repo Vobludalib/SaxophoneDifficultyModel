@@ -5,46 +5,60 @@ import matplotlib
 from matplotlib.patches import Patch
 
 raw_dict = {}
-with open('/Users/slibricky/Desktop/Thesis/thesis/modular/data.csv', 'r') as f:
+name_to_session = {}
+session_to_player = {}
+with open('/Users/slibricky/Desktop/Thesis/submission_data/Processed_Data.csv', 'r') as f:
     reader = csv.reader(f)
     next(reader, None)
     for line in reader:
         name = line[0]
+        player = line[2]
+        session = int(line[3])
         trill_speed = float(line[-1])
         if trill_speed == 0:
             continue
-        raw_dict[name] = trill_speed
+
+        if raw_dict.get(session, None) is None:
+            raw_dict[session] = {name: trill_speed}
+        else:
+            raw_dict[session][name] = trill_speed
+
+        name_to_session[name] = session
+        session_to_player[session] = player
 
 normalised_dict = {}
-with open('/Users/slibricky/Desktop/Thesis/thesis/modular/files/normalisation_csvs/0to5and12.csv', 'r') as f:
+with open('/Users/slibricky/Desktop/Thesis/thesis/files/normalised/MultiplicativeNorm.csv', 'r') as f:
     reader = csv.reader(f)
     next(reader, None)
     for line in reader:
         name = line[0]
         trill_speed = float(line[-1])
-        if name in raw_dict:
-            normalised_dict[name] = trill_speed
+        if name in name_to_session:
+            session = name_to_session[name]
+            if normalised_dict.get(session, None) is None:
+                normalised_dict[session] = {name: trill_speed}
+            else:
+                normalised_dict[session][name] = trill_speed
 
-session_start_markers = [0, 64, 127, 185, 252, 313, 313+66]
+session_delimiters = [0]
+for session in raw_dict:
+    session_delimiters.append(session_delimiters[-1] + len(raw_dict[session]))
+
 xs = []
 ys = []
 colors = []
 arrow_tuples = []
 
-def isolate_number(str):
-    prefix, numberstr = str.split("Trill")
-    numberstr, ext = numberstr.split(".")
-    return(int(numberstr))
-
-sorted_keys = sorted(list(normalised_dict.keys()), key=isolate_number)
-for i, filename in enumerate(sorted_keys):
-    xs.append(i)
-    ys.append(raw_dict[filename])
-    colors.append('#648FFF')
-    xs.append(i)
-    ys.append(normalised_dict[filename])
-    colors.append('#FE6100')
-    arrow_tuples.append((i, raw_dict[filename], normalised_dict[filename]))
+for session_i, session in enumerate(raw_dict):
+    for i, filename in enumerate(raw_dict[session]):
+        scaled_x = session_delimiters[session_i] + 10 + (i / (session_delimiters[session_i + 1] - session_delimiters[session_i])) * (session_delimiters[session_i] - session_delimiters[session_i + 1] - 20)
+        xs.append(scaled_x)
+        ys.append(raw_dict[session][filename])
+        colors.append('#648FFF')
+        xs.append(scaled_x)
+        ys.append(normalised_dict[session][filename])
+        colors.append('#FE6100')
+        arrow_tuples.append((scaled_x, raw_dict[session][filename], normalised_dict[session][filename]))
 
 plt.scatter(xs, ys, color=colors)
 plt.xlabel("Individual transitions in session order")
@@ -57,11 +71,14 @@ ax = plt.gca()
 fig = plt.gcf()
 fig.set_size_inches(8, 6)
 ax.legend(handles=legend_handles, loc="upper center")
-ax.set_xticks(session_start_markers)
-ax.set_xticklabels([f"Session {i}" for i in range(len(session_start_markers))])
+ax.set_xticks(session_delimiters)
+ax.set_xticklabels([f"{'   ' if i < 12 else ''}S{i+1}" for i in range(len(session_delimiters) - 1)] + [''])
+ax.set_xlim(session_delimiters[0], session_delimiters[-1])
+for tick in ax.xaxis.get_majorticklabels():
+    tick.set_horizontalalignment("left")
 plt.grid(axis="x", linestyle="--", linewidth=0.5)
-plt.title("Visualisation of normalisation per session, lambda=0.2")
+plt.title("Visualisation of multiplicative normalisation per session, lambda=0.2")
 for i, raw, norm in arrow_tuples:
     plt.annotate('', xy=(i, norm), xycoords='data', xytext=(i, raw), textcoords='data', arrowprops=dict(facecolor='black', arrowstyle='->'))
 # plt.show()
-plt.savefig("./normalisation_vis.png")
+plt.savefig("./multiplicative_normalisation_vis.png")

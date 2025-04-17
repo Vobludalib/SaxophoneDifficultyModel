@@ -70,6 +70,12 @@ class TrillSpeedModel():
     def set_custom_training_data(self, xs, ys):
         if self.xs is not None or self.ys is not None:
             self.trained = False
+
+        if type(xs[0]) == encoding.Transition:
+            temp_xs = []
+            for trans in xs:
+                temp_xs.append(self.feature_extractor.get_features(trans))
+            xs = np.asarray(temp_xs)
          
         self.xs, self.ys = xs, ys
 
