@@ -219,7 +219,6 @@ def color_map_difficulty(difficulty_value):
     if difficulty_value >= 150:
         return "#FF0000"  # Red for values 100+
     
-    # Define the color gradient from light green to dark orange
     colors = ["#000000", "#FF0000"]
     cmap = mcolors.LinearSegmentedColormap.from_list("custom_cmap", colors)
     
