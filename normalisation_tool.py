@@ -100,10 +100,15 @@ class AdditiveAnchorBasedNormaliser(AnchorBasedNormaliser):
 
     @staticmethod
     def calculate_difference_to_mean(speeds, means):
-        differences = np.zeros((speeds.shape[0], speeds.shape[1]), dtype=float)
-        for row in range(speeds.shape[0]):
-            for column in range(speeds.shape[1]):
-                differences[row, column] = means[column] - speeds[row, column]
+        if speeds.ndim == 1:
+            differences = np.zeros((speeds.shape[0],), dtype=float)
+            for value in range(means.shape[0]):
+                    differences[value] = means[value] - speeds[value]
+        else:
+            differences = np.zeros((speeds.shape[0], speeds.shape[1]), dtype=float)
+            for row in range(speeds.shape[0]):
+                for column in range(speeds.shape[1]):
+                    differences[row, column] = means[column] - speeds[row, column]
 
         return differences
 
@@ -192,7 +197,7 @@ def main():
     parser.add_argument('--csvs', type=str, help="Path to the folder of batch-analysed .csv files")
     parser.add_argument('-o', type=str, help="Will store all the outputs into one csv file with this name")
     parser.add_argument("--strength", type=float, help="Specify the normalisation strength")
-    parser.add_argument("--norm_style", type=str, choices=['additive', 'multiplicative'], default='additive')
+    parser.add_argument("--norm_style", type=str, choices=['additive', 'multiplicative'], default='multiplicative')
     args = parser.parse_args()
     if (not os.path.isdir(args.csvs)):
         print("--csvs flag must be set to a directory containing .csv files!")

@@ -26,7 +26,7 @@ def main():
     parser.add_argument('--csvs', type=str, help="Path to the folder of batch-analysed .csv files", required=True)
     parser.add_argument('-o', type=str, help="Will store all the outputs into a txt file with this name", required=True)
     parser.add_argument("--strength", type=float, help="Specify the normalisation strength", default=0.2)
-    parser.add_argument("--norm_style", type=str, choices=['additive', 'multiplicative'], default='additive')
+    parser.add_argument("--norm_style", type=str, choices=['additive', 'multiplicative'], default='multiplicative')
     parser.add_argument('--seed', type=int, default=10, help="Sets the seed for the experiment")
     args = parser.parse_args()
     if (not os.path.isdir(args.csvs)):
@@ -125,7 +125,7 @@ def main():
 
     with open(args.o, 'w') as f:
         f.write(f"Seed: {seed}\n")
-        f.write(f"Normalisation type: {type(normaliser)}\n")
+        f.write(f"Normalisation type: {normaliser}\n")
         for fold_i in range(len(no_norm_mses)):
             f.write(f"Fold {fold_i}\n")
             f.write(f"No normalisation MSE: {no_norm_mses[fold_i]}\n")
