@@ -61,6 +61,7 @@ for method_i in range(len(methods)):
     axs[1].fill_between(xs, mape_mins, mape_maxs, color=colors[method_i], alpha=0.2, label=f"Min-Max region for {methods[method_i]}")
     # Plotting arbitrary baseline for comparison
     axs[1].plot(xs, [0.25] * len(xs), linestyle='--', color='black', label="__nolegend__", linewidth=0.5)
+    axs[0].plot(xs, [0.5] * len(xs), linestyle='--', color='black', label="__nolegend__", linewidth=0.5)
 
 
 axs[0].set_ylim([0, 3])
@@ -76,5 +77,4 @@ axs[1].set_title("MAPE vs n for different sampling methods")
 
 figs[0].savefig(os.path.join(args.out, "MSE_together.png"))
 figs[1].savefig(os.path.join(args.out, "MAPE_together.png"))
-# plt.show()
 # plt.savefig("./files/sampling_tests/put_together.png")
