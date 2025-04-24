@@ -114,7 +114,7 @@ class AdditiveAnchorBasedNormaliser(AnchorBasedNormaliser):
         overall_adjustment = np.sum(np.multiply(multiples, differences)) * self.norm_strength
         return overall_adjustment
 
-    def normalise(self, transition, trill_speed, session_index: int):
+    def normalise_by_session_index(self, transition, trill_speed, session_index: int):
         normalised_speed = trill_speed + self.get_normalisation_adjustment(transition, self.differences[session_index])
         return normalised_speed
 
@@ -123,7 +123,7 @@ class AdditiveAnchorBasedNormaliser(AnchorBasedNormaliser):
         normalised_speed = trill_speed + self.get_normalisation_adjustment(transition, differences)
         return normalised_speed
 
-    def inverse_normalise(self, transition, normalised_trill_speed, session_index: int):
+    def inverse_normalise_by_session_index(self, transition, normalised_trill_speed, session_index: int):
         return normalised_trill_speed - self.get_normalisation_adjustment(transition, self.differences[session_index])
     
     def inverse_normalise(self, transition, normalised_trill_speed, anchor_speeds):
@@ -167,7 +167,7 @@ class MultiplicativeAnchorBasedNormaliser(AnchorBasedNormaliser):
         overall_coefficient = scipy.stats.mstats.gmean(ratios, axis=0, weights=multiples)
         return overall_coefficient
 
-    def normalise(self, transition, trill_speed, session_index: int):
+    def normalise_by_session_index(self, transition, trill_speed, session_index: int):
         normalised_speed = (1-self.norm_strength) * trill_speed + self.norm_strength * (trill_speed * self.get_normalisation_coefficient(transition, self.ratios[session_index]))
         return normalised_speed
     
@@ -176,7 +176,7 @@ class MultiplicativeAnchorBasedNormaliser(AnchorBasedNormaliser):
         normalised_speed = (1-self.norm_strength) * trill_speed + self.norm_strength * (trill_speed * self.get_normalisation_coefficient(transition, ratios))
         return normalised_speed
 
-    def inverse_normalise(self, transition, normalised_trill_speed, session_index: int):
+    def inverse_normalise_by_session_index(self, transition, normalised_trill_speed, session_index: int):
         denormalised_speed = normalised_trill_speed / (1 - self.norm_strength * (1 - self.get_normalisation_coefficient(transition, self.ratios[session_index])))
         return denormalised_speed
     
