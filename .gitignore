@@ -5,3 +5,4 @@ __pycache__/
 modular/normalisation_vis.png
 *.mscz~
 modular/variance_vis.png
+.vscode
