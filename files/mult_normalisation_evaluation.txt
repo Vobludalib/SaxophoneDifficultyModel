@@ -1,0 +1,132 @@
+Seed: 10
+Normalisation type: <class 'normalisation_tool.MultiplicativeAnchorBasedNormaliser'>
+Fold 0
+No normalisation MSE: 0.287066666011599
+Inverse normalisation MSE: 0.27633229771216
+No normalisation MAPE: 0.13080811199462947
+Inverse normalisation MAPE: 0.16410270080822895
+Fold 1
+No normalisation MSE: 0.25442981135597886
+Inverse normalisation MSE: 0.22968542904191472
+No normalisation MAPE: 0.19647985285757613
+Inverse normalisation MAPE: 0.19336007950287296
+Fold 2
+No normalisation MSE: 0.3347044657100884
+Inverse normalisation MSE: 0.2902725591534268
+No normalisation MAPE: 0.16781375087543776
+Inverse normalisation MAPE: 0.15592281750549578
+Fold 3
+No normalisation MSE: 0.5220696145929734
+Inverse normalisation MSE: 0.1585448923420403
+No normalisation MAPE: 0.16851621227284247
+Inverse normalisation MAPE: 0.12799647221053279
+Fold 4
+No normalisation MSE: 0.1593373563525927
+Inverse normalisation MSE: 0.182495248111019
+No normalisation MAPE: 0.12530642394355976
+Inverse normalisation MAPE: 0.1362264630930974
+Fold 5
+No normalisation MSE: 2.296686217267695
+Inverse normalisation MSE: 1.4525337560960179
+No normalisation MAPE: 0.33300929860315404
+Inverse normalisation MAPE: 0.27611896971365196
+Fold 6
+No normalisation MSE: 0.24513102480824756
+Inverse normalisation MSE: 0.2382370201347101
+No normalisation MAPE: 0.14257435405468435
+Inverse normalisation MAPE: 0.14314697292392614
+Fold 7
+No normalisation MSE: 0.2960915588113375
+Inverse normalisation MSE: 0.3393992958550588
+No normalisation MAPE: 0.2061421289568552
+Inverse normalisation MAPE: 0.2115773414351159
+Fold 8
+No normalisation MSE: 0.3996557470826849
+Inverse normalisation MSE: 0.31747959361452033
+No normalisation MAPE: 0.17086588676413586
+Inverse normalisation MAPE: 0.14734350218306955
+Fold 9
+No normalisation MSE: 0.27629408063249233
+Inverse normalisation MSE: 0.29284344127453565
+No normalisation MAPE: 0.14664545823993755
+Inverse normalisation MAPE: 0.1381261145446205
+Fold 10
+No normalisation MSE: 0.3116126624941112
+Inverse normalisation MSE: 0.2523923269369172
+No normalisation MAPE: 0.15994753784512833
+Inverse normalisation MAPE: 0.1318366348900263
+Fold 11
+No normalisation MSE: 0.3919228403894327
+Inverse normalisation MSE: 0.4251859996752551
+No normalisation MAPE: 0.13699965696393965
+Inverse normalisation MAPE: 0.13809872188489383
+Fold 12
+No normalisation MSE: 0.6281544747359893
+Inverse normalisation MSE: 0.4938061950616463
+No normalisation MAPE: 0.2227762385569411
+Inverse normalisation MAPE: 0.20453468796591337
+Fold 13
+No normalisation MSE: 0.3590891980548901
+Inverse normalisation MSE: 0.45679488553873066
+No normalisation MAPE: 0.13910207017060805
+Inverse normalisation MAPE: 0.14909782735988278
+Fold 14
+No normalisation MSE: 0.4535139349750822
+Inverse normalisation MSE: 0.3640609032889196
+No normalisation MAPE: 0.21240472387873924
+Inverse normalisation MAPE: 0.17869720947769524
+Fold 15
+No normalisation MSE: 0.15656017528679328
+Inverse normalisation MSE: 0.3438529692396117
+No normalisation MAPE: 0.10344330334170693
+Inverse normalisation MAPE: 0.1297648957867749
+Fold 16
+No normalisation MSE: 0.3154198749955308
+Inverse normalisation MSE: 0.31304026692674447
+No normalisation MAPE: 0.17736841148011362
+Inverse normalisation MAPE: 0.16131675660658001
+Fold 17
+No normalisation MSE: 0.3138421065931886
+Inverse normalisation MSE: 0.314483329984268
+No normalisation MAPE: 0.16449873386037933
+Inverse normalisation MAPE: 0.18140855584453097
+Fold 18
+No normalisation MSE: 0.3953745788081318
+Inverse normalisation MSE: 0.610309813633817
+No normalisation MAPE: 0.17430762778660225
+Inverse normalisation MAPE: 0.15588498915443574
+Fold 19
+No normalisation MSE: 0.14558381448819777
+Inverse normalisation MSE: 0.1160836780907716
+No normalisation MAPE: 0.1378536163585676
+Inverse normalisation MAPE: 0.11750687218712665
+Fold 20
+No normalisation MSE: 0.3276726401687594
+Inverse normalisation MSE: 0.3595726676459144
+No normalisation MAPE: 0.17804688602954027
+Inverse normalisation MAPE: 0.1962371108715508
+Fold 21
+No normalisation MSE: 0.6298658568416274
+Inverse normalisation MSE: 0.35094677750457426
+No normalisation MAPE: 0.24711752080992228
+Inverse normalisation MAPE: 0.1929592646165822
+Fold 22
+No normalisation MSE: 0.19297474208863352
+Inverse normalisation MSE: 0.25845973976050834
+No normalisation MAPE: 0.1340818744353463
+Inverse normalisation MAPE: 0.18405277945571719
+Fold 23
+No normalisation MSE: 0.6864335579364933
+Inverse normalisation MSE: 0.7040743089260808
+No normalisation MAPE: 0.22467744001807116
+Inverse normalisation MAPE: 0.24056019740342632
+Fold 24
+No normalisation MSE: 0.3189806169744768
+Inverse normalisation MSE: 0.1709076882817649
+No normalisation MAPE: 0.2051023097516644
+Inverse normalisation MAPE: 0.1295066782891368
+Averages over all folds
+No norm MSE average: 0.42793870469828116
+Inv norm MSE average: 0.3724718033532371
+No norm MAPE average: 0.17623557719400332
+Inv norm MAPE average: 0.1674153846285954

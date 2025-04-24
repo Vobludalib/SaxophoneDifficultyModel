@@ -6,6 +6,8 @@ import sampling
 import os
 import numpy as np
 import sklearn
+import argparse
+import tqdm
 
 def load_transitions_from_directory(directory_path):
     file_to_anchors_dict = {}
@@ -18,9 +20,33 @@ def load_transitions_from_directory(directory_path):
     return file_to_anchors_dict
 
 def main():
+    parser = argparse.ArgumentParser(
+                    prog='Normalisation Evaluation Tool',
+                    description='Tool designed to evaluate the impact normalisation has on model performance')
+    parser.add_argument('--csvs', type=str, help="Path to the folder of batch-analysed .csv files", required=True)
+    parser.add_argument('-o', type=str, help="Will store all the outputs into a txt file with this name", required=True)
+    parser.add_argument("--strength", type=float, help="Specify the normalisation strength", default=0.2)
+    parser.add_argument("--norm_style", type=str, choices=['additive', 'multiplicative'], default='additive')
+    parser.add_argument('--seed', type=int, default=10, help="Sets the seed for the experiment")
+    args = parser.parse_args()
+    if (not os.path.isdir(args.csvs)):
+        print("--csvs flag must be set to a directory containing .csv files!")
+        input()
+        exit()
+
+    # Read all the anchors from every csv into dict {filename: [(encoding1, encoding2, speed)]}
+    normaliser = None
+    if args.norm_style == 'additive':
+        normaliser = normalisation_tool.AdditiveAnchorBasedNormaliser(args.csvs, args.strength, encoding.ExpertFeatureNumberOfFingersExtractor())
+    elif args.norm_style == 'multiplicative':
+        normaliser = normalisation_tool.MultiplicativeAnchorBasedNormaliser(args.csvs, args.strength, encoding.ExpertFeatureNumberOfFingersExtractor())
+    else:
+        raise NotImplementedError()
+    
     # Load data (and anchors) from sessions
-    session_to_transitions = load_transitions_from_directory("/Users/slibricky/Desktop/Thesis/thesis/files/data_processed/")
-    normaliser = normalisation_tool.MultiplicativeAnchorBasedNormaliser("/Users/slibricky/Desktop/Thesis/thesis/files/data_processed/", norm_strength=0.2, feature_extractor=encoding.ExpertFeatureNumberOfFingersExtractor())
+    session_to_transitions = load_transitions_from_directory(args.csvs)
+    seed = 10
+    np.random.seed(seed)
 
     session_order = list(normaliser.file_to_anchors_dict.keys())
 
@@ -41,7 +67,7 @@ def main():
     # Make a normalised copy of the data
     ys_normalised = []
     for i, y in enumerate(ys):
-        ys_normalised.append(normaliser.normalise(xs[i], y, session_index=session_order.index(session_names[i])))
+        ys_normalised.append(normaliser.normalise_by_session_index(xs[i], y, session_index=session_order.index(session_names[i])))
 
     # Split data using stratified k-fold from sampling.py
     folds = sampling.get_stratified_kfold(xs, ys, test_size=30)
@@ -53,7 +79,7 @@ def main():
     inv_norm_mses = []
     inv_norm_mapes = []
     # For each fold:
-    for fold_index, train_indexes, test_indexes in folds:
+    for fold_index, train_indexes, test_indexes in tqdm.tqdm(folds):
         # Create the normalised and unnormalised training and test data
         train_xs = []
         train_ys = []
@@ -85,7 +111,7 @@ def main():
         norm_predicts = mNorm.predict_transitions(test_xs)
 
         # For the normalised model, perform inverse normalisation
-        denormalised_predicts = [normaliser.inverse_normalise(test_xs[i], norm_predicts[i], test_ys_session_indexes[i]) for i in range(norm_predicts.shape[0])]
+        denormalised_predicts = [normaliser.inverse_normalise_by_session_index(test_xs[i], norm_predicts[i], test_ys_session_indexes[i]) for i in range(norm_predicts.shape[0])]
 
         # Evaluate MSE for both (given inverse normalisation occured, these MSEs are comparable)
         no_norm_mse = sklearn.metrics.mean_squared_error(test_ys, no_norm_predicts)
@@ -96,16 +122,22 @@ def main():
         no_norm_mapes.append(no_norm_mape)
         inv_norm_mses.append(inv_norm_mse)
         inv_norm_mapes.append(inv_norm_mape)
-        print(f"Fold {fold_index}")
-        print(f"No normalisation MSE: {no_norm_mse}")
-        print(f"Inverse normalisation MSE: {inv_norm_mse}")
-        print(f"No normalisation MAPE: {no_norm_mape}")
-        print(f"Inverse normalisation MAPE: {inv_norm_mape}")
 
-    print(f"No norm MSE average: {np.mean(no_norm_mses)}")
-    print(f"Inv norm MSE average: {np.mean(inv_norm_mses)}")
-    print(f"No norm MAPE average: {np.mean(no_norm_mapes)}")
-    print(f"Inv norm MAPE average: {np.mean(inv_norm_mapes)}")
+    with open(args.o, 'w') as f:
+        f.write(f"Seed: {seed}\n")
+        f.write(f"Normalisation type: {type(normaliser)}\n")
+        for fold_i in range(len(no_norm_mses)):
+            f.write(f"Fold {fold_i}\n")
+            f.write(f"No normalisation MSE: {no_norm_mses[fold_i]}\n")
+            f.write(f"Inverse normalisation MSE: {inv_norm_mses[fold_i]}\n")
+            f.write(f"No normalisation MAPE: {no_norm_mapes[fold_i]}\n")
+            f.write(f"Inverse normalisation MAPE: {inv_norm_mapes[fold_i]}\n")
+        
+        f.write(f"Averages over all folds\n")
+        f.write(f"No norm MSE average: {np.mean(no_norm_mses)}\n")
+        f.write(f"Inv norm MSE average: {np.mean(inv_norm_mses)}\n")
+        f.write(f"No norm MAPE average: {np.mean(no_norm_mapes)}\n")
+        f.write(f"Inv norm MAPE average: {np.mean(inv_norm_mapes)}\n")
 
 if __name__ == '__main__':
     main()
