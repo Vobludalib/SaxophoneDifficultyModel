@@ -290,9 +290,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-o', '--out', type=str, required=True, help="Path to directory where output files will be stored")
     parser.add_argument('-d', '--data', type=str, required=True, help="Path to a .csv file that contains all the data on which to operate. This should be Processed_Data.csv unless you have generated a different file for this purpose.")
+    parser.add_argument('-m', '--model', type=str, required=True, choices=['lm', 'mlp', 'mlp-log', 'lm-log'], help="Sets the specific model to use")
     args = parser.parse_args()
-    # args.data = "/Users/slibricky/Desktop/Thesis/submission_data/Processed_Data.csv"
-    # args.out = './out.csv'
 
     expert_feature_extractors = []
     for extractor_type in [encoding.ExpertFeatureIndividualFingersExtractor, encoding.ExpertFeatureNumberOfFingersExtractor]:
@@ -302,9 +301,8 @@ def main():
 
     fes = [encoding.RawFeatureExtractor(), encoding.FingerFeatureExtractor(map_palm_to_fingers=True), encoding.FingerFeatureExtractor(map_palm_to_fingers=False)] + expert_feature_extractors
 
-    for model_type in ["mlp-log"]:
-        for feature_extractor in fes:
-            perform_model_test(model_type, feature_extractor, args.data, args.out)
+    for feature_extractor in fes:
+        perform_model_test(args.model, feature_extractor, args.data, args.out)
 
 if __name__ == '__main__':
     main()
