@@ -3,11 +3,21 @@ import csv
 import matplotlib.pyplot as plt
 import matplotlib
 from matplotlib.patches import Patch
+import argparse
+import os
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-d', '--data', type=str, required=True, help="Path to processed data .csv file.")
+parser.add_argument('-i', '--input_norm_file', type=str, required=True, help="Path to the normalised .csv file.")
+parser.add_argument('-o', '--out', type=str, default=os.path.join(".", "normalisation_vis.png"), required=False)
+parser.add_argument('-n', '--norm_style', type=str, required=True, help="Text that describes the normalisation style")
+parser.add_argument('-s', '--strength', type=str, required=True, help="Normalisation strength text value")
+args = parser.parse_args()
 
 raw_dict = {}
 name_to_session = {}
 session_to_player = {}
-with open('/Users/slibricky/Desktop/Thesis/submission_data/Processed_Data.csv', 'r') as f:
+with open(args.data, 'r') as f:
     reader = csv.reader(f)
     next(reader, None)
     for line in reader:
@@ -27,7 +37,7 @@ with open('/Users/slibricky/Desktop/Thesis/submission_data/Processed_Data.csv', 
         session_to_player[session] = player
 
 normalised_dict = {}
-with open('/Users/slibricky/Desktop/Thesis/thesis/files/normalised/MultiplicativeNorm.csv', 'r') as f:
+with open(args.input_norm_file, 'r') as f:
     reader = csv.reader(f)
     next(reader, None)
     for line in reader:
@@ -77,8 +87,8 @@ ax.set_xlim(session_delimiters[0], session_delimiters[-1])
 for tick in ax.xaxis.get_majorticklabels():
     tick.set_horizontalalignment("left")
 plt.grid(axis="x", linestyle="--", linewidth=0.5)
-plt.title("Visualisation of multiplicative normalisation per session, lambda=0.2")
+plt.title(f"Visualisation of {args.norm_style} normalisation per session, lambda={args.strength}")
 for i, raw, norm in arrow_tuples:
     plt.annotate('', xy=(i, norm), xycoords='data', xytext=(i, raw), textcoords='data', arrowprops=dict(facecolor='black', arrowstyle='->'))
 # plt.show()
-plt.savefig("./multiplicative_normalisation_vis.png")
+plt.savefig(args.out)
