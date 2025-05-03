@@ -153,13 +153,13 @@ For this script we have to use the `Processed_Data.csv` file.
 #### Figure 7.2, and 7.3
 The normalisation visualiser is done by `normalisation_visualiser.py`. We can call it as follows:
 
-`python ./normalisation_visualiser.py -d ./path/to/submission_data/Processed_Data.csv -i .\files\normalised\AdditiveNorm.csv -o ./output.png -n additive -s 0.2`
+`python ./normalisation_visualiser.py -d ./path/to/submission_data/Processed_Data.csv -i ./files/normalised/AdditiveNorm.csv -o ./output.png -n additive -s 0.2`
 
 for Figure 7.2.
 
 And:
 
-`python .\normalisation_visualiser.py -d .\submission_data\Processed_Data.csv -i .\files\normalised\MultiplicativeNorm.csv -o ./output.png -n multiplicative -s 0.2`
+`python ./normalisation_visualiser.py -d ./submission_data/Processed_Data.csv -i ./files/normalised/MultiplicativeNorm.csv -o ./output.png -n multiplicative -s 0.2`
 
 for Figure 7.3.
 
