@@ -89,6 +89,10 @@ def get_difficulties_of_sequence(sequence, difficulty_model):
 
     difficulties.append(curr_to_next_percent)
 
+    if len(sequence) == 2:
+        previous_index = 0
+        central_index = 1
+
     # Treat the rest (indexes 1 to n - 1)
     for i in range(len(sequence) - 2):
         central_index = i + 1
@@ -117,7 +121,7 @@ def get_difficulties_of_sequence(sequence, difficulty_model):
         else:
             difficulties.append(prev_to_curr_percent * 0.5 + curr_to_next_percent * 0.5)
 
-    # First note:
+    # Last note:
     prev_onset = sequence[previous_index][2]
     prev_fingering = sequence[previous_index][0]
     curr_onset = sequence[central_index][2]
