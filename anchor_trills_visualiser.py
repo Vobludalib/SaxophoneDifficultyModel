@@ -40,7 +40,7 @@ with open(args.data, 'r') as f:
 vals = {}
 player_colors = []
 player_order = []
-player_colors = ['#377eb8', '#ff7f00', '#4daf4a', '#f781bf', '#ffcc33']
+player_colors = ['#ff7f00', '#4daf4a', '#f781bf', '#ffcc33', '#377eb8']
 
 for player in player_to_anchor_trills.keys():
     sessions = player_to_anchor_trills[player].keys()
@@ -56,7 +56,7 @@ for player in player_to_anchor_trills.keys():
 
     player_order.append(player)
 
-x_names = [f"    Trans. {i+1}" for i in range(len(player_order)+1)]
+x_names = [f"     Trans. {i+1}" for i in range(len(player_order)+1)]
 
 xs = []
 ys = []
@@ -72,14 +72,15 @@ for x in vals.keys():
 player_order = [f"Player {i+1}" for i in range(len(player_order))]
 
 ax = plt.gca()
+plt.gcf().set_size_inches(8, 6)
 plt.scatter(xs, ys, color=colors)
 plt.xticks(ticks=[0, 1, 2, 3, 4, 5], labels=x_names)
 plt.xlim((0, 6))
 for tick in ax.xaxis.get_majorticklabels():
     tick.set_horizontalalignment("left")
-plt.xlabel("Individual repeated transitions")
+plt.xlabel("Individual anchor transitions")
 plt.ylabel("Trill speed in trills/s")
-plt.title("Visualisation of trill speed variance of repeated transitions")
+plt.title("Visualisation of trill speed variance of anchor transitions")
 plt.grid(visible=True, axis='x')
 legend_patches = [Patch(color=color, label=name) for color, name in zip(player_colors, player_order)]
 plt.legend(handles=legend_patches, loc="upper center")
