@@ -88,7 +88,7 @@ def generate_sessions(number_of_intervals_per_sessions, clusters_dict, anchor_tr
                         cluster[1].remove(interval)
 
     with open(output_file, 'w') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator='\n')
         writer.writerow(["Session", "Cluster", "Note 1 midi", "Note 1 name", "Note 1 encoding", "Note 2 midi", "Note 2 encoding", "Note 2 encoding", f"SEED:{seed}"])
         for i, session in enumerate(sessions):
             all_session_transitions = []

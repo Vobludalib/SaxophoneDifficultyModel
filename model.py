@@ -232,7 +232,7 @@ def perform_model_test(model_type, feature_extractor, data_csv, output_dir, seed
     experiment_id = random.randint(0, 10000000)
     with open(os.path.join(output_dir, f"{model_type}_{fe}_{experiment_id}.csv"), "w") as f:
         f.writelines([f"Model type: {model_type}\n", f"Size of test set: {size_of_test_set}\n", f"Number of folds: {i + 1}\n", f"Feature Extractor: {fe}\n", f"Seed {seed}\n"])
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator='\n')
         f.write("MSES:\n")
         writer.writerow(mses)
         f.write("Weighted MSES:\n")

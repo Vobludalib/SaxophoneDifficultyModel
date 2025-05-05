@@ -250,7 +250,7 @@ def main():
     with open(os.path.join(args.out, f'sampling_{sampling_method}_{fe}_{experiment_id}.csv'), 'w') as f:
         lines = [f"Min samples: {min_samples}\n", f"Amount of transitions: {amount_of_transitions}\n", f"Test set_size: {test_set_size}\n", f"Sampling method: {sampling_method}\n", f"Amount of repeats per sample point: {amount_of_repeats_per_sampling_point}\n", f"Feature Extractor: {fe}\n", f"Seed: {seed}"]
         f.writelines(lines)
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator='\n')
         writer.writerow(['MSEs'])
         writer.writerows(errors)
         writer.writerow(['MAPEs'])

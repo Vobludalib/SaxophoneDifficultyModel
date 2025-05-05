@@ -133,7 +133,7 @@ def main():
                         problem_files.append(filename)
                     
             with open(args.out, 'w') as csvFile:
-                writer = csv.writer(csvFile)
+                writer = csv.writer(csvFile, lineterminator='\n')
                 writer.writerows(output)
 
             with open(args.out + '.log', 'w') as log:

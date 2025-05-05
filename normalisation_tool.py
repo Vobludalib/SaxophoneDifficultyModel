@@ -237,7 +237,7 @@ def main():
                 new_csv.append([filename, cluster, midi1, name1, encoding1, midi2, name2, encoding2, normalised_speed])
     
     with open(args.o, 'w') as csvf:
-        writer = csv.writer(csvf)
+        writer = csv.writer(csvf, lineterminator='\n')
         writer.writerow(["Filename", "Cluster", "Midi 1 (transposed as written for TS)", "Fingering 1 Name", "Fingering 1 Encoding", "Midi 2 (transposed as written for TS)", "Fingering 2 Name", "Fingering 2 Encoding", "(Normalised) Trill Speed", f"Strength {args.strength}"])
         for row in new_csv:
             writer.writerow(row)

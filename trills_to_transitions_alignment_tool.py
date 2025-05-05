@@ -186,7 +186,7 @@ def main():
         output.append([trill_detected_csv[i][0],expected_order[i]['cluster'],midi1,midi1fingering.name,midi1fingering.generate_encoding(),midi2,midi2fingering.name,midi2fingering.generate_encoding(), trill_detected_csv[i][4]])
 
     with open(args.o, 'w') as csvf:
-        writer = csv.writer(csvf)
+        writer = csv.writer(csvf, lineterminator='\n')
         writer.writerow(['Filename', 'Cluster', 'Midi 1 (transposed as written for TS)', 'Fingering 1 Name', 'Fingering 1 Encoding', 'Midi 2 (transposed as written for TS)', 'Fingering 2 Name', 'Fingering 2 Encoding', 'Trill Speed'])
         writer.writerows(output)
     
