@@ -12,6 +12,11 @@ Make sure to navigate into the correct directory before running any of the comma
 #### Data availability
 The corpus of trill recordings is available attached in the submission .zip file. The files are placed into directories that correspond to the given performer and session in a unified naming format. ```Processed_Data.csv``` is the .csv file that is created by concatenating (and adding performer/session information) the extracted trill speeds for all the sessions. 
 
+#### Running the final model inside Musescore 3.6
+To run the model inside Musescore 3.6, copy the ```DifficultyModel``` folder from the ```plugin``` directory into your Musescore plugins folder. Your Python installation will have to have all the necessary requirements (see ```requirements.txt```), so that a call to ```python``` in your terminal will have all the necessities installed. 
+
+When entering a value into the text boxes, do not forget to press Enter or change focus from the textbox. If you do not do this, the value will not be 'saved'.
+
 #### encoding.py
 encoding.py is used as a library throughout the other Python scripts, as it unifies operations of transitions, encodings, and feature extraction methods using an object-based approach.
 

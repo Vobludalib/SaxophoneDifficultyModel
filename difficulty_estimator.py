@@ -220,7 +220,7 @@ def color_map_difficulty(difficulty_value):
     Maps values 0 - 100+ to a color.
     0 - 100 goes 
     """
-    if difficulty_value >= 150:
+    if difficulty_value >= 100:
         return "#FF0000"  # Red for values 100+
     
     colors = ["#000000", "#FF0000"]
