@@ -5,7 +5,7 @@ import numpy as np
 import os
 import random
 import string
-import pitch_difficulty_model as difficulty_model
+import saxophone_difficulty_model as difficulty_model
 
 def load_xml_file(path):
     m21stream = music21.converter.parseFile(path)
@@ -97,7 +97,11 @@ def main():
         reset_time = 0.5
         splits = split_based_on_rests(times, reset_time)
 
-        split_difficulties = difficulty_model.evaluate_difficulty(splits)
+        try:
+            split_difficulties = difficulty_model.evaluate_difficulty(splits, {'tempFilePath': args.input})
+        except Exception as e:
+            print(e)
+            return
 
         for split_index, split in enumerate(splits):
             for i, (note, _, _) in enumerate(split):

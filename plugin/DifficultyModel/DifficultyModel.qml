@@ -7,7 +7,7 @@ import Qt.labs.folderlistmodel 2.2
 import Qt.labs.platform 1.0
 
 MuseScore {
-	menuPath: "Plugins.Difficulty?"
+	menuPath: "Plugins.DifficultyModel"
 	version: "0.1"
 	id: window
 	width: 800; height: 500;
@@ -38,7 +38,9 @@ TextField {
     width: 150
     height: 30
     onEditingFinished: {
-        flags["--bpm"].value = option0.text;
+        if (option0.text != "") {
+            flags["--bpm"].value = option0.text;
+        }
     }
 }
 
@@ -84,7 +86,9 @@ TextField {
     width: 150
     height: 30
     onEditingFinished: {
-        flags["--hard_color"].value = option2.text;
+        if (option2.text != "") {
+            flags["--hard_color"].value = option2.text;
+        }
     }
 }
 
@@ -128,7 +132,7 @@ Button {
 		console.log(call);
 		proc.start(call);
 		loadingText.visible = true;
-		var val = proc.waitForFinished(10000);
+		var val = proc.waitForFinished(30000);
 		loadingText.visible = false;
 
 		var output = proc.readAllStandardOutput();
@@ -151,6 +155,8 @@ function createCLICallFromFlags() {
     call = call + ' --tempPath "' + tempFilePath + '.mxl"';
     
     for (var key in flags) {
+      console.log(key);
+      console.log(flags[key])
         if (flags[key].toPrint) {
             call = call + " " + key;
             if (flags[key].value != "") {

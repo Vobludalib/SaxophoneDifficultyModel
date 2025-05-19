@@ -8,7 +8,8 @@ In the model_to_visualisation script, we use import __name_of_this_script__ as d
 """
 
 def evaluate_difficulty(
-        phrases: list[list[tuple[music21.note.Note, float, float]]] # Each element of the outer list is a musical phrase (inner list). Each inner list contains tuples of music21 Notes, the onset, and offset time respectively.
+        phrases: list[list[tuple[music21.note.Note, float, float]]], # Each element of the outer list is a musical phrase (inner list). Each inner list contains tuples of music21 Notes, the onset, and offset time respectively.
+        additional_info: dict = dict() # Additional information that may have to be passed to this function can be passed using this dictionary
         ):
     
     phrases_difficulties = []

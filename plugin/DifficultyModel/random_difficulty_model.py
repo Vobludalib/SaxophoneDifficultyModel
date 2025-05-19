@@ -2,7 +2,8 @@ import music21
 import random
 
 def evaluate_difficulty(
-        phrases: list[list[tuple[music21.note.Note, float, float]]]
+        phrases: list[list[tuple[music21.note.Note, float, float]]],
+        additional_info: dict = dict()
         ):
     
     phrases_difficulties = []
