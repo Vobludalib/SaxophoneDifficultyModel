@@ -155,8 +155,6 @@ function createCLICallFromFlags() {
     call = call + ' --tempPath "' + tempFilePath + '.mxl"';
     
     for (var key in flags) {
-      console.log(key);
-      console.log(flags[key])
         if (flags[key].toPrint) {
             call = call + " " + key;
             if (flags[key].value != "") {
@@ -164,6 +162,9 @@ function createCLICallFromFlags() {
             }
         }
     }
+
+    call = call + " 2>&1";
+
     return call;
 }
 

@@ -5,7 +5,10 @@ import numpy as np
 import os
 import random
 import string
-import saxophone_difficulty_model as difficulty_model
+import blank_difficulty_model
+import random_difficulty_model
+import pitch_difficulty_model
+import saxophone_difficulty_model
 
 def load_xml_file(path):
     m21stream = music21.converter.parseFile(path)
@@ -82,7 +85,19 @@ def main():
         parser.add_argument('--bpm', type=int, help="Set quarter note BPM for difficulty estimation.", default=120)
         parser.add_argument('--easy_color', type=str, help="Set the color for easy notes", default='#000000')
         parser.add_argument('--hard_color', type=str, help="Set the color for hard notes", default='#FF0000')
+        parser.add_argument('--model', type=str, required=True, help="Which model to use", choices=["random", "pitch", "saxophone"])
         args, leftovers = parser.parse_known_args()
+
+        model = None
+        match args.model:
+            case "random":
+                model = random_difficulty_model.RandomModel()
+            case "pitch":
+                model = pitch_difficulty_model.PitchModel()
+            case "saxophone":
+                tempFileDir = os.path.dirname(args.input)
+                model_dir = os.path.join(os.path.join(tempFileDir, '..', 'model'))
+                model = saxophone_difficulty_model.SaxophoneModel(model_dir)
 
         stream = load_xml_file(args.input)
         p = stream.parts[0]
@@ -98,7 +113,7 @@ def main():
         splits = split_based_on_rests(times, reset_time)
 
         try:
-            split_difficulties = difficulty_model.evaluate_difficulty(splits, {'tempFilePath': args.input})
+            split_difficulties = model.evaluate_difficulty(splits)
         except Exception as e:
             print(e)
             return
