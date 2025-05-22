@@ -9,6 +9,7 @@ import blank_difficulty_model
 import random_difficulty_model
 import pitch_difficulty_model
 import saxophone_difficulty_model
+import traceback
 
 def load_xml_file(path):
     m21stream = music21.converter.parseFile(path)
@@ -80,53 +81,56 @@ def generate_random_string(len=10):
     return ''.join(random.choice(letters) for i in range(len))
 
 def main():
-        parser = argparse.ArgumentParser()
-        parser.add_argument('-i', '--input', '--tempPath', type=str, help="Path to input .mxl file.", required=True)
-        parser.add_argument('--bpm', type=int, help="Set quarter note BPM for difficulty estimation.", default=120)
-        parser.add_argument('--easy_color', type=str, help="Set the color for easy notes", default='#000000')
-        parser.add_argument('--hard_color', type=str, help="Set the color for hard notes", default='#FF0000')
-        parser.add_argument('--model', type=str, required=True, help="Which model to use", choices=["random", "pitch", "saxophone"])
-        args, leftovers = parser.parse_known_args()
-
-        model = None
-        match args.model:
-            case "random":
-                model = random_difficulty_model.RandomModel()
-            case "pitch":
-                model = pitch_difficulty_model.PitchModel()
-            case "saxophone":
-                tempFileDir = os.path.dirname(args.input)
-                model_dir = os.path.join(os.path.join(tempFileDir, '..', 'model'))
-                model = saxophone_difficulty_model.SaxophoneModel(model_dir)
-
-        stream = load_xml_file(args.input)
-        p = stream.parts[0]
-
-        offsets_and_durations = get_offsets_and_durations(p)
-
-        # Set BPM for a quarter note
-        bpm = args.bpm
-        times = offset_and_duration_to_wall_clock_time(offsets_and_durations, bpm)
-
-        # Time to 'reset' - i.e. if a pause of reset_time seconds is seen, the two note sequences are treated as independent
-        reset_time = 0.5
-        splits = split_based_on_rests(times, reset_time)
-
         try:
-            split_difficulties = model.evaluate_difficulty(splits)
-        except Exception as e:
-            print(e)
-            return
+            parser = argparse.ArgumentParser()
+            parser.add_argument('-i', '--input', '--tempPath', type=str, help="Path to input .mxl file.", required=True)
+            parser.add_argument('--bpm', type=int, help="Set quarter note BPM for difficulty estimation.", default=120)
+            parser.add_argument('--easy_color', type=str, help="Set the color for easy notes", default='#000000')
+            parser.add_argument('--hard_color', type=str, help="Set the color for hard notes", default='#FF0000')
+            parser.add_argument('--model', type=str, required=True, help="Which model to use", choices=["random", "pitch", "saxophone"])
+            args, leftovers = parser.parse_known_args()
 
-        for split_index, split in enumerate(splits):
-            for i, (note, _, _) in enumerate(split):
-                note.style.color = color_map_difficulty(split_difficulties[split_index][i], args.easy_color, args.hard_color)
+            model = None
+            match args.model:
+                case "random":
+                    model = random_difficulty_model.RandomModel()
+                case "pitch":
+                    model = pitch_difficulty_model.PitchModel()
+                case "saxophone":
+                    tempFileDir = os.path.dirname(args.input)
+                    model_dir = os.path.join(os.path.join(tempFileDir, '..', 'model'))
+                    model = saxophone_difficulty_model.SaxophoneModel(model_dir)
 
-        outputPath = os.path.join(str(os.path.dirname(args.input)), generate_random_string() + '.musicxml')
-        
-        stream.write('musicxml', outputPath)
-        print(os.path.abspath(outputPath))
-        return os.path.abspath(outputPath)
+            stream = load_xml_file(args.input)
+            p = stream.parts[0]
+
+            offsets_and_durations = get_offsets_and_durations(p)
+
+            # Set BPM for a quarter note
+            bpm = args.bpm
+            times = offset_and_duration_to_wall_clock_time(offsets_and_durations, bpm)
+
+            # Time to 'reset' - i.e. if a pause of reset_time seconds is seen, the two note sequences are treated as independent
+            reset_time = 0.5
+            splits = split_based_on_rests(times, reset_time)
+
+            try:
+                split_difficulties = model.evaluate_difficulty(splits)
+            except Exception as e:
+                print(e)
+                return
+
+            for split_index, split in enumerate(splits):
+                for i, (note, _, _) in enumerate(split):
+                    note.style.color = color_map_difficulty(split_difficulties[split_index][i], args.easy_color, args.hard_color)
+
+            outputPath = os.path.join(str(os.path.dirname(args.input)), generate_random_string() + '.musicxml')
+            
+            stream.write('musicxml', outputPath)
+            print(os.path.abspath(outputPath))
+            return os.path.abspath(outputPath)
+        except:
+            print(traceback.format_exc())
         
 
 if __name__ == "__main__":
