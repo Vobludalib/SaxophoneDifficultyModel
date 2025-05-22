@@ -21,7 +21,7 @@ MuseScore {
 property var flags: {}
 
 onRun: {
-    flags = {  "--bpm": { toPrint: true, value: "120" }, "--easy_color": { toPrint: true, value: "#000000" }, "--hard_color": { toPrint: true, value: "#FF0000" }}
+    flags = {  "--model": { toPrint: true, value: "saxophone" }, "--bpm": { toPrint: true, value: "120" }, "--easy_color": { toPrint: true, value: "#000000" }, "--hard_color": { toPrint: true, value: "#FF0000" }}
     loadingText.visible = false;
     executableScript.source = getLocalPath(executableScript.source);
     mscTempFileStorePath.source = getLocalPath(mscTempFileStorePath.source);
@@ -99,6 +99,40 @@ Text {
     anchors.top: option2.top
     anchors.bottom: option2.bottom
     anchors.leftMargin: 10
+}
+
+ComboBox {
+    id: option3
+    currentIndex: 2
+    width: 200
+    anchors.top: option2.bottom
+    anchors.left: window.left
+    anchors.topMargin: 10
+    anchors.leftMargin: 10
+    anchors.bottomMargin: 10
+    model: ListModel {
+        id: option3Model
+        ListElement { text: "Random"; value: "random" }
+        ListElement { text: "Pitch"; value: "pitch" }
+        ListElement { text: "Saxophone"; value: "saxophone" }
+    }
+    onCurrentIndexChanged: {
+        var val = option3Model.get(currentIndex).value;
+        changeoption3Value(val);
+    }
+}
+
+Text {
+    id: option3Prompt
+    text: qsTr("What model should be used?")
+    anchors.left: option3.right
+    anchors.top: option3.top
+    anchors.bottom: option3.bottom
+    anchors.leftMargin: 10
+}
+
+function changeoption3Value(val) {
+    flags["--model"].value = val;
 }
 
 FileIO {
