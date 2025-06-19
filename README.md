@@ -3,6 +3,8 @@ By: Simon Libricky - [simonlibricky.com](www.simonlibricky.com)
 
 As part of Bachelor's thesis at Charles University in Prague
 
+Documentation for the **ISMIR2025** paper is available on the ISMIR2025 branch.
+
 #### Installing requirements
 To install all the required Python libraries to run the code, you can run the following on the command line:
 `pip install -r requirements.txt`
